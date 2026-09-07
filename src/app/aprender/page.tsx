@@ -179,11 +179,12 @@ export default function AprenderPage() {
         <div className="mwrap">
           <Reveal className="msection-head">
             <span className="m-eyebrow accent">Consejo científico</span>
-            <h2>En quién nos apoyamos.</h2>
+            <h2>Los que más saben respaldan el frío.</h2>
             <p>
-              No inventamos la ciencia del frío: la leemos. Estas son las
-              referencias cuyo trabajo publicado y divulgación sostienen lo que
-              contamos en este sitio.
+              Científicos, médicos y atletas de élite que han dedicado su
+              carrera a entender lo que la exposición al frío le hace al cuerpo
+              humano. Su trabajo publicado es el que sostiene lo que contamos
+              aquí.
             </p>
           </Reveal>
 

@@ -516,3 +516,39 @@
 @media (prefers-reduced-motion: reduce) {
   .mf-spin, .mf-seq, .mf-pulse-dot, .mf-status-a, .mf-status-b { animation: none !important; }
 }
+
+/* ═══ Gráficos animados de /soporte ═══════════════════════════════════════
+   Sustituyen al componente Placeholder, que era un relleno gris. Mismo
+   lenguaje que el bento del MF ONE: fondo tinta, acento azul hielo y una
+   animación en vivo por tarjeta. Todas corren solas, sin observer.        */
+
+.sop-media { background: var(--grad-ink); position: relative; overflow: hidden; }
+.sop-media::after {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 120%, rgba(91, 155, 213, 0.18), transparent 62%);
+  pointer-events: none;
+}
+
+@keyframes sopTravel { 0% { transform: translateX(0); } 100% { transform: translateX(var(--sop-dx, 170px)); } }
+.sop-travel { animation: sopTravel 3.8s var(--ease-expo) infinite; }
+
+@keyframes sopFill { from { stroke-dashoffset: var(--sop-len, 200); } to { stroke-dashoffset: var(--sop-off, 40); } }
+.sop-fill { animation: sopFill 2.6s var(--ease-expo) infinite alternate; }
+
+@keyframes sopRise {
+  0%, 10% { opacity: 0; transform: translateY(7px); }
+  20%, 76% { opacity: 1; transform: none; }
+  90%, 100% { opacity: 0; transform: translateY(-5px); }
+}
+.sop-rise { animation: sopRise 5.4s ease-in-out infinite; }
+
+@keyframes sopDrop {
+  0% { transform: translateY(-8px); opacity: 0; }
+  18% { opacity: 1; }
+  72% { transform: translateY(24px); opacity: 1; }
+  100% { transform: translateY(30px); opacity: 0; }
+}
+.sop-drop { animation: sopDrop 2.8s ease-in infinite; }
+
+@keyframes sopBar { 0%, 100% { transform: scaleY(var(--sop-h, 0.3)); } 50% { transform: scaleY(1); } }
+.sop-bar { transform-origin: bottom; animation: sopBar 1.6s ease-in-out infinite; }

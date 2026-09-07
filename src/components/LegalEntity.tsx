@@ -39,14 +39,14 @@ export function LegalEntity({ rol }: { rol: Rol }) {
   const correo = rol === "privacidad" ? LEGAL.privacidad : LEGAL.soporte;
 
   return (
-    <div className="mt-10 rounded-xl border border-line p-6">
-      <p className="text-[11px] uppercase tracking-[0.16em] text-ink-faint">
+    <div className="mt-10 rounded-xl border border-[var(--line-1)] p-6">
+      <p className="text-[11px] uppercase tracking-[0.16em] text-[var(--fg-subtle)]">
         {INTRO[rol]}
       </p>
       <p className="mt-3 text-base font-semibold text-foreground">
         {LEGAL.razonSocial}
       </p>
-      <dl className="mt-4 space-y-1.5 text-sm leading-relaxed text-ink-soft">
+      <dl className="mt-4 space-y-1.5 text-sm leading-relaxed text-[var(--fg-muted)]">
         <div className="flex flex-wrap gap-x-2">
           <dt className="font-medium text-foreground">RFC:</dt>
           <dd>{LEGAL.rfc}</dd>
@@ -74,7 +74,7 @@ export function LegalEntity({ rol }: { rol: Rol }) {
       </dl>
 
       {rol === "garantia" && (
-        <p className="mt-5 border-t border-line pt-4 text-xs leading-relaxed text-ink-faint">
+        <p className="mt-5 border-t border-[var(--line-1)] pt-4 text-xs leading-relaxed text-[var(--fg-subtle)]">
           Importado por: {LEGAL.importador} · RFC {LEGAL.rfcImportador} · mismo
           domicilio. Hecho en China. Esta garantía se hace efectiva en el
           domicilio señalado, donde también se obtienen refacciones, partes,

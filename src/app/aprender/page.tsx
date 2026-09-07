@@ -107,8 +107,8 @@ export default function AprenderPage() {
       />
 
       {/* 2. StatRow — datos clínicos */}
-      <section className="section-y bg-background">
-        <div className="container-edge flex flex-col gap-10">
+      <section className="msection">
+        <div className="mwrap flex flex-col gap-10">
           <Reveal>
             <StatRow
               stats={[
@@ -130,9 +130,9 @@ export default function AprenderPage() {
           {/* 4th stat as text since StatRow takes 3 */}
           <Reveal delay={0.1}>
             <div className="flex justify-center">
-              <div className="flex flex-col items-center gap-1 px-8 py-6 rounded-2xl border border-border bg-warm">
+              <div className="flex flex-col items-center gap-1 px-8 py-6 rounded-2xl border border-border bg-[var(--bg-panel)]">
                 <p className="text-4xl font-bold text-ink tracking-tight">16+</p>
-                <p className="text-sm text-ink-soft uppercase tracking-wider font-medium">
+                <p className="text-sm text-[var(--fg-muted)] uppercase tracking-wider font-medium">
                   Beneficios documentados
                 </p>
               </div>
@@ -142,8 +142,8 @@ export default function AprenderPage() {
       </section>
 
       {/* 3. Benefits grid — 17 tarjetas */}
-      <section className="section-y bg-warm">
-        <div className="container-edge flex flex-col gap-10">
+      <section className="msection panel">
+        <div className="mwrap flex flex-col gap-10">
           <Reveal>
             <SectionHeader
               eyebrow="Beneficios"
@@ -162,7 +162,7 @@ export default function AprenderPage() {
                   <p className="font-semibold text-ink text-base leading-snug">
                     {b.title}
                   </p>
-                  <p className="text-sm text-ink-soft leading-relaxed">{b.desc}</p>
+                  <p className="text-sm text-[var(--fg-muted)] leading-relaxed">{b.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -171,8 +171,8 @@ export default function AprenderPage() {
       </section>
 
       {/* 4. Fuentes científicas */}
-      <section className="section-y bg-background">
-        <div className="container-edge">
+      <section className="msection">
+        <div className="mwrap">
           <Reveal>
             <div className="max-w-3xl mx-auto text-center flex flex-col gap-4">
               <SectionHeader
@@ -180,7 +180,7 @@ export default function AprenderPage() {
                 title="Ciencia, no marketing"
                 center
               />
-              <p className="body-lg text-ink-soft">
+              <p className="text-[16px] leading-relaxed text-[var(--fg-muted)]">
                 Cada beneficio está respaldado por investigación clínica publicada
                 en revistas científicas peer-reviewed, incluyendo estudios de
                 PubMed, Frontiers in Physiology, Huberman Lab y otras instituciones
@@ -192,11 +192,11 @@ export default function AprenderPage() {
       </section>
 
       {/* 5. Disclaimer */}
-      <section className="bg-warm">
-        <div className="container-edge py-8">
+      <section className="bg-[var(--bg-panel)]">
+        <div className="mwrap py-8">
           <Reveal>
             <div className="rounded-2xl border border-border bg-background/60 p-6 max-w-3xl mx-auto">
-              <p className="text-sm text-ink-soft">
+              <p className="text-sm text-[var(--fg-muted)]">
                 <strong className="text-ink">Aviso importante:</strong> El cold
                 plunge no es un tratamiento médico, es un complemento. Si estás
                 embarazada, tienes enfermedades cardiovasculares, epilepsia o

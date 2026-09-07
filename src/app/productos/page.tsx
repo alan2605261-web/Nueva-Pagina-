@@ -118,10 +118,10 @@ export default function ProductosPage() {
                   </h3>
                   <p className="mt-1 text-sm">
                     <span className="font-semibold">{tina.price}</span>
-                    <span className="text-ink-faint"> · hasta 6 MSI con Mercado Pago</span>
+                    <span className="text-[var(--fg-subtle)]"> · hasta 6 MSI con Mercado Pago</span>
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-ink-soft">{tina.tagline}</p>
-                  <p className="mt-2 flex-1 text-xs text-ink-faint">{tina.specs}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--fg-muted)]">{tina.tagline}</p>
+                  <p className="mt-2 flex-1 text-xs text-[var(--fg-subtle)]">{tina.specs}</p>
                   <div className="relative z-10 mt-6">
                     <Link href={tina.href} className="mbtn mbtn-primary w-full justify-center">
                       Ver ahora
@@ -232,9 +232,9 @@ export default function ProductosPage() {
       <MotorPicker />
 
       {/* 4 · Por qué Mente Fria — StatRow */}
-      <section className="section-y !pt-0 bg-background">
-        <div className="container-edge">
-          <Reveal className="mb-12 text-center container-prose mx-auto">
+      <section className="msection !pt-0 bg-[var(--m-white)]">
+        <div className="mwrap">
+          <Reveal className="mb-12 text-center mx-auto max-w-[68ch] mx-auto">
             <SectionHeader
               eyebrow="Por qué Mente Fria"
               title="Tecnología que se paga sola."

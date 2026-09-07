@@ -492,13 +492,13 @@ export default function MFOnePage() {
         </section>
 
         {/* ── 8. CTA FINAL — PARA NEGOCIOS (claro, estilo B2BBand) ── */}
-        <section className="bg-mist text-foreground">
-          <div className="container-edge section-y">
+        <section className="bg-[var(--bg-panel)] text-foreground">
+          <div className="mwrap msection">
             <Reveal className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
               <div className="max-w-2xl">
                 <p className="eyebrow mb-4">Mente Fria para Negocios</p>
-                <h2 className="display-md">¿Y si el MF ONE se pagara solo?</h2>
-                <p className="body-lg mt-4">
+                <h2 className="mdisplay text-[clamp(26px,3.4vw,44px)]">¿Y si el MF ONE se pagara solo?</h2>
+                <p className="text-[16px] leading-relaxed mt-4">
                   Hoteles, gimnasios, spas y clínicas ya cobran por cada inmersión.
                   Adquiérelo en leasing sin tocar tu línea bancaria — y calcula en un
                   minuto cuántas sesiones necesitas para recuperarlo.
@@ -511,11 +511,11 @@ export default function MFOnePage() {
                     ["12–24", "meses de leasing"],
                     ["<24 h", "propuesta en tu correo"],
                   ].map(([n, l], i) => (
-                    <div key={l} className={i > 0 ? "sm:border-l sm:border-line sm:pl-6" : ""}>
+                    <div key={l} className={i > 0 ? "sm:border-l sm:border-[var(--line-1)] sm:pl-6" : ""}>
                       <div className="mdisplay text-[clamp(28px,3vw,40px)] leading-none text-[var(--accent-ice)]">
                         {n}
                       </div>
-                      <div className="mt-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-faint">
+                      <div className="mt-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--fg-subtle)]">
                         {l}
                       </div>
                     </div>
@@ -524,7 +524,7 @@ export default function MFOnePage() {
               </div>
 
               <div className="flex shrink-0 flex-col items-start gap-4 lg:items-end">
-                <Link href="/negocios" className="btn-pill btn-ink">
+                <Link href="/negocios" className="mbtn mbtn-primary">
                   Cotiza para tu negocio
                   <ArrowRight className="h-4 w-4" />
                 </Link>

@@ -23,7 +23,7 @@ export function FAQ({
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <div className="mx-auto max-w-3xl divide-y divide-line border-y border-line">
+    <div className="mx-auto max-w-3xl divide-y divide-[var(--line-1)] border-y border-[var(--line-1)]">
       {items.map((item, i) => {
         const isOpen = open === i;
         return (
@@ -45,7 +45,7 @@ export function FAQ({
               >
                 {item.q}
               </span>
-              <span className="shrink-0 text-ink-soft">
+              <span className="shrink-0 text-[var(--fg-muted)]">
                 {isOpen ? <MinusIcon className="h-5 w-5" /> : <PlusIcon className="h-5 w-5" />}
               </span>
             </button>
@@ -60,7 +60,7 @@ export function FAQ({
               <div className="overflow-hidden">
                 <p
                   className={cn(
-                    "max-w-2xl leading-relaxed text-ink-soft",
+                    "max-w-2xl leading-relaxed text-[var(--fg-muted)]",
                     bold ? "text-[15px]" : "text-sm",
                   )}
                 >

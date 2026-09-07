@@ -131,8 +131,8 @@ function AccessoryGrid({
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item, i) => (
         <Reveal key={item.title} delay={i * 0.06}>
-          <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-background">
-            <div className="grid aspect-[16/10] w-full place-items-center overflow-hidden bg-warm">
+          <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--line-1)] bg-background">
+            <div className="grid aspect-[16/10] w-full place-items-center overflow-hidden bg-[var(--bg-panel)]">
               {item.img ? (
                 /* eslint-disable-next-line @next/next/no-img-element */
                 <img
@@ -143,7 +143,7 @@ function AccessoryGrid({
                   }`}
                 />
               ) : (
-                <span className="rounded-full border border-dashed border-line px-4 py-1.5 text-[10px] uppercase tracking-[0.16em] text-ink-faint">
+                <span className="rounded-full border border-dashed border-[var(--line-1)] px-4 py-1.5 text-[10px] uppercase tracking-[0.16em] text-[var(--fg-subtle)]">
                   Imagen próximamente
                 </span>
               )}
@@ -154,12 +154,12 @@ function AccessoryGrid({
                   {item.title}
                 </h3>
                 {item.tag && (
-                  <span className="mt-0.5 flex-none rounded-full bg-warm px-3 py-1 text-[11px] font-semibold text-ink-soft">
+                  <span className="mt-0.5 flex-none rounded-full bg-[var(--bg-panel)] px-3 py-1 text-[11px] font-semibold text-[var(--fg-muted)]">
                     {item.tag}
                   </span>
                 )}
               </div>
-              <p className="mt-2 text-sm leading-relaxed text-ink-soft">{item.body}</p>
+              <p className="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">{item.body}</p>
             </div>
           </article>
         </Reveal>
@@ -180,8 +180,8 @@ export default function AccesoriosPage() {
       />
 
       {/* Accesorios */}
-      <section id="catalogo" className="section-y bg-background scroll-mt-20">
-        <div className="container-edge">
+      <section id="catalogo" className="msection scroll-mt-20">
+        <div className="mwrap">
           <SectionHeader
             eyebrow="Accesorios"
             title="Completa tu setup."
@@ -194,8 +194,8 @@ export default function AccesoriosPage() {
       </section>
 
       {/* Kits de mantenimiento */}
-      <section id="mantenimiento" className="section-y bg-warm scroll-mt-20">
-        <div className="container-edge">
+      <section id="mantenimiento" className="msection panel scroll-mt-20">
+        <div className="mwrap">
           <SectionHeader
             eyebrow="Kits de mantenimiento"
             title="Agua impecable, siempre."
@@ -208,8 +208,8 @@ export default function AccesoriosPage() {
       </section>
 
       {/* Incluido con el MF ONE */}
-      <section className="section-y bg-background">
-        <div className="container-edge">
+      <section className="msection">
+        <div className="mwrap">
           <SectionHeader
             eyebrow="Incluido con el MF ONE"
             title="Lo que ya viene en la caja."
@@ -220,7 +220,7 @@ export default function AccesoriosPage() {
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {mfOneIncluded.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.06}>
-                <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-background">
+                <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--line-1)] bg-background">
                   <div className="aspect-[16/10] w-full overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -233,7 +233,7 @@ export default function AccesoriosPage() {
                     <h3 className="text-lg font-semibold leading-snug text-foreground">
                       {item.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-ink-soft">{item.body}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">{item.body}</p>
                   </div>
                 </article>
               </Reveal>
@@ -243,8 +243,8 @@ export default function AccesoriosPage() {
       </section>
 
       {/* Calendario de mantenimiento */}
-      <section className="section-y bg-warm">
-        <div className="container-edge">
+      <section className="msection panel">
+        <div className="mwrap">
           <SectionHeader
             eyebrow="Cuidado"
             title="Calendario de mantenimiento"
@@ -255,12 +255,12 @@ export default function AccesoriosPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {maintenanceSchedule.map((item, i) => (
               <Reveal key={i} delay={i * 0.08}>
-                <div className="flex flex-col gap-3 rounded-2xl border border-line bg-background p-6 h-full">
-                  <span className="eyebrow text-xs">{item.interval}</span>
+                <div className="flex flex-col gap-3 rounded-2xl border border-[var(--line-1)] bg-background p-6 h-full">
+                  <span className="m-eyebrow accent text-xs">{item.interval}</span>
                   <h3 className="text-lg font-semibold text-foreground leading-snug">
                     {item.task}
                   </h3>
-                  <p className="body-lg text-ink-soft text-sm leading-relaxed flex-1">
+                  <p className="text-[16px] leading-relaxed text-[var(--fg-muted)] text-sm leading-relaxed flex-1">
                     {item.detail}
                   </p>
                 </div>

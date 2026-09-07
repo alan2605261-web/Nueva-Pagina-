@@ -6,6 +6,7 @@ import {
   CTASection,
 } from "@/components/blocks";
 import { FAQ } from "@/components/FAQ";
+import { SoporteGrafico } from "@/components/SoporteGraphics";
 import { Reveal } from "@/components/Reveal";
 
 /* -------------------------------------------------------------------------- */
@@ -15,36 +16,42 @@ import { Reveal } from "@/components/Reveal";
 const categoryCards = [
   {
     title: "Pagos",
+    media: <SoporteGrafico titulo="Pagos" />,
     body: "Aceptamos Visa, Mastercard, Amex, PayPal, Mercado Pago y transferencia bancaria. Hasta 6 MSI con Mercado Pago. Sitio asegurado por Shopify.",
     tag: "Métodos de pago",
     tone: "cool" as const,
   },
   {
     title: "Envíos",
+    media: <SoporteGrafico titulo="Envíos" />,
     body: "Entrega a todo México en 3 a 7 días hábiles. Costo: $1,500 MXN (Horizon/Barrel) o $6,000 MXN (MF ONE). Llega en 2 cajas: motor y tina con accesorios.",
     tag: "Logística",
     tone: "warm" as const,
   },
   {
     title: "Garantía",
-    body: "6 meses en modelos inflables (Horizon/Barrel) y 1 año en MF ONE por defectos de fabricación. Atención de por vida.",
+    media: <SoporteGrafico titulo="Garantía" />,
+    body: "12 meses en el MF ONE y 6 meses en los modelos inflables, por defectos de fabricación. Son garantías independientes. Atención de por vida.",
     tag: "Cobertura",
     tone: "cool" as const,
   },
   {
     title: "Mantenimiento",
+    media: <SoporteGrafico titulo="Mantenimiento" />,
     body: "Cambia el agua cada 3-5 semanas; limpia la tina cada 3-4 semanas sin abrasivos ni cloro. Cambia el filtro del motor en cada cambio de agua.",
     tag: "Cuidado",
     tone: "warm" as const,
   },
   {
     title: "Servicio técnico",
+    media: <SoporteGrafico titulo="Servicio técnico" />,
     body: "Diagnóstico remoto primero; visita en sitio si es necesario; reemplazo solo cuando no hay otra opción. Equipo disponible 24/7.",
     tag: "Atención",
     tone: "ink" as const,
   },
   {
     title: "Contacto",
+    media: <SoporteGrafico titulo="Contacto" />,
     body: "WhatsApp +52 56 1647 1386. Nuestro equipo está disponible 24/7 para resolver cualquier duda o situación.",
     tag: "24/7",
     tone: "cool" as const,
@@ -98,8 +105,8 @@ export default function SoportePage() {
       />
 
       {/* 2. Categorías de ayuda */}
-      <section className="section-y bg-background">
-        <div className="container-edge">
+      <section className="msection">
+        <div className="mwrap">
           <SectionHeader
             title="¿En qué te ayudamos?"
             center
@@ -110,8 +117,8 @@ export default function SoportePage() {
       </section>
 
       {/* 3. FAQ */}
-      <section className="section-y bg-warm">
-        <div className="container-edge">
+      <section className="msection panel">
+        <div className="mwrap">
           <SectionHeader
             title="Preguntas frecuentes"
             center
@@ -188,8 +195,8 @@ export default function SoportePage() {
       </section>
 
       {/* 4. Contáctanos */}
-      <section className="section-y bg-background">
-        <div className="container-edge">
+      <section className="msection">
+        <div className="mwrap">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 lg:items-start">
             {/* Left */}
             <Reveal>
@@ -201,10 +208,10 @@ export default function SoportePage() {
 
             {/* Right — contact card */}
             <Reveal delay={120}>
-              <div className="rounded-3xl border border-line bg-warm p-8 space-y-6">
+              <div className="rounded-3xl border border-[var(--line-1)] bg-[var(--bg-panel)] p-8 space-y-6">
                 {/* WhatsApp */}
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-background border border-line">
+                  <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-background border border-[var(--line-1)]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -222,14 +229,14 @@ export default function SoportePage() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-foreground">WhatsApp</p>
-                    <p className="mt-0.5 text-sm text-ink-soft">+52 56 1647 1386</p>
-                    <p className="mt-0.5 text-xs text-ink-soft">Disponible 24/7</p>
+                    <p className="mt-0.5 text-sm text-[var(--fg-muted)]">+52 56 1647 1386</p>
+                    <p className="mt-0.5 text-xs text-[var(--fg-muted)]">Disponible 24/7</p>
                   </div>
                 </div>
 
                 {/* Correo */}
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-background border border-line">
+                  <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-background border border-[var(--line-1)]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -248,14 +255,14 @@ export default function SoportePage() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-foreground">Correo</p>
-                    <p className="mt-0.5 text-sm text-ink-soft">soporte@mentefria.com</p>
-                    <p className="mt-0.5 text-xs text-ink-soft">Te respondemos en menos de 24 h</p>
+                    <p className="mt-0.5 text-sm text-[var(--fg-muted)]">soporte@mentefria.com</p>
+                    <p className="mt-0.5 text-xs text-[var(--fg-muted)]">Te respondemos en menos de 24 h</p>
                   </div>
                 </div>
 
                 {/* Horario */}
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-background border border-line">
+                  <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-background border border-[var(--line-1)]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -274,8 +281,8 @@ export default function SoportePage() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-foreground">Horario de atención</p>
-                    <p className="mt-0.5 text-sm text-ink-soft">24/7</p>
-                    <p className="mt-0.5 text-xs text-ink-soft">Cobertura técnica nacional</p>
+                    <p className="mt-0.5 text-sm text-[var(--fg-muted)]">24/7</p>
+                    <p className="mt-0.5 text-xs text-[var(--fg-muted)]">Cobertura técnica nacional</p>
                   </div>
                 </div>
               </div>

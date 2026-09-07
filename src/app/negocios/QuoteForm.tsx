@@ -8,7 +8,7 @@ import { useState } from "react";
 */
 
 const INPUT_CLASSES =
-  "w-full rounded-xl border border-line bg-background px-4 py-3 text-sm text-foreground placeholder:text-ink-faint focus:outline-none focus:ring-2 focus:ring-black/20";
+  "w-full rounded-xl border border-[var(--line-1)] bg-[var(--m-white)] px-4 py-3 text-sm text-foreground placeholder:text-[var(--fg-subtle)] focus:outline-none focus:ring-2 focus:ring-black/20";
 
 const BUSINESS_TYPES = [
   "Gimnasio / CrossFit Box",
@@ -47,12 +47,12 @@ export function QuoteForm() {
 
   if (sent) {
     return (
-      <div className="flex min-h-[420px] flex-col items-center justify-center rounded-3xl border border-line bg-background p-10 text-center">
+      <div className="flex min-h-[420px] flex-col items-center justify-center rounded-3xl border border-[var(--line-1)] bg-[var(--m-white)] p-10 text-center">
         <p className="eyebrow mb-4">Solicitud recibida</p>
-        <h3 className="heading-sm">
+        <h3 className="mdisplay text-[clamp(20px,2.2vw,26px)]">
           Gracias — te contactamos en menos de 24 horas hábiles.
         </h3>
-        <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-soft">
+        <p className="mt-4 max-w-sm text-sm leading-relaxed text-[var(--fg-muted)]">
           Un especialista B2B de Mente Fria revisará tu proyecto y te enviará
           una propuesta con modelo recomendado, plan de leasing y proyección de
           ROI.
@@ -67,7 +67,7 @@ export function QuoteForm() {
         e.preventDefault();
         setSent(true);
       }}
-      className="rounded-3xl border border-line bg-background p-6 sm:p-8"
+      className="rounded-3xl border border-[var(--line-1)] bg-[var(--m-white)] p-6 sm:p-8"
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Nombre completo" htmlFor="qf-nombre">

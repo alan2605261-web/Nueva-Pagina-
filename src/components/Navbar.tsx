@@ -78,7 +78,7 @@ export function Navbar({ solid: _solid = false }: { solid?: boolean }) {
                   </svg>
                 </Link>
                 <div className="invisible absolute inset-x-0 top-full z-50 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                  <div className="mx-auto grid w-[min(960px,94vw)] grid-cols-[1fr_1fr_1fr_auto] gap-5 rounded-2xl border border-line bg-background p-6 text-foreground shadow-[0_24px_64px_rgba(8,9,11,0.24)]">
+                  <div className="mx-auto grid w-[min(960px,94vw)] grid-cols-[1fr_1fr_1fr_auto] gap-5 rounded-2xl border border-[var(--line-1)] bg-[var(--m-white)] p-6 text-foreground shadow-[0_24px_64px_rgba(8,9,11,0.24)]">
                     {MEGA_PRODUCTS.map((p) => (
                       <Link key={p.name} href={p.href} className="group/card block min-w-0">
                         <div className="grid aspect-[4/3] place-items-center overflow-hidden rounded-xl bg-[var(--bg-panel)] p-4">
@@ -98,19 +98,19 @@ export function Navbar({ solid: _solid = false }: { solid?: boolean }) {
                           </span>
                           <span aria-hidden className="text-[var(--accent-ice)]">→</span>
                         </div>
-                        <p className="mt-1 text-[12px] leading-snug text-ink-soft">
+                        <p className="mt-1 text-[12px] leading-snug text-[var(--fg-muted)]">
                           {p.blurb}
                         </p>
                       </Link>
                     ))}
-                    <div className="flex min-w-[220px] flex-col gap-1 border-l border-line pl-5">
+                    <div className="flex min-w-[220px] flex-col gap-1 border-l border-[var(--line-1)] pl-5">
                       {MEGA_LINKS.map((m) => (
                         <Link
                           key={m.label}
                           href={m.href}
                           className={cn(
-                            "flex items-center justify-between gap-4 rounded-lg px-2 py-2.5 text-[13px] transition-colors hover:bg-warm",
-                            m.strong ? "font-semibold" : "text-ink-soft",
+                            "flex items-center justify-between gap-4 rounded-lg px-2 py-2.5 text-[13px] transition-colors hover:bg-[var(--bg-panel)]",
+                            m.strong ? "font-semibold" : "text-[var(--fg-muted)]",
                           )}
                         >
                           {m.label}
@@ -144,12 +144,12 @@ export function Navbar({ solid: _solid = false }: { solid?: boolean }) {
                 </Link>
                 {/* Dropdown panel */}
                 <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                  <ul className="min-w-[230px] rounded-2xl border border-line bg-background p-2 text-foreground shadow-[0_14px_44px_rgba(40,46,54,0.22)]">
+                  <ul className="min-w-[230px] rounded-2xl border border-[var(--line-1)] bg-[var(--m-white)] p-2 text-foreground shadow-[0_14px_44px_rgba(40,46,54,0.22)]">
                     {l.submenu.map((s) => (
                       <li key={s.label}>
                         <Link
                           href={s.href}
-                          className="block rounded-xl px-4 py-2.5 text-[13px] font-medium tracking-[0.01em] text-ink-soft transition-colors hover:bg-warm hover:text-foreground"
+                          className="block rounded-xl px-4 py-2.5 text-[13px] font-medium tracking-[0.01em] text-[var(--fg-muted)] transition-colors hover:bg-[var(--bg-panel)] hover:text-foreground"
                         >
                           {s.label}
                         </Link>

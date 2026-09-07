@@ -96,8 +96,8 @@ export default function ResenasPage() {
       />
 
       {/* Star row below hero — rendered in its own slim strip */}
-      <div className="bg-warm pb-12 -mt-6">
-        <div className="container-edge flex items-center gap-1.5">
+      <div className="bg-[var(--bg-panel)] pb-12 -mt-6">
+        <div className="mwrap flex items-center gap-1.5">
           {Array.from({ length: 5 }).map((_, i) => (
             <StarIcon
               key={i}
@@ -105,22 +105,22 @@ export default function ResenasPage() {
               aria-hidden="true"
             />
           ))}
-          <span className="ml-3 text-sm font-medium text-ink-soft">4.8 / 5</span>
+          <span className="ml-3 text-sm font-medium text-[var(--fg-muted)]">4.8 / 5</span>
         </div>
       </div>
 
       {/* 2. Muro de amor --------------------------------------------------- */}
-      <section className="section-y bg-background">
-        <div className="container-edge">
+      <section className="msection">
+        <div className="mwrap">
           <Reveal className="mb-12">
-            <p className="eyebrow mb-3">Muro de amor</p>
-            <h2 className="display-md max-w-2xl">Voces reales de la comunidad.</h2>
+            <p className="m-eyebrow accent mb-3">Muro de amor</p>
+            <h2 className="mdisplay text-[clamp(26px,3.4vw,44px)] max-w-2xl">Voces reales de la comunidad.</h2>
           </Reveal>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {REVIEWS.map((r, i) => (
               <Reveal key={r.name} delay={(i % 3) * 80}>
-                <article className="flex h-full flex-col rounded-2xl border border-line bg-warm p-6">
+                <article className="flex h-full flex-col rounded-2xl border border-[var(--line-1)] bg-[var(--bg-panel)] p-6">
                   {/* Stars */}
                   <div className="mb-4 flex items-center gap-1">
                     {Array.from({ length: 5 }).map((_, s) => (
@@ -133,16 +133,16 @@ export default function ResenasPage() {
                   </div>
 
                   {/* Quote mark */}
-                  <QuoteMark className="mb-3 h-5 w-5 text-ink-faint" aria-hidden="true" />
+                  <QuoteMark className="mb-3 h-5 w-5 text-[var(--fg-subtle)]" aria-hidden="true" />
 
                   {/* Content */}
-                  <h3 className="heading-sm mb-2 leading-snug">{r.title}</h3>
-                  <p className="flex-1 text-sm leading-relaxed text-ink-soft">{r.body}</p>
+                  <h3 className="mdisplay text-[clamp(20px,2.2vw,26px)] mb-2 leading-snug">{r.title}</h3>
+                  <p className="flex-1 text-sm leading-relaxed text-[var(--fg-muted)]">{r.body}</p>
 
                   {/* Attribution */}
-                  <footer className="mt-5 border-t border-line pt-4">
+                  <footer className="mt-5 border-t border-[var(--line-1)] pt-4">
                     <p className="text-sm font-semibold text-foreground">{r.name}</p>
-                    <p className="mt-0.5 text-xs uppercase tracking-[0.1em] text-ink-faint">
+                    <p className="mt-0.5 text-xs uppercase tracking-[0.1em] text-[var(--fg-subtle)]">
                       {r.city} · Cliente verificado
                     </p>
                   </footer>
@@ -151,18 +151,18 @@ export default function ResenasPage() {
             ))}
           </div>
 
-          <p className="mt-8 text-xs text-ink-faint">
+          <p className="mt-8 text-xs text-[var(--fg-subtle)]">
             Testimonios reales de clientes verificados de Mente Fria.
           </p>
         </div>
       </section>
 
       {/* 3. Video testimonials --------------------------------------------- */}
-      <section className="section-y bg-warm">
-        <div className="container-edge">
+      <section className="msection panel">
+        <div className="mwrap">
           <Reveal className="mb-10">
-            <p className="eyebrow mb-3">Video reseñas</p>
-            <h2 className="display-md max-w-xl">Escúchalo de primera mano.</h2>
+            <p className="m-eyebrow accent mb-3">Video reseñas</p>
+            <h2 className="mdisplay text-[clamp(26px,3.4vw,44px)] max-w-xl">Escúchalo de primera mano.</h2>
           </Reveal>
 
           <div className="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4">
@@ -189,12 +189,12 @@ export default function ResenasPage() {
 
       {/* 4. Trust badges --------------------------------------------------- */}
       <section className="bg-background">
-        <div className="container-edge border-y border-line py-8">
+        <div className="mwrap border-y border-[var(--line-1)] py-8">
           <div className="flex flex-wrap justify-center gap-x-10 gap-y-4">
             {TRUST_BADGES.map((badge) => (
               <span
                 key={badge}
-                className="text-xs font-semibold uppercase tracking-[0.14em] text-ink-soft"
+                className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fg-muted)]"
               >
                 {badge}
               </span>

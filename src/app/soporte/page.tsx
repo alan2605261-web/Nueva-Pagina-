@@ -54,7 +54,7 @@ const categoryCards = [
 const faqItems = [
   {
     q: "¿Cómo funciona la prueba de 30 días?",
-    a: "Prueba Mente Fria por 30 días; si no es el mejor cold plunge que has probado, te regresamos tu dinero, sin preguntas.",
+    a: "Prueba Mente Fria por 30 días; si no es la mejor cold plunge que has probado, te regresamos tu dinero, sin preguntas.",
   },
   {
     q: "¿Qué cubre la garantía?",
@@ -78,7 +78,7 @@ const faqItems = [
   },
   {
     q: "¿El MF ONE usa motor externo?",
-    a: "No. El MF ONE es all-in-one con chiller integrado de 3.5 kW. Enfría a 0 °C y calienta a 40 °C, sin accesorios adicionales.",
+    a: "No. El MF ONE es all-in-one: lleva el chiller dentro de la tina, con 1 HP y 3,500 W de enfriamiento. Ajusta de 1 a 40 °C sin accesorios adicionales. Los motores de la línea 2.0 son solo para MF Barrel y MF Horizon.",
   },
   {
     q: "¿Puedo controlar la temperatura desde mi celular?",

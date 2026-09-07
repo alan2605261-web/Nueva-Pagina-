@@ -48,11 +48,11 @@ next-env.d.ts
 # Local temp files
 temp/
 
-# Videos pesados (>50MB) — viven local; comprimir con ffmpeg antes de subir/deploy
+# Videos: ya comprimidos con ffmpeg (sep 2026), todos por debajo de 15 MB y
+# versionados. Solo quedan fuera los dos testimoniales que se perdieron y que
+# no existen en ninguna parte.
 public/videos/testimonial-kevin.mp4
 public/videos/testimonial-surf.mp4
-public/videos/original/instalacion-motor-pro-premium.mp4
 .github/
 .netlify/
-public/videos/mfone-diferencia.mp4
 public/videos.zip

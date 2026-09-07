@@ -1,4 +1,5 @@
 import { PageShell } from "@/components/PageShell";
+import { LegalEntity } from "@/components/LegalEntity";
 import { SubHero } from "@/components/blocks";
 import { Reveal } from "@/components/Reveal";
 
@@ -93,11 +94,7 @@ export default function PrivacidadPage() {
                 periódicamente.
               </p>
 
-              <div className="border border-line rounded-xl p-6 mt-8">
-                <p className="body-lg text-ink-soft">
-                  <strong>Contacto para privacidad:</strong> privacidad@mentefria.com
-                </p>
-              </div>
+              <LegalEntity rol="privacidad" />
             </article>
           </Reveal>
         </div>

@@ -14,12 +14,15 @@ export function Reveal({
   className,
   delay = 0,
   as: Tag = "div",
+  style,
 }: {
   children: React.ReactNode;
   className?: string;
   /** stagger delay in ms */
   delay?: number;
   as?: keyof React.JSX.IntrinsicElements;
+  /** inline styles; se fusionan con el transition-delay del stagger */
+  style?: React.CSSProperties;
 }) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
@@ -55,7 +58,11 @@ export function Reveal({
     <Component
       ref={ref}
       className={cn("reveal", visible && "is-visible", className)}
-      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+      style={
+        delay || style
+          ? { ...(delay ? { transitionDelay: `${delay}ms` } : null), ...style }
+          : undefined
+      }
     >
       {children}
     </Component>

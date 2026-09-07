@@ -157,3 +157,44 @@ export function QuoteMark({ className, ...props }: IconProps) {
     </svg>
   );
 }
+
+/** Instagram: cámara redondeada, trazo simple del mismo set. */
+export function InstagramIcon({ className, ...props }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} {...props}>
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="5"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.6" />
+      <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" />
+    </svg>
+  );
+}
+
+/** TikTok: nota musical simplificada, trazo del mismo set. */
+export function TikTokIcon({ className, ...props }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} {...props}>
+      <path
+        d="M14 3v10.5a3.5 3.5 0 1 1-3.5-3.5"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M14 3c.4 2.5 2 4.2 4.5 4.5"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}

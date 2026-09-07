@@ -124,17 +124,31 @@ aplicable.
 
 ## 4. Reglas duras de negocio y contenido (NUNCA romperlas)
 
-1. **"Mente Fria" sin acento**, siempre. Decir **"cold plunge"**, no "tina helada"
-   ("el mejor cold plunge", masculino).
+1. **"Mente Fria" sin acento**, siempre. Decir **"cold plunge"**, no "tina helada".
+   **ACTUALIZADO sep 2026 (Saul):** el género es **femenino** — "la cold plunge", "la mejor
+   cold plunge que has probado" — para alinear con mentefria.com. La regla original de Rafa
+   decía masculino; quedó sin efecto.
 2. **MF ONE nunca se combina con Motor Pro/Premium/Comercial** — es all-in-one con chiller
    1 HP integrado. Los motores son SOLO para Barrel y Horizon.
-3. **No inventar datos.** Fuentes de verdad: manuales de fábrica archivados en
-   `Mente Fria Website/07 Product Docs/` (el vigente del MF ONE: "New Controller All-in-one
-   bathtub manual (110V&220V) 20260622.pdf") y el sitio vivo mentefria.com. Si un dato no
-   se puede verificar, se omite o se pone placeholder.
-4. **Specs MF ONE** (manual jun 2026): 0–40 °C · 3.5 kW · 195×80×71 cm · 420 L · ~135 kg ·
-   8,000 L/h (≈19× toda el agua/hora) · 68 dB(A) · R32 · filtro 20 micrones + skimmer inox ·
-   ozono · consumo 1.19 kW · 110V/16A · $169,000 MXN + IVA · garantía 1 año · envío $6,000.
+3. **No inventar datos.** **ACTUALIZADO sep 2026 (Saul): el sitio vivo mentefria.com YA NO
+   es fuente de verdad para información** — solo sirve de referencia para funcionalidad y para
+   algunas fotos, porque el catálogo se está actualizando. Las fuentes vigentes del MF ONE son
+   los tres documentos del **31 de agosto de 2026**: "MF ONE Ficha.pdf", "MF ONE MANUAL.pdf" y
+   "MF ONE Garantia.pdf". Si un dato no está ahí, se omite: no se rellena con el sitio vivo ni
+   con manuales de fábrica anteriores.
+4. **Specs MF ONE · CP-ONE** (ficha y manual oficiales, ago 2026 — CORREGIDAS, las de
+   jun 2026 estaban mal): **rango de ajuste 1 a 40 °C** (NO 0, NO 42) · temperatura ambiente de
+   operación 3 a 40 °C · velocidad de enfriamiento 4 a 6 °C/h · 1 HP · enfriamiento 3,500 W ·
+   calentamiento 1,000 W · 195×80×71 cm · 420 L · 135 kg · bomba 150 W a 8,000 L/h · 68 dB(A) ·
+   **R32 · 500 g** · **filtro de papel + skimmer** (el de carbón viene en la caja pero es un
+   extra, NO un requisito de operación) · ozono integrado · potencia de entrada 1,320 W ·
+   **110 V/60 Hz, 12 A máx, contacto dedicado de 16 A con tierra** · app **Smart Life** (WiFi
+   2.4 GHz) · espacio libre 100 cm al frente y 20 cm por lado · $169,000 MXN + IVA · garantía
+   12 meses · envío $6,000 · hecho en China.
+   **Lo que incluye:** unidad con módulo de enfriamiento integrado, cubierta aislante, filtros
+   de papel y de carbón, llave de filtro, skimmer y portacelular. El PRO DECK va aparte.
+   **NO decir:** certificación CE (no la tienen), hidromasaje (ya no lo trae), LED exterior
+   (la iluminación es solo interior).
 5. **Inflables** (sitio vivo, slugs `/products/mf-barrel-1` y `/products/mf-horizon-1`):
    Barrel $69,000 (Ø90×90 cm, 400 L, 13 kg) · Horizon $74,000 (160×70×65 cm, 420 L, 15 kg) ·
    PVC ultraduradero reforzado con fibra de vidrio (ya NO decir "drop-stitch grado militar") ·
@@ -142,7 +156,9 @@ aplicable.
    doble acción, cubierta con seguro para niños, filtros, kit de reparación.
 6. **Motores 2.0**: Pro = 0.8 HP/2,230 W, 25→3 °C en ~6 h, SIN calor ni ozono. Premium =
    1 HP/2,700 W, 3–42 °C, ozono 24/7, ~4 h. Dimensiones 58.5×42.5×53 cm; 39 / 41.5 kg.
-7. **Decir "filtro de 20 micrones"**, no "cartucho plisado" (regla de Rafa).
+7. ~~Decir "filtro de 20 micrones"~~ — **OBSOLETA.** La documentación de ago 2026 habla de
+   **"filtro de papel"** en el MF ONE. Los "3 filtros de 1–5 micrones" siguen siendo de los
+   inflables. Tampoco decir "cartucho plisado".
 8. Comercial: 30 días de prueba · hasta 6 MSI Mercado Pago · WhatsApp +52 56 16 47 13 86
    (wa.me/5215616471386). **"Agendar demo" = WhatsApp; "Comprar/Agregar al carrito" ≠ WhatsApp**
    (apunta al producto del sitio vivo por ahora).
@@ -151,12 +167,27 @@ aplicable.
    propuesta <24 h, aprobación 3–7 días. Clientes/activaciones REALES para case studies:
    **Hyrox Cancún 2026** (Recovery Zone oficial, Malecón Tajamar, carpa de atletas, ~20,000 L,
    coach en sitio; CDMX en negociación), **Westin Santa Fe** (activación con creadores jun 2026),
-   **Casa Polanco** (60 días de inmersiones, ingreso por inmersión).
+   ~~Casa Polanco~~ — **el proyecto NO se realizó (confirmado por Saul, sep 2026).
+   Estuvo publicado como caso real con "60 días de inmersiones"; era falso y se eliminó.
+   No volver a usarlo.**
 10. El sitio vivo tiene contenido residual de "Edge Theory Labs" en el Centro de Ayuda —
     **NUNCA reproducirlo**.
-11. La entidad legal no existe aún ("Mente Fría SA de CV" NO se escribe en ningún lado) —
-    persona física + marca IMPI.
+11. **ACTUALIZADO sep 2026: la entidad legal YA EXISTE.** Comercializa y otorga la garantía
+    **MFMF Wellnes and Lifestyle, S.A. de C.V.** (RFC MWL260414PHA), Calle Agustín Manuel
+    Chávez 1 int. 102, Col. Santa Fe, C.P. 01210, Álvaro Obregón, CDMX. Importa **Laplace
+    Business & Consulting, S.A. de C.V.** (RFC LBA260414C93), mismo domicilio. Aparece en
+    /garantia, /terminos y /privacidad vía `src/components/LegalEntity.tsx` — cambiar ahí y se
+    actualiza en las tres. **"Wellnes" va con una sola s**, tal como está en la póliza.
 12. Sin números fabricados de reviews (no "4.9 estrellas / 1,240 reseñas" — eso se eliminó).
+13. **Los rangos de temperatura del MF ONE y de los inflables NO son los mismos y no se
+    mezclan.** MF ONE: 1 a 40 °C. Inflables con Motor Premium 2.0: 3 a 42 °C. Con Motor Pro
+    2.0: hasta 3 °C y sin calor. Cualquier copy que hable de temperatura debe decir de qué
+    producto habla.
+14. **No hay certificación CE.** Se eliminó de los 20 lugares donde aparecía (jun 2026 la
+    afirmaba sin respaldo). No volver a ponerla hasta que exista el certificado.
+15. **Garantías independientes por producto**: MF ONE 12 meses con póliza propia y detallada;
+    Barrel/Horizon 6 meses. NO atribuir a los inflables las condiciones del MF ONE. Falta
+    redactar la póliza de los inflables.
 
 ---
 
@@ -226,31 +257,45 @@ Existen con contenido real pero **sin el restyle profundo** al sistema metal. Pe
 
 ---
 
-## 6. PENDIENTES (en orden de prioridad)
+## 6. PENDIENTES (actualizado sep 2026)
 
-1. **Rework de /negocios calcando la estructura de la página B2B de Plunge** (los "8 puntos
-   de Rafa"): ① hero con foto más luminosa (usar `/images/barrel-golf-wide.jpg` con overlay
-   ligero) ② segunda sección se queda ③ calculadora ROI con la MISMA matemática de Plunge +
-   **gráfica de ROI** (ingreso acumulado vs costo, breakeven marcado; adaptar a MXN/leasing)
-   ④ verticales en formato HORIZONTAL ⑤ esa sección se queda ⑥ **case studies de Hyrox
-   Cancún, Westin Santa Fe y Casa Polanco** (datos verificados en regla dura #9; Rafa dará
-   fotos reales de eventos) ⑦ proceso con números GRANDES en bold + flechas ⑧ FAQ con
-   tipografía más bold.
-2. **Comprimir videos** — falta `brew install ffmpeg`. Gitignored por peso (no llegan al
-   deploy): `mfone-diferencia.mp4` (51MB), testimoniales kevin/surf, video instalación.
-   También comprimir `reel-horizontal-01.mp4` (22MB, sí se sube).
-3. **Fotos faltantes**: accesorios con placeholder (tapa, skimmer, protector, app, MF Mat),
-   fotos de eventos B2B (Hyrox/Westin/Casa Polanco), portadas + videos correctos de
-   testimonios (Rafa los manda uno por uno; Dani y Máximo no tienen video).
-4. **Restyle profundo de subpáginas**: /aprender, /atletas, /resenas, /blog, /soporte,
-   legales — al sistema metal, con audit de contenido vs sitio vivo.
-5. **"PARA NEGOCIOS"** en el nav se parte en 2 líneas en ciertos anchos (flagged, sin fix).
-6. Barrel aparece **agotado** en el sitio vivo ("Próximamente más existencias") — decidir
-   con Rafa si el PDP muestra estado agotado.
-7. `_DSC02878.jpg` del shoot lifestyle está corrupto — pedir a Rafa re-descarga.
-8. **Eventual**: construir el tema Shopify Liquid (Acto 2 del plan).
+### Hecho desde el handoff original
+- **Rework de /negocios** — los 8 puntos completos, migrada al sistema metal, con gráfica de
+  ROI (ingreso acumulado vs costo con el equilibrio marcado), verticales en horizontal, casos
+  reales de Hyrox y Westin, proceso con números grandes y FAQ en variante `bold`.
+- **Corrección total de datos del MF ONE** contra la documentación de ago 2026 (ver regla 4).
+- **Entidad legal** en /garantia, /terminos y /privacidad.
+- **/garantia rehecha**, con MF ONE e inflables separados.
+- **Optimización de imágenes**: 26 archivos de 203 MB a 11 MB. Originales archivados en
+  `~/Desktop/FOTOS-ORIGINALES-WEB/`. Diez cambiaron de extensión (PNG opaco → JPG).
+- **Fondos transparentes** en las fotos de accesorios (WebP con alfa).
+- **"PARA NEGOCIOS"** ya no se parte en dos líneas (`white-space: nowrap` en `.glass-nav .nl`).
+- **Iconos de Instagram y TikTok** en el footer, enlazados.
+- **Género femenino** de "cold plunge" unificado en todo el sitio.
 
----
+### Pendientes
+1. **Restyle profundo de subpáginas** al sistema metal: /aprender, /atletas, /resenas, /blog,
+   /soporte y legales. Es el pendiente grande que queda de diseño.
+2. **Tarjetas de /soporte**: hoy usan el componente `Placeholder` (relleno gris que se ve
+   barato). Saul pidió gráficos animados tipo bento, no fotos.
+3. **Comprimir videos** — falta `ffmpeg`; no hay Homebrew en la Mac de Saul y su instalación
+   pide contraseña. Gitignored por peso: `mfone-diferencia.mp4` (el original está en el Drive
+   de Saul, privado), testimoniales kevin/surf (PERDIDOS, ver abajo), instalación motor.
+4. **Videos de testimonios de Kevin y Ana: se perdieron.** Nunca estuvieron en git. No están en
+   disco, papelera, WhatsApp, Drive ni el sitio vivo. Sus tarjetas quedaron solo con foto. Hay
+   material alterno disponible (Rodrigo, del shoot de Arturo, y Máximo jugando golf) pero falta
+   decidir nombres y roles.
+5. **Peso del MF ONE**: Saul confirmó que siguen siendo 135 kg *de momento*, pero el proveedor
+   cambió — reconfirmar antes de imprimir nada.
+6. **Póliza de garantía de los inflables**: no existe documento equivalente al del MF ONE.
+7. **Fotos del evento de Westin Santa Fe** (su caso es solo texto). No existen fotos ni de
+   Westin ni de Casa Polanco; esta última además ya no aplica.
+8. **Barrel agotado** en el sitio vivo. Decisión de Saul: **el inventario debe vivir en el
+   backend**, porque al final el sitio se conecta a Shopify. No hardcodear disponibilidad.
+9. **`_DSC02878.jpg` corrupto** — no está en esta Mac ni se referencia en el código; vive en la
+   carpeta original de Rafa.
+10. **Eventual: construir el tema Shopify Liquid** (Acto 2). Confirmado por Saul: cuando el
+    blueprint esté cerrado, todo se pasa a código nativo de Shopify.
 
 ## 7. Assets — dónde vive todo
 

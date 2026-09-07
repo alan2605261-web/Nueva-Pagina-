@@ -159,7 +159,7 @@ export function QuoteForm() {
           </Field>
         </div>
       </div>
-      <button type="submit" className="btn-pill btn-ink mt-6 w-full">
+      <button type="submit" className="mbtn mbtn-primary mt-6 w-full justify-center">
         Solicitar cotización
       </button>
     </form>

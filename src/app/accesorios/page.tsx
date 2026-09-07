@@ -22,33 +22,33 @@ const accesoriosCards = [
     title: "Soporte para celular",
     body: "Se monta en el borde de la tina — tu timer, tu música o tu serie durante la inmersión.",
     tag: "Consultar",
-    img: "/images/acc-soporte-celular.jpg",
-    contain: false,
+    img: "/images/acc-soporte-celular.webp",
+    contain: true,
   },
 ];
 
 /* ─── Kits de mantenimiento (estilo Plunge) ──────────────────────────────── */
 const kitsMantenimiento = [
   {
-    title: "Filtro de 20 micrones",
-    body: "Cartucho reemplazable para el MF ONE — cámbialo una vez al mes.",
+    title: "Filtro de papel",
+    body: "Cartucho reemplazable para el MF ONE — cámbialo cada 3 a 4 semanas.",
     tag: "Consultar",
-    img: "/images/acc-filtro-cartucho-uno.jpg",
-    contain: false,
+    img: "/images/acc-filtro-cartucho-uno.webp",
+    contain: true,
   },
   {
     title: "Filtro de carbón",
     body: "Se conecta a la manguera al llenar la tina — retiene impurezas desde el primer litro.",
     tag: "Consultar",
-    img: "/images/acc-filtro-prellenado.jpg",
-    contain: false,
+    img: "/images/acc-filtro-prellenado.webp",
+    contain: true,
   },
   {
     title: "Kit de filtros para inflables",
     body: "Tres filtros de 1 a 5 micrones para MF Barrel y MF Horizon — cambia el filtro con cada cambio de agua.",
     tag: "Consultar",
-    img: "/images/acc-filtros-cartucho.jpg",
-    contain: false,
+    img: "/images/acc-filtros-cartucho.webp",
+    contain: true,
   },
   {
     title: "Oxidante Sirona",
@@ -84,29 +84,29 @@ const maintenanceSchedule = [
 
 const mfOneIncluded = [
   {
-    title: "Filtro de 20 micrones",
-    body: "Cartuchos reemplazables de fácil acceso — cámbialo una vez al mes.",
-    img: "/images/acc-filtros-cartucho.jpg",
+    title: "Filtro de papel",
+    body: "Es el filtro de operación del MF ONE — cámbialo cada 3 a 4 semanas.",
+    img: "/images/acc-filtros-cartucho.webp",
   },
   {
     title: "Filtro de carbón",
     body: "Se conecta a la manguera al llenar la tina — retiene impurezas desde el primer litro.",
-    img: "/images/acc-filtro-prellenado.jpg",
+    img: "/images/acc-filtro-prellenado.webp",
   },
   {
     title: "Red de limpieza",
     body: "Retira hojas e impurezas de la superficie en segundos.",
-    img: "/images/acc-red-limpieza.jpg",
+    img: "/images/acc-red-limpieza.webp",
   },
   {
     title: "Soporte para celular",
     body: "Se monta en el borde de la tina — tu timer, tu música o tu serie durante la inmersión.",
-    img: "/images/acc-soporte-celular.jpg",
+    img: "/images/acc-soporte-celular.webp",
   },
   {
     title: "Patitos de hule",
     body: "Sí, vienen incluidos. Porque el frío se toma en serio — pero no tanto.",
-    img: "/images/acc-patitos.jpg",
+    img: "/images/acc-patitos.webp",
   },
   {
     title: "El kit completo",

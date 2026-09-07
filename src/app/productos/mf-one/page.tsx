@@ -5,6 +5,7 @@ import { Reveal } from "@/components/Reveal";
 import { ProductOptionsProvider, ProductStage, ColorPicker, AddonCard } from "@/components/ProductOptions";
 import { FrioCalor } from "@/components/FrioCalor";
 import { MfOneBento } from "@/components/MfOneBento";
+import { MfOneDimensions } from "@/components/MfOneDimensions";
 import { BenefitsCarousel } from "@/components/BenefitsCarousel";
 import { ArrowRight } from "@/components/icons";
 import { Layers, Filter, Zap, Smartphone, RotateCcw, ShieldCheck, CreditCard, Plus } from "lucide-react";
@@ -20,15 +21,15 @@ const WHATSAPP = "https://wa.me/5215616471386";
 const FAQ_ITEMS = [
   {
     q: "¿Qué hace diferente a la MF ONE?",
-    a: "Construcción más robusta: acrílico con acabados premium en acero inoxidable, iluminación LED interna y externa, y chorros de hidromasaje exclusivos. 195 × 80 × 71 cm, 420 L, ~135 kg. Garantía de 1 año — el doble que los demás. Enfría hasta 0 °C y calienta hasta 40 °C. Control WiFi desde app.",
+    a: "Es la única de la línea que lleva el sistema de enfriamiento dentro de la tina: no hay motor aparte ni mangueras que tender. Acrílico de alta resistencia con acabados en acero inoxidable e iluminación LED interior. 195 × 80 × 71 cm, 420 L. Ajusta de 1 a 40 °C, enfría de 4 a 6 °C por hora y calienta de serie. Garantía de 12 meses — el doble que los inflables. Control por panel y app Smart Life.",
   },
   {
     q: "¿Cuánto tarda en enfriar?",
-    a: "Incluye Motor Premium integrado de 1 HP — aproximadamente 6 °C por hora, dependiendo de la temperatura ambiente y si el equipo está en interior o exterior. Recomendamos programar el enfriamiento desde la app para que siempre esté lista a tu hora.",
+    a: "Entre 4 y 6 °C por hora con su chiller integrado de 1 HP. La velocidad depende del volumen de agua, la temperatura ambiente y si usas la cubierta aislante. Recomendamos programar el enfriamiento desde la app para que siempre esté lista a tu hora.",
   },
   {
     q: "¿Necesita instalación o desagüe?",
-    a: "No requiere instalación eléctrica especial ni toma de agua permanente: funciona con 110 V y se llena con manguera o llave. Una coladera cercana facilita el mantenimiento, pero no es obligatoria. Con 135 kg, elige bien el espacio desde el inicio.",
+    a: "No requiere obra ni toma de agua permanente: funciona con 110 V en un contacto dedicado de 16 A con tierra, y se llena con manguera o llave. Necesita 100 cm libres al frente y 20 cm por lado para el aire. Una vez llena no se puede mover, así que elige bien el espacio desde el inicio.",
   },
   {
     q: "¿Cada cuánto cambio los filtros?",
@@ -40,40 +41,46 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Cuánto cuesta el envío?",
-    a: "El envío del MF ONE cuesta $6,000 MXN a todo México. Incluye maniobra de entrega — con 135 kg, nuestro equipo coordina contigo el acceso al espacio final.",
+    a: "El envío del MF ONE cuesta $6,000 MXN a todo México. Incluye maniobra de entrega: el equipo viaja drenado y entarimado, y nuestro equipo coordina contigo el acceso al espacio final.",
   },
 ];
 
-/* Specs del manual oficial All-in-One 110V/220V v1.04 (jul 2026) */
+/* Specs de la ficha y el manual oficiales MF ONE · CP-ONE (ago 2026).
+   Fuente única de verdad: no agregar datos que no estén en esos documentos. */
 const SPEC_ROWS = [
+  { label: "Modelo", value: "MF ONE · CP-ONE" },
   { label: "Dimensiones", value: "195 × 80 × 71 cm" },
   { label: "Capacidad", value: "420 L" },
   { label: "Peso", value: "135 kg" },
   { label: "Material", value: "Acrílico + acabados en acero inoxidable" },
-  { label: "Chiller", value: "Integrado, 3.5 kW de enfriamiento (grado comercial)" },
-  { label: "Enfriamiento", value: "Hasta 0 °C" },
-  { label: "Calentamiento", value: "Hasta 40 °C" },
-  { label: "Rango de temperatura", value: "0 – 40 °C, al grado exacto" },
-  { label: "Desinfección", value: "Ozono automático" },
-  { label: "Filtración", value: "Skimmer de acero inoxidable + filtro de 20 micrones" },
-  { label: "Bomba de agua", value: "8,000 L/h" },
+  { label: "Potencia", value: "1 HP" },
+  { label: "Capacidad de enfriamiento", value: "3,500 W" },
+  { label: "Capacidad de calentamiento", value: "1,000 W" },
+  { label: "Rango de temperatura", value: "1 – 40 °C, al grado exacto" },
+  { label: "Velocidad de enfriamiento", value: "4 a 6 °C por hora" },
+  { label: "Temperatura ambiente de operación", value: "3 a 40 °C" },
+  { label: "Desinfección", value: "Ozono integrado" },
+  { label: "Filtración", value: "Filtro de papel + skimmer (filtro de carbón incluido)" },
+  { label: "Bomba de agua", value: "150 W · 8,000 L/h" },
   { label: "Nivel de ruido", value: "68 dB(A) a 1 m" },
-  { label: "Refrigerante", value: "R32 ecológico" },
-  { label: "Pantalla y control", value: "Panel táctil + WiFi + app (timers y modo automático)" },
-  { label: "Voltaje", value: "110 V · 16 A (protector de fuga incluido)" },
-  { label: "Consumo", value: "1.19 kW (<$20 MXN/día)" },
-  { label: "Certificación", value: "CE" },
-  { label: "Garantía", value: "1 año" },
+  { label: "Refrigerante", value: "R32 · 500 g" },
+  { label: "Pantalla y control", value: "Panel + app Smart Life (WiFi 2.4 GHz)" },
+  { label: "Alimentación", value: "110 V / 60 Hz · 12 A máx" },
+  { label: "Contacto", value: "Dedicado de 16 A con tierra" },
+  { label: "Potencia de entrada", value: "1,320 W" },
+  { label: "Espacio libre", value: "100 cm al frente · 20 cm por lado" },
   { label: "Instalación", value: "Sin obra ni plomería" },
+  { label: "Garantía", value: "12 meses" },
+  { label: "País de origen", value: "China" },
   { label: "Envío", value: "$6,000 MXN a todo México" },
 ];
 
 const HERO_BULLETS = [
-  "Dual Climate Control: de 0 °C a 40 °C incluido",
-  "Diseño All-In-One con chiller integrado",
+  "Dual Climate Control: de 1 °C a 40 °C incluido",
+  "Diseño All-In-One con el chiller dentro de la tina",
   "Zero Setup: sin obra, sin plomería, solo conecta y opera",
-  "Control WiFi programable desde tu celular. Certificación CE.",
-  "1 año de garantía.",
+  "Control desde tu celular con la app Smart Life",
+  "12 meses de garantía, válida también para uso comercial.",
 ];
 
 export default function MFOnePage() {
@@ -86,8 +93,8 @@ export default function MFOnePage() {
           <div className="mwrap">
             <ProductOptionsProvider
               variants={[
-                { color: "Negro", images: ["/images/mfone-gallery/negro/front.jpg", ...Array.from({ length: 10 }, (_, i) => `/images/mfone-gallery/negro/${String(i + 1).padStart(2, "0")}.jpg`)] },
-                { color: "Blanco", images: ["/images/mfone-gallery/blanco/front.jpg", ...Array.from({ length: 10 }, (_, i) => `/images/mfone-gallery/blanco/${String(i + 1).padStart(2, "0")}.jpg`)] },
+                { color: "Negro", images: ["/images/mfone-gallery/negro/front.jpg", ...Array.from({ length: 9 }, (_, i) => `/images/mfone-gallery/negro/${String(i + 1).padStart(2, "0")}.jpg`)] },
+                { color: "Blanco", images: ["/images/mfone-gallery/blanco/front.jpg", ...Array.from({ length: 9 }, (_, i) => `/images/mfone-gallery/blanco/${String(i + 1).padStart(2, "0")}.jpg`)] },
               ]}
             >
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
@@ -117,7 +124,7 @@ export default function MFOnePage() {
                   </p>
 
                   <p className="mt-6 max-w-md text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                    El único cold plunge con frío y calor incluidos de serie. Ahora enfría hasta 0 °C.
+                    El único cold plunge con frío y calor incluidos de serie. Enfría hasta 1 °C.
                   </p>
 
                   {/* Bullet highlights */}
@@ -160,19 +167,19 @@ export default function MFOnePage() {
                     {[
                       {
                         t: "Detalles del producto",
-                        c: "195 × 80 × 71 cm · 420 L · 135 kg. Acrílico de alta resistencia con acabados y componentes en acero inoxidable. Rango de 0 a 40 °C con chiller integrado de 3.5 kW. Control por panel táctil, WiFi y app. Certificación CE, grado comercial.",
+                        c: "195 × 80 × 71 cm · 420 L. Acrílico de alta resistencia con acabados y componentes en acero inoxidable, e iluminación LED interior. Rango de 1 a 40 °C con chiller integrado de 1 HP y 3,500 W de enfriamiento. Enfría de 4 a 6 °C por hora. Control por panel y app Smart Life.",
                       },
                       {
                         t: "Qué incluye",
-                        c: "Tapa aislante térmica de 3 piezas, skimmer de acero inoxidable, filtro de 20 micrones, protector de corriente con reset y acceso a la app de control WiFi. Todo en la caja, sin compras extra.",
+                        c: "La unidad MF ONE con el módulo de enfriamiento integrado, cubierta aislante, filtros de papel y de carbón, llave de filtro, skimmer y portacelular. El MF ONE PRO DECK se vende por separado.",
                       },
                       {
                         t: "Envío y entrega",
-                        c: "$6,000 MXN a todo México, de 3 a 7 días hábiles. Incluye maniobra de entrega: con 135 kg, nuestro equipo coordina contigo el acceso al espacio final.",
+                        c: "$6,000 MXN a todo México, de 3 a 7 días hábiles. Viaja drenada y entarimada, e incluye maniobra de entrega: nuestro equipo coordina contigo el acceso al espacio final. Verifica que entre por puertas y pasillos antes de recibirla.",
                       },
                       {
                         t: "Prueba, garantía y devoluciones",
-                        c: "30 días de prueba sin preguntas: si no es el mejor cold plunge que has probado, te reembolsamos. Garantía de 1 año por defectos de fabricación y atención de por vida por nuestros canales.",
+                        c: "30 días de prueba sin preguntas: si no es la mejor cold plunge que has probado, te reembolsamos. Garantía de 12 meses por defectos de fabricación, válida también para uso comercial, y atención de por vida por nuestros canales.",
                       },
                     ].map((a) => (
                       <details key={a.t} className="group rounded-[14px] border border-[var(--line-1)] bg-white">
@@ -260,7 +267,7 @@ export default function MFOnePage() {
               <span className="m-eyebrow accent">Tecnología</span>
               <h2>Ingeniería que se siente.</h2>
               <p>
-                Frío, calor, hidromasaje e iluminación LED — todo integrado en un solo
+                Frío, calor, ozono e iluminación LED — todo integrado en un solo
                 equipo. Tu única preocupación: entrar al agua.
               </p>
             </Reveal>
@@ -280,22 +287,20 @@ export default function MFOnePage() {
             </Reveal>
             <Reveal className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {[
-                { t: "Filtro de 20 micrones", p: "Cartuchos reemplazables de fácil acceso — cámbialo una vez al mes.", img: "/images/acc-filtros-cartucho.jpg" },
-                { t: "Filtro de carbón", p: "Se conecta a la manguera al llenar la tina — retiene impurezas desde el primer litro.", img: "/images/acc-filtro-prellenado.jpg" },
-                { t: "Red de limpieza", p: "Retira hojas e impurezas de la superficie en segundos.", img: "/images/acc-red-limpieza.jpg" },
-                { t: "Soporte para celular", p: "Se monta en el borde de la tina — tu timer, tu música o tu serie durante la inmersión.", img: "/images/acc-soporte-celular.jpg" },
-                { t: "Tapa aislante térmica", p: "3 piezas rígidas — conserva la temperatura y mantiene el agua limpia.", img: null },
-                { t: "Skimmer de acero inoxidable", p: "Red integrada en la tina que atrapa impurezas — limpieza semanal en segundos.", img: null },
-                { t: "Protector de corriente", p: "Enchufe con protección de fuga y reset — seguridad eléctrica de serie.", img: null },
-                { t: "App de control WiFi", p: "Temperatura, timers y modo automático desde tu celular.", img: null },
-                { t: "Patitos de hule", p: "Sí, vienen incluidos. Porque el frío se toma en serio — pero no tanto.", img: "/images/acc-patitos.jpg" },
+                { t: "Filtro de papel", p: "Retiene los sólidos del agua. Es el filtro de operación: cámbialo cada 3 a 4 semanas.", img: "/images/acc-filtros-cartucho.webp" },
+                { t: "Filtro de carbón", p: "Se conecta a la manguera al llenar la tina. Es un extra que ayuda con el olor y el sabor del agua, no un requisito de operación.", img: "/images/acc-filtro-prellenado.webp" },
+                { t: "Skimmer", p: "Atrapa hojas e impurezas de la superficie — limpieza en segundos.", img: "/images/acc-red-limpieza.webp" },
+                { t: "Portacelular", p: "Se monta en el borde de la tina — tu timer, tu música o tu serie durante la inmersión.", img: "/images/acc-soporte-celular.webp" },
+                { t: "Cubierta aislante", p: "Conserva la temperatura entre inmersiones y mantiene el agua limpia.", img: null },
+                { t: "Llave de filtro", p: "La herramienta para abrir el portafiltro y hacer el cambio sin técnico.", img: null },
+                { t: "Patitos de hule", p: "Sí, vienen incluidos. Porque el frío se toma en serio — pero no tanto.", img: "/images/acc-patitos.webp" },
               ].map((a) => (
                 <article key={a.t} className="overflow-hidden rounded-[16px] border border-[var(--line-1)] bg-[var(--m-white)]">
                   {/* Imagen del accesorio (o espacio reservado) */}
                   <div className="grid aspect-[16/9] place-items-center bg-[var(--bg-panel)]">
                     {a.img ? (
                       /* eslint-disable-next-line @next/next/no-img-element */
-                      <img src={a.img} alt={a.t} className="h-full w-full object-cover" />
+                      <img src={a.img} alt={a.t} className="h-full w-full object-contain p-7" />
                     ) : (
                       <span className="rounded-full border border-dashed border-[var(--line-2)] px-4 py-1.5 text-[10px] uppercase tracking-[0.16em] text-[var(--fg-subtle)]">
                         Imagen próximamente
@@ -348,10 +353,10 @@ export default function MFOnePage() {
                   {[
                     ["Timer programable", "Se enciende y apaga sola a tus horarios — dos programas."],
                     ["Modo automático", "Fijas tu temperatura y la mantiene 24/7, al grado."],
-                    ["Ozono automático", "Esterilización sin cloro ni químicos."],
-                    ["Doble filtración", "Skimmer de acero inoxidable + filtro de 20 micrones."],
+                    ["Ozono integrado", "Desinfección sin cloro ni químicos."],
+                    ["Doble filtración", "Skimmer en la superficie + filtro de papel en circulación."],
                     ["Candado de pantalla", "Bloqueo del panel — ideal para uso comercial o niños."],
-                    ["Luces LED", "Enciende y apaga la iluminación desde el panel."],
+                    ["Luz LED interior", "Enciende y apaga la iluminación de la tina desde el panel."],
                   ].map(([t, d]) => (
                     <div key={t} className="border-t border-white/10 py-4">
                       <div className="flex items-baseline gap-2.5">
@@ -391,6 +396,49 @@ export default function MFOnePage() {
         <BenefitsCarousel />
 
         {/* ── 5. SPEC TABLE ───────────────────────────────────── */}
+        {/* ── MEDIDAS Y ESPACIO ─────────────────────────────── */}
+        <section className="msection dark-s scroll-mt-20" id="medidas">
+          <div className="mwrap">
+            <Reveal className="msection-head">
+              <span className="m-eyebrow accent">Medidas y espacio</span>
+              <h2>Antes de recibirla, mide.</h2>
+              <p>
+                Verifica que el equipo entre por puertas y pasillos. Una vez
+                llena no se puede mover.
+              </p>
+            </Reveal>
+            <Reveal className="mx-auto max-w-4xl">
+              <MfOneDimensions />
+            </Reveal>
+            <Reveal className="mx-auto mt-10 grid max-w-4xl gap-4 sm:grid-cols-3">
+              {[
+                ["Piso", "Firme y nivelado"],
+                ["Frente libre", "100 cm"],
+                ["Laterales libres", "20 cm por lado"],
+              ].map(([k, v]) => (
+                <div
+                  key={k}
+                  className="rounded-[14px] border p-5"
+                  style={{ borderColor: "var(--on-dark-line)" }}
+                >
+                  <p className="m-eyebrow" style={{ color: "var(--on-dark-subtle)" }}>
+                    {k}
+                  </p>
+                  <p className="mdisplay mt-2 text-[20px] text-white">{v}</p>
+                </div>
+              ))}
+            </Reveal>
+            <Reveal className="mx-auto mt-8 max-w-4xl">
+              <p className="text-[13.5px] leading-relaxed" style={{ color: "var(--on-dark-muted)" }}>
+                Puede instalarse en interiores con ventilación al exterior, o
+                afuera bajo techo, pérgola o cubierta. El módulo de enfriamiento
+                debe quedar fuera de la luz solar directa y protegido de lluvia
+                sostenida.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
         <section className="msection panel scroll-mt-20" id="ficha-tecnica">
           <div className="mwrap">
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">

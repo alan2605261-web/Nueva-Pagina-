@@ -13,7 +13,7 @@ export function Hero() {
     <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-black text-white">
       {/* MF ONE concrete + water render */}
       <Image
-        src="/images/hero-mfone.png"
+        src="/images/hero-mfone.jpg"
         alt="MF ONE en un entorno de concreto y agua"
         fill
         priority

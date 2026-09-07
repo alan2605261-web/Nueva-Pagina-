@@ -116,6 +116,9 @@
 .glass-nav .nl {
   font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 500;
   color: rgba(14, 16, 19, 0.82); display: inline-flex; align-items: center; gap: 7px;
+  /* Ningún link del nav debe partirse en dos líneas: "PARA NEGOCIOS" lo hacía
+     alrededor de los 800px de ancho. */
+  white-space: nowrap;
   transition: color 0.2s;
 }
 .glass-nav .nl:hover { color: var(--accent-ice); }

@@ -28,20 +28,20 @@ const WHATSAPP = "https://wa.me/5215616471386";
 /* ---------- Hotspots (MF ONE specs) ---------- */
 
 const HOTSPOTS = [
-  { left: "14%", icon: Snowflake, k: "01 · Chiller", t: "Enfría a 0 °C", p: "Chiller integrado de 3.5 kW, grado comercial. Del agua tibia al frío en minutos, sin un solo hielo." },
+  { left: "14%", icon: Snowflake, k: "01 · Chiller", t: "Enfría a 1 °C", p: "Chiller de 1 HP dentro de la tina, con 3,500 W de enfriamiento. De 4 a 6 °C por hora, sin un solo hielo." },
   { left: "26%", icon: Flame, k: "02 · Temperatura", t: "Calienta hasta 40 °C", p: "De spa a hielo en la misma tina. Calor para relajar, frío para recuperar, todo el año." },
-  { left: "38%", icon: Filter, k: "03 · Filtración", t: "3 filtros", p: "Sistema de tres filtros con malla de 20 micrones. Agua cristalina sin productos químicos." },
-  { left: "50%", icon: Wind, k: "04 · Purificación", t: "Ozono cada 5 min", p: "Purificación por ozono automática. El agua se mantiene limpia sin que muevas un dedo." },
-  { left: "62%", icon: Wifi, k: "05 · Control", t: "App WiFi", p: "Programa temperatura y horarios desde tu celular. Tu ritual, listo cuando llegas." },
-  { left: "74%", icon: VolumeX, k: "06 · Silencioso", t: "Operación silenciosa", p: "El compresor y el ventilador trabajan en silencio. Tu ritual, sin ruido que lo interrumpa." },
-  { left: "86%", icon: Shield, k: "07 · Estructura", t: "Acero inoxidable", p: "Cuerpo sellado, certificación CE. Diseñado para exteriores e interiores por igual." },
+  { left: "38%", icon: Filter, k: "03 · Filtración", t: "Filtro de papel", p: "Filtro de papel en circulación más skimmer en la superficie. Agua cristalina sin productos químicos." },
+  { left: "50%", icon: Wind, k: "04 · Purificación", t: "Ozono integrado", p: "Desinfección por ozono dentro del equipo. El agua se mantiene limpia sin que muevas un dedo." },
+  { left: "62%", icon: Wifi, k: "05 · Control", t: "App Smart Life", p: "Programa temperatura y horarios desde tu celular. Tu ritual, listo cuando llegas." },
+  { left: "74%", icon: VolumeX, k: "06 · Silencioso", t: "68 dB(A)", p: "El compresor y el ventilador trabajan en silencio. Tu ritual, sin ruido que lo interrumpa." },
+  { left: "86%", icon: Shield, k: "07 · Estructura", t: "Acero inoxidable", p: "Casco de acrílico de alta resistencia y acabados en acero inoxidable. Va igual de bien adentro que afuera, siempre bajo techo." },
 ];
 
 /* ---------- Feature reveal ---------- */
 
 const FEATURES = [
-  { word: "Temperatura", img: "/photography/feature/temperatura.png", copy: "De 0 °C a 40 °C. Frío para recuperar, calor para relajar. Una sola tina para todo el año, ajustable al grado." },
-  { word: "Filtración", img: "/photography/feature/filtracion.jpg", copy: "Sistema de 3 filtros más purificación por ozono cada 5 minutos. Filtro de 20 micrones. Agua cristalina sin productos químicos." },
+  { word: "Temperatura", img: "/photography/feature/temperatura.jpg", copy: "De 1 °C a 40 °C en el MF ONE. Frío para recuperar, calor para relajar. Una sola tina para todo el año, ajustable al grado." },
+  { word: "Filtración", img: "/photography/feature/filtracion.jpg", copy: "Filtración más ozono integrado, según el modelo: triple filtro en los inflables, filtro de papel y skimmer en el MF ONE. Agua cristalina sin productos químicos." },
   { word: "Control", img: "/photography/feature/control-app-1049.jpg", copy: "Control total desde la app. Programa temperatura, horarios y tu ritual. El frío te espera listo cuando llegas a casa." },
 ];
 
@@ -49,14 +49,14 @@ const FEATURES = [
 
 /* Copy real de mentefria.com — "Los beneficios científicamente probados del cold-plunging" */
 const RAZONES = [
-  { img: "/photography/modelaje/modelo-01.jpg", t: "Acelera la recuperación", p: "La inmersión en agua fría contrae los vasos sanguíneos, reduciendo la hinchazón y el daño muscular para que te recuperes más rápido entre cada sesión de entrenamiento." },
-  { img: "/photography/action/running-02.jpg", t: "Mejora el ánimo", p: "La MF Plunge activa la liberación de dopamina, estimulando la motivación, reduciendo el estrés y elevando la energía y el estado de ánimo desde los primeros minutos." },
-  { img: "/photography/action/golf-01.jpg", t: "Energía natural", p: "El choque térmico libera adrenalina y noradrenalina de forma inmediata, generando un estado de alerta, claridad mental y energía sostenida durante horas sin cafeína." },
-  { img: "/photography/lifestyle/bajo-bajio-06.jpg", t: "Reduce la inflamación", p: "El agua fría frena la actividad metabólica que genera inflamación, reduciendo el dolor, la hinchazón y la rigidez articular tanto de entrenamientos intensos como del día a día." },
-  { img: "/photography/action/hyrox-02.png", t: "Mayor resiliencia", p: "Cada inmersión entrena tu sistema nervioso para manejar el estrés de forma controlada, desarrollando una disciplina y fortaleza mental que se transfiere a cada área de tu vida." },
-  { img: "/photography/modelaje/modelo-04.jpg", t: "Mejor descanso", p: "La exposición al frío activa tu sistema nervioso parasimpático y reduce la temperatura corporal, ayudándote a entrar más fácil en la fase de sueño profundo y reparador." },
-  { img: "/photography/action/golf-02.jpg", t: "Acelera el metabolismo", p: "El frío activa la grasa parda, un tejido que quema calorías para generar calor. Estudios muestran que la inmersión helada puede elevar tu tasa metabólica hasta un 80%." },
-  { img: "/photography/lifestyle/surf-02.jpg", t: "Acelera el sistema inmune", p: "La exposición al agua fría estimula la producción de glóbulos blancos, fortaleciendo el sistema inmunológico y mejorando la resistencia a infecciones y enfermedades." },
+  { img: "/photography/modelaje/modelo-01.jpg", t: "Acelera la recuperación", p: "La inmersión en agua fría contrae los vasos sanguíneos, reduciendo la hinchazón y el daño muscular para que te recuperes más rápido entre cada sesión de entrenamiento." , slug: "acelera-la-recuperacion" },
+  { img: "/photography/action/running-02.jpg", t: "Mejora el ánimo", p: "La MF Plunge activa la liberación de dopamina, estimulando la motivación, reduciendo el estrés y elevando la energía y el estado de ánimo desde los primeros minutos." , slug: "mejora-el-animo" },
+  { img: "/photography/action/golf-01.jpg", t: "Energía natural", p: "El choque térmico libera adrenalina y noradrenalina de forma inmediata, generando un estado de alerta, claridad mental y energía sostenida durante horas sin cafeína." , slug: "energia-natural" },
+  { img: "/photography/lifestyle/bajo-bajio-06.jpg", t: "Reduce la inflamación", p: "El agua fría frena la actividad metabólica que genera inflamación, reduciendo el dolor, la hinchazón y la rigidez articular tanto de entrenamientos intensos como del día a día." , slug: "reduce-la-inflamacion" },
+  { img: "/photography/action/hyrox-02.webp", t: "Mayor resiliencia", p: "Cada inmersión entrena tu sistema nervioso para manejar el estrés de forma controlada, desarrollando una disciplina y fortaleza mental que se transfiere a cada área de tu vida." , slug: "mayor-resiliencia" },
+  { img: "/photography/modelaje/modelo-04.jpg", t: "Mejor descanso", p: "La exposición al frío activa tu sistema nervioso parasimpático y reduce la temperatura corporal, ayudándote a entrar más fácil en la fase de sueño profundo y reparador." , slug: "mejor-descanso" },
+  { img: "/photography/action/golf-02.jpg", t: "Acelera el metabolismo", p: "El frío activa la grasa parda, un tejido que quema calorías para generar calor. Estudios muestran que la inmersión helada puede elevar tu tasa metabólica hasta un 80%." , slug: "acelera-el-metabolismo" },
+  { img: "/photography/lifestyle/surf-02.jpg", t: "Acelera el sistema inmune", p: "La exposición al agua fría estimula la producción de glóbulos blancos, fortaleciendo el sistema inmunológico y mejorando la resistencia a infecciones y enfermedades." , slug: "acelera-el-sistema-inmune" },
 ];
 
 /* Productos — precios y bullets reales de mentefria.com.
@@ -70,7 +70,7 @@ const PRODUCTOS = [
     href: "/productos/mf-barrel",
     scale: "88%",
     featured: false,
-    bullets: ["Sistema de 3 filtros + purificación por ozono.", "Control WiFi programable desde tu celular.", "Certificación CE. 6 meses de garantía."],
+    bullets: ["Sistema de 3 filtros + purificación por ozono.", "Control WiFi programable desde tu celular.", "6 meses de garantía."],
   },
   {
     name: "MF ONE",
@@ -79,7 +79,7 @@ const PRODUCTOS = [
     href: "/productos/mf-one",
     scale: "90%",
     featured: true,
-    bullets: ["Diseño All-In-One con chiller integrado.", "Filtro de 20 micrones + purificación por ozono.", "Control WiFi programable. Certificación CE. 1 año de garantía."],
+    bullets: ["Diseño All-In-One con el chiller dentro de la tina.", "Filtro de papel + ozono integrado.", "Control desde la app Smart Life. 12 meses de garantía."],
   },
   {
     name: "MF HORIZON",
@@ -89,15 +89,15 @@ const PRODUCTOS = [
     scale: "137%", // col angosta: >100% para tamaño visual ~ONE
     nudge: "md:translate-x-2 md:-translate-y-1.5",
     featured: false,
-    bullets: ["Sistema de 3 filtros + purificación por ozono.", "Control WiFi programable desde tu celular.", "Certificación CE. 6 meses de garantía."],
+    bullets: ["Sistema de 3 filtros + purificación por ozono.", "Control WiFi programable desde tu celular.", "6 meses de garantía."],
   },
 ];
 
 /* Trust trio — real de mentefria.com */
 const TRUST = [
-  { t: "Amas MENTE FRIA o te reembolsamos", p: "Prueba Mente Fria por 30 días. Si no es el mejor cold plunge que has probado, te regresamos tu dinero. Sin preguntas." },
-  { t: "Garantía por 1 año", p: "Respaldamos nuestros productos con 6 meses o 1 año de garantía. Y atención de por vida por nuestros medios de comunicación." },
-  { t: "Financiamiento disponible", p: "Contamos con hasta 6 meses sin intereses con tarjetas participantes a través de Mercado Pago." },
+  { k: "30 días", t: "Pruébala sin riesgo", p: "Si no es la mejor cold plunge que has probado, te regresamos tu dinero. Sin preguntas y sin trámites." },
+  { k: "Garantía", t: "12 meses en el MF ONE", p: "Seis meses en los modelos inflables, y atención de por vida por nuestros canales." },
+  { k: "Hasta 6 MSI", t: "Financiamiento disponible", p: "Meses sin intereses con tarjetas participantes a través de Mercado Pago." },
 ];
 
 /* ---------- Comparison (new section) ---------- */
@@ -116,11 +116,14 @@ const COMPARE_ROWS: { mf: string; otras: string }[] = [
 /* ---------- Testimonials ---------- */
 
 const TESTIMONIALS: { img: string; who: string; role: string; video?: string }[] = [
-  { img: "/photography/action/running-02.jpg", who: "Kevin", role: "Runner · CDMX", video: "/videos/testimonial-kevin.mp4" },
-  { img: "/photography/action/hyrox-01.png", who: "Dr. Patricio Ochoa", role: "Medicina deportiva", video: "/videos/testimonial-patricio.mp4" },
+  // Kevin y Ana: el archivo de video se perdio (nunca estuvo en git, era gitignored por peso).
+  // Sin `video` la card queda solo con foto, igual que Dani y Maximo. Al recuperarlos, devolver:
+  //   video: "/videos/testimonial-kevin.mp4"  /  video: "/videos/testimonial-surf.mp4"
+  { img: "/photography/action/running-02.jpg", who: "Kevin", role: "Runner · CDMX" },
+  { img: "/photography/action/hyrox-01.jpg", who: "Dr. Patricio Ochoa", role: "Medicina deportiva", video: "/videos/testimonial-patricio.mp4" },
   { img: "/photography/action/golf-03.jpg", who: "Dani", role: "Triatleta" },
   { img: "/photography/action/golf-01.jpg", who: "Máximo", role: "Golfista" },
-  { img: "/photography/lifestyle/surf-01.jpg", who: "Ana", role: "Surfista · Vallarta", video: "/videos/testimonial-surf.mp4" },
+  { img: "/photography/lifestyle/surf-01.jpg", who: "Ana", role: "Surfista · Vallarta" },
 ];
 
 /* ---------- Review wall ---------- */
@@ -132,7 +135,7 @@ type WallItem =
 /* Testimonios REALES de mentefria.com — "Lo que dicen nuestros clientes" */
 const WALL: WallItem[] = [
   { kind: "text", hd: "Calma bajo presión", p: "Las cold plunges de Mente Fria me han ayudado a manejar mejor mi ansiedad. Los beneficios del frío y la respiración controlada me han dado una herramienta poderosa para mantener la calma en situaciones estresantes.", nm: "Daniel G. · CDMX" },
-  { kind: "photo", img: "/photography/action/hyrox-02.png", cap: "Dr. Patricio Ochoa" },
+  { kind: "photo", img: "/photography/action/hyrox-02.webp", cap: "Dr. Patricio Ochoa" },
   { kind: "text", hd: "Calidad insuperable", p: "La calidad del producto de Mente Fria es insuperable. Los materiales son muy resistentes y duraderos.", nm: "Carlos G. · Guadalajara" },
   { kind: "text", hd: "Sistema inmune fortalecido", p: "Tenía frecuentes resfriados y desde que uso las cold plunges de Mente Fria, mi sistema inmunológico se ha fortalecido. No he tenido un solo resfriado en meses y me siento más saludable en general.", nm: "Fernando L. · Monterrey" },
   { kind: "photo", img: "/photography/lifestyle/bajo-bajio-04.jpg", cap: "Ritual de la mañana" },
@@ -150,7 +153,7 @@ const WALL: WallItem[] = [
 
 const B2B = [
   { img: "/photography/lifestyle/vallarta-padel-02.jpg", who: "Hoteles", role: "Spa & terraza" },
-  { img: "/photography/action/hyrox-03.png", who: "Gyms & Box", role: "Recuperación" },
+  { img: "/photography/action/hyrox-03.jpg", who: "Gyms & Box", role: "Recuperación" },
   { img: "/photography/lifestyle/bajo-bajio-06.jpg", who: "Spas", role: "Wellness" },
   { img: "/photography/action/running-01.jpg", who: "Clínicas", role: "Fisioterapia" },
   { img: "/photography/modelaje/modelo-05.jpg", who: "Studios", role: "Recovery" },
@@ -272,7 +275,7 @@ export function LandingV2() {
       <header className="mhero" id="top">
         <div className="mhero-media" ref={heroMediaRef}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/photography/hero/mf-one-concrete.png" alt="MF ONE en arquitectura de concreto" />
+          <img src="/photography/hero/mf-one-concrete.jpg" alt="MF ONE en arquitectura de concreto" />
         </div>
         <div className="mhero-inner mwrap !max-w-none w-full">
           <div className="m-eyebrow !text-[var(--m-blue-400)] !text-[13px] !font-semibold [text-shadow:0_1px_14px_rgba(8,9,11,0.55)]">Wellness para los que valoran su tiempo</div>
@@ -378,13 +381,19 @@ export function LandingV2() {
             <div className="bcar-track" ref={trackRef}>
               {RAZONES.map((r, i) => (
                 <article key={r.t} className="bcard stagger-i" style={{ "--i": i } as React.CSSProperties}>
-                  <div className="img">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={r.img} alt={r.t} />
-                    <span className="tag">{String(i + 1).padStart(2, "0")}</span>
-                  </div>
-                  <h3>{r.t}</h3>
-                  <p>{r.p}</p>
+                  <Link href={`/blog/${r.slug}`} className="group block">
+                    <div className="img">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={r.img} alt={r.t} />
+                      <span className="tag">{String(i + 1).padStart(2, "0")}</span>
+                    </div>
+                    <h3>{r.t}</h3>
+                    <p>{r.p}</p>
+                    <span className="mt-3 inline-flex items-center gap-2 text-[12.5px] font-medium text-[var(--accent-ice)]">
+                      Leer el artículo
+                      <ArrowRight size={14} />
+                    </span>
+                  </Link>
                 </article>
               ))}
             </div>
@@ -452,11 +461,12 @@ export function LandingV2() {
           <div className="grid gap-5 py-[clamp(40px,6vh,64px)] md:grid-cols-3">
             {TRUST.map((t, i) => (
               <Reveal key={t.t} delay={i * 100}>
-                <div className="h-full rounded-[14px] border border-[var(--line-1)] bg-white p-5">
-                  <h3 className="mdisplay text-[17px]" style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}>
-                    {t.t}
-                  </h3>
-                  <p className="mt-2 text-[13px] leading-relaxed text-[var(--fg-muted)]">{t.p}</p>
+                <div className="flex h-full flex-col rounded-[16px] border border-[var(--line-1)] bg-white p-7">
+                  <span className="m-eyebrow accent">{t.k}</span>
+                  <h3 className="mdisplay mt-3 text-[21px] leading-tight">{t.t}</h3>
+                  <p className="mt-2.5 text-[13.5px] leading-relaxed text-[var(--fg-muted)]">
+                    {t.p}
+                  </p>
                 </div>
               </Reveal>
             ))}
@@ -487,8 +497,17 @@ export function LandingV2() {
                       detrás, más corta que la imagen — el producto siempre rompe
                       el marco por arriba (estilo WHOOP). */}
                   <div className="relative">
-                    {/* Panel gris (capa trasera, arranca al 30% de la altura) */}
-                    <div className={`absolute bottom-0 top-[45%] rounded-[16px] bg-[var(--bg-panel)] ${p.featured ? "inset-x-0" : "-inset-x-5"}`}>
+                    <div className={`absolute bottom-0 top-[45%] ${p.featured ? "inset-x-0" : "-inset-x-5"}`}>
+                      {/* Sombra de contacto en lugar del panel gris: el producto
+                          se apoya en la página sin quedar encajonado en una caja. */}
+                      <div
+                        aria-hidden
+                        className="pointer-events-none absolute inset-x-[10%] bottom-[7%] h-[24%] rounded-[50%]"
+                        style={{
+                          background:
+                            "radial-gradient(ellipse at 50% 50%, rgba(8,9,11,0.18) 0%, rgba(8,9,11,0.07) 45%, rgba(8,9,11,0) 72%)",
+                        }}
+                      />
                       {p.featured && (
                         <span className="absolute bottom-4 left-4 z-20 rounded-full bg-[var(--m-ink)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white">
                           Más vendido
@@ -542,7 +561,7 @@ export function LandingV2() {
           <div className="stats-wrap">
             <Reveal className="stats-visual">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/photography/product/mf-one-courtyard.png" alt="MF ONE en patio" className="!object-cover !p-0" />
+              <img src="/photography/product/mf-one-courtyard.jpg" alt="MF ONE en patio" className="!object-cover !p-0" />
             </Reveal>
             <Reveal>
               <span className="m-eyebrow accent">Por los números</span>

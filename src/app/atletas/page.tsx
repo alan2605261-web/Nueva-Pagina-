@@ -17,7 +17,7 @@ export default function AtletasPage() {
       <section className="relative min-h-[70vh] bg-black text-white flex items-center">
         <div className="absolute inset-0 overflow-hidden">
           <Image
-            src="/images/hero-mfone.png"
+            src="/images/hero-mfone.jpg"
             alt="MF ONE hero"
             fill
             className="object-cover opacity-40"

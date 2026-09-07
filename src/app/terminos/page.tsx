@@ -1,4 +1,5 @@
 import { PageShell } from "@/components/PageShell";
+import { LegalEntity } from "@/components/LegalEntity";
 import { SubHero } from "@/components/blocks";
 import { Reveal } from "@/components/Reveal";
 
@@ -102,6 +103,8 @@ export default function TerminosPage() {
                   <a href="/soporte" className="underline">mentefria.com/soporte</a>
                 </p>
               </div>
+
+              <LegalEntity rol="terminos" />
             </article>
           </Reveal>
         </div>

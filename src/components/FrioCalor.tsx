@@ -13,7 +13,7 @@ const PANELS = [
   {
     key: "frio",
     img: "/images/mfone-frio.jpg",
-    temp: "0 °C",
+    temp: "1 °C",
     label: "Frío",
     color: "var(--mf-cold, #4C90C6)",
   },
@@ -77,7 +77,7 @@ export function FrioCalor() {
               />
               {/* Badge de temperatura */}
               <span
-                className="absolute left-5 top-5 z-10 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-md transition-opacity duration-700"
+                className="absolute left-5 top-5 z-10 inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/55 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-md transition-opacity duration-700"
                 style={{ opacity: isDimmed ? 0.4 : 1 }}
               >
                 <span
@@ -97,16 +97,22 @@ export function FrioCalor() {
       </div>
 
       {/* Overlay de texto */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-[rgba(8,9,11,0.85)] via-[rgba(8,9,11,0.35)] to-transparent p-8 text-center sm:p-12">
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-[rgba(8,9,11,0.92)] via-[rgba(8,9,11,0.55)] to-transparent p-8 text-center sm:p-12">
         <h2
           className="mdisplay mx-auto max-w-2xl text-[clamp(28px,4vw,52px)] text-white"
-          style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
+          style={{
+            WebkitTextStroke: "var(--bold-stroke) currentColor",
+            textShadow: "0 2px 22px rgba(0,0,0,0.55)",
+          }}
         >
           Frío. Calor. Un solo equipo.
         </h2>
-        <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-white/70">
-          Los chorros de hidromasaje intensifican el efecto del frío — y también
-          sirven en modo calor para hidroterapia. Zero Setup: sin obra, sin plomería.
+        <p
+          className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-white/90"
+          style={{ textShadow: "0 1px 16px rgba(0,0,0,0.6)" }}
+        >
+          El mismo equipo baja a 1 °C para recuperar y sube a 40 °C para relajar.
+          Zero Setup: sin obra, sin plomería.
         </p>
       </div>
     </div>

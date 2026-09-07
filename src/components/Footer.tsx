@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { InstagramIcon, TikTokIcon } from "@/components/icons";
 import { Logo } from "@/components/Logo";
 
 /*
@@ -66,7 +67,26 @@ export function Footer() {
 
         <div className="mfooter-bot">
           <span>© 2026 Mente Fria · Hecho en México</span>
-          <span>@mentefria.therapy · TikTok @mentefria___</span>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://www.instagram.com/mentefria.therapy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram de Mente Fria: @mentefria.therapy"
+              className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-white/60 transition-colors hover:border-white/40 hover:text-white"
+            >
+              <InstagramIcon className="h-[18px] w-[18px]" />
+            </a>
+            <a
+              href="https://www.tiktok.com/@mentefria___"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok de Mente Fria: @mentefria___"
+              className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-white/60 transition-colors hover:border-white/40 hover:text-white"
+            >
+              <TikTokIcon className="h-[18px] w-[18px]" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

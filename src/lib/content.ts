@@ -86,14 +86,14 @@ export const showcase = {
       name: "MF Horizon",
       tag: "3 filtros + ozono · WiFi · 6 meses de garantía",
       price: "$74,000 MXN",
-      image: "/images/prod-horizon.png",
+      image: "/images/prod-horizon.jpg",
       tone: "cool" as const,
     },
     {
       name: "MF Barrel",
       tag: "3 filtros + ozono · WiFi · 6 meses de garantía",
       price: "$69,000 MXN",
-      image: "/images/prod-barrel.png",
+      image: "/images/prod-barrel.jpg",
       tone: "warm" as const,
     },
   ],
@@ -120,7 +120,7 @@ export const featureScroll = {
       body:
         "Programa el enfriamiento con tu rutina desde la app. Control WiFi para que el agua esté lista exactamente cuando la necesitas.",
       left: { label: "App", value: "WiFi" },
-      right: { label: "Certif.", value: "CE" },
+      right: { label: "Garantía", value: "12 meses" },
     },
   ],
 };
@@ -130,10 +130,10 @@ export const statement = {
 };
 
 export const gallery = [
-  { caption: "MF ONE", image: "/images/hero-mfone.png", tone: "cool" as const },
+  { caption: "MF ONE", image: "/images/hero-mfone.jpg", tone: "cool" as const },
   { caption: "MF ONE · acabado", image: "/images/prod-mfone.webp", tone: "ink" as const },
-  { caption: "MF Horizon", image: "/images/prod-horizon.png", tone: "warm" as const },
-  { caption: "MF Barrel", image: "/images/prod-barrel.png", tone: "cool" as const },
+  { caption: "MF Horizon", image: "/images/prod-horizon.jpg", tone: "warm" as const },
+  { caption: "MF Barrel", image: "/images/prod-barrel.jpg", tone: "cool" as const },
 ];
 
 export const bestSleep = {

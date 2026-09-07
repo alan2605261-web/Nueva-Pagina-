@@ -51,7 +51,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Qué garantía tiene?",
-    a: "6 meses de garantía por defectos de fabricación, más atención de por vida por nuestros canales. Y antes de eso: 30 días de prueba sin preguntas — si no es el mejor cold plunge que has probado, te reembolsamos.",
+    a: "6 meses de garantía por defectos de fabricación, más atención de por vida por nuestros canales. Y antes de eso: 30 días de prueba sin preguntas — si no es la mejor cold plunge que has probado, te reembolsamos.",
   },
 ];
 
@@ -71,7 +71,6 @@ const SPEC_ROWS = [
   { label: "Motor (dimensiones)", value: "58.5 × 42.5 × 53 cm · 39–41.5 kg" },
   { label: "Pantalla y control", value: "WiFi + app (temperatura y horarios)" },
   { label: "Voltaje", value: "110 V" },
-  { label: "Certificación", value: "CE" },
   { label: "Garantía", value: "6 meses" },
   { label: "Envío", value: "$1,500 MXN a todo México" },
 ];
@@ -80,7 +79,7 @@ const HERO_BULLETS = [
   "Enfría hasta 3 °C sin hielo — la portátil más potente de México",
   "Compacta: Ø 90 cm, ideal para departamentos y espacios reducidos",
   "Sistema de 3 filtros (1–5 micrones) + purificación por ozono",
-  "Control WiFi programable desde tu celular. Certificación CE.",
+  "Control WiFi programable desde tu celular.",
   "6 meses de garantía.",
 ];
 
@@ -207,7 +206,7 @@ export default function MFBarrelPage() {
                     {[
                       {
                         t: "Detalles del producto",
-                        c: "Ø 90 × 90 cm · 400 L · 13 kg. PVC ultraduradero reforzado con fibra de vidrio, amigable con la piel, con cámara de aire aislante que conserva la temperatura. Enfría hasta 3 °C sin hielo; con Motor Premium 2.0 también calienta hasta 42 °C y purifica con ozono. Control WiFi desde la app. Certificación CE.",
+                        c: "Ø 90 × 90 cm · 400 L · 13 kg. PVC ultraduradero reforzado con fibra de vidrio, amigable con la piel, con cámara de aire aislante que conserva la temperatura. Enfría hasta 3 °C sin hielo; con Motor Premium 2.0 también calienta hasta 42 °C y purifica con ozono. Control WiFi desde la app.",
                       },
                       {
                         t: "Qué incluye",
@@ -219,7 +218,7 @@ export default function MFBarrelPage() {
                       },
                       {
                         t: "Prueba, garantía y devoluciones",
-                        c: "30 días de prueba sin preguntas: si no es el mejor cold plunge que has probado, te reembolsamos. Garantía de 6 meses por defectos de fabricación y atención de por vida por nuestros canales.",
+                        c: "30 días de prueba sin preguntas: si no es la mejor cold plunge que has probado, te reembolsamos. Garantía de 6 meses por defectos de fabricación y atención de por vida por nuestros canales.",
                       },
                     ].map((a) => (
                       <details key={a.t} className="group rounded-[14px] border border-[var(--line-1)] bg-white">

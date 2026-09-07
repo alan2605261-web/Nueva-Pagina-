@@ -27,7 +27,7 @@ export default function DevolucionesPage() {
 
               <h2 className="heading-sm mb-4">Prueba de 30 días — sin preguntas</h2>
               <p className="body-lg text-ink-soft mb-6">
-                Si no es el mejor cold plunge que has probado, te regresamos el dinero. Sin preguntas, sin trámites
+                Si no es la mejor cold plunge que has probado, te regresamos el dinero. Sin preguntas, sin trámites
                 complicados. Tienes 30 días naturales a partir de la fecha de entrega para decidir.
               </p>
 

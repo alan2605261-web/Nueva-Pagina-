@@ -1,7 +1,7 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
-import { SectionHeader, CTASection } from "@/components/blocks";
 import { FAQ } from "@/components/FAQ";
 import { Reveal } from "@/components/Reveal";
 import { ArrowRight } from "@/components/icons";
@@ -9,10 +9,15 @@ import { QuoteForm } from "./QuoteForm";
 import { RoiCalculator } from "./RoiCalculator";
 
 /* ─────────────────────────────────────────────────────────────
-   PARA NEGOCIOS — Landing B2B
-   Hero (dark) → Cotización → Tipos de negocio → Productos →
-   Calculadora ROI → Por qué MF → Leasing (dark) → Proceso →
-   FAQ B2B → CTA final (dark)
+   PARA NEGOCIOS — Landing B2B (sistema metal)
+
+   Estructura calcada de la página B2B de Plunge, adaptada a MXN y leasing:
+   Hero → Cotización → Verticales (horizontal) → Productos → Calculadora ROI
+   → Casos reales → Por qué MF → Leasing (dark) → Proceso → FAQ → CTA final
+
+   Los casos reales SOLO usan datos verificados. Sin métricas inventadas:
+   no hay porcentajes de crecimiento ni cifras de ingreso porque no existen
+   medidos. Cuando Rafa mande números reales, se agregan aquí.
 ───────────────────────────────────────────────────────────── */
 
 const QUOTE_BULLETS = [
@@ -68,24 +73,52 @@ const BUSINESS_TYPES = [
 const PRODUCTS = [
   {
     name: "MF Barrel",
-    image: "/images/prod-barrel.png",
+    image: "/images/prod-barrel.jpg",
     price: "$69,000 MXN",
-    body: "Sistema de 3 filtros + purificación por ozono. Control WiFi programable. Certificación CE. 6 meses de garantía.",
+    body: "Sistema de 3 filtros + purificación por ozono. Control WiFi programable. 6 meses de garantía.",
     href: "/productos/mf-barrel",
   },
   {
     name: "MF Horizon",
-    image: "/images/prod-horizon.png",
+    image: "/images/prod-horizon.jpg",
     price: "$74,000 MXN",
-    body: "Sistema de 3 filtros + purificación por ozono. Control WiFi programable. Certificación CE. 6 meses de garantía.",
+    body: "Sistema de 3 filtros + purificación por ozono. Control WiFi programable. 6 meses de garantía.",
     href: "/productos/mf-horizon",
   },
   {
     name: "MF ONE",
     image: "/images/prod-mfone.webp",
     price: "$169,000 MXN",
-    body: "Diseño All-In-One con chiller integrado. Filtro de 20 micrones + ozono. Certificación CE. 1 año de garantía.",
+    body: "Diseño All-In-One con el chiller dentro de la tina. Filtro de papel + ozono integrado. 12 meses de garantía, válida para uso comercial.",
     href: "/productos/mf-one",
+  },
+];
+
+/* Casos reales — datos verificados en las reglas de negocio del proyecto. */
+const CASO_HYROX = {
+  cliente: "Hyrox Cancún 2026",
+  rol: "Recovery Zone oficial",
+  sede: "Malecón Tajamar",
+  imagen: "/images/caso-hyrox-01.jpg",
+  body: "Mente Fria operó la Recovery Zone oficial de Hyrox Cancún 2026 en el Malecón Tajamar: carpa de atletas montada en sede, coach de inmersión en sitio durante todo el evento y cerca de 20,000 litros de agua fría en operación continua.",
+  datos: [
+    ["Recovery Zone", "Oficial del evento"],
+    ["Agua en operación", "~20,000 L"],
+    ["Sede", "Malecón Tajamar"],
+    ["Acompañamiento", "Coach en sitio"],
+  ],
+  nota: "Edición CDMX en negociación.",
+};
+
+/* Casa Polanco se eliminó en sep 2026: el proyecto NO se llevó a cabo. Estaba
+   publicado como caso real con "60 días de inmersiones", lo cual era falso.
+   No volver a agregarlo. */
+const CASOS = [
+  {
+    cliente: "Westin Santa Fe",
+    rol: "Activación de marca",
+    fecha: "Junio 2026",
+    body: "Activación con creadores de contenido en el Westin Santa Fe: los equipos Mente Fria como pieza central de la experiencia de recuperación dentro de un hotel de ciudad.",
   },
 ];
 
@@ -193,55 +226,88 @@ const FAQ_ITEMS = [
 export default function NegociosPage() {
   return (
     <PageShell>
-      {/* ── 1. HERO (dark) ─────────────────────────────────── */}
-      <section className="relative flex min-h-[80vh] items-center bg-black text-white">
-        <div className="absolute inset-0 overflow-hidden">
-          <Image
-            src="/images/hero-mfone.png"
-            alt="Cold plunge Mente Fria en un espacio comercial"
-            fill
-            className="object-cover opacity-40"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-        </div>
-        <div className="container-edge relative z-10 py-24">
+      {/* ── 1. HERO ────────────────────────────────────────────
+          Foto luminosa del Barrel en el campo de golf con overlay ligero,
+          en lugar del render oscuro anterior. Punto ① de Rafa.          */}
+      <section className="relative flex min-h-[78vh] items-center overflow-hidden">
+        <Image
+          src="/images/barrel-golf-wide.jpg"
+          alt="MF Barrel instalado al aire libre en un campo de golf"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        {/* Overlay ligero: mantiene la foto luminosa y a la vez sostiene el
+            texto. La capa vertical rescata el eyebrow, que caía sobre pasto. */}
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background: [
+              "linear-gradient(180deg, rgba(8,9,11,0.42) 0%, rgba(8,9,11,0.06) 44%, rgba(8,9,11,0) 60%)",
+              "linear-gradient(95deg, rgba(8,9,11,0.68) 0%, rgba(8,9,11,0.44) 38%, rgba(8,9,11,0.10) 78%, rgba(8,9,11,0.02) 100%)",
+            ].join(", "),
+          }}
+        />
+        <div className="mwrap relative z-10 py-24 text-white">
           <Reveal>
-            <p className="eyebrow mb-4 !text-white">Cold Plunge #1 en México</p>
-            <h1 className="display-lg mb-6 max-w-3xl text-white">
+            {/* Azul claro como el eyebrow del hero del landing (#8FBEE6):
+                misma convención del sistema y contrasta sobre el pasto. */}
+            <span
+              className="m-eyebrow"
+              style={{
+                color: "var(--m-blue-400)",
+                textShadow: "0 1px 12px rgba(0,0,0,0.6)",
+              }}
+            >
+              Cold Plunge #1 en México
+            </span>
+            <h1
+              className="mdisplay mb-6 mt-5 max-w-[16ch] text-[clamp(38px,5.6vw,84px)] text-white"
+              style={{
+                WebkitTextStroke: "var(--bold-stroke) currentColor",
+                textShadow: "0 2px 24px rgba(0,0,0,0.28)",
+              }}
+            >
               Usa el wellness para incrementar las utilidades de tu negocio
             </h1>
-            <p className="body-lg mb-10 max-w-lg !text-white/70">
+            <p
+              className="mb-9 max-w-[46ch] text-[17px] text-white/90"
+              style={{ textShadow: "0 1px 14px rgba(0,0,0,0.5)" }}
+            >
               La cold-plunge comercial #1 en México.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="#cotizar"
-                className="btn-pill bg-white text-black hover:bg-white/90"
-              >
+            <div className="flex flex-wrap gap-3">
+              <a href="#cotizar" className="mbtn mbtn-solid-light">
                 Cotiza ahora
               </a>
-              <Link
-                href="/productos"
-                className="btn-pill border border-white/40 text-white hover:bg-white/10"
-              >
-                Ver productos
-              </Link>
+              <a href="#roi" className="mbtn mbtn-ghost text-white">
+                Calcular mi ROI
+              </a>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ── 2. COTIZACIÓN B2B ──────────────────────────────── */}
-      <section id="cotizar" className="section-y bg-warm">
-        <div className="container-edge">
+      {/* ── 2. COTIZACIÓN B2B ──────────────────────────────────
+          Sección que Rafa dejó tal cual (punto ②): mismo contenido,
+          solo trasladada al sistema metal.                              */}
+      <section id="cotizar" className="msection panel scroll-mt-20">
+        <div className="mwrap">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
             <Reveal>
-              <p className="eyebrow mb-4">Cotización B2B</p>
-              <h2 className="display-md mb-6">
+              <span className="m-eyebrow accent">Cotización B2B</span>
+              <h2
+                className="mdisplay mb-6 mt-4 text-[clamp(28px,3.6vw,50px)]"
+                style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
+              >
                 Recibe tu plan personalizado en 24 horas
               </h2>
-              <p className="body-lg mb-8">
+              <p
+                className="mb-8 max-w-[52ch] text-[16px] leading-relaxed"
+                style={{ color: "var(--fg-muted)" }}
+              >
                 Cuéntanos sobre tu negocio y te enviamos una propuesta con el
                 modelo recomendado, plan de leasing personalizado y proyección
                 de ROI.
@@ -249,8 +315,14 @@ export default function NegociosPage() {
               <ul className="space-y-4">
                 {QUOTE_BULLETS.map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-foreground" />
-                    <span className="body-lg !text-foreground">{item}</span>
+                    <span
+                      aria-hidden
+                      className="mt-[9px] h-1.5 w-1.5 flex-none rounded-full"
+                      style={{ background: "var(--accent-ice)" }}
+                    />
+                    <span className="text-[15.5px]" style={{ color: "var(--fg-metal)" }}>
+                      {item}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -262,26 +334,48 @@ export default function NegociosPage() {
         </div>
       </section>
 
-      {/* ── 3. PARA TODO TIPO DE NEGOCIO ───────────────────── */}
-      <section className="section-y bg-background">
-        <div className="container-edge">
-          <SectionHeader
-            eyebrow="Para todo tipo de negocio"
-            title="Diseñado para los espacios más exigentes de México"
-            subtitle="De hoteles 5 estrellas a gimnasios boutique, spas, centros wellness y equipos profesionales. Mente Fria se adapta a la operación premium de cada espacio."
-            center
-            className="mb-14"
-          />
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {/* ── 3. VERTICALES — FORMATO HORIZONTAL ─────────────────
+          Punto ④: las 8 verticales pasan de rejilla de 4 columnas a
+          bandas horizontales de ancho completo, estilo editorial.       */}
+      <section className="msection">
+        <div className="mwrap">
+          <Reveal className="msection-head">
+            <span className="m-eyebrow accent">Para todo tipo de negocio</span>
+            <h2>Diseñado para los espacios más exigentes de México</h2>
+            <p>
+              De hoteles 5 estrellas a gimnasios boutique, spas, centros
+              wellness y equipos profesionales. Mente Fria se adapta a la
+              operación premium de cada espacio.
+            </p>
+          </Reveal>
+
+          <div style={{ borderBottom: "1px solid var(--line-1)" }}>
             {BUSINESS_TYPES.map((b, i) => (
               <Reveal
                 key={b.num}
-                delay={(i % 4) * 80}
-                className="rounded-2xl border border-line p-7"
+                delay={(i % 4) * 60}
+                className="grid items-baseline gap-x-8 gap-y-2 py-7 md:grid-cols-[84px_minmax(0,260px)_minmax(0,1fr)]"
+                style={{ borderTop: "1px solid var(--line-1)" }}
               >
-                <p className="text-4xl font-light text-ink-faint">{b.num}</p>
-                <h3 className="mt-4 text-lg font-semibold">{b.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+                <span
+                  className="mdisplay text-[34px] leading-none"
+                  style={{ color: "var(--fg-subtle)" }}
+                >
+                  {b.num}
+                </span>
+                <h3
+                  className="mdisplay text-[23px] leading-tight"
+                  style={{
+                    color: "var(--fg-metal)",
+                    WebkitTextStroke: "var(--bold-stroke) currentColor",
+                  }}
+                >
+                  {b.title}
+                </h3>
+                <p
+                  className="max-w-[70ch] text-[15px] leading-relaxed"
+                  style={{ color: "var(--fg-muted)" }}
+                >
                   {b.body}
                 </p>
               </Reveal>
@@ -290,91 +384,271 @@ export default function NegociosPage() {
         </div>
       </section>
 
-      {/* ── 4. PRODUCTOS ───────────────────────────────────── */}
-      <section className="section-y bg-warm">
-        <div className="container-edge">
-          <SectionHeader
-            title="Encuentra la cold plunge perfecta para tu negocio"
-            center
-            className="mb-14"
-          />
+      {/* ── 4. PRODUCTOS ───────────────────────────────────────── */}
+      <section className="msection panel">
+        <div className="mwrap">
+          <Reveal className="msection-head">
+            <span className="m-eyebrow accent">Los equipos</span>
+            <h2>Encuentra la cold plunge perfecta para tu negocio</h2>
+          </Reveal>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {PRODUCTS.map((p, i) => (
               <Reveal
                 key={p.name}
                 delay={(i % 3) * 80}
-                className="flex flex-col overflow-hidden rounded-3xl border border-line bg-background"
+                className="relative flex flex-col overflow-hidden rounded-[18px] border"
+                style={{
+                  borderColor: "var(--line-1)",
+                  background: "var(--m-white)",
+                }}
               >
-                <div className="relative aspect-[4/3] w-full">
+                <div
+                  className="relative aspect-[4/3] w-full"
+                  style={{ background: "var(--grad-silver)" }}
+                >
                   <Image
                     src={p.image}
                     alt={p.name}
                     fill
-                    sizes="400px"
+                    sizes="(max-width: 640px) 100vw, 400px"
                     className="object-cover"
                   />
                 </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <p className="eyebrow mb-2">{p.price}</p>
-                  <h3 className="text-lg font-semibold">{p.name}</h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-soft">
+                <div className="flex flex-1 flex-col p-7">
+                  <p className="m-eyebrow accent">{p.price}</p>
+                  <h3
+                    className="mdisplay mt-2 text-[22px]"
+                    style={{
+                      color: "var(--fg-metal)",
+                      WebkitTextStroke: "var(--bold-stroke) currentColor",
+                    }}
+                  >
+                    {p.name}
+                  </h3>
+                  <p
+                    className="mt-3 flex-1 text-[14px] leading-relaxed"
+                    style={{ color: "var(--fg-muted)" }}
+                  >
                     {p.body}
                   </p>
-                  <Link
-                    href={p.href}
-                    className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-opacity hover:opacity-70"
+                  <span
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-medium"
+                    style={{ color: "var(--fg-metal)" }}
                   >
                     Ver detalles
                     <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  </span>
                 </div>
+                {/* Stretched link: la card completa es clickeable */}
+                <Link
+                  href={p.href}
+                  className="absolute inset-0 z-[5]"
+                  aria-label={`Ver detalles de ${p.name}`}
+                />
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── 5. CALCULADORA ROI ─────────────────────────────── */}
-      <section id="roi" className="section-y bg-background">
-        <div className="container-edge">
-          <SectionHeader
-            eyebrow="Calculadora ROI"
-            title="Calcula cuándo recuperas tu inversión"
-            subtitle="Simula tu retorno con base en el modelo, plazo del leasing y cuántas inmersiones cobras al mes. Los números se actualizan en tiempo real."
-            center
-            className="mb-14"
-          />
+      {/* ── 5. CALCULADORA ROI ─────────────────────────────────
+          Punto ③: misma matemática por inmersión + gráfica de ingreso
+          acumulado contra costo, con el punto de equilibrio marcado.    */}
+      <section id="roi" className="msection scroll-mt-20">
+        <div className="mwrap">
+          <Reveal className="msection-head">
+            <span className="m-eyebrow accent">Calculadora ROI</span>
+            <h2>Calcula cuándo recuperas tu inversión</h2>
+            <p>
+              Simula tu retorno con base en el modelo, el plazo del leasing y
+              cuántas inmersiones cobras al día. Los números y la gráfica se
+              actualizan en tiempo real.
+            </p>
+          </Reveal>
           <RoiCalculator />
         </div>
       </section>
 
-      {/* ── 6. POR QUÉ MENTE FRIA ──────────────────────────── */}
-      <section className="section-y bg-warm">
-        <div className="container-edge">
-          <SectionHeader
-            eyebrow="Por qué Mente Fria"
-            title="El #1 Cold Plunge Comercial en México"
-            subtitle="Soporte 24/7, garantía extendida, app de monitoreo y diseño pensado para operación intensiva. Todo lo que necesitas para escalar sin sobresaltos."
-            className="mb-14"
-          />
+      {/* ── 6. CASOS REALES ────────────────────────────────────
+          Punto ⑥. Solo datos verificados: sin porcentajes ni cifras de
+          ingreso, porque no existen medidos. Falta foto de Westin y
+          Westin — Saul las va a conseguir.                            */}
+      <section className="msection panel">
+        <div className="mwrap">
+          <Reveal className="msection-head">
+            <span className="m-eyebrow accent">Casos reales</span>
+            <h2>Dónde ya está operando Mente Fria</h2>
+            <p>
+              Eventos deportivos, hotelería y espacios de experiencia. Estos son
+              proyectos reales, con equipos y personas de Mente Fria en sitio.
+            </p>
+          </Reveal>
+
+          {/* Caso destacado — Hyrox Cancún */}
+          <Reveal
+            className="overflow-hidden rounded-[20px] border"
+            style={{
+              borderColor: "var(--line-1)",
+              background: "var(--m-white)",
+            }}
+          >
+            <div className="grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+              <div
+                className="relative min-h-[320px] lg:min-h-[520px]"
+                style={{ background: "var(--m-graphite)" }}
+              >
+                <Image
+                  src={CASO_HYROX.imagen}
+                  alt="Recovery Zone de Mente Fria en Hyrox Cancún 2026"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col justify-center p-8 sm:p-11">
+                <span className="m-eyebrow accent">{CASO_HYROX.rol}</span>
+                <h3
+                  className="mdisplay mt-4 text-[clamp(26px,3vw,40px)]"
+                  style={{
+                    color: "var(--fg-metal)",
+                    WebkitTextStroke: "var(--bold-stroke) currentColor",
+                  }}
+                >
+                  {CASO_HYROX.cliente}
+                </h3>
+                <p
+                  className="mt-4 max-w-[54ch] text-[15.5px] leading-relaxed"
+                  style={{ color: "var(--fg-muted)" }}
+                >
+                  {CASO_HYROX.body}
+                </p>
+
+                <dl
+                  className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-[14px]"
+                  style={{ background: "var(--line-1)" }}
+                >
+                  {CASO_HYROX.datos.map(([k, v]) => (
+                    <div
+                      key={k}
+                      className="p-5"
+                      style={{ background: "var(--m-white)" }}
+                    >
+                      <dt className="m-eyebrow">{k}</dt>
+                      <dd
+                        className="mt-2 text-[15px] font-semibold"
+                        style={{ color: "var(--fg-metal)" }}
+                      >
+                        {v}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+
+                <p className="mt-6 text-xs" style={{ color: "var(--fg-subtle)" }}>
+                  {CASO_HYROX.nota}
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Westin Santa Fe */}
+          <div className="mt-5 grid gap-5 md:grid-cols-2">
+            {CASOS.map((c, i) => (
+              <Reveal
+                key={c.cliente}
+                delay={i * 80}
+                className="flex flex-col rounded-[18px] border p-8 sm:p-10"
+                style={{
+                  borderColor: "var(--line-1)",
+                  background: "var(--m-white)",
+                }}
+              >
+                <div className="flex items-baseline justify-between gap-4">
+                  <span className="m-eyebrow accent">{c.rol}</span>
+                  <span className="m-eyebrow">{c.fecha}</span>
+                </div>
+                <h3
+                  className="mdisplay mt-4 text-[26px]"
+                  style={{
+                    color: "var(--fg-metal)",
+                    WebkitTextStroke: "var(--bold-stroke) currentColor",
+                  }}
+                >
+                  {c.cliente}
+                </h3>
+                <p
+                  className="mt-4 text-[15px] leading-relaxed"
+                  style={{ color: "var(--fg-muted)" }}
+                >
+                  {c.body}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. POR QUÉ MENTE FRIA ──────────────────────────────── */}
+      <section className="msection">
+        <div className="mwrap">
+          <Reveal className="msection-head !mx-0 !text-left">
+            <span className="m-eyebrow accent">Por qué Mente Fria</span>
+            <h2>El #1 Cold Plunge Comercial en México</h2>
+            <p className="!mx-0">
+              Soporte 24/7, garantía extendida, app de monitoreo y diseño
+              pensado para operación intensiva. Todo lo que necesitas para
+              escalar sin sobresaltos.
+            </p>
+          </Reveal>
           <div className="space-y-5">
             {WHY_BLOCKS.map((w, i) => (
               <Reveal
                 key={w.num}
                 delay={i * 80}
-                className="rounded-3xl border border-line bg-background p-8 sm:p-10"
+                className="rounded-[18px] border p-8 sm:p-10"
+                style={{
+                  borderColor: "var(--line-1)",
+                  background: "var(--m-white)",
+                }}
               >
                 <div className="grid gap-8 lg:grid-cols-[auto_1fr] lg:gap-14">
-                  <p className="text-5xl font-light text-ink-faint">{w.num}</p>
+                  <p
+                    className="mdisplay text-[44px] leading-none"
+                    style={{ color: "var(--fg-subtle)" }}
+                  >
+                    {w.num}
+                  </p>
                   <div>
-                    <p className="eyebrow mb-3">{w.tag}</p>
-                    <h3 className="heading-sm">{w.title}</h3>
-                    <p className="body-lg mt-4 max-w-3xl">{w.body}</p>
+                    <span className="m-eyebrow accent">{w.tag}</span>
+                    <h3
+                      className="mdisplay mt-3 text-[26px]"
+                      style={{
+                        color: "var(--fg-metal)",
+                        WebkitTextStroke: "var(--bold-stroke) currentColor",
+                      }}
+                    >
+                      {w.title}
+                    </h3>
+                    <p
+                      className="mt-4 max-w-[72ch] text-[15.5px] leading-relaxed"
+                      style={{ color: "var(--fg-muted)" }}
+                    >
+                      {w.body}
+                    </p>
                     <ul className="mt-6 space-y-3">
                       {w.bullets.map((item) => (
                         <li key={item} className="flex items-start gap-3">
-                          <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-foreground" />
-                          <span className="text-sm text-ink-soft">{item}</span>
+                          <span
+                            aria-hidden
+                            className="mt-[8px] h-1.5 w-1.5 flex-none rounded-full"
+                            style={{ background: "var(--accent-ice)" }}
+                          />
+                          <span
+                            className="text-[14px]"
+                            style={{ color: "var(--fg-muted)" }}
+                          >
+                            {item}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -386,34 +660,59 @@ export default function NegociosPage() {
         </div>
       </section>
 
-      {/* ── 7. LEASING (dark) ──────────────────────────────── */}
-      <section className="section-y bg-black text-white">
-        <div className="container-edge">
+      {/* ── 8. LEASING (dark) ──────────────────────────────────── */}
+      <section className="msection dark-s">
+        <div className="mwrap">
           <Reveal className="max-w-3xl">
-            <p className="eyebrow mb-4 !text-white">Leasing Mente Fria</p>
-            <h2 className="display-md">
+            <span className="m-eyebrow accent">Leasing Mente Fria</span>
+            <h2
+              className="mdisplay mt-4 text-[clamp(28px,3.6vw,50px)]"
+              style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
+            >
               Beneficio fiscal para tu empresa. Sin descapitalizarte.
             </h2>
-            <p className="body-lg mt-5 !text-white/70">
+            <p
+              className="mt-5 text-[16px] leading-relaxed"
+              style={{ color: "var(--on-dark-muted)" }}
+            >
               Adquiere tu equipo a 12 o 24 meses sin descapitalizarte. Al final
-              del plazo, ejerces opción de compra con valor residual del 5%.
-              Sin tocar tu línea de crédito bancaria.
+              del plazo, ejerces opción de compra con valor residual del 5%. Sin
+              tocar tu línea de crédito bancaria.
             </p>
           </Reveal>
-          <div className="mt-14 grid gap-10 border-t border-white/15 pt-12 sm:grid-cols-3">
+
+          <div
+            className="mt-14 grid gap-10 pt-12 sm:grid-cols-3"
+            style={{ borderTop: "1px solid var(--on-dark-line)" }}
+          >
             {LEASING_STATS.map((s, i) => (
               <Reveal key={s.label} delay={i * 90}>
-                <p className="display-lg text-white">{s.value}</p>
-                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/60">
+                <p
+                  className="mdisplay text-[clamp(44px,6vw,76px)] leading-none text-white"
+                  style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
+                >
+                  {s.value}
+                </p>
+                <p
+                  className="m-eyebrow mt-4"
+                  style={{ color: "var(--on-dark-subtle)" }}
+                >
                   {s.label}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-white/70">
+                <p
+                  className="mt-3 text-[14px] leading-relaxed"
+                  style={{ color: "var(--on-dark-muted)" }}
+                >
                   {s.body}
                 </p>
               </Reveal>
             ))}
           </div>
-          <Reveal className="mt-12 flex flex-wrap items-center gap-x-10 gap-y-3 border-t border-white/15 pt-8">
+
+          <Reveal
+            className="mt-12 flex flex-wrap items-center gap-x-10 gap-y-3 pt-8"
+            style={{ borderTop: "1px solid var(--on-dark-line)" }}
+          >
             {[
               ["Anticipo", "10%"],
               ["Valor residual", "5%"],
@@ -421,21 +720,24 @@ export default function NegociosPage() {
             ].map(([label, value]) => (
               <p
                 key={label}
-                className="text-xs uppercase tracking-[0.16em] text-white/60"
+                className="m-eyebrow"
+                style={{ color: "var(--on-dark-subtle)" }}
               >
-                {label} <span className="ml-1 font-semibold text-white">{value}</span>
+                {label}{" "}
+                <span className="ml-1 font-semibold text-white">{value}</span>
               </p>
             ))}
           </Reveal>
+
           <Reveal className="mt-10">
-            <a
-              href="#roi"
-              className="btn-pill bg-white text-black hover:bg-white/90"
-            >
+            <a href="#roi" className="mbtn mbtn-solid-light">
               Calcular mi ROI
               <ArrowRight className="h-4 w-4" />
             </a>
-            <p className="mt-6 max-w-2xl text-xs leading-relaxed text-white/50">
+            <p
+              className="mt-6 max-w-2xl text-xs leading-relaxed"
+              style={{ color: "var(--on-dark-subtle)" }}
+            >
               Montos en pesos mexicanos. Sujeto a aprobación crediticia. Cifras
               informativas. El tratamiento fiscal del leasing depende del
               régimen contable elegido; consulta a tu contador.
@@ -444,54 +746,101 @@ export default function NegociosPage() {
         </div>
       </section>
 
-      {/* ── 8. PROCESO ─────────────────────────────────────── */}
-      <section className="section-y bg-background">
-        <div className="container-edge">
-          <SectionHeader
-            eyebrow="Proceso paso a paso"
-            title="Así de simple es equipar tu negocio"
-            subtitle="De la primera llamada a tu equipo operando: proceso transparente en menos de 3 semanas."
-            center
-            className="mb-14"
-          />
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {/* ── 9. PROCESO ─────────────────────────────────────────
+          Punto ⑦: números grandes en bold, con flechas entre pasos.    */}
+      <section className="msection">
+        <div className="mwrap">
+          <Reveal className="msection-head">
+            <span className="m-eyebrow accent">Proceso paso a paso</span>
+            <h2>Así de simple es equipar tu negocio</h2>
+            <p>
+              De la primera llamada a tu equipo operando: proceso transparente
+              en menos de 3 semanas.
+            </p>
+          </Reveal>
+
+          <div className="grid gap-y-10 lg:grid-cols-[repeat(4,minmax(0,1fr))] lg:gap-x-6">
             {PROCESS_STEPS.map((s, i) => (
-              <Reveal
-                key={s.num}
-                delay={(i % 4) * 80}
-                className="rounded-2xl border border-line p-7"
-              >
-                <p className="text-4xl font-light text-ink-faint">{s.num}</p>
-                <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-                  {s.body}
-                </p>
-              </Reveal>
+              <Fragment key={s.num}>
+                <Reveal delay={i * 80} className="relative">
+                  <p
+                    className="mdisplay text-[clamp(58px,7vw,92px)] leading-[0.85]"
+                    style={{
+                      color: "var(--fg-metal)",
+                      WebkitTextStroke: "1px currentColor",
+                    }}
+                  >
+                    {s.num}
+                  </p>
+                  <h3
+                    className="mdisplay mt-5 text-[20px]"
+                    style={{
+                      color: "var(--fg-metal)",
+                      WebkitTextStroke: "var(--bold-stroke) currentColor",
+                    }}
+                  >
+                    {s.title}
+                  </h3>
+                  <p
+                    className="mt-3 text-[14px] leading-relaxed"
+                    style={{ color: "var(--fg-muted)" }}
+                  >
+                    {s.body}
+                  </p>
+
+                  {/* Flecha hacia el siguiente paso */}
+                  {i < PROCESS_STEPS.length - 1 && (
+                    <span
+                      aria-hidden
+                      className="absolute -right-5 top-[26px] hidden lg:block"
+                      style={{ color: "var(--accent-ice)" }}
+                    >
+                      <ArrowRight className="h-6 w-6" />
+                    </span>
+                  )}
+                </Reveal>
+              </Fragment>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── 9. FAQ B2B ─────────────────────────────────────── */}
-      <section className="section-y bg-warm">
-        <div className="container-edge">
-          <SectionHeader
-            eyebrow="Preguntas frecuentes B2B"
-            title="Todo lo que necesitas saber antes de cotizar"
-            center
-            className="mb-14"
-          />
-          <FAQ items={FAQ_ITEMS} />
+      {/* ── 10. FAQ B2B ────────────────────────────────────────
+          Punto ⑧: variante `bold` del acordeón.                        */}
+      <section className="msection panel">
+        <div className="mwrap">
+          <Reveal className="msection-head">
+            <span className="m-eyebrow accent">Preguntas frecuentes B2B</span>
+            <h2>Todo lo que necesitas saber antes de cotizar</h2>
+          </Reveal>
+          <FAQ items={FAQ_ITEMS} bold />
         </div>
       </section>
 
-      {/* ── 10. CTA FINAL (dark) ───────────────────────────── */}
-      <CTASection
-        title="Mente Fria para Negocios"
-        body="Equipa tu espacio con la tecnología de recuperación que están adoptando las marcas más exigentes de México."
-        cta={{ label: "Cotiza ahora", href: "#cotizar" }}
-        dark
-      />
+      {/* ── 11. CTA FINAL (dark) ───────────────────────────────── */}
+      <section className="msection dark-s">
+        <div className="mwrap text-center">
+          <Reveal className="mx-auto max-w-2xl">
+            <span className="m-eyebrow accent">Mente Fria para Negocios</span>
+            <h2
+              className="mdisplay mt-4 text-[clamp(28px,3.8vw,54px)]"
+              style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
+            >
+              Equipa tu espacio con la tecnología de recuperación que ya usan
+              las marcas más exigentes de México.
+            </h2>
+            <div className="mt-9 flex flex-wrap justify-center gap-3">
+              <a href="#cotizar" className="mbtn mbtn-solid-light">
+                Cotiza ahora
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <Link href="/productos" className="mbtn mbtn-ghost text-white">
+                Ver productos
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </PageShell>
   );
 }

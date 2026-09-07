@@ -1,170 +1,194 @@
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
-import { SubHero, SectionHeader, CTASection } from "@/components/blocks";
 import { Reveal } from "@/components/Reveal";
-import { Placeholder } from "@/components/Placeholder";
+import { ArrowRight } from "@/components/icons";
+import { BLOG_POSTS } from "@/lib/blog-posts";
 
-/* ---- Data ---------------------------------------------------------------- */
+/* ─────────────────────────────────────────────────────────────
+   BLOG
 
-const featured = {
-  category: "Noticias",
-  title: "¿Qué beneficios ofrece el uso regular de un cold plunge?",
-  excerpt:
-    "El cold plunge ofrece beneficios reales y documentados para la salud —menos estrés, mejor sueño, sistema inmunológico más fuerte, mayor claridad mental— y en este artículo los analizamos uno por uno.",
-  date: "27 de mayo de 2026",
-  author: "Anderson Muro Zabala",
-  tone: "cool" as const,
+   Índice de la serie "La ciencia del frío": los ocho artículos que
+   desarrollan las ocho razones del landing. Cada card del carrusel de inicio
+   lleva a su artículo, y esta página los reúne.
+
+   Ya no hay artículos de relleno ni placeholders: todo lo que se lista existe
+   y se puede leer.
+───────────────────────────────────────────────────────────── */
+
+export const metadata = {
+  title: "La ciencia del frío | Mente Fria",
+  description:
+    "Ocho artículos sobre lo que la inmersión en frío le hace a tu cuerpo: recuperación, ánimo, energía, inflamación, resiliencia, sueño, metabolismo y sistema inmune.",
 };
 
-const articles = [
-  {
-    category: "Noticias",
-    title: "Los mejores consejos para iniciar en el ciclismo con éxito",
-    excerpt:
-      "Muchas personas que empiezan a pedalear cometen el mismo error: salir fuerte los primeros días, terminar con dolor en rodillas y cuádriceps, y abandonar antes de ver resultados.",
-    date: "19 de mayo de 2026",
-    author: "Anderson Muro Zabala",
-    tone: "warm" as const,
-  },
-  {
-    category: "Noticias",
-    title: "¿Qué son las cold plunge y qué modelos existen en México?",
-    excerpt:
-      "Cada vez más personas descubren la terapia de inmersión fría, pero al momento de comprar se topan con un problema real: el mercado está lleno de términos distintos que parecen referirse a lo mismo.",
-    date: "6 de mayo de 2026",
-    author: "Anderson Muro Zabala",
-    tone: "blue" as const,
-  },
-];
-
-/* ---- Page ---------------------------------------------------------------- */
-
 export default function BlogPage() {
+  const [destacado, ...resto] = BLOG_POSTS;
+
   return (
     <PageShell>
-      {/* 1. SubHero */}
-      <SubHero
-        eyebrow="Blog"
-        title="Noticias"
-        subtitle="Frío, cuerpo y mente. Todo lo que necesitas saber sobre terapia de inmersión fría, recuperación y rendimiento."
-        tone="warm"
-      />
-
-      {/* 2. Featured post */}
-      <section className="section-y bg-background">
-        <div className="container-edge">
-          <Reveal className="grid items-center gap-10 lg:grid-cols-2">
-            {/* Left: image placeholder */}
-            <Placeholder
-              tone={featured.tone}
-              label={featured.category}
-              className="aspect-[16/10] w-full rounded-3xl"
-            />
-
-            {/* Right: content */}
-            <div className="flex flex-col">
-              <p className="eyebrow">{featured.category}</p>
-              <h2 className="display-md mt-3">{featured.title}</h2>
-              <p className="body-lg mt-5 text-ink-soft">{featured.excerpt}</p>
-              <div className="mt-5 flex items-center gap-3 text-xs text-ink-faint">
-                <span>{featured.date}</span>
-                <span>·</span>
-                <span>{featured.author}</span>
-              </div>
-              <div className="mt-6">
-                <Link
-                  href="https://mentefria.com/blog"
-                  className="btn-pill btn-ink"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Leer más →
-                </Link>
-              </div>
-            </div>
+      {/* ── Encabezado ─────────────────────────────────────── */}
+      <section className="msection panel">
+        <div className="mwrap">
+          <Reveal className="max-w-3xl">
+            <span className="m-eyebrow accent">La ciencia del frío</span>
+            <h1
+              className="mdisplay mt-4 text-[clamp(34px,5vw,68px)]"
+              style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
+            >
+              Ocho razones, ocho artículos.
+            </h1>
+            <p
+              className="mt-6 max-w-[58ch] text-[17px] leading-relaxed"
+              style={{ color: "var(--fg-muted)" }}
+            >
+              Cada inmersión activa una cascada fisiológica. Aquí desarrollamos
+              qué pasa exactamente, qué dice la investigación y también dónde la
+              evidencia todavía no alcanza. Con las fuentes a la vista.
+            </p>
           </Reveal>
         </div>
       </section>
 
-      {/* 3. Article grid — últimos 2 artículos */}
-      <section className="section-y bg-background">
-        <div className="container-edge">
-          <SectionHeader
-            title="Más artículos"
-            eyebrow="Noticias"
-            className="mb-12"
-          />
-          <div className="grid gap-8 sm:grid-cols-2">
-            {articles.map((article) => (
-              <Reveal key={article.title}>
-                <div className="flex flex-col rounded-3xl border border-line bg-background p-8 transition-shadow hover:shadow-md">
-                  <p className="eyebrow mb-3">{article.category}</p>
-                  <h3 className="display-sm mb-4 leading-snug">{article.title}</h3>
-                  <p className="body-md flex-1 text-ink-soft">{article.excerpt}</p>
-                  <div className="mt-5 flex items-center gap-3 text-xs text-ink-faint">
-                    <span>{article.date}</span>
-                    <span>·</span>
-                    <span>{article.author}</span>
+      {/* ── Destacado ──────────────────────────────────────── */}
+      <section className="msection">
+        <div className="mwrap">
+          <Reveal>
+            <Link
+              href={`/blog/${destacado.slug}`}
+              className="group grid overflow-hidden rounded-[20px] border lg:grid-cols-2"
+              style={{
+                borderColor: "var(--line-1)",
+                background: "var(--m-white)",
+              }}
+            >
+              <div
+                className="relative min-h-[280px] overflow-hidden lg:min-h-[440px]"
+                style={{ background: "var(--m-graphite)" }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={destacado.img}
+                  alt=""
+                  aria-hidden
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                />
+              </div>
+              <div className="flex flex-col justify-center p-8 sm:p-12">
+                <span className="m-eyebrow accent">
+                  {destacado.num} · Empieza aquí
+                </span>
+                <h2
+                  className="mdisplay mt-4 text-[clamp(26px,3.2vw,44px)]"
+                  style={{
+                    color: "var(--fg-metal)",
+                    WebkitTextStroke: "var(--bold-stroke) currentColor",
+                  }}
+                >
+                  {destacado.titulo}
+                </h2>
+                <p
+                  className="mt-4 max-w-[48ch] text-[15.5px] leading-relaxed"
+                  style={{ color: "var(--fg-muted)" }}
+                >
+                  {destacado.dek}
+                </p>
+                <span
+                  className="mt-7 inline-flex items-center gap-2 text-sm font-medium"
+                  style={{ color: "var(--fg-metal)" }}
+                >
+                  Leer · {destacado.lectura}
+                  <ArrowRight className="h-4 w-4" />
+                </span>
+              </div>
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Los otros siete ────────────────────────────────── */}
+      <section className="msection panel">
+        <div className="mwrap">
+          <Reveal className="msection-head !mx-0 !text-left">
+            <span className="m-eyebrow accent">La serie completa</span>
+            <h2>Lo que el frío le hace a tu cuerpo.</h2>
+          </Reveal>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {resto.map((p, i) => (
+              <Reveal key={p.slug} delay={(i % 3) * 70}>
+                <Link
+                  href={`/blog/${p.slug}`}
+                  className="group flex h-full flex-col overflow-hidden rounded-[18px] border"
+                  style={{
+                    borderColor: "var(--line-1)",
+                    background: "var(--m-white)",
+                  }}
+                >
+                  <div
+                    className="relative aspect-[16/10] overflow-hidden"
+                    style={{ background: "var(--m-graphite)" }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={p.img}
+                      alt=""
+                      aria-hidden
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                    />
+                    <span className="absolute left-4 top-4 rounded-full bg-[rgba(8,9,11,0.72)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-sm">
+                      {p.num}
+                    </span>
                   </div>
-                  <div className="mt-5">
-                    <Link
-                      href="https://mentefria.com/blog"
-                      className="text-sm font-medium text-foreground underline-offset-4 hover:underline"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  <div className="flex flex-1 flex-col p-7">
+                    <h3
+                      className="mdisplay text-[21px] leading-tight"
+                      style={{
+                        color: "var(--fg-metal)",
+                        WebkitTextStroke: "var(--bold-stroke) currentColor",
+                      }}
                     >
-                      Leer más →
-                    </Link>
+                      {p.titulo}
+                    </h3>
+                    <p
+                      className="mt-3 flex-1 text-[14px] leading-relaxed"
+                      style={{ color: "var(--fg-muted)" }}
+                    >
+                      {p.dek}
+                    </p>
+                    <span
+                      className="mt-6 inline-flex items-center gap-2 text-[13px] font-medium"
+                      style={{ color: "var(--accent-ice)" }}
+                    >
+                      Leer · {p.lectura}
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </span>
                   </div>
-                </div>
+                </Link>
               </Reveal>
             ))}
           </div>
-          <Reveal className="mt-10 text-center">
-            <p className="text-xs uppercase tracking-[0.1em] text-ink-faint">
-              Más artículos pronto.
-            </p>
-          </Reveal>
         </div>
       </section>
 
-      {/* 5. Newsletter CTA */}
-      <section className="section-y bg-warm">
-        <div className="container-edge">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow mb-4">Newsletter</p>
-            <h2 className="display-md">Suscríbete al frío.</h2>
-            <p className="body-lg mt-4 text-ink-soft">
-              Recibe protocolos y ciencia del frío en tu correo. Sin spam, sin ruido.
-            </p>
-            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-              <input
-                type="email"
-                placeholder="tu@correo.com"
-                className="w-full rounded-full border border-line bg-background px-5 py-3 text-sm text-foreground placeholder:text-ink-faint focus:outline-none focus:ring-2 focus:ring-foreground sm:w-72"
-                readOnly
-              />
-              <button
-                type="button"
-                className="btn-pill btn-ink w-full sm:w-auto"
-              >
-                Suscribirme
-              </button>
+      {/* ── CTA ────────────────────────────────────────────── */}
+      <section className="msection dark-s">
+        <div className="mwrap text-center">
+          <Reveal className="mx-auto max-w-2xl">
+            <span className="m-eyebrow accent">Mind over body</span>
+            <h2
+              className="mdisplay mt-4 text-[clamp(28px,3.8vw,52px)]"
+              style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
+            >
+              Leer sobre el frío está bien. Meterse es otra cosa.
+            </h2>
+            <div className="mt-9 flex flex-wrap justify-center gap-3">
+              <Link href="/productos" className="mbtn mbtn-solid-light">
+                Ver los plunges
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
-            <p className="mt-4 text-xs text-ink-faint">
-              Sin spam. Puedes salirte cuando quieras.
-            </p>
           </Reveal>
         </div>
       </section>
-
-      {/* 6. CTA Section */}
-      <CTASection
-        title="Siente la diferencia desde el primer día."
-        body="Tecnología de temperatura diseñada para atletas, optimizadores y quienes se toman en serio su descanso."
-        cta={{ label: "Ver productos", href: "/productos" }}
-        dark
-      />
     </PageShell>
   );
 }

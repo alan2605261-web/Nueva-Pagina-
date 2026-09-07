@@ -39,7 +39,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Cuánto cuesta el envío?",
-    a: "El envío del MF Horizon cuesta $1,500 MXN a todo México. Al ser inflable y ligera (~15 kg), no requiere maniobra especial de entrega: llega en caja y la instalas tú mismo.",
+    a: "El envío del MF Horizon cuesta $1,500 MXN a todo México. Al ser inflable y ligera (15 kg), no requiere maniobra especial de entrega: llega en caja y la instalas tú mismo.",
   },
   {
     q: "¿En qué se diferencia del MF Barrel?",
@@ -51,7 +51,7 @@ const FAQ_ITEMS = [
 const SPEC_ROWS = [
   { label: "Dimensiones", value: "160 × 70 × 65 cm" },
   { label: "Capacidad", value: "420 L" },
-  { label: "Peso", value: "~15 kg (sin agua)" },
+  { label: "Peso", value: "15 kg (sin agua)" },
   { label: "Formato", value: "Horizontal — inmersión estirado" },
   { label: "Material", value: "PVC ultraduradero reforzado con fibra de vidrio" },
   { label: "Filtración", value: "Sistema de 3 filtros (1 – 5 micras)" },
@@ -61,7 +61,6 @@ const SPEC_ROWS = [
   { label: "Motores compatibles", value: "Motor Pro 2.0 (0.8 HP) · Motor Premium 2.0 (1 HP)" },
   { label: "Control", value: "WiFi + app, programable" },
   { label: "Colores", value: "Negro · Blanco" },
-  { label: "Certificación", value: "CE" },
   { label: "Garantía", value: "6 meses" },
   { label: "Portabilidad", value: "Inflable — mochila de transporte incluida" },
   { label: "Envío", value: "$1,500 MXN a todo México" },
@@ -70,8 +69,8 @@ const SPEC_ROWS = [
 const HERO_BULLETS = [
   "Mayor espacio de inmersión: cabes estirado, con los hombros bajo el agua",
   "Enfría hasta 3 °C sin hielo — y hasta 42 °C con Motor Premium 2.0",
-  "Inflable y portátil: ~15 kg, se guarda en su mochila de transporte",
-  "Sistema de 3 filtros + ozono. Control WiFi programable. Certificación CE.",
+  "Inflable y portátil: 15 kg, se guarda en su mochila de transporte",
+  "Sistema de 3 filtros + ozono. Control WiFi programable.",
   "6 meses de garantía y 30 días de prueba.",
 ];
 
@@ -156,7 +155,7 @@ export default function MFHorizonPage() {
                     {[
                       {
                         t: "Detalles del producto",
-                        c: "160 × 70 × 65 cm · 420 L · ~15 kg. PVC ultraduradero reforzado con fibra de vidrio, amigable con la piel. Formato horizontal: el mayor espacio de inmersión de la línea — cabes estirado. Compatible con Motor Pro 2.0 y Motor Premium 2.0, con control WiFi y app. Certificación CE.",
+                        c: "160 × 70 × 65 cm · 420 L · 15 kg. PVC ultraduradero reforzado con fibra de vidrio, amigable con la piel. Formato horizontal: el mayor espacio de inmersión de la línea — cabes estirado. Compatible con Motor Pro 2.0 y Motor Premium 2.0, con control WiFi y app.",
                       },
                       {
                         t: "Qué incluye",
@@ -164,11 +163,11 @@ export default function MFHorizonPage() {
                       },
                       {
                         t: "Envío y entrega",
-                        c: "$1,500 MXN a todo México. Al ser inflable y ligera (~15 kg), no requiere maniobra especial: llega en caja y la instalas tú mismo, sin obra ni plomería.",
+                        c: "$1,500 MXN a todo México. Al ser inflable y ligera (15 kg), no requiere maniobra especial: llega en caja y la instalas tú mismo, sin obra ni plomería.",
                       },
                       {
                         t: "Prueba, garantía y devoluciones",
-                        c: "30 días de prueba sin preguntas: si no es el mejor cold plunge que has probado, te reembolsamos. Garantía de 6 meses por defectos de fabricación y atención de por vida por nuestros canales.",
+                        c: "30 días de prueba sin preguntas: si no es la mejor cold plunge que has probado, te reembolsamos. Garantía de 6 meses por defectos de fabricación y atención de por vida por nuestros canales.",
                       },
                     ].map((a) => (
                       <details key={a.t} className="group rounded-[14px] border border-[var(--line-1)] bg-white">
@@ -270,7 +269,7 @@ export default function MFHorizonPage() {
                 {
                   n: "02",
                   t: "Guárdala",
-                  p: "Cabe en su mochila de transporte. Con ~15 kg, la mueves tú solo.",
+                  p: "Cabe en su mochila de transporte. Con 15 kg, la mueves tú solo.",
                 },
                 {
                   n: "03",

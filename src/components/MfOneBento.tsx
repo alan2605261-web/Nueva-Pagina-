@@ -104,11 +104,11 @@ export function MfOneBento() {
   return (
     <div className="mx-auto w-full max-w-[1080px]">
       <div className="grid gap-3 md:grid-cols-[1fr_1.15fr_1fr] md:grid-rows-[repeat(6,auto)]">
-        {/* ── A · Enfría hasta 0°C ── */}
+        {/* ── A · Enfría hasta 1°C ── */}
         <div className="bento2-card md:col-start-1 md:row-start-1 md:row-span-2">
           <span className="bento2-label">Cooling</span>
           <div className="flex items-start justify-between gap-3">
-            <div className="bento2-title">Enfría hasta 0°C</div>
+            <div className="bento2-title">Enfría hasta 1°C</div>
             <div className="flex items-baseline gap-0.5">
               <span className="tabular-nums" style={{ fontFamily: "var(--font-display)", fontSize: 27, letterSpacing: "-0.03em", lineHeight: 1, color: COLD, textShadow: `0 0 28px ${COLD_GLOW}` }}>{tempA}</span>
               <span style={{ fontFamily: "var(--font-display)", fontSize: 18, color: COLD, opacity: 0.8 }}>°</span>
@@ -241,7 +241,7 @@ export function MfOneBento() {
               <line x1="24" y1="68" x2="276" y2="68" stroke="rgba(255,255,255,0.10)" />
               <line x1="24" y1="74" x2="276" y2="74" stroke="rgba(255,255,255,0.08)" />
               <line x1="24" y1="88" x2="276" y2="88" stroke="rgba(255,255,255,0.08)" />
-              <text x="30" y="82" fontFamily="ui-monospace, Menlo, monospace" fontSize="9" letterSpacing="1.5" fill="rgba(255,255,255,0.85)">ACERO INOX</text>
+              <text x="30" y="82" fontFamily="ui-monospace, Menlo, monospace" fontSize="9" letterSpacing="1.5" fill="rgba(255,255,255,0.85)">ACERO INOXIDABLE</text>
               <text x="270" y="82" textAnchor="end" fontFamily="ui-monospace, Menlo, monospace" fontSize="8" letterSpacing="1" fill="rgba(255,255,255,0.40)">COMPONENTES</text>
               {/* sheen recorriendo ambas capas */}
               <clipPath id="matClip">
@@ -256,10 +256,10 @@ export function MfOneBento() {
           </div>
         </div>
 
-        {/* ── E · Certificación CE — radar ── */}
+        {/* ── E · Ozono integrado — radar ── */}
         <div className="bento2-card md:col-start-3 md:row-start-3 md:row-span-2">
-          <span className="bento2-label">Safety</span>
-          <div className="bento2-title">Certificación CE</div>
+          <span className="bento2-label">Water</span>
+          <div className="bento2-title">Ozono integrado</div>
           <div className="flex flex-1 flex-col items-center justify-center gap-3.5">
             <svg viewBox="0 0 150 150" className="block h-24 w-24 overflow-visible">
               <circle cx="75" cy="75" r="54" fill="none" stroke="rgba(255,255,255,0.12)" />
@@ -267,11 +267,11 @@ export function MfOneBento() {
               <g className="mf-spin" style={{ "--mf-dur": "14s" } as React.CSSProperties}>
                 <circle cx="75" cy="21" r="2.5" fill={COLD} style={{ filter: `drop-shadow(0 0 8px ${COLD_GLOW})` }} />
               </g>
-              <text x="75" y="88" textAnchor="middle" fontSize="36" letterSpacing="2" fill="rgba(255,255,255,0.92)" style={{ fontFamily: "var(--font-display)" }}>CE</text>
+              <text x="75" y="88" textAnchor="middle" fontSize="36" letterSpacing="2" fill="rgba(255,255,255,0.92)" style={{ fontFamily: "var(--font-display)" }}>O₃</text>
             </svg>
             <div className="relative flex h-3.5 w-full justify-center">
-              <span className="mf-status-a absolute text-[9px] uppercase tracking-[0.18em] text-white/40">Verificando estándares</span>
-              <span className="mf-status-b absolute text-[9px] uppercase tracking-[0.18em] text-white/75">Certificado · Grado comercial</span>
+              <span className="mf-status-a absolute text-[9px] uppercase tracking-[0.18em] text-white/40">Circulando agua</span>
+              <span className="mf-status-b absolute text-[9px] uppercase tracking-[0.18em] text-white/75">Ozono activo · Sin químicos</span>
             </div>
           </div>
         </div>

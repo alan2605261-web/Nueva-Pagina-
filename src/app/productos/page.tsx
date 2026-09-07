@@ -15,7 +15,7 @@ const tinas = [
   {
     name: "MF Barrel",
     tag: "Cilíndrica · 400 L · Ideal para departamentos",
-    tagline: "Sistema de 3 filtros + purificación por ozono. Control WiFi programable. Certificación CE. 6 meses de garantía.",
+    tagline: "Sistema de 3 filtros + purificación por ozono. Control WiFi programable. 6 meses de garantía.",
     specs: "90 cm diámetro × 90 cm altura · 13 kg",
     price: "$69,000 MXN",
     image: "/images/prod-barrel-nobg.png",
@@ -25,7 +25,7 @@ const tinas = [
   {
     name: "MF Horizon",
     tag: "Rectangular · 420 L · Mayor espacio de inmersión",
-    tagline: "Sistema de 3 filtros + purificación por ozono. Control WiFi programable. Certificación CE. 6 meses de garantía.",
+    tagline: "Sistema de 3 filtros + purificación por ozono. Control WiFi programable. 6 meses de garantía.",
     specs: "160 × 65 × 70 cm · 15 kg",
     price: "$74,000 MXN",
     image: "/images/prod-horizon-nobg.png",
@@ -35,7 +35,7 @@ const tinas = [
   {
     name: "MF ONE",
     tag: "All-In-One · Chiller 1 HP integrado · 420 L",
-    tagline: "Diseño All-In-One con chiller integrado. Filtro de 20 micrones + ozono. LED interno/externo, chorros de hidromasaje. 1 año de garantía.",
+    tagline: "Diseño All-In-One con el chiller dentro de la tina. Filtro de papel + ozono integrado. Iluminación LED interior. 12 meses de garantía.",
     specs: "195 × 80 × 71 cm · 135 kg · Acrílico + acero inoxidable",
     price: "$169,000 MXN",
     image: "/images/prod-mfone.webp",
@@ -73,7 +73,17 @@ export default function ProductosPage() {
                 {/* Stage pop-out estilo inicio: panel gris detrás, producto
                     flotando con sombra y rompiendo el marco por arriba */}
                 <div className="relative px-6 pt-6">
-                  <div className="absolute inset-x-6 bottom-0 top-[45%] rounded-[16px] bg-[var(--bg-panel)]">
+                  <div className="absolute inset-x-6 bottom-0 top-[45%]">
+                    {/* Sombra de contacto en lugar del panel gris (decisión de
+                        Saul, sep 2026): el producto flota sobre la página. */}
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-x-[10%] bottom-[7%] h-[24%] rounded-[50%]"
+                      style={{
+                        background:
+                          "radial-gradient(ellipse at 50% 50%, rgba(8,9,11,0.18) 0%, rgba(8,9,11,0.07) 45%, rgba(8,9,11,0) 72%)",
+                      }}
+                    />
                     {tina.badge && (
                       <span className="absolute bottom-3 left-3 z-20 rounded-full bg-foreground px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-background">
                         {tina.badge}
@@ -139,7 +149,7 @@ export default function ProductosPage() {
             {[
               {
                 t: "Frío de verdad, sin hielo",
-                p: "El MF ONE baja hasta 0 °C; los inflables hasta 3 °C con motores de la línea 2.0. Cero bolsas de hielo, para siempre.",
+                p: "El MF ONE ajusta desde 1 °C; los inflables llegan a 3 °C con motores de la línea 2.0. Cero bolsas de hielo, para siempre.",
                 img: "/images/mfone-frio.jpg",
                 pos: "center 30%",
               },
@@ -153,8 +163,8 @@ export default function ProductosPage() {
                 t: "Agua cristalina, sin químicos",
                 p: "Tres sistemas trabajando juntos. En el MF ONE, la bomba recircula toda el agua ~19 veces por hora.",
                 triptych: [
-                  { img: "/images/acc-filtro-carbon-vert.jpg", cap: "Filtro de carbón", bg: "#91b3cf" },
-                  { img: "/images/acc-filtro-cartucho-uno.jpg", cap: "Filtro 20 micrones", bg: null },
+                  { img: "/images/acc-filtro-carbon-vert.webp", cap: "Filtro de carbón", bg: null },
+                  { img: "/images/acc-filtro-cartucho-uno.webp", cap: "Filtro de papel", bg: null },
                   { img: "/images/ozono-agua.jpg", cap: "Ozono", bg: null },
                 ],
               },
@@ -181,7 +191,7 @@ export default function ProductosPage() {
                             src={s.img}
                             alt={s.cap}
                             className={`absolute inset-0 h-full w-full transition-transform duration-700 group-hover:scale-[1.05] ${
-                              s.bg ? "object-contain px-3 py-14" : "object-cover"
+                              s.img.endsWith(".webp") ? "object-contain px-4 py-10" : "object-cover"
                             }`}
                           />
                           <span className="absolute left-1/2 top-4 z-10 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/20 bg-black/35 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-md">

@@ -170,6 +170,65 @@ export default function AprenderPage() {
         </div>
       </section>
 
+      {/* Consejo científico — el menú Aprender enlaza a /aprender#consejo y el
+          ancla no existía. Redacción deliberadamente prudente: se presenta a
+          estos investigadores como las referencias en cuyo trabajo publicado
+          nos apoyamos, NO como asesores contratados de Mente Fria. Si existe
+          una relación formal con alguno, se puede decir explícitamente. */}
+      <section className="msection panel scroll-mt-20" id="consejo">
+        <div className="mwrap">
+          <Reveal className="msection-head">
+            <span className="m-eyebrow accent">Consejo científico</span>
+            <h2>En quién nos apoyamos.</h2>
+            <p>
+              No inventamos la ciencia del frío: la leemos. Estas son las
+              referencias cuyo trabajo publicado y divulgación sostienen lo que
+              contamos en este sitio.
+            </p>
+          </Reveal>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { n: "Dra. Susanna Søberg", c: "Metabolismo y termorregulación", d: "Su investigación sobre grasa parda y adaptación al frío es la base del principio de dosis mínima semanal." },
+              { n: "Dr. Andrew Huberman", c: "Neurociencia", d: "Divulgación sobre la respuesta de catecolaminas y el efecto del frío en dopamina y estado de alerta." },
+              { n: "Dr. Peter Attia", c: "Medicina de longevidad", d: "Análisis del frío dentro de un marco de longevidad, con atención a cuándo ayuda y cuándo interfiere." },
+              { n: "Dra. Rhonda Patrick", c: "Bioquímica", d: "Trabajo de divulgación sobre hormesis, proteínas de choque térmico y adaptación al estrés." },
+              { n: "Kristen Holmes", c: "Fisiología del rendimiento", d: "Investigación sobre sueño, variabilidad de frecuencia cardiaca y recuperación en atletas." },
+              { n: "Wim Hof", c: "Método respiratorio", d: "Popularizó la práctica moderna de exposición al frío con respiración controlada." },
+            ].map((x, i) => (
+              <Reveal
+                key={x.n}
+                delay={(i % 3) * 70}
+                className="rounded-[16px] border p-7"
+                style={{ borderColor: "var(--line-1)", background: "var(--m-white)" }}
+              >
+                <span className="m-eyebrow accent">{x.c}</span>
+                <h3
+                  className="mdisplay mt-3 text-[19px] leading-tight"
+                  style={{ color: "var(--fg-metal)" }}
+                >
+                  {x.n}
+                </h3>
+                <p
+                  className="mt-3 text-[13.5px] leading-relaxed"
+                  style={{ color: "var(--fg-muted)" }}
+                >
+                  {x.d}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="mt-8">
+            <p className="text-[12.5px] leading-relaxed" style={{ color: "var(--fg-subtle)" }}>
+              Mencionamos su trabajo como referencia científica. No implica
+              patrocinio, asesoría contratada ni respaldo de estas personas a
+              Mente Fria como marca.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       {/* 4. Fuentes científicas */}
       <section className="msection">
         <div className="mwrap">

@@ -39,9 +39,14 @@ const HOTSPOTS = [
 
 /* ---------- Feature reveal ---------- */
 
+/* Copy deliberadamente de gama, no de un solo producto: el MF ONE ajusta de
+   1 a 40 °C y los inflables con Motor Premium 2.0 van de 3 a 42 °C. Decir "de
+   1 a 42 °C según el equipo" cubre la línea completa sin atribuirle a ninguno
+   un rango que no tiene. Lo mismo con la filtración, que es distinta en cada
+   familia. Las imágenes anteriores eran capturas del sitio en inglés. */
 const FEATURES = [
-  { word: "Temperatura", img: "/photography/feature/temperatura.jpg", copy: "De 1 °C a 40 °C en el MF ONE. Frío para recuperar, calor para relajar. Una sola tina para todo el año, ajustable al grado." },
-  { word: "Filtración", img: "/photography/feature/filtracion.jpg", copy: "Filtración más ozono integrado, según el modelo: triple filtro en los inflables, filtro de papel y skimmer en el MF ONE. Agua cristalina sin productos químicos." },
+  { word: "Temperatura", img: "/images/mfone-frio.jpg", copy: "De 1 a 42 °C según el equipo que elijas. Frío para recuperar, calor para relajar, ajustable al grado. Una sola tina para todo el año." },
+  { word: "Filtración", img: "/images/ozono-agua.jpg", copy: "Filtración y ozono en toda la línea: filtro de papel y skimmer en el MF ONE, triple filtro de 1 a 5 micras en los inflables. Agua cristalina sin productos químicos." },
   { word: "Control", img: "/photography/feature/control-app-1049.jpg", copy: "Control total desde la app. Programa temperatura, horarios y tu ritual. El frío te espera listo cuando llegas a casa." },
 ];
 
@@ -573,7 +578,7 @@ export function LandingV2() {
               </h2>
               <div className="stats-grid">
                 <div className="stat">
-                  <Counter from={20} target={0} duration={1800} suffix="°C" tone="cold" />
+                  <Counter from={20} target={1} duration={1800} suffix="°C" tone="cold" />
                   <div className="l">Enfría sin fallar, sin un solo hielo.</div>
                 </div>
                 <div className="stat">
@@ -582,9 +587,9 @@ export function LandingV2() {
                 </div>
                 <div className="stat">
                   <div className="n">
-                    20<span className="u">µm</span>
+                    8,000<span className="u">L/h</span>
                   </div>
-                  <div className="l">Filtro + ozono cada 5 min. Agua cristalina.</div>
+                  <div className="l">La bomba recircula toda el agua unas 19 veces por hora, con ozono integrado.</div>
                 </div>
                 <div className="stat">
                   <Counter target={0} />

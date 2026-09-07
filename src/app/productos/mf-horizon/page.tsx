@@ -2,6 +2,7 @@ import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
 import { FAQ } from "@/components/FAQ";
 import { Reveal } from "@/components/Reveal";
+import { AccessoryCard } from "@/components/AccessoryCard";
 import { ProductOptionsProvider, ProductStage, ColorPicker } from "@/components/ProductOptions";
 import { BenefitsCarousel } from "@/components/BenefitsCarousel";
 import { MotorPicker } from "@/components/MotorPicker";
@@ -312,24 +313,8 @@ export default function MFHorizonPage() {
               <p>Sin compras extra ni sorpresas: el MF Horizon llega completo y listo para usarse.</p>
             </Reveal>
             <Reveal className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {ACCESORIOS.map((a) => (
-                <article key={a.t} className="overflow-hidden rounded-[16px] border border-[var(--line-1)] bg-[var(--m-white)]">
-                  {/* Imagen del accesorio (o espacio reservado) */}
-                  <div className="grid aspect-[16/9] place-items-center bg-[var(--bg-panel)]">
-                    {a.img ? (
-                      /* eslint-disable-next-line @next/next/no-img-element */
-                      <img src={a.img} alt={a.t} className="h-full w-full object-cover" />
-                    ) : (
-                      <span className="rounded-full border border-dashed border-[var(--line-2)] px-4 py-1.5 text-[10px] uppercase tracking-[0.16em] text-[var(--fg-subtle)]">
-                        Imagen próximamente
-                      </span>
-                    )}
-                  </div>
-                  <div className="p-5">
-                    <h3 className="text-[15px] font-semibold">{a.t}</h3>
-                    <p className="mt-1.5 text-[13px] leading-relaxed text-[var(--fg-muted)]">{a.p}</p>
-                  </div>
-                </article>
+              {ACCESORIOS.map((a, i) => (
+                <AccessoryCard key={a.t} a={a} index={i} />
               ))}
             </Reveal>
           </div>

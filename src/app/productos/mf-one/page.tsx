@@ -2,6 +2,7 @@ import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
 import { FAQ } from "@/components/FAQ";
 import { Reveal } from "@/components/Reveal";
+import { AccessoryCard } from "@/components/AccessoryCard";
 import { ProductOptionsProvider, ProductStage, ColorPicker, AddonCard } from "@/components/ProductOptions";
 import { FrioCalor } from "@/components/FrioCalor";
 import { MfOneBento } from "@/components/MfOneBento";
@@ -239,8 +240,8 @@ export default function MFOnePage() {
                 </h2>
                 <div className="stats-grid">
                   <div className="stat">
-                    <div className="n n-cold">0<span className="u">°C</span></div>
-                    <div className="l">Temperatura mínima alcanzable, sin un solo hielo.</div>
+                    <div className="n n-cold">1<span className="u">°C</span></div>
+                    <div className="l">Temperatura mínima de ajuste, sin un solo hielo.</div>
                   </div>
                   <div className="stat">
                     <div className="n n-heat">40<span className="u">°C</span></div>
@@ -251,8 +252,8 @@ export default function MFOnePage() {
                     <div className="l">All-in-One: chiller, filtración y ozono integrados. Plug &amp; Play.</div>
                   </div>
                   <div className="stat">
-                    <div className="n">20<span className="u">µm</span></div>
-                    <div className="l">Filtración fina + filtro de 3 capas + ozono. Agua cristalina.</div>
+                    <div className="n">8,000<span className="u">L/h</span></div>
+                    <div className="l">Toda el agua recircula unas 19 veces por hora, con filtro de papel y ozono integrado.</div>
                   </div>
                 </div>
               </Reveal>
@@ -294,24 +295,8 @@ export default function MFOnePage() {
                 { t: "Cubierta aislante", p: "Conserva la temperatura entre inmersiones y mantiene el agua limpia.", img: null },
                 { t: "Llave de filtro", p: "La herramienta para abrir el portafiltro y hacer el cambio sin técnico.", img: null },
                 { t: "Patitos de hule", p: "Sí, vienen incluidos. Porque el frío se toma en serio — pero no tanto.", img: "/images/acc-patitos.webp" },
-              ].map((a) => (
-                <article key={a.t} className="overflow-hidden rounded-[16px] border border-[var(--line-1)] bg-[var(--m-white)]">
-                  {/* Imagen del accesorio (o espacio reservado) */}
-                  <div className="grid aspect-[16/9] place-items-center bg-[var(--bg-panel)]">
-                    {a.img ? (
-                      /* eslint-disable-next-line @next/next/no-img-element */
-                      <img src={a.img} alt={a.t} className="h-full w-full object-contain p-7" />
-                    ) : (
-                      <span className="rounded-full border border-dashed border-[var(--line-2)] px-4 py-1.5 text-[10px] uppercase tracking-[0.16em] text-[var(--fg-subtle)]">
-                        Imagen próximamente
-                      </span>
-                    )}
-                  </div>
-                  <div className="p-5">
-                    <h3 className="text-[15px] font-semibold">{a.t}</h3>
-                    <p className="mt-1.5 text-[13px] leading-relaxed text-[var(--fg-muted)]">{a.p}</p>
-                  </div>
-                </article>
+              ].map((a, i) => (
+                <AccessoryCard key={a.t} a={a} index={i} />
               ))}
             </Reveal>
           </div>

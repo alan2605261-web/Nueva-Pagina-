@@ -35,7 +35,7 @@ export const nav: {
       submenu: [
         { label: "La Ciencia Detrás de los Plunges", href: "/aprender" },
         { label: "Consejo Científico", href: "/aprender#consejo" },
-        { label: "Motores Mente Fria", href: "/accesorios" },
+        { label: "Motores Mente Fria", href: "/motores" },
       ],
     },
     {

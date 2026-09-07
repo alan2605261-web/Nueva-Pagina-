@@ -1,6 +1,7 @@
 import { PageShell } from "@/components/PageShell";
 import { SubHero, SectionHeader, CTASection } from "@/components/blocks";
 import { Reveal } from "@/components/Reveal";
+import { AccessoryCard } from "@/components/AccessoryCard";
 
 /* ─── Accesorios (venta) ─────────────────────────────────────────────────── */
 const accesoriosCards = [
@@ -130,38 +131,12 @@ function AccessoryGrid({
   return (
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item, i) => (
-        <Reveal key={item.title} delay={i * 0.06}>
-          <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--line-1)] bg-background">
-            <div className="grid aspect-[16/10] w-full place-items-center overflow-hidden bg-[var(--bg-panel)]">
-              {item.img ? (
-                /* eslint-disable-next-line @next/next/no-img-element */
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  className={`h-full w-full transition-transform duration-500 hover:scale-[1.04] ${
-                    item.contain ? "object-contain p-8" : "object-cover"
-                  }`}
-                />
-              ) : (
-                <span className="rounded-full border border-dashed border-[var(--line-1)] px-4 py-1.5 text-[10px] uppercase tracking-[0.16em] text-[var(--fg-subtle)]">
-                  Imagen próximamente
-                </span>
-              )}
-            </div>
-            <div className="flex flex-1 flex-col p-6">
-              <div className="flex items-start justify-between gap-3">
-                <h3 className="text-lg font-semibold leading-snug text-foreground">
-                  {item.title}
-                </h3>
-                {item.tag && (
-                  <span className="mt-0.5 flex-none rounded-full bg-[var(--bg-panel)] px-3 py-1 text-[11px] font-semibold text-[var(--fg-muted)]">
-                    {item.tag}
-                  </span>
-                )}
-              </div>
-              <p className="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">{item.body}</p>
-            </div>
-          </article>
+        <Reveal key={item.title} delay={i * 0.06} className="h-full">
+          <AccessoryCard
+            a={{ t: item.title, p: item.body, img: item.img, tag: item.tag }}
+            index={i}
+            className="h-full"
+          />
         </Reveal>
       ))}
     </div>

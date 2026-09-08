@@ -163,12 +163,23 @@ aplicable.
    · garantía 6 meses · envío $1,500 · incluyen: mochila, bomba doble acción,
      cubierta con seguro para niños, filtros y kit de reparación.
 
-6. **Motores 2.0** (Manual v6) — Pro = 0.8 HP, enfría a 3 °C, SIN calor ni ozono,
-   **55×42.5×53 cm**, 39 kg, IPX4. Premium = 1 HP, enfría a 3 °C, **calienta a 43 °C**
-   (NO 42), ozono de alta eficiencia, 58.5×42.5×53 cm, 41.5 kg, IPX4. Ambos con la
-   filtración de 3 capas. **Ojo:** los watts (2,230 / 2,700) y los tiempos de
-   enfriamiento (~6 h / ~4 h) NO están en el manual v6; vienen del handoff original y
-   siguen sin respaldo documental.
+6. **Motores 2.0** — Pro = 0.8 HP, enfría a 3 °C, SIN calor ni ozono, **55×42.5×53 cm**,
+   39 kg, IPX4. Premium = 1 HP, enfría a 3 °C, **calienta a 42 °C**, ozono de alta
+   eficiencia, 58.5×42.5×53 cm, 41.5 kg, IPX4. Ambos con la filtración de 3 capas.
+
+   **CORREGIDO sep 2026 — el manual dice 43, el dato bueno es 42.** El Manual v6, tanto
+   en inglés ("Heating Capability: 43ºC") como en español ("Capacidad de calentamiento:
+   43°C"), dice 43. Saul corrigió: *"El Motor Premium no calienta hasta los 43, calienta
+   hasta los 42."* Se publicó 42 en las 15 apariciones del sitio. Si alguien vuelve a
+   revisar el manual y "corrige" a 43, está deshaciendo una corrección deliberada del
+   dueño; el manual está mal, no el sitio.
+
+   **Consumo eléctrico: FUERA del sitio.** Los 2,230 W / 2,700 W que estaban publicados
+   no salen del manual. Se revisaron las 12 páginas de la v6 en ambos idiomas y **no hay
+   un solo dato eléctrico**: ni watts, ni volts, ni amperes, ni Hz. Venían del handoff
+   original sin fuente. Se eliminaron de /motores y de la PDP del Horizon. No volver a
+   publicarlos hasta tener la ficha eléctrica del proveedor por escrito. Los tiempos de
+   enfriamiento (~6 h / ~4 h) tampoco están en el manual y siguen sin respaldo.
 
 7. ~~Decir "filtro de 20 micrones"~~ — **OBSOLETA.** La documentación de ago 2026 habla de
    **"filtro de papel"** en el MF ONE. Los "3 filtros de 1–5 micrones" siguen siendo de los
@@ -204,6 +215,41 @@ aplicable.
     redactar la póliza de los inflables.
 
 ---
+
+16. **Fotografía real de la MF ONE nueva (sesión de patio, sep 2026).** Está en el Drive
+    compartido, carpeta "FOTOS CC": 21 archivos DSC05xxx de 4128×6192 tomados con Sony
+    FX30. Los recortes de web viven en `public/photography/mfone-patio/`. **Es la única
+    fotografía real del producto que existe**: todo lo demás en `images/mfone-gallery/`,
+    `prod-mfone.webp` y `hero/mf-one-concrete*.jpg` son renders CGI. Los renders muestran
+    una rejilla redonda en el testero y el producto real trae una rejilla rectangular en
+    el costado, así que **no son intercambiables**. Preferir la foto real siempre que la
+    composición lo permita.
+
+17. **PROMESA COMERCIAL CONTRADICTORIA — pendiente de decisión de Saul.** La barra de
+    avisos dice "PRUÉBALA 30 DÍAS SIN COMPROMISO" y el hero de `/devoluciones` dice "si no
+    es para ti, la recogemos sin preguntas". Pero el cuerpo de esa misma página dice que
+    el producto "usado o con daños causados por el cliente no es elegible para reembolso"
+    y que el reembolso al 100% aplica al "producto sin abrir, sin usar y sin daños".
+    **No se puede probar 30 días un equipo sin usarlo.** Es una promesa publicada y por
+    tanto exigible. `/terminos` cláusula 7 remite a `/devoluciones` a propósito, sin
+    resolver la contradicción: hay que arreglar esa página primero y es decisión de
+    negocio, no de quien escribe el código.
+
+18. **Claims que necesitan respaldo o baja.** Siguen publicados y no los tocamos porque
+    son decisión comercial: "la cold plunge #1 en México", "soporte/atención de por vida"
+    y "si no es la mejor cold plunge que has probado, te regresamos el dinero". El
+    primero es una afirmación de superioridad no verificable; los otros dos son
+    obligaciones a plazo indefinido. Conviene que legal los revise junto con los términos.
+
+19. **Enlaces científicos: son de Saul, no generados.** Los 16 enlaces de `/aprender` y los
+    6 del consejo científico se extrajeron uno a uno de las páginas del sitio vivo que él
+    ligó a mano (`la-ciencia-detras-de-las-tinas-heladas` y
+    `quien-recomienda-el-cold-plunging`). Viven en `src/lib/ciencia.ts`. Dos de los 16 son
+    divulgación (Healthline y Psychology Today), no estudios: están marcados con
+    `tipo: "divulgacion"` y la página ya no afirma que todas las referencias sean
+    peer-reviewed. **"Mayor dopamina natural" es el único beneficio sin enlace**, igual
+    que en el sitio vivo. No asignarle uno por parecido.
+
 
 ## 5. Estado página por página
 
@@ -288,10 +334,12 @@ Existen con contenido real pero **sin el restyle profundo** al sistema metal. Pe
 - **Género femenino** de "cold plunge" unificado en todo el sitio.
 
 ### Pendientes
-1. **Restyle profundo de subpáginas** al sistema metal: /aprender, /atletas, /resenas, /blog,
-   /soporte y legales. Es el pendiente grande que queda de diseño.
-2. **Tarjetas de /soporte**: hoy usan el componente `Placeholder` (relleno gris que se ve
-   barato). Saul pidió gráficos animados tipo bento, no fotos.
+1. ~~Restyle profundo de subpáginas al sistema metal~~ — **HECHO.** Cero clases legacy en
+   código vivo.
+2. ~~Tarjetas de /soporte~~ — **HECHO dos veces.** Primero gráficos SVG animados azules;
+   luego Saul pidió blanco y negro porque el azul competía con la identidad, y que cada
+   gráfico dibujara el dato de su tarjeta en vez de ser adorno. Versión actual en
+   `SoporteGraphics.tsx`.
 3. **Comprimir videos** — falta `ffmpeg`; no hay Homebrew en la Mac de Saul y su instalación
    pide contraseña. Gitignored por peso: `mfone-diferencia.mp4` (el original está en el Drive
    de Saul, privado), testimoniales kevin/surf (PERDIDOS, ver abajo), instalación motor.
@@ -310,6 +358,22 @@ Existen con contenido real pero **sin el restyle profundo** al sistema metal. Pe
    carpeta original de Rafa.
 10. **Eventual: construir el tema Shopify Liquid** (Acto 2). Confirmado por Saul: cuando el
     blueprint esté cerrado, todo se pasa a código nativo de Shopify.
+11. **Arreglar la contradicción de `/devoluciones`** (ver regla 17). Bloquea el cierre de
+    `/terminos`, que remite a esa página.
+12. **Revisión legal de `/privacidad` y `/terminos`.** Los dos están escritos completos y
+    fundados —LFPDPPP art. 16 y Reglamento art. 24 el aviso, LFPC art. 76 bis los
+    términos—, pero no los escribió un abogado. Falta confirmar: correo del departamento
+    de datos personales, qué proveedores reciben datos realmente, si se tratan datos de
+    salud, y el domicilio para efectos legales. La lista completa está comentada en la
+    cabecera de cada archivo.
+13. **Ficha eléctrica del proveedor** para poder volver a publicar el consumo de los
+    motores (ver regla 6).
+14. **Nuevos renders de la MF ONE.** Saul mencionó que existen. Los renders actuales del
+    repo no corresponden al producto que se envía (ver regla 16); mientras tanto se usa
+    la fotografía real donde la composición lo permite.
+15. **Fotos de producto de MF Barrel y MF Horizon del nivel de la MF ONE.** Hoy las tres
+    tarjetas de `/negocios` mezclan dos renders recortados con el render de estudio de la
+    ONE. Funciona, pero una sesión de los inflables lo resolvería de raíz.
 
 ## 7. Assets — dónde vive todo
 

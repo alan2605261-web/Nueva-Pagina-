@@ -1,5 +1,5 @@
 /*
-  Diagrama de medidas del MF ONE — planta y alzado.
+  Diagrama de medidas de la MF ONE — planta y alzado.
 
   Sustituye al render con cotas de fábrica, donde las líneas estaban torcidas y
   mezclaban 195, 163, 160 y 110 cm sin que cuadraran entre sí.
@@ -96,7 +96,7 @@ export function MfOneDimensions() {
         viewBox={`0 0 ${vbW} ${vbH}`}
         className="h-auto w-full"
         role="img"
-        aria-label="Diagrama de medidas del MF ONE: 195 cm de largo, 80 cm de ancho y 71 cm de alto, con 100 cm libres al frente y 20 cm libres por lado."
+        aria-label="Diagrama de medidas de la MF ONE: 195 cm de largo, 80 cm de ancho y 71 cm de alto, con 100 cm libres al frente y 20 cm libres por lado."
       >
         {/* ─── PLANTA ─── */}
         <text

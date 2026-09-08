@@ -149,19 +149,19 @@ export default function ProductosPage() {
             {[
               {
                 t: "Frío de verdad, sin hielo",
-                p: "El MF ONE ajusta desde 1 °C; los inflables llegan a 3 °C con motores de la línea 2.0. Cero bolsas de hielo, para siempre.",
+                p: "La MF ONE ajusta desde 1 °C; los inflables llegan a 3 °C con motores de la línea 2.0. Cero bolsas de hielo, para siempre.",
                 img: "/images/mfone-frio.jpg",
                 pos: "center 30%",
               },
               {
                 t: "Modo calor incluido",
-                p: "Contraste frío-calor en el mismo equipo: hasta 40 °C en el MF ONE y 42 °C con Motor Premium 2.0.",
+                p: "Contraste frío-calor en el mismo equipo: hasta 40 °C en la MF ONE y 42 °C con Motor Premium 2.0.",
                 img: "/images/mfone-calor.jpg",
                 pos: "center 30%",
               },
               {
-                t: "Agua cristalina, sin químicos",
-                p: "Tres sistemas trabajando juntos. En el MF ONE, la bomba recircula toda el agua ~19 veces por hora.",
+                t: "Agua cristalina, sin cloro",
+                p: "Tres sistemas trabajando juntos. En la MF ONE, la bomba recircula toda el agua ~19 veces por hora.",
                 triptych: [
                   { img: "/images/acc-filtro-carbon-vert.webp", cap: "Filtro de carbón", bg: null },
                   { img: "/images/acc-filtro-cartucho-uno.webp", cap: "Filtro de papel", bg: null },
@@ -238,7 +238,7 @@ export default function ProductosPage() {
             <SectionHeader
               eyebrow="Por qué Mente Fria"
               title="Tecnología que se paga sola."
-              subtitle="0 hielos, ahorro a largo plazo. Motores 3× más poderosos que cualquier otro en México. Control total desde tu celular desde el primer día."
+              subtitle="Comprar hielo todos los días cuesta más de lo que parece. Aquí la cuenta sale a tu favor desde el primer mes."
               center
             />
           </Reveal>
@@ -327,8 +327,8 @@ export default function ProductosPage() {
 
       {/* 5 · CTA dark */}
       <CTASection
-        title="El frío te está esperando."
-        body="Servicio 24/7, garantía real y purificación de ozono cada 5 min. Sin hielo, sin complicaciones — solo tecnología que funciona."
+        title="Tu rutina empieza cuando tú decides."
+        body="Garantía real, soporte de por vida y ozono integrado manteniendo el agua. Sin hielo y sin logística: te metes y ya."
         cta={{ label: "Ver todos los productos", href: "#" }}
         dark
       />

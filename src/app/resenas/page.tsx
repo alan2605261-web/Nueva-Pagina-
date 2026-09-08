@@ -76,7 +76,7 @@ const TRUST_BADGES = [
   "30 días de prueba",
   "Garantía hasta 1 año",
   "Envío a todo México",
-  "Servicio 24/7",
+  "Soporte de por vida",
   "Marca registrada IMPI",
 ];
 

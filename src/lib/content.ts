@@ -64,7 +64,7 @@ export const announcement =
 
 export const hero = {
   eyebrow: "Mente Fria",
-  title: ["La Cold Plunge", "#1 en México."],
+  title: ["La cold plunge", "#1 en México."],
   subtitle:
     "Recuperarte y rendir al máximo desde casa no había sido posible hasta ahora.",
   cta: "Explora Mente Fria",

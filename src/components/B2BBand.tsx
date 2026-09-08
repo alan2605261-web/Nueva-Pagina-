@@ -20,7 +20,7 @@ export function B2BBand() {
             </h2>
             <p className="text-[16px] leading-relaxed mt-4">
               Usa el wellness para incrementar las utilidades de tu negocio.
-              Leasing a 12 o 24 meses, calculadora de ROI y soporte 24/7.
+              Leasing a 12 o 24 meses, calculadora de ROI y soporte desde México.
             </p>
           </div>
           <Link href="/negocios" className="mbtn mbtn-primary shrink-0">

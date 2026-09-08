@@ -66,7 +66,7 @@ export function MotorPicker({ productName }: { productName?: string }) {
           {!productName && (
             <div className="mt-5 inline-flex items-center gap-2.5 rounded-full border border-[var(--line-1)] bg-[var(--bg-panel)] px-4 py-2 text-[12.5px] font-medium text-[var(--fg-metal)]">
               <span aria-hidden className="h-[7px] w-[7px] flex-none rounded-full bg-[var(--accent-ice)]" />
-              Solo para MF Barrel y MF Horizon — el MF ONE no necesita motor: ya
+              Solo para MF Barrel y MF Horizon — la MF ONE no necesita motor: ya
               incluye su chiller de 1 HP integrado.
             </div>
           )}
@@ -85,12 +85,18 @@ export function MotorPicker({ productName }: { productName?: string }) {
                 </span>
               )}
               {/* Foto del motor (negro Pro / blanco Premium) */}
-              <div className="mb-7 grid place-items-center overflow-hidden rounded-[14px] bg-[#d9dbdd]">
+              {/* Las fotos son verticales (1050×1400 y 829×1500). Con object-cover
+                  en una caja baja solo se veía una rebanada del motor. Con contain
+                  sobre el panel plateado se ve el equipo completo. */}
+              <div
+                className="mb-7 grid aspect-[4/3] place-items-center overflow-hidden rounded-[14px]"
+                style={{ background: "var(--grad-silver)" }}
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={m.img}
                   alt={m.imgAlt}
-                  className="h-[220px] w-full object-cover object-center"
+                  className="h-full w-full object-contain p-5"
                 />
               </div>
               <h3

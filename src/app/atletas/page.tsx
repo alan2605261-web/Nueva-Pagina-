@@ -6,6 +6,7 @@ import {
   CTASection,
 } from "@/components/blocks";
 import { Reveal } from "@/components/Reveal";
+import { ArrowRight } from "@/components/icons";
 import { Placeholder } from "@/components/Placeholder";
 import { QuoteMark, StarIcon } from "@/components/icons";
 import Image from "next/image";
@@ -33,10 +34,10 @@ export default function AtletasPage() {
             </h1>
             <p className="text-[16px] leading-relaxed text-[var(--fg-muted)] text-white/70 mb-10 max-w-lg">
               El cold plunge tiene raíces en la recuperación deportiva. Frío
-              constante a 3°C, sin hielo y sin logística — listo todos los días.
+              constante y ajustable, sin hielo y sin logística — lista todos los días.
             </p>
             <a href="/productos/mf-one" className="mbtn bg-white text-black hover:bg-white/90">
-              Ver el MF ONE
+              Ver la MF ONE
             </a>
           </Reveal>
         </div>
@@ -86,7 +87,7 @@ export default function AtletasPage() {
           <Reveal>
             <StatRow
               stats={[
-                { value: "3°C", label: "temperatura de sesión" },
+                { value: "1 °C", label: "mínimo de ajuste" },
                 { value: "3 min", label: "por sesión" },
                 { value: "0 hielos", label: "sin logística" },
               ]}
@@ -164,13 +165,13 @@ export default function AtletasPage() {
                   El equipo para tu disciplina.
                 </h2>
                 <p className="text-[16px] leading-relaxed text-[var(--fg-muted)] mb-8">
-                  El MF ONE fue diseñado para el atleta que toma en serio su
-                  recuperación. Chiller integrado, 3°C, control desde app — todo incluido, sin logística.
+                  La MF ONE fue diseñada para el atleta que toma en serio su
+                  recuperación. Chiller integrado, ajuste desde 1 °C, control desde la app — todo incluido, sin logística.
                 </p>
                 <ul className="space-y-4">
                   {[
                     "Chiller integrado — sin hielo, sin preparación",
-                    "Temperatura constante a 3°C",
+                    "Temperatura constante, ajustable desde 1 °C",
                     "Control desde app",
                     "Diseño compacto — cabe en cualquier espacio",
                     "Mantenimiento mínimo, uso diario",
@@ -179,7 +180,7 @@ export default function AtletasPage() {
                       key={item}
                       className="flex items-start gap-3 text-foreground"
                     >
-                      <span className="mt-1 w-1.5 h-1.5 rounded-full bg-foreground flex-shrink-0" />
+                      <span aria-hidden className="mt-[9px] h-1.5 w-1.5 flex-none rounded-full bg-[var(--accent-ice)]" />
                       <span className="text-[16px] leading-relaxed text-[var(--fg-muted)]">{item}</span>
                     </li>
                   ))}
@@ -187,9 +188,10 @@ export default function AtletasPage() {
                 <div className="mt-10">
                   <a
                     href="/productos/mf-one"
-                    className="mbtn-primary"
+                    className="inline-flex items-center gap-2 text-[15px] font-medium text-[var(--accent-ice)] underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
                   >
                     Ver especificaciones
+                    <ArrowRight className="h-4 w-4" />
                   </a>
                 </div>
               </div>
@@ -197,12 +199,13 @@ export default function AtletasPage() {
 
             {/* Right: product image */}
             <Reveal>
-              <div className="relative rounded-3xl overflow-hidden aspect-[4/5] bg-gradient-to-br from-black/10 to-black/30">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl" style={{ background: "var(--grad-silver)" }}>
                 <Image
                   src="/images/prod-mfone.webp"
-                  alt="MF ONE tina de inmersión en frío"
+                  alt="MF ONE, tina de inmersión en frío"
                   fill
-                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-contain p-10"
                 />
                 <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-black/10" />
               </div>
@@ -214,8 +217,8 @@ export default function AtletasPage() {
       {/* 6. CTA Section */}
       <CTASection
         title="Entrena tu mente. Domina tu cuerpo."
-        body="El MF ONE te da la herramienta. El resto depende de ti."
-        cta={{ label: "Ver el MF ONE", href: "/productos/mf-one" }}
+        body="La MF ONE te da la herramienta. El resto depende de ti."
+        cta={{ label: "Ver la MF ONE", href: "/productos/mf-one" }}
         dark
       />
     </PageShell>

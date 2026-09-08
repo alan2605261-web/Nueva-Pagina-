@@ -36,7 +36,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Qué motor me conviene: Pro 2.0 o Premium 2.0?",
-    a: "El Motor Pro 2.0 (0.8 HP) es la puerta de entrada: enfría de 25 a 3 °C en aproximadamente 6 horas, con filtración de 3 etapas y control WiFi. El Motor Premium 2.0 (1 HP) hace todo lo anterior más rápido (~4 horas), y suma calefacción hasta 42 °C y purificación por ozono 24/7. Si quieres contraste frío-calor y agua sin químicos, elige Premium.",
+    a: "El Motor Pro 2.0 (0.8 HP) es la puerta de entrada: enfría de 25 a 3 °C en aproximadamente 6 horas, con filtración de 3 etapas y control WiFi. El Motor Premium 2.0 (1 HP) hace todo lo anterior más rápido (~4 horas), y suma calefacción hasta 42 °C y purificación por ozono 24/7. Si quieres contraste frío-calor y agua sin cloro de alberca, elige Premium.",
   },
   {
     q: "¿Cada cuánto cambio el agua y los filtros?",
@@ -44,7 +44,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿El ozono sustituye al cloro?",
-    a: "Sí. Con el Motor Premium 2.0, el sistema de ozono esteriliza el agua 24/7 sin cloro ni químicos: agua cristalina, sin olor y amigable con la piel.",
+    a: "Sí. Con el Motor Premium 2.0, el sistema de ozono esteriliza el agua 24/7 sin cloro de alberca: agua cristalina, sin olor y amigable con la piel.",
   },
   {
     q: "¿Cuánto cuesta el envío?",

@@ -15,13 +15,13 @@ import { Reveal } from "@/components/Reveal";
    · MF Barrel / MF Horizon — 6 meses. TODAVÍA NO EXISTE una póliza
      equivalente para los inflables. Mientras no la haya, esta sección se
      mantiene general y sin detallar coberturas, para no atribuirles
-     condiciones que son del MF ONE.
+     condiciones que son de la MF ONE.
 ───────────────────────────────────────────────────────────── */
 
 export const metadata = {
   title: "Garantía | Mente Fria",
   description:
-    "Garantía de 12 meses del MF ONE y de 6 meses de los modelos inflables MF Barrel y MF Horizon.",
+    "Garantía de 12 meses de la MF ONE y de 6 meses de los modelos inflables MF Barrel y MF Horizon.",
 };
 
 /* ── MF ONE — de la póliza oficial ───────────────────────────────────── */
@@ -112,7 +112,7 @@ export default function GarantiaPage() {
       <SubHero
         eyebrow="Soporte"
         title="Garantía"
-        subtitle="Cada producto tiene su propia garantía. La del MF ONE y la de los modelos inflables son independientes entre sí."
+        subtitle="Cada producto tiene su propia garantía. La de la MF ONE y la de los modelos inflables son independientes entre sí."
         tone="warm"
       />
 
@@ -135,7 +135,7 @@ export default function GarantiaPage() {
               </ul>
               <p className="text-[16px] leading-relaxed text-[var(--fg-muted)]">
                 Son garantías distintas, con coberturas y condiciones propias.
-                Lo que aplica al MF ONE no aplica a los inflables, ni al revés.
+                Lo que aplica a la MF ONE no aplica a los inflables, ni al revés.
               </p>
             </article>
           </Reveal>
@@ -151,7 +151,7 @@ export default function GarantiaPage() {
               <h2 className="mdisplay text-[clamp(26px,3.4vw,44px)] mb-6">Doce meses, desde que la recibes</h2>
 
               <p className="text-[16px] leading-relaxed text-[var(--fg-muted)] mb-4">
-                Garantizamos el MF ONE contra defectos de fabricación y de
+                Garantizamos la MF ONE contra defectos de fabricación y de
                 funcionamiento durante doce meses contados desde la entrega, en
                 condiciones normales de uso y sin costo para ti.
               </p>
@@ -283,12 +283,12 @@ export default function GarantiaPage() {
                 condiciones normales de uso.
               </p>
               <p className="text-[16px] leading-relaxed text-[var(--fg-muted)] mb-4">
-                Es una garantía independiente de la del MF ONE: cubre productos
+                Es una garantía independiente de la de la MF ONE: cubre productos
                 distintos, con componentes distintos. Los motores de la línea 2.0
                 y sus consumibles se rigen por sus propias condiciones.
               </p>
               <p className="text-[16px] leading-relaxed text-[var(--fg-muted)] mb-8">
-                Igual que en el MF ONE, quedan fuera el desgaste natural y los
+                Igual que en la MF ONE, quedan fuera el desgaste natural y los
                 consumibles, los daños por mal uso o transporte, y las
                 reparaciones hechas por personal no autorizado.
               </p>

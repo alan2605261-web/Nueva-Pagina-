@@ -47,7 +47,7 @@ export function Footer() {
           <div>
             <Logo variant="white" className="h-6 w-auto" />
             <p className="blurb">
-              La Cold Plunge #1 en México. Recuperarte y rendir al máximo desde
+              La cold plunge #1 en México. Recuperarte y rendir al máximo desde
               casa.
             </p>
           </div>

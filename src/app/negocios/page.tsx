@@ -136,8 +136,8 @@ const WHY_BLOCKS = [
   {
     num: "02",
     tag: "Soporte real, personas reales",
-    title: "Soporte 24/7 desde México",
-    body: "Equipo técnico mexicano disponible por teléfono y WhatsApp. Tiempo de respuesta promedio menor a 2 horas. Sin call centers ni tickets eternos. Hablas con alguien que conoce tu equipo desde el primer minuto.",
+    title: "Soporte real, desde México",
+    body: "Equipo técnico mexicano por teléfono y WhatsApp, en horario hábil. Sin call centers ni tickets eternos: hablas con alguien que conoce tu equipo desde el primer minuto y te da seguimiento hasta resolverlo.",
     bullets: [
       "Atención 100% en español, sin chatbots",
       "WhatsApp directo con técnico asignado",
@@ -192,7 +192,7 @@ const PROCESS_STEPS = [
   {
     num: "04",
     title: "Capacitación y soporte",
-    body: "Entrenamos a tu staff en operación, limpieza y protocolos de seguridad. Soporte técnico 24/7 incluido durante todo el plazo del leasing.",
+    body: "Entrenamos a tu staff en operación, limpieza y protocolos de seguridad. Soporte técnico incluido durante todo el plazo del leasing.",
   },
 ];
 
@@ -211,7 +211,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Qué pasa si necesito soporte durante el leasing?",
-    a: "El soporte técnico 24/7 desde México está incluido durante todo el plazo del leasing. Tienes WhatsApp directo con un técnico asignado que conoce tu equipo, con tiempo de respuesta promedio menor a 2 horas.",
+    a: "El soporte técnico desde México está incluido durante todo el plazo del leasing. Tienes WhatsApp directo con un técnico asignado que conoce tu equipo y te da seguimiento hasta resolver.",
   },
   {
     q: "¿Puedo adquirir varias unidades para múltiples sucursales?",
@@ -261,7 +261,7 @@ export default function NegociosPage() {
                 textShadow: "0 1px 12px rgba(0,0,0,0.6)",
               }}
             >
-              Cold Plunge #1 en México
+              cold plunge #1 en México
             </span>
             <h1
               className="mdisplay mb-6 mt-5 max-w-[16ch] text-[clamp(38px,5.6vw,84px)] text-white"
@@ -593,9 +593,9 @@ export default function NegociosPage() {
         <div className="mwrap">
           <Reveal className="msection-head !mx-0 !text-left">
             <span className="m-eyebrow accent">Por qué Mente Fria</span>
-            <h2>El #1 Cold Plunge Comercial en México</h2>
+            <h2>La cold plunge comercial #1 en México</h2>
             <p className="!mx-0">
-              Soporte 24/7, garantía extendida, app de monitoreo y diseño
+              Soporte real desde México, garantía que cubre uso comercial, app de monitoreo y diseño
               pensado para operación intensiva. Todo lo que necesitas para
               escalar sin sobresaltos.
             </p>

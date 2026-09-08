@@ -31,7 +31,7 @@ const categoryCards = [
   {
     title: "Garantía",
     media: <SoporteGrafico titulo="Garantía" />,
-    body: "12 meses en el MF ONE y 6 meses en los modelos inflables, por defectos de fabricación. Son garantías independientes. Atención de por vida.",
+    body: "12 meses en la MF ONE y 6 meses en los modelos inflables, por defectos de fabricación. Son garantías independientes. Atención de por vida.",
     tag: "Cobertura",
     tone: "cool" as const,
   },
@@ -45,15 +45,15 @@ const categoryCards = [
   {
     title: "Servicio técnico",
     media: <SoporteGrafico titulo="Servicio técnico" />,
-    body: "Diagnóstico remoto primero; visita en sitio si es necesario; reemplazo solo cuando no hay otra opción. Equipo disponible 24/7.",
+    body: "Diagnóstico remoto primero; visita en sitio si es necesario; reemplazo solo cuando no hay otra opción. Buena parte de las fallas se resuelven en una videollamada.",
     tag: "Atención",
     tone: "ink" as const,
   },
   {
     title: "Contacto",
     media: <SoporteGrafico titulo="Contacto" />,
-    body: "WhatsApp +52 56 1647 1386. Nuestro equipo está disponible 24/7 para resolver cualquier duda o situación.",
-    tag: "24/7",
+    body: "WhatsApp +52 56 1647 1386. Escríbenos a cualquier hora: te contestamos en horario hábil, y lo urgente lo atendemos en cuanto lo vemos.",
+    tag: "Escríbenos",
     tone: "cool" as const,
   },
 ];
@@ -73,19 +73,19 @@ const faqItems = [
   },
   {
     q: "¿Necesito hielo?",
-    a: "No. Los motores mantienen la temperatura que programas (hasta 3°C) y filtran el agua continuamente, eliminando la necesidad de comprar hielo.",
+    a: "No. Los motores mantienen la temperatura que programas (hasta 3 °C en los inflables, desde 1 °C en la MF ONE) y filtran el agua continuamente, eliminando la necesidad de comprar hielo.",
   },
   {
     q: "¿Cuánto tarda en llegar y cuánto cuesta el envío?",
-    a: "3 a 7 días hábiles a todo México. $1,500 MXN para Horizon o Barrel, y $6,000 MXN para el MF ONE.",
+    a: "3 a 7 días hábiles a todo México. $1,500 MXN para Horizon o Barrel, y $6,000 MXN para la MF ONE.",
   },
   {
     q: "¿Qué tan difícil es el montaje?",
     a: "Sin herramientas: infla la tina, conecta las mangueras al motor, enchufa y llena con agua. Todo listo en 15 a 20 minutos.",
   },
   {
-    q: "¿El MF ONE usa motor externo?",
-    a: "No. El MF ONE es all-in-one: lleva el chiller dentro de la tina, con 1 HP y 3,500 W de enfriamiento. Ajusta de 1 a 40 °C sin accesorios adicionales. Los motores de la línea 2.0 son solo para MF Barrel y MF Horizon.",
+    q: "¿La MF ONE usa motor externo?",
+    a: "No. La MF ONE es all-in-one: lleva el chiller dentro de la tina, con 1 HP y 3,500 W de enfriamiento. Ajusta de 1 a 40 °C sin accesorios adicionales. Los motores de la línea 2.0 son solo para MF Barrel y MF Horizon.",
   },
   {
     q: "¿Puedo controlar la temperatura desde mi celular?",
@@ -202,7 +202,7 @@ export default function SoportePage() {
             <Reveal>
               <SectionHeader
                 title="¿No encontraste lo que buscabas?"
-                subtitle="Nuestro equipo está disponible 24/7. Cuéntanos qué necesitas y lo resolvemos juntos."
+                subtitle="Escríbenos por WhatsApp y cuéntanos qué necesitas. Contestamos en horario hábil y damos seguimiento hasta resolverlo."
               />
             </Reveal>
 
@@ -230,7 +230,7 @@ export default function SoportePage() {
                   <div>
                     <p className="text-sm font-semibold text-foreground">WhatsApp</p>
                     <p className="mt-0.5 text-sm text-[var(--fg-muted)]">+52 56 1647 1386</p>
-                    <p className="mt-0.5 text-xs text-[var(--fg-muted)]">Disponible 24/7</p>
+                    <p className="mt-0.5 text-xs text-[var(--fg-muted)]">Escríbenos a cualquier hora</p>
                   </div>
                 </div>
 
@@ -281,7 +281,7 @@ export default function SoportePage() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-foreground">Horario de atención</p>
-                    <p className="mt-0.5 text-sm text-[var(--fg-muted)]">24/7</p>
+                    <p className="mt-0.5 text-sm text-[var(--fg-muted)]">Horario hábil</p>
                     <p className="mt-0.5 text-xs text-[var(--fg-muted)]">Cobertura técnica nacional</p>
                   </div>
                 </div>

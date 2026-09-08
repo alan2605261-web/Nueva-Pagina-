@@ -286,7 +286,13 @@
 .closeup .cap p { color: rgba(255, 255, 255, 0.7); font-size: 14px; margin: 0 auto; }
 
 /* ===== Footer (metal) ===== */
-.mfooter { background: var(--m-black); color: #fff; padding: clamp(64px, 9vh, 120px) 0 36px; }
+.mfooter {
+  /* El CTA oscuro que suele precederlo (.msection.dark-s) termina en --m-black.
+     El footer arranca con el mismo color para que no se vea la costura, y se
+     le quita el padding superior extra que abría un escalón visible. */
+  background: var(--m-black); color: #fff;
+  padding: clamp(56px, 7vh, 96px) 0 36px;
+}
 /* Compact pre-footer CTA (Eight Sleep register: confident, not shouting) */
 .mfooter-cta { text-align: center; padding-bottom: 56px; border-bottom: 1px solid var(--on-dark-line); margin-bottom: 56px; }
 .mfooter-cta h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(26px, 3.2vw, 44px); letter-spacing: -0.03em; line-height: 1; margin: 0 0 24px; text-transform: uppercase; -webkit-text-stroke: var(--bold-stroke) currentColor; }

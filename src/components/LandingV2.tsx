@@ -30,7 +30,7 @@ const WHATSAPP = "https://wa.me/5215616471386";
 const HOTSPOTS = [
   { left: "14%", icon: Snowflake, k: "01 · Chiller", t: "Enfría a 1 °C", p: "Chiller de 1 HP dentro de la tina, con 3,500 W de enfriamiento. De 4 a 6 °C por hora, sin un solo hielo." },
   { left: "26%", icon: Flame, k: "02 · Temperatura", t: "Calienta hasta 40 °C", p: "De spa a hielo en la misma tina. Calor para relajar, frío para recuperar, todo el año." },
-  { left: "38%", icon: Filter, k: "03 · Filtración", t: "Filtro de papel", p: "Filtro de papel en circulación más skimmer en la superficie. Agua cristalina sin productos químicos." },
+  { left: "38%", icon: Filter, k: "03 · Filtración", t: "Filtración", p: "Cada equipo trae el sistema que le corresponde, del filtro de papel con skimmer al triple filtro de los inflables. Agua cristalina, sin cloro de alberca." },
   { left: "50%", icon: Wind, k: "04 · Purificación", t: "Ozono integrado", p: "Desinfección por ozono dentro del equipo. El agua se mantiene limpia sin que muevas un dedo." },
   { left: "62%", icon: Wifi, k: "05 · Control", t: "App Smart Life", p: "Programa temperatura y horarios desde tu celular. Tu ritual, listo cuando llegas." },
   { left: "74%", icon: VolumeX, k: "06 · Silencioso", t: "68 dB(A)", p: "El compresor y el ventilador trabajan en silencio. Tu ritual, sin ruido que lo interrumpa." },
@@ -39,14 +39,14 @@ const HOTSPOTS = [
 
 /* ---------- Feature reveal ---------- */
 
-/* Copy deliberadamente de gama, no de un solo producto: el MF ONE ajusta de
+/* Copy deliberadamente de gama, no de un solo producto: la MF ONE ajusta de
    1 a 40 °C y los inflables con Motor Premium 2.0 van de 3 a 42 °C. Decir "de
    1 a 42 °C según el equipo" cubre la línea completa sin atribuirle a ninguno
    un rango que no tiene. Lo mismo con la filtración, que es distinta en cada
    familia. Las imágenes anteriores eran capturas del sitio en inglés. */
 const FEATURES = [
   { word: "Temperatura", img: "/images/mfone-frio.jpg", copy: "De 1 a 42 °C según el equipo que elijas. Frío para recuperar, calor para relajar, ajustable al grado. Una sola tina para todo el año." },
-  { word: "Filtración", img: "/images/ozono-agua.jpg", copy: "Filtración y ozono en toda la línea: filtro de papel y skimmer en el MF ONE, triple filtro de 1 a 5 micras en los inflables. Agua cristalina sin productos químicos." },
+  { word: "Filtración", img: "/images/ozono-agua.jpg", copy: "Filtración y ozono en toda la línea: filtro de papel y skimmer en la MF ONE, triple filtro de 1 a 5 micras en los inflables. Agua cristalina, sin cloro de alberca." },
   { word: "Control", img: "/photography/feature/control-app-1049.jpg", copy: "Control total desde la app. Programa temperatura, horarios y tu ritual. El frío te espera listo cuando llegas a casa." },
 ];
 
@@ -101,7 +101,7 @@ const PRODUCTOS = [
 /* Trust trio — real de mentefria.com */
 const TRUST = [
   { k: "30 días", t: "Pruébala sin riesgo", p: "Si no es la mejor cold plunge que has probado, te regresamos tu dinero. Sin preguntas y sin trámites." },
-  { k: "Garantía", t: "12 meses en el MF ONE", p: "Seis meses en los modelos inflables, y atención de por vida por nuestros canales." },
+  { k: "Garantía", t: "12 meses en la MF ONE", p: "Seis meses en los modelos inflables, y atención de por vida por nuestros canales." },
   { k: "Hasta 6 MSI", t: "Financiamiento disponible", p: "Meses sin intereses con tarjetas participantes a través de Mercado Pago." },
 ];
 
@@ -113,8 +113,8 @@ const COMPARE_ROWS: { mf: string; otras: string }[] = [
   { mf: "Calienta hasta 42 °C", otras: "Jacuzzi no incluido" },
   { mf: "0 hielos requeridos", otras: "Otras no" },
   { mf: "Controla desde la app Wi-Fi", otras: "Sin control remoto" },
-  { mf: "Servicio 24/7 + garantía incluida", otras: "Sin soporte" },
-  { mf: "Purificación de ozono cada 5 min", otras: "No purifican" },
+  { mf: "Soporte de por vida + garantía incluida", otras: "Sin soporte" },
+  { mf: "Ozono integrado purificando el agua", otras: "No purifican" },
   { mf: "Filtro de 3 capas", otras: "No tienen filtro" },
 ];
 
@@ -305,7 +305,7 @@ export function LandingV2() {
             <span className="m-eyebrow accent">Ingeniería del frío</span>
             <h2>Todo en una sola pieza.</h2>
             <p>
-              El MF ONE integra chiller, filtración y purificación en un solo cuerpo de acero
+              La MF ONE integra chiller, filtración y purificación en un solo cuerpo de acero
               inoxidable. Explora cada componente.
             </p>
           </Reveal>

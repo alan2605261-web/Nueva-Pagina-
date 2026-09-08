@@ -6,7 +6,7 @@ import type { CSSProperties } from "react";
   Reemplazan al componente Placeholder, que dejaba seis rectángulos grises con
   una etiqueta encima y hacía ver la página barata.
 
-  Mismo lenguaje que el bento del MF ONE: fondo tinta, acento azul hielo, una
+  Mismo lenguaje que el bento de la MF ONE: fondo tinta, acento azul hielo, una
   animación en vivo por tarjeta y cero dependencias externas. Todo es SVG
   inline con clases de metal.css, así que no pesa nada y no hay imágenes que
   cargar.
@@ -91,7 +91,7 @@ function Envios() {
 }
 
 /* ── 03 · Garantía ──────────────────────────────────────────────────────
-   Dos arcos: el largo del MF ONE y el corto de los inflables. */
+   Dos arcos: el largo de la MF ONE y el corto de los inflables. */
 function Garantia() {
   return (
     <svg viewBox={vb} className={wrap} role="img" aria-label="Cobertura de garantía por producto">
@@ -188,7 +188,7 @@ function Servicio() {
         <circle r={13} fill="none" stroke={AZUL_FUERTE} opacity={0.4} className="mf-pulse-dot" />
       </g>
       <text x={150} y={192} textAnchor="middle" fontSize={9} letterSpacing="0.18em" fill={TEXTO}>
-        DIAGNÓSTICO REMOTO · 24/7
+        DIAGNÓSTICO REMOTO PRIMERO
       </text>
     </svg>
   );
@@ -221,7 +221,7 @@ function Contacto() {
         </g>
       ))}
       <text x={150} y={186} textAnchor="middle" fontSize={9} letterSpacing="0.18em" fill={TEXTO}>
-        WHATSAPP · RESPUESTA 24/7
+        WHATSAPP · TE DAMOS SEGUIMIENTO
       </text>
     </svg>
   );

@@ -32,7 +32,7 @@ const accesoriosCards = [
 const kitsMantenimiento = [
   {
     title: "Filtro de papel",
-    body: "Cartucho reemplazable para el MF ONE — cámbialo cada 3 a 4 semanas.",
+    body: "Cartucho reemplazable para la MF ONE — cámbialo cada 3 a 4 semanas.",
     tag: "Consultar",
     img: "/images/acc-filtro-cartucho-uno.webp",
     contain: true,
@@ -79,14 +79,14 @@ const maintenanceSchedule = [
   {
     interval: "Continuo",
     task: "Desinfección por ozono",
-    detail: "El sistema integrado elimina bacterias sin químicos. No agregar cloro ni productos externos.",
+    detail: "El sistema integrado elimina bacterias sin cloro de alberca. No agregar cloro ni productos externos.",
   },
 ];
 
 const mfOneIncluded = [
   {
     title: "Filtro de papel",
-    body: "Es el filtro de operación del MF ONE — cámbialo cada 3 a 4 semanas.",
+    body: "Es el filtro de operación de la MF ONE — cámbialo cada 3 a 4 semanas.",
     img: "/images/acc-filtros-cartucho.webp",
   },
   {
@@ -111,7 +111,7 @@ const mfOneIncluded = [
   },
   {
     title: "El kit completo",
-    body: "Todo lo que llega en la caja del MF ONE, listo desde el día uno.",
+    body: "Todo lo que llega en la caja de la MF ONE, listo desde el día uno.",
     img: "/images/acc-kit-completo.jpg",
   },
 ];
@@ -182,11 +182,11 @@ export default function AccesoriosPage() {
         </div>
       </section>
 
-      {/* Incluido con el MF ONE */}
+      {/* Incluido con la MF ONE */}
       <section className="msection">
         <div className="mwrap">
           <SectionHeader
-            eyebrow="Incluido con el MF ONE"
+            eyebrow="Incluido con la MF ONE"
             title="Lo que ya viene en la caja."
             subtitle="Estos accesorios no se compran aparte: cada MF ONE los incluye de serie."
             center

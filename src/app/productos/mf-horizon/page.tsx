@@ -20,7 +20,7 @@ const SHOP_URL = "https://mentefria.com/products/mf-horizon-1";
 const FAQ_ITEMS = [
   {
     q: "¿Qué motor elijo: Pro 2.0 o Premium 2.0?",
-    a: "El Motor Pro 2.0 (0.8 HP, 2,230 W) es solo frío: enfría de 25 a 3 °C en ~6 horas, con filtración de 3 etapas y control WiFi — perfecto si tu objetivo es recuperación en frío. El Motor Premium 2.0 (1 HP, 2,700 W) hace todo eso más rápido (~4 horas), y además calienta hasta 42 °C y purifica con ozono 24/7. Si quieres contraste frío/calor y agua purificada sin químicos, ve por el Premium.",
+    a: "El Motor Pro 2.0 (0.8 HP, 2,230 W) es solo frío: enfría de 25 a 3 °C en ~6 horas, con filtración de 3 etapas y control WiFi — perfecto si tu objetivo es recuperación en frío. El Motor Premium 2.0 (1 HP, 2,700 W) hace todo eso más rápido (~4 horas), y además calienta hasta 42 °C y purifica con ozono 24/7. Si quieres contraste frío/calor y agua purificada sin cloro de alberca, ve por el Premium.",
   },
   {
     q: "¿Necesito hielo?",
@@ -32,7 +32,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿El ozono sustituye al cloro?",
-    a: "Sí. Con el Motor Premium 2.0, la purificación con ozono esteriliza el agua 24/7 sin cloro ni químicos — sin olores ni irritación en la piel. Con el Motor Pro 2.0, el sistema de 3 filtros se encarga de mantener el agua limpia entre cambios.",
+    a: "Sí. Con el Motor Premium 2.0, la purificación con ozono esteriliza el agua 24/7 sin cloro de alberca — sin olores ni irritación en la piel. Con el Motor Pro 2.0, el sistema de 3 filtros se encarga de mantener el agua limpia entre cambios.",
   },
   {
     q: "¿Dónde puedo instalarla?",

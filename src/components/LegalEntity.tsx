@@ -1,7 +1,7 @@
 /*
   Identidad legal de Mente Fria.
 
-  Datos tomados textualmente de la póliza de garantía oficial del MF ONE
+  Datos tomados textualmente de la póliza de garantía oficial de la MF ONE
   (documento del 31 de agosto de 2026). La Ley Federal de Protección al
   Consumidor exige que la póliza identifique a quien la otorga con domicilio,
   y la LFPDPPP exige nombrar al responsable del tratamiento de datos: por eso

@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from "react";
 
 const STATS = [
   { from: 0, to: 3, suffix: "×", label: "más potentes que cualquier otro motor en México" },
-  { from: 15, to: 0, suffix: "hielos", label: "ahorro real a largo plazo" },
+  { from: 15, to: 0, suffix: "hielos", label: "que ya no compras cada semana" },
   { from: 0, to: 30, suffix: "días", label: "de prueba sin preguntas" },
 ];
 
@@ -66,7 +66,8 @@ export function StatSpark() {
               className="mdisplay text-[clamp(56px,7vw,84px)] leading-none"
               style={{
                 WebkitTextStroke: "var(--bold-stroke) transparent",
-                background: "linear-gradient(135deg, #5B9BD5 0%, #3F7DC4 55%, #001BFF 130%)",
+                background:
+                  "linear-gradient(135deg, var(--m-blue) 0%, var(--m-blue-600) 55%, var(--grad-blue-end, #001bff) 130%)",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
                 color: "transparent",

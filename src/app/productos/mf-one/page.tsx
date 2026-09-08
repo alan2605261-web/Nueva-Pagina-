@@ -42,7 +42,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Cuánto cuesta el envío?",
-    a: "El envío del MF ONE cuesta $6,000 MXN a todo México. Incluye maniobra de entrega: el equipo viaja drenado y entarimado, y nuestro equipo coordina contigo el acceso al espacio final.",
+    a: "El envío de la MF ONE cuesta $6,000 MXN a todo México. Incluye maniobra de entrega: el equipo viaja drenado y entarimado, y nuestro equipo coordina contigo el acceso al espacio final.",
   },
 ];
 
@@ -172,7 +172,7 @@ export default function MFOnePage() {
                       },
                       {
                         t: "Qué incluye",
-                        c: "La unidad MF ONE con el módulo de enfriamiento integrado, cubierta aislante, filtros de papel y de carbón, llave de filtro, skimmer y portacelular. El MF ONE PRO DECK se vende por separado.",
+                        c: "La unidad MF ONE con el módulo de enfriamiento integrado, cubierta aislante, filtros de papel y de carbón, llave de filtro, skimmer y portacelular. La MF ONE PRO DECK se vende por separado.",
                       },
                       {
                         t: "Envío y entrega",
@@ -284,7 +284,7 @@ export default function MFOnePage() {
             <Reveal className="msection-head">
               <span className="m-eyebrow accent">Accesorios incluidos</span>
               <h2>Todo incluido, desde el día uno.</h2>
-              <p>Sin compras extra ni sorpresas: el MF ONE llega completo y listo para usarse.</p>
+              <p>Sin compras extra ni sorpresas: la MF ONE llega completo y listo para usarse.</p>
             </Reveal>
             <Reveal className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {[
@@ -316,7 +316,7 @@ export default function MFOnePage() {
           <div className="mwrap">
             <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
               <Reveal>
-                <span className="m-eyebrow accent">El corazón del MF ONE</span>
+                <span className="m-eyebrow accent">El corazón de la MF ONE</span>
                 <h2 className="mdisplay mt-3 text-[clamp(28px,3.4vw,46px)]" style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}>
                   Siempre limpia.
                   <br />
@@ -338,7 +338,7 @@ export default function MFOnePage() {
                   {[
                     ["Timer programable", "Se enciende y apaga sola a tus horarios — dos programas."],
                     ["Modo automático", "Fijas tu temperatura y la mantiene 24/7, al grado."],
-                    ["Ozono integrado", "Desinfección sin cloro ni químicos."],
+                    ["Ozono integrado", "Desinfección sin cloro de alberca."],
                     ["Doble filtración", "Skimmer en la superficie + filtro de papel en circulación."],
                     ["Candado de pantalla", "Bloqueo del panel — ideal para uso comercial o niños."],
                     ["Luz LED interior", "Enciende y apaga la iluminación de la tina desde el panel."],
@@ -359,7 +359,7 @@ export default function MFOnePage() {
                 <div className="grid gap-4">
                   <div className="overflow-hidden rounded-[16px]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/images/mfone-gallery/negro/06.jpg" alt="Chiller integrado del MF ONE" className="w-full" />
+                    <img src="/images/mfone-gallery/negro/06.jpg" alt="Chiller integrado de la MF ONE" className="w-full" />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="overflow-hidden rounded-[16px]">
@@ -482,7 +482,7 @@ export default function MFOnePage() {
             <Reveal className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
               <div className="max-w-2xl">
                 <p className="eyebrow mb-4">Mente Fria para Negocios</p>
-                <h2 className="mdisplay text-[clamp(26px,3.4vw,44px)]">¿Y si el MF ONE se pagara solo?</h2>
+                <h2 className="mdisplay text-[clamp(26px,3.4vw,44px)]">¿Y si la MF ONE se pagara solo?</h2>
                 <p className="text-[16px] leading-relaxed mt-4">
                   Hoteles, gimnasios, spas y clínicas ya cobran por cada inmersión.
                   Adquiérelo en leasing sin tocar tu línea bancaria — y calcula en un

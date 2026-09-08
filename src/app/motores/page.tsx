@@ -12,7 +12,7 @@ import { ArrowRight } from "@/components/icons";
    nada de motores. Esta página llena ese cascarón.
 
    Datos verificados de la línea 2.0. Regla dura del proyecto: los motores son
-   SOLO para MF Barrel y MF Horizon. El MF ONE lleva su chiller dentro de la
+   SOLO para MF Barrel y MF Horizon. La MF ONE lleva su chiller dentro de la
    tina y nunca se combina con un motor.
 ───────────────────────────────────────────────────────────── */
 
@@ -61,8 +61,8 @@ const CUIDADOS = [
 
 const FAQ_ITEMS = [
   {
-    q: "¿El MF ONE necesita motor?",
-    a: "No. El MF ONE es all-in-one: lleva el sistema de enfriamiento integrado dentro de la tina, sin motor aparte ni mangueras que tender. Los motores de la línea 2.0 son exclusivamente para MF Barrel y MF Horizon.",
+    q: "¿La MF ONE necesita motor?",
+    a: "No. La MF ONE es all-in-one: lleva el sistema de enfriamiento integrado dentro de la tina, sin motor aparte ni mangueras que tender. Los motores de la línea 2.0 son exclusivamente para MF Barrel y MF Horizon.",
   },
   {
     q: "¿Cuál me conviene?",
@@ -122,7 +122,7 @@ export default function MotoresPage() {
               className="h-[7px] w-[7px] rounded-full"
               style={{ background: "var(--accent-ice)" }}
             />
-            Solo para MF Barrel y MF Horizon — el MF ONE no necesita motor
+            Solo para MF Barrel y MF Horizon — la MF ONE no necesita motor
           </Reveal>
         </div>
       </section>

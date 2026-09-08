@@ -14,10 +14,10 @@ const MOTORS = [
   {
     name: "Motor Pro 2.0",
     tag: null,
-    img: "/images/motor-blanco-studio.jpg",
-    imgAlt: "Motor Pro 2.0 en blanco",
+    img: "/images/motor-pro-card.jpg",
+    imgAlt: "Motor Pro 2.0",
     power: "0.8 HP",
-    watts: "2,230 W",
+    sub: "Solo frío",
     blurb:
       "La puerta de entrada al frío diario: potencia real, filtración de 3 capas y control desde la app.",
     features: [
@@ -32,17 +32,17 @@ const MOTORS = [
   {
     name: "Motor Premium 2.0",
     tag: "Más popular",
-    img: "/images/motor-negro-studio.jpg",
-    imgAlt: "Motor Premium 2.0 en negro",
+    img: "/images/motor-premium-card.jpg",
+    imgAlt: "Motor Premium 2.0",
     power: "1 HP",
-    watts: "2,700 W",
+    sub: "Frío y calor",
     blurb:
-      "Frío y calor todo el año: rango completo de 3 a 43 °C con ozono purificando el agua 24/7.",
+      "Frío y calor todo el año: rango completo de 3 a 42 °C con ozono purificando el agua 24/7.",
     features: [
       { ok: true, t: "Enfría hasta 3 °C, ~33% más rápido (~4 h)" },
       { ok: true, t: "Filtración de 3 capas (papel, integrado y malla)" },
       { ok: true, t: "Control WiFi + app" },
-      { ok: true, t: "Calienta hasta 43 °C — jacuzzi mode" },
+      { ok: true, t: "Calienta hasta 42 °C — jacuzzi mode" },
       { ok: true, t: "Purificación por ozono 24/7, sin cloro" },
     ],
     dims: "58.5 × 42.5 × 53 cm · 41.5 kg",
@@ -84,19 +84,19 @@ export function MotorPicker({ productName }: { productName?: string }) {
                   {m.tag}
                 </span>
               )}
-              {/* Foto del motor (negro Pro / blanco Premium) */}
-              {/* Las fotos son verticales (1050×1400 y 829×1500). Con object-cover
-                  en una caja baja solo se veía una rebanada del motor. Con contain
-                  sobre el panel plateado se ve el equipo completo. */}
-              <div
-                className="mb-7 grid aspect-[4/3] place-items-center overflow-hidden rounded-[14px]"
-                style={{ background: "var(--grad-silver)" }}
-              >
+              {/* Foto del motor.
+                  Los originales eran verticales (1050×1400 y 829×1500) con el
+                  equipo descentrado y mucho fondo muerto: con object-cover se
+                  cortaba y con object-contain quedaba un marco vacío enorme.
+                  Estos archivos ya vienen reencuadrados a 4:3 desde el mismo
+                  script, con el motor centrado al 86% del alto en ambos, así
+                  que la foto llena la caja sin recortar el equipo. */}
+              <div className="mb-7 aspect-[4/3] overflow-hidden rounded-[14px]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={m.img}
                   alt={m.imgAlt}
-                  className="h-full w-full object-contain p-5"
+                  className="h-full w-full object-cover"
                 />
               </div>
               <h3
@@ -110,7 +110,7 @@ export function MotorPicker({ productName }: { productName?: string }) {
                   {m.power}
                 </span>
                 <span className="text-[13px] uppercase tracking-[0.14em] text-[var(--on-dark-subtle)]">
-                  {m.watts}
+                  {m.sub}
                 </span>
               </div>
               <p className="mt-4 max-w-[42ch] text-[14px] leading-relaxed text-[var(--on-dark-muted)]">

@@ -90,6 +90,21 @@ export function ArrowRight({ className, ...props }: IconProps) {
   );
 }
 
+/* Flecha diagonal: marca que el enlace sale del sitio (fuentes científicas). */
+export function ArrowUpRight({ className, ...props }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} {...props}>
+      <path
+        d="M7 17 17 7m0 0H8m9 0v9"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function ChevronLeft({ className, ...props }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} {...props}>

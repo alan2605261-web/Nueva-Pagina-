@@ -24,10 +24,9 @@ export const metadata = {
 
 const SPECS: { label: string; pro: string; premium: string }[] = [
   { label: "Potencia", pro: "0.8 HP", premium: "1 HP" },
-  { label: "Consumo", pro: "2,230 W", premium: "2,700 W" },
   { label: "Enfriamiento", pro: "Hasta 3 °C", premium: "Hasta 3 °C" },
   { label: "De 25 a 3 °C", pro: "~6 horas", premium: "~4 horas" },
-  { label: "Calefacción", pro: "No incluye", premium: "Hasta 43 °C" },
+  { label: "Calefacción", pro: "No incluye", premium: "Hasta 42 °C" },
   { label: "Ozono", pro: "No incluye", premium: "Purificación 24/7" },
   { label: "Filtración", pro: "3 capas: papel, integrado y malla", premium: "3 capas: papel, integrado y malla" },
   { label: "Control", pro: "WiFi + app", premium: "WiFi + app" },

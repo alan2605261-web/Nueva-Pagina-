@@ -36,7 +36,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Qué motor me conviene: Pro 2.0 o Premium 2.0?",
-    a: "El Motor Pro 2.0 (0.8 HP) es la puerta de entrada: enfría de 25 a 3 °C en aproximadamente 6 horas, con filtración de 3 capas y control WiFi. El Motor Premium 2.0 (1 HP) hace todo lo anterior más rápido (~4 horas), y suma calefacción hasta 43 °C y purificación por ozono 24/7. Si quieres contraste frío-calor y agua sin cloro de alberca, elige Premium.",
+    a: "El Motor Pro 2.0 (0.8 HP) es la puerta de entrada: enfría de 25 a 3 °C en aproximadamente 6 horas, con filtración de 3 capas y control WiFi. El Motor Premium 2.0 (1 HP) hace todo lo anterior más rápido (~4 horas), y suma calefacción hasta 42 °C y purificación por ozono 24/7. Si quieres contraste frío-calor y agua sin cloro de alberca, elige Premium.",
   },
   {
     q: "¿Cada cuánto cambio el agua y los filtros?",
@@ -67,7 +67,7 @@ const SPEC_ROWS = [
   { label: "Filtración", value: "Filtración de 3 capas: filtro de papel, filtro integrado y malla antipolvo" },
   { label: "Desinfección", value: "Ozono 24/7 (con Motor Premium 2.0)" },
   { label: "Enfriamiento", value: "Hasta 3 °C, sin hielo" },
-  { label: "Calentamiento", value: "Hasta 43 °C (con Motor Premium 2.0)" },
+  { label: "Calentamiento", value: "Hasta 42 °C (con Motor Premium 2.0)" },
   { label: "Motores compatibles", value: "Motor Pro 2.0 (0.8 HP) · Motor Premium 2.0 (1 HP)" },
   { label: "Motor (dimensiones)", value: "Pro 55 × 42.5 × 53 cm · 39 kg — Premium 58.5 × 42.5 × 53 cm · 41.5 kg" },
   { label: "Pantalla y control", value: "WiFi + app (temperatura y horarios)" },
@@ -207,7 +207,7 @@ export default function MFBarrelPage() {
                     {[
                       {
                         t: "Detalles del producto",
-                        c: "Ø 90 × 90 cm · 500 L máximo, 350 L recomendado · 11 kg. Tejido drop-stitch de grado militar, con cámara de aire aislante que conserva la temperatura. Enfría hasta 3 °C sin hielo; con Motor Premium 2.0 también calienta hasta 43 °C y purifica con ozono. Control WiFi desde la app.",
+                        c: "Ø 90 × 90 cm · 500 L máximo, 350 L recomendado · 11 kg. Tejido drop-stitch de grado militar, con cámara de aire aislante que conserva la temperatura. Enfría hasta 3 °C sin hielo; con Motor Premium 2.0 también calienta hasta 42 °C y purifica con ozono. Control WiFi desde la app.",
                       },
                       {
                         t: "Qué incluye",

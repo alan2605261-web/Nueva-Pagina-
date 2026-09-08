@@ -104,7 +104,7 @@ export const featureScroll = {
     {
       word: "Temperatura",
       body:
-        "Enfría hasta 3 °C y, con el Motor Premium, calienta hasta 43 °C. Tú programas la temperatura; el equipo la mantiene, sin una sola bolsa de hielo.",
+        "Enfría hasta 3 °C y, con el Motor Premium, calienta hasta 42 °C. Tú programas la temperatura; el equipo la mantiene, sin una sola bolsa de hielo.",
       left: { label: "Frío", value: "3°" },
       right: { label: "Calor", value: "42°" },
     },

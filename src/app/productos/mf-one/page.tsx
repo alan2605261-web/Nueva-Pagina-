@@ -148,8 +148,8 @@ export default function MFOnePage() {
                     price={6900}
                     basePrice={169000}
                     imgByColor={{
-                      Negro: "/images/prodeck-negro.png",
-                      Blanco: "/images/prodeck-blanco.png",
+                      Negro: "/images/prodeck-negro.webp",
+                      Blanco: "/images/prodeck-blanco.webp",
                     }}
                   />
 

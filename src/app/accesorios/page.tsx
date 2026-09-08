@@ -2,63 +2,13 @@ import { PageShell } from "@/components/PageShell";
 import { SubHero, SectionHeader, CTASection } from "@/components/blocks";
 import { Reveal } from "@/components/Reveal";
 import { AccessoryCard } from "@/components/AccessoryCard";
-
-/* ─── Accesorios (venta) ─────────────────────────────────────────────────── */
-const accesoriosCards = [
-  {
-    title: "MFONE PRO DECK",
-    body: "El escalón de acceso diseñado para tu MF ONE. Eleva y estabiliza el setup; integración perfecta con el equipo.",
-    tag: "$6,900 MXN",
-    img: "/images/prodeck-negro.png",
-    contain: true,
-  },
-  {
-    title: "MF Mat",
-    body: "Tapete antideslizante para tu setup. Previene caídas al salir con los pies mojados.",
-    tag: "Consultar",
-    img: null,
-    contain: false,
-  },
-  {
-    title: "Soporte para celular",
-    body: "Se monta en el borde de la tina — tu timer, tu música o tu serie durante la inmersión.",
-    tag: "Consultar",
-    img: "/images/acc-soporte-celular.webp",
-    contain: true,
-  },
-];
-
-/* ─── Kits de mantenimiento (estilo Plunge) ──────────────────────────────── */
-const kitsMantenimiento = [
-  {
-    title: "Filtro de papel",
-    body: "Cartucho reemplazable para la MF ONE — cámbialo cada 3 a 4 semanas.",
-    tag: "Consultar",
-    img: "/images/acc-filtro-cartucho-uno.webp",
-    contain: true,
-  },
-  {
-    title: "Filtro de carbón",
-    body: "Se conecta a la manguera al llenar la tina — retiene impurezas desde el primer litro.",
-    tag: "Consultar",
-    img: "/images/acc-filtro-prellenado.webp",
-    contain: true,
-  },
-  {
-    title: "Kit de filtros para inflables",
-    body: "Filtros de repuesto para el sistema de 3 capas de MF Barrel y MF Horizon — cámbialos con cada cambio de agua.",
-    tag: "Consultar",
-    img: "/images/acc-filtros-cartucho.webp",
-    contain: true,
-  },
-  {
-    title: "Oxidante Sirona",
-    body: "Tratamiento sin cloro que mantiene el agua impecable entre cambios.",
-    tag: "Próximamente",
-    img: null,
-    contain: false,
-  },
-];
+import {
+  ACCESORIOS,
+  CONSUMIBLES,
+  INCLUIDO_MF_ONE,
+  activos,
+  type Accesorio,
+} from "@/lib/accesorios";
 
 const maintenanceSchedule = [
   {
@@ -83,57 +33,14 @@ const maintenanceSchedule = [
   },
 ];
 
-const mfOneIncluded = [
-  {
-    title: "Filtro de papel",
-    body: "Es el filtro de operación de la MF ONE — cámbialo cada 3 a 4 semanas.",
-    img: "/images/acc-filtros-cartucho.webp",
-  },
-  {
-    title: "Filtro de carbón",
-    body: "Se conecta a la manguera al llenar la tina — retiene impurezas desde el primer litro.",
-    img: "/images/acc-filtro-prellenado.webp",
-  },
-  {
-    title: "Red de limpieza",
-    body: "Retira hojas e impurezas de la superficie en segundos.",
-    img: "/images/acc-red-limpieza.webp",
-  },
-  {
-    title: "Soporte para celular",
-    body: "Se monta en el borde de la tina — tu timer, tu música o tu serie durante la inmersión.",
-    img: "/images/acc-soporte-celular.webp",
-  },
-  {
-    title: "Patitos de hule",
-    body: "Sí, vienen incluidos. Porque el frío se toma en serio — pero no tanto.",
-    img: "/images/acc-patitos.webp",
-  },
-  {
-    title: "El kit completo",
-    body: "Todo lo que llega en la caja de la MF ONE, listo desde el día uno.",
-    img: "/images/acc-kit-completo.jpg",
-  },
-];
-
 /* Card de producto con imagen (o placeholder) + chip de precio */
-function AccessoryGrid({
-  items,
-}: {
-  items: {
-    title: string;
-    body: string;
-    tag?: string;
-    img: string | null;
-    contain?: boolean;
-  }[];
-}) {
+function AccessoryGrid({ items }: { items: Accesorio[] }) {
   return (
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item, i) => (
         <Reveal key={item.title} delay={i * 0.06} className="h-full">
           <AccessoryCard
-            a={{ t: item.title, p: item.body, img: item.img, tag: item.tag }}
+            a={{ t: item.title, p: item.body, img: item.img ?? null, tag: item.tag }}
             index={i}
             className="h-full"
           />
@@ -164,7 +71,7 @@ export default function AccesoriosPage() {
             center
             className="mb-12"
           />
-          <AccessoryGrid items={accesoriosCards} />
+          <AccessoryGrid items={activos(ACCESORIOS)} />
         </div>
       </section>
 
@@ -178,7 +85,7 @@ export default function AccesoriosPage() {
             center
             className="mb-12"
           />
-          <AccessoryGrid items={kitsMantenimiento} />
+          <AccessoryGrid items={activos(CONSUMIBLES)} />
         </div>
       </section>
 
@@ -193,15 +100,21 @@ export default function AccesoriosPage() {
             className="mb-12"
           />
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {mfOneIncluded.map((item, i) => (
+            {activos(INCLUIDO_MF_ONE).map((item, i) => (
               <Reveal key={item.title} delay={i * 0.06}>
                 <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--line-1)] bg-background">
-                  <div className="aspect-[16/10] w-full overflow-hidden">
+                  {/* object-cover recortaba el filtro, el soporte, los patitos
+                      y el kit completo: las fotos son cuadradas y la caja es
+                      16:10. Con contain sobre el panel se ven completas. */}
+                  <div
+                    className="aspect-[16/10] w-full overflow-hidden"
+                    style={{ background: "var(--bg-panel)" }}
+                  >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={item.img}
+                      src={item.img ?? undefined}
                       alt={item.title}
-                      className="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.04]"
+                      className="h-full w-full object-contain p-6 transition-transform duration-500 hover:scale-[1.04]"
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-6">

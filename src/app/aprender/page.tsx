@@ -1,227 +1,209 @@
 import { PageShell } from "@/components/PageShell";
-import {
-  SubHero,
-  SectionHeader,
-  StatRow,
-  CTASection,
-} from "@/components/blocks";
+import { SubHero, SectionHeader, StatRow, CTASection } from "@/components/blocks";
 import { Reveal } from "@/components/Reveal";
+import { BENEFICIOS, CONSEJO } from "@/lib/ciencia";
+import { ArrowUpRight } from "@/components/icons";
 
-const BENEFITS = [
-  {
-    category: "MENTAL",
-    title: "Mejora del control mental",
-    desc: "Sumergirse en frío entrena la disciplina mental, fortalece la resiliencia y enseña a mantener la calma bajo presión.",
-  },
-  {
-    category: "ENERGÍA",
-    title: "Incrementa tu metabolismo",
-    desc: "La inmersión en agua fría aumenta la función mitocondrial y la producción de ATP, resultando en mayor energía y resistencia física.",
-  },
-  {
-    category: "INMUNIDAD",
-    title: "Fortalece tu sistema inmune",
-    desc: "La exposición al frío aumenta la producción de glóbulos blancos, esenciales para combatir infecciones y mejorar la resistencia del cuerpo.",
-  },
-  {
-    category: "SUEÑO",
-    title: "Mejora la calidad del sueño",
-    desc: "El frío reduce los niveles de cortisol y promueve la producción de melatonina, facilitando un sueño más profundo y reparador.",
-  },
-  {
-    category: "RECUPERACIÓN",
-    title: "Reducción de la inflamación",
-    desc: "La inmersión en agua fría reduce la inflamación al disminuir el flujo sanguíneo en áreas específicas, aliviando dolores y mejorando la movilidad.",
-  },
-  {
-    category: "ÁNIMO",
-    title: "Mayor dopamina natural",
-    desc: "El frío intenso dispara los niveles de dopamina hasta 2.5 veces más de lo normal, mejorando la motivación, concentración y satisfacción.",
-  },
-  {
-    category: "ENERGÍA",
-    title: "Aumenta energía y libera endorfinas",
-    desc: "La inmersión en frío provoca la liberación de endorfinas, generando una sensación inmediata de vitalidad y bienestar que dura horas.",
-  },
-  {
-    category: "CIRCULACIÓN",
-    title: "Mejora la circulación",
-    desc: "El contraste térmico contrae y dilata los vasos sanguíneos, estimulando la circulación y favoreciendo la oxigenación de músculos y órganos.",
-  },
-  {
-    category: "COMPOSICIÓN CORPORAL",
-    title: "Quema de grasa marrón",
-    desc: "El frío activa la grasa marrón, un tejido que consume calorías para generar calor corporal, favoreciendo la pérdida de grasa y mejorando el metabolismo.",
-  },
-  {
-    category: "METABOLISMO",
-    title: "Aumento de la termogénesis",
-    desc: "La grasa marrón se activa para producir calor, incrementando el gasto energético y ayudando a mantener la temperatura corporal estable.",
-  },
-  {
-    category: "ESTRÉS",
-    title: "Mejor manejo del estrés y ansiedad",
-    desc: "La inmersión en frío disminuye el cortisol y activa el sistema nervioso parasimpático, reduciendo la ansiedad y generando calma sostenida.",
-  },
-  {
-    category: "CEREBRO",
-    title: "Mejora la neuroplasticidad",
-    desc: "El estímulo del frío favorece la creación de nuevas conexiones neuronales, mejorando el aprendizaje, la memoria y la adaptación mental.",
-  },
-  {
-    category: "CORAZÓN",
-    title: "Mejor salud cardiovascular",
-    desc: "La práctica regular de inmersión en frío fortalece el sistema cardiovascular, mejora la elasticidad de los vasos sanguíneos y optimiza la circulación.",
-  },
-  {
-    category: "COGNICIÓN",
-    title: "Mejora la atención y el enfoque",
-    desc: "El frío estimula neurotransmisores que aumentan la claridad mental, potenciando la concentración y el rendimiento cognitivo durante horas.",
-  },
-  {
-    category: "ESTÉTICA",
-    title: "Beneficia la piel y el cabello",
-    desc: "La contracción de los vasos sanguíneos revitaliza la piel, reduce la hinchazón y fortalece el cabello al mejorar su oxigenación.",
-  },
-  {
-    category: "INFLAMACIÓN",
-    title: "Reduce la inflamación intestinal y articular",
-    desc: "El frío disminuye procesos inflamatorios internos, aliviando molestias digestivas y mejorando la movilidad articular.",
-  },
-  {
-    category: "ÁNIMO",
-    title: "Mejora el humor a lo largo del día",
-    desc: "La descarga de dopamina y endorfinas prolonga un estado de ánimo positivo y estable durante horas después de cada inmersión.",
-  },
-];
+/*
+  /aprender — la ciencia detrás del frío.
+
+  Tres cosas que Saul marcó y que aquí quedan resueltas:
+
+  1. Las tarjetas de beneficio no llevaban a ningún lado. Ahora cada una es un
+     enlace al mismo artículo que él ligó a mano en el sitio vivo (ver
+     lib/ciencia.ts). La única sin enlace es "Mayor dopamina natural", que
+     tampoco lo tiene allá: no se le inventa una fuente.
+  2. El texto de las tarjetas iba en bandera; ahora va justificado.
+  3. El bloque de beneficios arrancaba con una sangría superior enorme porque
+     encadenaba el padding de .msection con un gap-10 del contenedor. Se quitó
+     el gap y el encabezado maneja su propio margen.
+*/
+
+export const metadata = {
+  title: "La ciencia detrás del frío | Mente Fria",
+  description:
+    "Qué le hace la inmersión en agua fría al cuerpo, beneficio por beneficio, con la referencia publicada de cada uno.",
+};
 
 export default function AprenderPage() {
   return (
     <PageShell>
-      {/* 1. SubHero */}
       <SubHero
         eyebrow="Evidencia clínica"
         title={"El poder del frío.\nRespaldado por la ciencia."}
-        subtitle="Recupérate más rápido, duerme mejor, piensa con mayor claridad y siéntete más vivo. Cada beneficio, documentado."
+        subtitle="Recupérate más rápido, duerme mejor, piensa con mayor claridad y siéntete más vivo. Cada beneficio, con su referencia."
         tone="mist"
       />
 
-      {/* 2. StatRow — datos clínicos */}
+      {/* ── Cifras ─────────────────────────────────────────────────────── */}
       <section className="msection">
-        <div className="mwrap flex flex-col gap-10">
+        <div className="mwrap">
           <Reveal>
             <StatRow
               stats={[
-                {
-                  value: "+250%",
-                  label: "Dopamina",
-                },
-                {
-                  value: "+530%",
-                  label: "Noradrenalina",
-                },
-                {
-                  value: "−47%",
-                  label: "Cortisol",
-                },
+                { value: "+250%", label: "Dopamina" },
+                { value: "+530%", label: "Noradrenalina" },
+                { value: "−47%", label: "Cortisol" },
               ]}
             />
           </Reveal>
-          {/* 4th stat as text since StatRow takes 3 */}
-          <Reveal delay={0.1}>
-            <div className="flex justify-center">
-              <div className="flex flex-col items-center gap-1 px-8 py-6 rounded-2xl border border-border bg-[var(--bg-panel)]">
-                <p className="text-4xl font-bold text-ink tracking-tight">16+</p>
-                <p className="text-sm text-[var(--fg-muted)] uppercase tracking-wider font-medium">
-                  Beneficios documentados
-                </p>
-              </div>
-            </div>
+          <Reveal delay={0.1} className="mt-8">
+            <p
+              className="mx-auto max-w-[62ch] text-center text-[13px] leading-relaxed"
+              style={{ color: "var(--fg-subtle)" }}
+            >
+              Cambios medidos tras una inmersión en agua fría en condiciones de
+              laboratorio. La magnitud varía con la temperatura, el tiempo y la
+              persona.
+            </p>
           </Reveal>
         </div>
       </section>
 
-      {/* 3. Benefits grid — 17 tarjetas */}
+      {/* ── Beneficios ─────────────────────────────────────────────────── */}
       <section className="msection panel">
-        <div className="mwrap flex flex-col gap-10">
+        <div className="mwrap">
           <Reveal>
             <SectionHeader
               eyebrow="Beneficios"
               title="Lo que el frío hace en tu cuerpo"
-              subtitle="Cada beneficio documentado en investigación clínica peer-reviewed."
+              subtitle="Cada tarjeta abre la referencia en la que se apoya."
               center
+              className="mb-12"
             />
           </Reveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {BENEFITS.map((b, i) => (
-              <Reveal key={b.title} delay={i * 0.03}>
-                <div className="flex flex-col gap-3 p-6 rounded-2xl bg-background border border-border h-full">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-accent">
-                    {b.category}
+
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {BENEFICIOS.map((b, i) => {
+              const cuerpo = (
+                <>
+                  <p className="m-eyebrow accent">{b.categoria}</p>
+                  <h3
+                    className="mt-3 text-[16.5px] font-semibold leading-snug"
+                    style={{ color: "var(--fg-metal)" }}
+                  >
+                    {b.titulo}
+                  </h3>
+                  <p
+                    className="mt-3 flex-1 text-justify text-[14px] leading-relaxed hyphens-auto"
+                    lang="es"
+                    style={{ color: "var(--fg-muted)" }}
+                  >
+                    {b.desc}
                   </p>
-                  <p className="font-semibold text-ink text-base leading-snug">
-                    {b.title}
-                  </p>
-                  <p className="text-sm text-[var(--fg-muted)] leading-relaxed">{b.desc}</p>
-                </div>
-              </Reveal>
-            ))}
+                  {b.fuente && (
+                    <span
+                      className="mt-5 inline-flex items-center gap-1.5 text-[12.5px] font-semibold"
+                      style={{ color: "var(--accent-ice)" }}
+                    >
+                      {b.fuente.tipo === "estudio"
+                        ? "Artículo científico"
+                        : "Leer más"}
+                      <ArrowUpRight className="h-3.5 w-3.5" />
+                    </span>
+                  )}
+                </>
+              );
+
+              const clases =
+                "flex h-full flex-col rounded-2xl border p-6 transition-colors";
+
+              return (
+                <Reveal key={b.titulo} delay={i * 0.03} className="h-full">
+                  {b.fuente ? (
+                    <a
+                      href={b.fuente.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${clases} hover:border-[var(--accent-ice)]`}
+                      style={{
+                        borderColor: "var(--line-1)",
+                        background: "var(--m-white)",
+                      }}
+                    >
+                      {cuerpo}
+                    </a>
+                  ) : (
+                    <div
+                      className={clases}
+                      style={{
+                        borderColor: "var(--line-1)",
+                        background: "var(--m-white)",
+                      }}
+                    >
+                      {cuerpo}
+                    </div>
+                  )}
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Consejo científico — el menú Aprender enlaza a /aprender#consejo y el
-          ancla no existía. Redacción deliberadamente prudente: se presenta a
-          estos investigadores como las referencias en cuyo trabajo publicado
-          nos apoyamos, NO como asesores contratados de Mente Fria. Si existe
-          una relación formal con alguno, se puede decir explícitamente. */}
-      <section className="msection panel scroll-mt-20" id="consejo">
+      {/* ── Consejo científico ─────────────────────────────────────────── */}
+      <section className="msection scroll-mt-20" id="consejo">
         <div className="mwrap">
           <Reveal className="msection-head">
             <span className="m-eyebrow accent">Consejo científico</span>
             <h2>Los que más saben respaldan el frío.</h2>
             <p>
-              Científicos, médicos y atletas de élite que han dedicado su
-              carrera a entender lo que la exposición al frío le hace al cuerpo
-              humano. Su trabajo publicado es el que sostiene lo que contamos
-              aquí.
+              Científicos, médicos y atletas que han dedicado su carrera a
+              entender lo que la exposición al frío le hace al cuerpo humano. Su
+              trabajo publicado es el que sostiene lo que contamos aquí.
             </p>
           </Reveal>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { n: "Dra. Susanna Søberg", c: "Metabolismo y termorregulación", d: "Su investigación sobre grasa parda y adaptación al frío es la base del principio de dosis mínima semanal." },
-              { n: "Dr. Andrew Huberman", c: "Neurociencia", d: "Divulgación sobre la respuesta de catecolaminas y el efecto del frío en dopamina y estado de alerta." },
-              { n: "Dr. Peter Attia", c: "Medicina de longevidad", d: "Análisis del frío dentro de un marco de longevidad, con atención a cuándo ayuda y cuándo interfiere." },
-              { n: "Dra. Rhonda Patrick", c: "Bioquímica", d: "Trabajo de divulgación sobre hormesis, proteínas de choque térmico y adaptación al estrés." },
-              { n: "Kristen Holmes", c: "Fisiología del rendimiento", d: "Investigación sobre sueño, variabilidad de frecuencia cardiaca y recuperación en atletas." },
-              { n: "Wim Hof", c: "Método respiratorio", d: "Popularizó la práctica moderna de exposición al frío con respiración controlada." },
-            ].map((x, i) => (
-              <Reveal
-                key={x.n}
-                delay={(i % 3) * 70}
-                className="rounded-[16px] border p-7"
-                style={{ borderColor: "var(--line-1)", background: "var(--m-white)" }}
-              >
-                <span className="m-eyebrow accent">{x.c}</span>
-                <h3
-                  className="mdisplay mt-3 text-[19px] leading-tight"
-                  style={{ color: "var(--fg-metal)" }}
+            {CONSEJO.map((r, i) => (
+              <Reveal key={r.nombre} delay={(i % 3) * 70} className="h-full">
+                <a
+                  href={r.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-full flex-col rounded-[16px] border p-7 transition-colors hover:border-[var(--accent-ice)]"
+                  style={{
+                    borderColor: "var(--line-1)",
+                    background: "var(--m-white)",
+                  }}
                 >
-                  {x.n}
-                </h3>
-                <p
-                  className="mt-3 text-[13.5px] leading-relaxed"
-                  style={{ color: "var(--fg-muted)" }}
-                >
-                  {x.d}
-                </p>
+                  <span className="m-eyebrow accent">{r.campo}</span>
+                  <h3
+                    className="mdisplay mt-3 text-[19px] leading-tight"
+                    style={{ color: "var(--fg-metal)" }}
+                  >
+                    {r.nombre}
+                  </h3>
+                  <p
+                    className="mt-1 text-[12.5px]"
+                    style={{ color: "var(--fg-subtle)" }}
+                  >
+                    {r.filiacion}
+                  </p>
+                  <p
+                    className="mt-4 flex-1 text-justify text-[13.5px] leading-relaxed hyphens-auto"
+                    lang="es"
+                    style={{ color: "var(--fg-muted)" }}
+                  >
+                    {r.bio}
+                  </p>
+                  <span
+                    className="mt-5 inline-flex items-center gap-1.5 text-[12.5px] font-semibold"
+                    style={{ color: "var(--accent-ice)" }}
+                  >
+                    Ver su trabajo
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </span>
+                </a>
               </Reveal>
             ))}
           </div>
 
           <Reveal className="mt-8">
-            <p className="text-[12.5px] leading-relaxed" style={{ color: "var(--fg-subtle)" }}>
+            <p
+              className="text-[12.5px] leading-relaxed"
+              style={{ color: "var(--fg-subtle)" }}
+            >
               Mencionamos su trabajo como referencia científica. No implica
               patrocinio, asesoría contratada ni respaldo de estas personas a
               Mente Fria como marca.
@@ -230,47 +212,49 @@ export default function AprenderPage() {
         </div>
       </section>
 
-      {/* 4. Fuentes científicas */}
-      <section className="msection">
+      {/* ── Nota sobre las fuentes ─────────────────────────────────────── */}
+      <section className="msection panel">
         <div className="mwrap">
           <Reveal>
-            <div className="max-w-3xl mx-auto text-center flex flex-col gap-4">
-              <SectionHeader
-                eyebrow="Fuentes"
-                title="Ciencia, no marketing"
-                center
-              />
+            <div className="mx-auto flex max-w-3xl flex-col gap-4 text-center">
+              <SectionHeader eyebrow="Fuentes" title="Ciencia, no marketing" center />
               <p className="text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                Cada beneficio está respaldado por investigación clínica publicada
-                en revistas científicas peer-reviewed, incluyendo estudios de
-                PubMed, Frontiers in Physiology, Huberman Lab y otras instituciones
-                de referencia mundial.
+                La mayoría de estas referencias son estudios publicados en
+                revistas con revisión por pares —PubMed, Frontiers in
+                Physiology, Cell Metabolism, Journal of Dermatological Science—.
+                Dos son artículos de divulgación que resumen esa literatura, y
+                están señalados como tales. Preferimos decirlo a presentarlo
+                todo como investigación clínica.
               </p>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* 5. Disclaimer */}
-      <section className="bg-[var(--bg-panel)]">
+      {/* ── Aviso ──────────────────────────────────────────────────────── */}
+      <section style={{ background: "var(--bg-panel)" }}>
         <div className="mwrap py-8">
           <Reveal>
-            <div className="rounded-2xl border border-border bg-background/60 p-6 max-w-3xl mx-auto">
-              <p className="text-sm text-[var(--fg-muted)]">
-                <strong className="text-ink">Aviso importante:</strong> El cold
-                plunge no es un tratamiento médico, es un complemento. Si estás
-                embarazada, tienes enfermedades cardiovasculares, epilepsia o
-                diabetes, consulta a tu médico antes de empezar.
+            <div
+              className="mx-auto max-w-3xl rounded-2xl border p-6"
+              style={{ borderColor: "var(--line-1)", background: "var(--m-white)" }}
+            >
+              <p className="text-sm leading-relaxed text-[var(--fg-muted)]">
+                <strong style={{ color: "var(--fg-metal)" }}>
+                  Aviso importante:
+                </strong>{" "}
+                el cold plunge no es un tratamiento médico, es un complemento.
+                Si estás embarazada, o tienes enfermedades cardiovasculares,
+                epilepsia o diabetes, consulta a tu médico antes de empezar.
               </p>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* 6. CTA */}
       <CTASection
         title="La ciencia habla. El frío lo confirma."
-        body="Tres minutos. Todos los días. Así es como los que más rinden se recuperan de verdad."
+        body="Tres minutos, todos los días. Así es como los que más rinden se recuperan de verdad."
         cta={{ label: "Ver productos", href: "/productos" }}
         dark
       />

@@ -20,7 +20,7 @@ const SHOP_URL = "https://mentefria.com/products/mf-horizon-1";
 const FAQ_ITEMS = [
   {
     q: "¿Qué motor elijo: Pro 2.0 o Premium 2.0?",
-    a: "El Motor Pro 2.0 (0.8 HP, 2,230 W) es solo frío: enfría de 25 a 3 °C en ~6 horas, con filtración de 3 capas y control WiFi — perfecto si tu objetivo es recuperación en frío. El Motor Premium 2.0 (1 HP, 2,700 W) hace todo eso más rápido (~4 horas), y además calienta hasta 43 °C y purifica con ozono 24/7. Si quieres contraste frío/calor y agua purificada sin cloro de alberca, ve por el Premium.",
+    a: "El Motor Pro 2.0 (0.8 HP) es solo frío: enfría de 25 a 3 °C en ~6 horas, con filtración de 3 capas y control WiFi — perfecto si tu objetivo es recuperación en frío. El Motor Premium 2.0 (1 HP) hace todo eso más rápido (~4 horas), y además calienta hasta 42 °C y purifica con ozono 24/7. Si quieres contraste frío/calor y agua purificada sin cloro de alberca, ve por el Premium.",
   },
   {
     q: "¿Necesito hielo?",
@@ -58,7 +58,7 @@ const SPEC_ROWS = [
   { label: "Filtración", value: "Filtración de 3 capas: filtro de papel, filtro integrado y malla antipolvo" },
   { label: "Desinfección", value: "Ozono 24/7 (con Motor Premium 2.0)" },
   { label: "Enfriamiento", value: "Hasta 3 °C, sin hielo" },
-  { label: "Calentamiento", value: "Hasta 43 °C (con Motor Premium 2.0)" },
+  { label: "Calentamiento", value: "Hasta 42 °C (con Motor Premium 2.0)" },
   { label: "Motores compatibles", value: "Motor Pro 2.0 (0.8 HP) · Motor Premium 2.0 (1 HP)" },
   { label: "Control", value: "WiFi + app, programable" },
   { label: "Colores", value: "Negro · Blanco" },
@@ -69,7 +69,7 @@ const SPEC_ROWS = [
 
 const HERO_BULLETS = [
   "Mayor espacio de inmersión: cabes estirado, con los hombros bajo el agua",
-  "Enfría hasta 3 °C sin hielo — y hasta 43 °C con Motor Premium 2.0",
+  "Enfría hasta 3 °C sin hielo — y hasta 42 °C con Motor Premium 2.0",
   "Inflable y portátil: 12 kg, se guarda en su mochila de transporte",
   "Filtración de 3 capas + ozono. Control WiFi programable.",
   "6 meses de garantía y 30 días de prueba.",

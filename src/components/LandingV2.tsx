@@ -40,12 +40,12 @@ const HOTSPOTS = [
 /* ---------- Feature reveal ---------- */
 
 /* Copy deliberadamente de gama, no de un solo producto: la MF ONE ajusta de
-   1 a 40 °C y los inflables con Motor Premium 2.0 van de 3 a 43 °C. Decir "de
-   1 a 43 °C según el equipo" cubre la línea completa sin atribuirle a ninguno
+   1 a 40 °C y los inflables con Motor Premium 2.0 van de 3 a 42 °C. Decir "de
+   1 a 42 °C según el equipo" cubre la línea completa sin atribuirle a ninguno
    un rango que no tiene. Lo mismo con la filtración, que es distinta en cada
    familia. Las imágenes anteriores eran capturas del sitio en inglés. */
 const FEATURES = [
-  { word: "Temperatura", img: "/images/mfone-frio.jpg", copy: "De 1 a 43 °C según el equipo que elijas. Frío para recuperar, calor para relajar, ajustable al grado. Una sola tina para todo el año." },
+  { word: "Temperatura", img: "/images/mfone-frio.jpg", copy: "De 1 a 42 °C según el equipo que elijas. Frío para recuperar, calor para relajar, ajustable al grado. Una sola tina para todo el año." },
   { word: "Filtración", img: "/images/ozono-agua.jpg", copy: "Filtración y ozono en toda la línea: filtro de papel y skimmer en la MF ONE, filtración de 3 capas en los inflables. Agua cristalina, sin cloro de alberca." },
   { word: "Control", img: "/photography/feature/control-app-1049.jpg", copy: "Control total desde la app. Programa temperatura, horarios y tu ritual. El frío te espera listo cuando llegas a casa." },
 ];
@@ -110,7 +110,7 @@ const TRUST = [
 /* Comparativa real de mentefria.com — "La tecnología de cold plunge #1 en MX" */
 const COMPARE_ROWS: { mf: string; otras: string }[] = [
   { mf: "Enfría hasta 3° sin fallar", otras: "Se descomponen a cada rato" },
-  { mf: "Calienta hasta 43 °C", otras: "Jacuzzi no incluido" },
+  { mf: "Calienta hasta 42 °C", otras: "Jacuzzi no incluido" },
   { mf: "0 hielos requeridos", otras: "Otras no" },
   { mf: "Controla desde la app Wi-Fi", otras: "Sin control remoto" },
   { mf: "Soporte de por vida + garantía incluida", otras: "Sin soporte" },
@@ -279,8 +279,23 @@ export function LandingV2() {
       {/* ===== HERO ===== */}
       <header className="mhero" id="top">
         <div className="mhero-media" ref={heroMediaRef}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/photography/hero/mf-one-concrete.jpg" alt="MF ONE en arquitectura de concreto" />
+          {/* Portada: foto real de la MF ONE nueva (sesión de patio, sep 2026).
+              Sustituye al render CGI de concreto, que se leía como imagen de
+              stock generada. Dos recortes del mismo original 4128×6192: 16:9
+              para escritorio y 2:3 para móvil, donde un 16:9 con object-cover
+              dejaba fuera la tina completa. */}
+          <picture>
+            <source
+              media="(max-width: 720px)"
+              srcSet="/photography/hero/mf-one-patio-portrait.jpg"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/photography/hero/mf-one-patio.jpg"
+              alt="MF ONE instalada en un patio, con una persona sumergida en el agua"
+              fetchPriority="high"
+            />
+          </picture>
         </div>
         <div className="mhero-inner mwrap !max-w-none w-full">
           <div className="m-eyebrow !text-[var(--m-blue-400)] !text-[13px] !font-semibold [text-shadow:0_1px_14px_rgba(8,9,11,0.55)]">Wellness para los que valoran su tiempo</div>

@@ -409,6 +409,43 @@ Existen con contenido real pero **sin el restyle profundo** al sistema metal. Pe
     tarjetas de `/negocios` mezclan dos renders recortados con el render de estudio de la
     ONE. Funciona, pero una sesión de los inflables lo resolvería de raíz.
 
+## 6.5 Cómo publicar una versión para revisar
+
+**URL viva:** https://mentefria-web.vercel.app — proyecto `saul-mf/mentefria-web` en Vercel.
+
+Es un **deploy de archivos estáticos**, no un build de Next del lado de Vercel: se sube el
+contenido de `out/` ya generado en la Mac. Vercel no detecta framework y solo sirve los
+archivos, que es justo lo que queremos con `output: "export"`.
+
+```
+npm run build                       # genera out/
+# copiar out/ a una carpeta temporal y BORRAR los videos que no se usan
+npx vercel@latest deploy . --token=$VERCEL_TOKEN --scope=saul-mf --yes --prod
+```
+
+**Tres trampas que ya costaron un intento fallido cada una:**
+
+1. **El `out/` completo pesa 155 MB y el CLI truena al final del upload** con
+   `fetch failed / AbortError`, después de haber subido todo. 117 MB son videos y **85 MB
+   de esos no se referencian en ningún lado** (`videos/original/en-accion-*`,
+   `reel-*`): son material crudo scrapeado del sitio vivo. Borrándolos de la copia
+   temporal el paquete baja a 65 MB y el deploy pasa. Los únicos videos en uso son
+   `mfone-diferencia.mp4`, `testimonial-patricio.mp4` y los dos de `original/instalacion-*`.
+
+2. **Hace falta un `vercel.json` con `cleanUrls: true`** dentro de la carpeta que se sube.
+   El export genera `productos.html`, no `productos/index.html`, así que sin eso la portada
+   carga y **las 17 subpáginas dan 404**.
+
+3. **El token es de Alan** (`alan2605261@hybridge.education`), con acceso al equipo
+   `saul-mf`. Vive en `/Users/SaulP/mentefria/SISTEMA_MENTE_FRIA/web/.env.local`, gitignored.
+   Es la misma trampa que documenta la memoria del despliegue del Sistema. Conectar el repo
+   de GitHub al proyecto de Vercel **falla** porque la app de Vercel no tiene acceso a
+   `alan2605261-web/Nueva-Pagina-`; por eso se sube por CLI y no por git.
+
+**Ojo: la URL es pública.** Cualquiera con el link entra, y ahí están las páginas legales
+que todavía no revisa un abogado (pendientes 11 y 12). Para revisión interna está bien;
+antes de compartirla fuera conviene prender Deployment Protection en el proyecto.
+
 ## 7. Assets — dónde vive todo
 
 ### En el repo (`public/`)

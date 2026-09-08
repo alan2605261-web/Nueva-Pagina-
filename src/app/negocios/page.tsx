@@ -86,7 +86,7 @@ const PRODUCTS = [
   },
   {
     name: "MF ONE",
-    image: "/photography/product/mf-one-white-studio.png",
+    image: "/images/prod-mfone.webp",
     price: "$169,000 MXN",
     body: "Diseño All-In-One con el chiller dentro de la tina. Filtro de papel + ozono integrado. 12 meses de garantía, válida para uso comercial.",
     href: "/productos/mf-one",

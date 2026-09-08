@@ -533,7 +533,9 @@
 .sop-media { background: var(--grad-ink); position: relative; overflow: hidden; }
 .sop-media::after {
   content: ""; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 120%, rgba(91, 155, 213, 0.18), transparent 62%);
+  /* Los gráficos de soporte son blanco y negro (identidad de marca): el
+     resplandor azul competía con ellos. Ahora es solo profundidad. */
+  background: radial-gradient(ellipse at 50% 120%, rgba(255, 255, 255, 0.07), transparent 62%);
   pointer-events: none;
 }
 
@@ -558,5 +560,17 @@
 }
 .sop-drop { animation: sopDrop 2.8s ease-in infinite; }
 
-@keyframes sopBar { 0%, 100% { transform: scaleY(var(--sop-h, 0.3)); } 50% { transform: scaleY(1); } }
-.sop-bar { transform-origin: bottom; animation: sopBar 1.6s ease-in-out infinite; }
+/* Llenado por pasos: los seis meses sin intereses y las semanas del ciclo
+   de agua. mf-seq dura 16 s y dejaba la secuencia apagada casi todo el rato;
+   este ciclo corto se lee como una cuenta que avanza. */
+@keyframes sopStep { 0% { opacity: 0; } 8% { opacity: 1; } 76% { opacity: 1; } 88%, 100% { opacity: 0; } }
+.sop-step { animation: sopStep 5s ease-in-out infinite; }
+
+/* Crecimiento horizontal: lo usan la escala de garantía y el embudo de
+   servicio técnico, que crecen desde la izquierda como una barra medida. */
+@keyframes sopGrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.sop-grow { transform-origin: left center; animation: sopGrow 1.1s var(--ease-expo) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sop-travel, .sop-fill, .sop-rise, .sop-drop, .sop-grow, .sop-step { animation: none !important; }
+}

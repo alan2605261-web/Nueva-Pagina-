@@ -16,8 +16,15 @@
 
 export type Seccion = { h: string; p: string[] };
 
+/*
+  `serie` agrupa los artículos en el índice. Hoy solo existe "La ciencia del
+  frío", pero /blog arma una sección por cada serie que encuentre, así que
+  publicar el primer artículo de una serie nueva —mantenimiento, protocolos,
+  historias de clientes— crea su sección solo, sin tocar la página.
+*/
 export type BlogPost = {
   slug: string;
+  serie: string;
   num: string;
   titulo: string;
   dek: string;
@@ -31,10 +38,11 @@ export type BlogPost = {
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "acelera-la-recuperacion",
+    serie: "La ciencia del frío",
     num: "01",
     titulo: "Acelera la recuperación",
     dek: "Por qué el frío baja la hinchazón, cuánto dura el efecto y en qué caso conviene esperar.",
-    img: "/photography/modelaje/modelo-01.jpg",
+    img: "/photography/mfone-patio/inmersion.jpg",
     lectura: "5 min",
     secciones: [
       {
@@ -71,10 +79,11 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "mejora-el-animo",
+    serie: "La ciencia del frío",
     num: "02",
     titulo: "Mejora el ánimo",
     dek: "La dopamina que libera el frío, cuánto dura y por qué no se parece a ningún estimulante.",
-    img: "/photography/action/running-03.jpg",
+    img: "/photography/mfone-patio/salida.jpg",
     lectura: "4 min",
     secciones: [
       {
@@ -111,10 +120,11 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "energia-natural",
+    serie: "La ciencia del frío",
     num: "03",
     titulo: "Energía natural",
     dek: "Adrenalina y noradrenalina en segundos, sin cafeína y sin la caída de la tarde.",
-    img: "/photography/action/running-01.jpg",
+    img: "/photography/mfone-patio/de-pie-hombre.jpg",
     lectura: "4 min",
     secciones: [
       {
@@ -151,6 +161,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "reduce-la-inflamacion",
+    serie: "La ciencia del frío",
     num: "04",
     titulo: "Reduce la inflamación",
     dek: "Qué le hace el frío al dolor articular y a la rigidez, dentro y fuera del entrenamiento.",
@@ -191,6 +202,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "mayor-resiliencia",
+    serie: "La ciencia del frío",
     num: "05",
     titulo: "Mayor resiliencia",
     dek: "El entrenamiento del sistema nervioso que ocurre cuando eliges quedarte.",
@@ -231,10 +243,11 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "mejor-descanso",
+    serie: "La ciencia del frío",
     num: "06",
     titulo: "Mejor descanso",
     dek: "Cómo la caída de temperatura corporal facilita el sueño profundo, y a qué hora conviene entrar.",
-    img: "/photography/modelaje/modelo-04.jpg",
+    img: "/photography/mfone-patio/mujer-tina.jpg",
     lectura: "5 min",
     secciones: [
       {
@@ -271,6 +284,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "acelera-el-metabolismo",
+    serie: "La ciencia del frío",
     num: "07",
     titulo: "Acelera el metabolismo",
     dek: "La grasa parda, cuánto sube realmente el gasto energético y por qué no es un atajo para bajar de peso.",
@@ -311,10 +325,11 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "acelera-el-sistema-inmune",
+    serie: "La ciencia del frío",
     num: "08",
     titulo: "Acelera el sistema inmune",
     dek: "El ensayo con más de tres mil participantes que midió días de incapacidad, y qué se puede concluir de él.",
-    img: "/photography/lifestyle/surf-01.jpg",
+    img: "/photography/mfone-patio/mujer-de-pie.jpg",
     lectura: "5 min",
     secciones: [
       {
@@ -353,4 +368,20 @@ export const BLOG_POSTS: BlogPost[] = [
 
 export function getPost(slug: string) {
   return BLOG_POSTS.find((p) => p.slug === slug);
+}
+
+/*
+  Agrupa los artículos por serie conservando el orden de publicación.
+  /blog pinta una sección por entrada de este mapa, así que dar de alta una
+  serie nueva es publicar su primer artículo — no hay que tocar la página ni
+  dejar tarjetas de "próximamente" ocupando lugar.
+*/
+export function porSerie(posts: BlogPost[] = BLOG_POSTS) {
+  const mapa = new Map<string, BlogPost[]>();
+  for (const p of posts) {
+    const xs = mapa.get(p.serie);
+    if (xs) xs.push(p);
+    else mapa.set(p.serie, [p]);
+  }
+  return [...mapa.entries()].map(([serie, articulos]) => ({ serie, articulos }));
 }

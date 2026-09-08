@@ -87,7 +87,7 @@ const PRODUCTS = [
   },
   {
     name: "MF ONE",
-    image: "/images/prod-mfone.webp",
+    image: "/photography/product/mf-one-white-studio.png",
     price: "$169,000 MXN",
     body: "Diseño All-In-One con el chiller dentro de la tina. Filtro de papel + ozono integrado. 12 meses de garantía, válida para uso comercial.",
     href: "/productos/mf-one",
@@ -402,6 +402,10 @@ export default function NegociosPage() {
                   background: "var(--m-white)",
                 }}
               >
+                {/* Las tres fotos tienen proporciones muy distintas (1.28, 2.16
+                    y 2.00) y con object-cover en una caja 4:3 el Horizon y la
+                    MF ONE salian cortados por los lados. Con contain y aire
+                    alrededor se ve el equipo completo en las tres. */}
                 <div
                   className="relative aspect-[4/3] w-full"
                   style={{ background: "var(--grad-silver)" }}
@@ -411,7 +415,7 @@ export default function NegociosPage() {
                     alt={p.name}
                     fill
                     sizes="(max-width: 640px) 100vw, 400px"
-                    className="object-cover"
+                    className="object-contain p-6"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-7">

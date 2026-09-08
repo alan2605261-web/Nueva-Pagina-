@@ -24,7 +24,7 @@ const categoryCards = [
   {
     title: "Envíos",
     media: <SoporteGrafico titulo="Envíos" />,
-    body: "Entrega a todo México en 3 a 7 días hábiles. Costo: $1,500 MXN (Horizon/Barrel) o $6,000 MXN (MF ONE). Llega en 2 cajas: motor y tina con accesorios.",
+    body: "Entrega a todo México en 3 a 7 días hábiles. Costo: $1,500 MXN (MF Horizon y MF Barrel) o $6,000 MXN (MF ONE). Los inflables llegan en dos cajas, motor y tina; la MF ONE viaja como una sola pieza.",
     tag: "Logística",
     tone: "warm" as const,
   },

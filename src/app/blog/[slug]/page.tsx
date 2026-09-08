@@ -38,46 +38,75 @@ export default async function ArticuloPage({
 
   return (
     <PageShell>
-      {/* ── Portada ────────────────────────────────────────── */}
-      <section className="relative flex min-h-[58vh] items-end overflow-hidden">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={post.img}
-          alt=""
-          aria-hidden
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(8,9,11,0.55) 0%, rgba(8,9,11,0.35) 40%, rgba(8,9,11,0.92) 100%)",
-          }}
-        />
-        <div className="mwrap relative z-10 pb-14 pt-28 text-white">
-          <Reveal>
-            <span className="m-eyebrow" style={{ color: "var(--m-blue-400)" }}>
-              La ciencia del frío · {post.num} de 08
-            </span>
+      {/* ── Cabecera editorial ─────────────────────────────
+          Antes era una portada a sangre de 58vh con el texto encima: el
+          título perdía contraste contra la foto, la sangría superior se
+          comía media pantalla y "Lectura de 5 min" quedaba flotando casi
+          pegada al borde inferior.
+
+          Ahora: bloque de texto sobre panel, con una barra de datos
+          delimitada por filetes —serie, número, tiempo de lectura— y la
+          foto debajo como figura ancha. Se lee como un artículo. */}
+      <section className="msection panel !pb-0">
+        <div className="mwrap">
+          <Reveal className="mx-auto max-w-[68ch]">
+            <Link
+              href="/blog"
+              className="m-eyebrow accent inline-flex items-center gap-2 hover:underline"
+            >
+              {post.serie}
+            </Link>
             <h1
-              className="mdisplay mt-4 max-w-[18ch] text-[clamp(34px,5vw,72px)] text-white"
+              className="mdisplay mt-5 text-[clamp(32px,4.6vw,60px)]"
               style={{
+                color: "var(--fg-metal)",
                 WebkitTextStroke: "var(--bold-stroke) currentColor",
-                textShadow: "0 2px 24px rgba(0,0,0,0.35)",
               }}
             >
               {post.titulo}
             </h1>
             <p
-              className="mt-5 max-w-[54ch] text-[17px] leading-relaxed text-white/90"
-              style={{ textShadow: "0 1px 14px rgba(0,0,0,0.5)" }}
+              className="mt-5 text-[17.5px] leading-relaxed"
+              style={{ color: "var(--fg-muted)" }}
             >
               {post.dek}
             </p>
-            <p className="m-eyebrow mt-6" style={{ color: "rgba(255,255,255,0.6)" }}>
-              Lectura de {post.lectura}
-            </p>
+
+            <dl
+              className="mt-9 flex flex-wrap items-center gap-x-10 gap-y-3 border-y py-4 text-[12px] uppercase tracking-[0.16em]"
+              style={{ borderColor: "var(--line-2)", color: "var(--fg-subtle)" }}
+            >
+              <div className="flex items-baseline gap-2.5">
+                <dt>Artículo</dt>
+                <dd style={{ color: "var(--fg-metal)" }}>
+                  {post.num} de {String(BLOG_POSTS.filter((x) => x.serie === post.serie).length).padStart(2, "0")}
+                </dd>
+              </div>
+              <div className="flex items-baseline gap-2.5">
+                <dt>Lectura</dt>
+                <dd style={{ color: "var(--fg-metal)" }}>{post.lectura}</dd>
+              </div>
+            </dl>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Figura ─────────────────────────────────────────── */}
+      <section className="msection panel !pt-10">
+        <div className="mwrap">
+          <Reveal>
+            <figure
+              className="relative m-0 aspect-[16/9] overflow-hidden rounded-[20px]"
+              style={{ background: "var(--m-graphite)" }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={post.img}
+                alt=""
+                aria-hidden
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </figure>
           </Reveal>
         </div>
       </section>
@@ -172,7 +201,7 @@ export default async function ArticuloPage({
         <div className="mwrap">
           <div className="grid gap-10 lg:grid-cols-2">
             <Reveal>
-              <span className="m-eyebrow accent">Siguiente razón</span>
+              <span className="m-eyebrow accent">Siguiente artículo</span>
               <h2
                 className="mdisplay mt-4 text-[clamp(26px,3.2vw,42px)]"
                 style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
@@ -191,9 +220,9 @@ export default async function ArticuloPage({
               </Link>
             </Reveal>
             <Reveal delay={80} className="lg:border-l lg:pl-10" style={{ borderColor: "var(--on-dark-line)" }}>
-              <span className="m-eyebrow accent">Las ocho razones</span>
+              <span className="m-eyebrow accent">{post.serie}</span>
               <ul className="mt-5 space-y-1">
-                {BLOG_POSTS.map((p) => (
+                {BLOG_POSTS.filter((p) => p.serie === post.serie).map((p) => (
                   <li key={p.slug}>
                     <Link
                       href={`/blog/${p.slug}`}

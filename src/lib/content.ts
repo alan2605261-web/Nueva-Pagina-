@@ -23,6 +23,7 @@ export const nav: {
       href: "/productos",
       submenu: [
         { label: "Todos los plunges", href: "/productos" },
+        { label: "Encuentra tu plunge", href: "/quiz" },
         { label: "MF ONE", href: "/productos/mf-one" },
         { label: "MF Horizon", href: "/productos/mf-horizon" },
         { label: "MF Barrel", href: "/productos/mf-barrel" },

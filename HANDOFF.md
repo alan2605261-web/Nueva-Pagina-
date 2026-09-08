@@ -283,6 +283,29 @@ aplicable.
     válido en cualquier lado. Ya se corrigió una tarjeta de `/atletas` donde se usaba como
     si fuera el nombre de un beneficio.
 
+22. **Quiz "Encuentra tu plunge" (`/quiz`).** Pedido por Saul y por Rafa, con el quiz de
+    Plunge como referencia. No se copió su implementación: se armó con nuestras medidas.
+
+    · **Descarta antes de puntuar.** Hay restricciones físicas, no preferencias: si el lado
+      largo del espacio mide 1.4 m, la MF ONE no cabe (necesita 195 de tina + 100 de frente
+      libre = 295 cm) y no hay puntaje que lo arregle. Se eliminan los imposibles y sólo
+      después se puntúa entre los que quedan.
+    · **Avisa lo incómodo.** Si alguien de 1.85 m quiere estirarse y su presupuesto sólo
+      alcanza el Horizon, se lo recomienda pero le dice que el interior mide 160 cm. Un quiz
+      que sólo halaga vende una devolución.
+    · **Sin muro de correo.** El resultado se ve sin dar datos. Encerrarlo detrás de un
+      formulario es la forma más rápida de que cierren la pestaña.
+
+    **Lo que falta, y necesita decisión o backend:**
+    a) **Captura de correo.** Hoy no hay a dónde mandar un formulario: el sitio es export
+       estático. El resultado se manda por WhatsApp con el resumen ya escrito, que funciona
+       sin servidor. Cuando esté en Shopify, ese mismo resumen es lo que hay que empujar a
+       Klaviyo junto con el correo.
+    b) **El PDF de regalo** que pidió Saul no existe todavía. No se anuncia lo que no hay.
+    c) **Precio de los motores.** No está publicado en ninguna parte del sitio, así que el
+       quiz NO suma totales ni dice "más el motor": muestra el precio de la tina tal cual y
+       manda a `/motores`. **Hay que aclarar si los $69,000 y $74,000 ya incluyen motor.**
+
 ## 5. Estado página por página
 
 ### `/` — Landing (`src/components/LandingV2.tsx`)

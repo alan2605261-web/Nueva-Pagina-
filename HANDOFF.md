@@ -413,16 +413,26 @@ Existen con contenido real pero **sin el restyle profundo** al sistema metal. Pe
    zip que Rafa mandó no los traía. No están en disco, papelera, WhatsApp, Drive ni en el
    sitio vivo.
 
-   **Antes de gastar tiempo buscándolos, ojo con esto:** las fotos de esas dos tarjetas no
-   corresponden a esas personas. La de "Kevin" es una foto de **dos mujeres corriendo**; la de
-   "Ana" es un **hombre con tabla de surf**. Ni el género coincide. Son fotos genéricas con un
-   nombre encima, del mismo lote de testimonios inventados que ya se depuró. La tarjeta de Ana
-   ya se quitó del sitio; la de Kevin sigue publicada, con la foto de las dos corredoras.
-   Conviene decidir si esas personas existen antes de buscar sus videos.
+   **Kevin es un atleta embajador de la marca**, confirmado por Saul en sep 2026 (NO es un
+   cliente cualquiera ni un modelo contratado: es embajador, y por eso su testimonio sí vale).
+   Ojo con un error que ya se cometió: hay una carpeta "Case 08 - Kevin Murko" en el Drive y
+   **Kevin Murko es OTRA persona**. Coincidencia de nombre, nada más.
+
+   **Lo que sí sigue mal es la foto.** La tarjeta de Kevin está publicada con una foto de
+   **dos mujeres corriendo**, y la de Ana (ya retirada) tenía un **hombre con tabla de surf**.
+   Hay que ponerle a Kevin una foto suya: en el Drive están sus clips en
+   `KEVIN (Estacionamiento Facu Clips)` y se puede sacar un fotograma.
+
+   El material de Kevin en el Drive son **anuncios actuados** —habla a cámara con guion y
+   subtítulos quemados— no una entrevista de testimonio. Sirve para publicidad; para la fila
+   de testimonios hace falta o un corte distinto o cambiar cómo se presenta la sección.
 
    De las cuatro tarjetas que quedan hoy, sólo **Patricio Ochoa** tiene video y foto real en un
    equipo Mente Fria. **Dani** es un hombre real en un MF Barrel (sesión propia). **Máximo,
    Golfista** es un primer plano de una mano poniendo una pelota en el tee: no se ve a nadie.
+
+   Todo el material bajado del Drive está en `~/Desktop/MENTE FRIA - Material de video`, con
+   su propio LEEME.
 
 5. **Assets originales que Rafa nunca pasó y no están en esta Mac.** La carpeta
    `Mente Fria/Mente Fria Website/` completa (ver §7): manuales PDF, renders de fábrica,

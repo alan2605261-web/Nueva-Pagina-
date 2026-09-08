@@ -342,7 +342,7 @@ export function LandingV2() {
         <Reveal className="showcase">
           <div className="showcase-stage">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/photography/hero/mf-one-concrete-dark.jpg" alt="MF ONE" />
+            <img src="/photography/hero/mf-one-render-showcase.jpg" alt="MF ONE con su Pro Deck" />
             {HOTSPOTS.map((h, i) => (
               <div key={h.k} className={`hotspot floor${spot === i ? " active" : ""}`} style={{ left: h.left }}>
                 <button aria-label={h.t} onClick={() => setSpot(spot === i ? null : i)}>

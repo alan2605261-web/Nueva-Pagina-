@@ -31,7 +31,7 @@ const categoryCards = [
   {
     title: "Garantía",
     media: <SoporteGrafico titulo="Garantía" />,
-    body: "12 meses en la MF ONE y 6 meses en los modelos inflables, por defectos de fabricación. Son garantías independientes. Y cuando se acaben, nos sigues escribiendo: te seguimos contestando.",
+    body: "12 meses en la MF ONE y 6 meses en los modelos inflables, por defectos de fabricación. Son garantías independientes y no se mezclan. Vencidas, el canal de atención sigue abierto.",
     tag: "Cobertura",
     tone: "cool" as const,
   },

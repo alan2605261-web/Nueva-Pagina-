@@ -52,7 +52,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Qué garantía tiene?",
-    a: "6 meses de garantía por defectos de fabricación. Y cuando se acabe, nos sigues escribiendo: te seguimos contestando. Y antes de eso: 30 días de prueba sin preguntas — si no es la mejor cold plunge que has probado, te reembolsamos.",
+    a: "Seis meses de garantía por defectos de fabricación, y antes de eso 30 días de prueba: si no es la mejor cold plunge que has probado, te reembolsamos. Terminada la garantía sigues teniendo a quién escribirle.",
   },
 ];
 
@@ -219,7 +219,7 @@ export default function MFBarrelPage() {
                       },
                       {
                         t: "Prueba, garantía y devoluciones",
-                        c: "30 días de prueba sin preguntas: si no es la mejor cold plunge que has probado, te reembolsamos. Garantía de 6 meses por defectos de fabricación. Después de la garantía nos sigues escribiendo y te seguimos contestando.",
+                        c: "30 días de prueba sin preguntas: si no es la mejor cold plunge que has probado, te reembolsamos. Garantía de 6 meses por defectos de fabricación. Vencida, la atención no se corta.",
                       },
                     ].map((a) => (
                       <details key={a.t} className="group rounded-[14px] border border-[var(--line-1)] bg-white">
@@ -236,7 +236,7 @@ export default function MFBarrelPage() {
                   <div className="mt-7 grid grid-cols-3 gap-3">
                     {[
                       { icon: RotateCcw, t: "30 días de prueba", d: "Sin preguntas: te reembolsamos." },
-                      { icon: ShieldCheck, t: "Garantía 6 meses", d: "Y después, seguimos aquí." },
+                      { icon: ShieldCheck, t: "Garantía 6 meses", d: "Contra defectos de fábrica." },
                       { icon: CreditCard, t: "Hasta 6 MSI", d: "Con Mercado Pago." },
                     ].map((b) => (
                       <div key={b.t} className="rounded-[14px] border border-[var(--line-1)] bg-white p-4 text-center">

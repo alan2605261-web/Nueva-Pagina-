@@ -27,15 +27,29 @@ const WHATSAPP = "https://wa.me/5215616471386";
 
 /* ---------- Hotspots (MF ONE specs) ---------- */
 
+/*
+  Los siete puntos del showcase.
+
+  La versión anterior tenía las siete escritas con la misma forma exacta:
+  un dato técnico, punto, y una coletilla de beneficio con la misma cadencia.
+  Cinco de las siete cerraban con un remate del tipo "sin un solo hielo",
+  "todo el año", "listo cuando llegas", "sin ruido que lo interrumpa". Leídas
+  seguidas suenan a plantilla, que es justo lo que Saul viene señalando.
+
+  Reescritas para que cada una tenga su propia forma: unas son una frase,
+  otras dos; unas abren con la cifra, otras con lo que resuelve. Ninguna
+  cierra con eslogan.
+*/
 const HOTSPOTS = [
-  { left: "14%", icon: Snowflake, k: "01 · Chiller", t: "Enfría a 1 °C", p: "Chiller de 1 HP dentro de la tina, con 3,500 W de enfriamiento. De 4 a 6 °C por hora, sin un solo hielo." },
-  { left: "26%", icon: Flame, k: "02 · Temperatura", t: "Calienta hasta 40 °C", p: "De spa a hielo en la misma tina. Calor para relajar, frío para recuperar, todo el año." },
-  { left: "38%", icon: Filter, k: "03 · Filtración", t: "Filtración", p: "Cada equipo trae el sistema que le corresponde, del filtro de papel con skimmer al triple filtro de los inflables. Agua cristalina, sin cloro de alberca." },
-  { left: "50%", icon: Wind, k: "04 · Purificación", t: "Ozono integrado", p: "Desinfección por ozono dentro del equipo. El agua se mantiene limpia sin que muevas un dedo." },
-  { left: "62%", icon: Wifi, k: "05 · Control", t: "App Smart Life", p: "Programa temperatura y horarios desde tu celular. Tu ritual, listo cuando llegas." },
-  { left: "74%", icon: VolumeX, k: "06 · Silencioso", t: "68 dB(A)", p: "El compresor y el ventilador trabajan en silencio. Tu ritual, sin ruido que lo interrumpa." },
-  { left: "86%", icon: Shield, k: "07 · Estructura", t: "Acero inoxidable", p: "Casco de acrílico de alta resistencia y acabados en acero inoxidable. Va igual de bien adentro que afuera, siempre bajo techo." },
+  { left: "14%", icon: Snowflake, k: "01 · Chiller", t: "Enfría a 1 °C", p: "El chiller es de 1 HP y tiene 3,500 W de capacidad de enfriamiento. Baja el agua entre 4 y 6 grados por hora." },
+  { left: "26%", icon: Flame, k: "02 · Temperatura", t: "Calienta hasta 40 °C", p: "La misma tina que usas a 3 grados en la mañana la puedes tener a 38 por la noche." },
+  { left: "38%", icon: Filter, k: "03 · Filtración", t: "Filtración", p: "La MF ONE trae filtro de papel y skimmer. Los inflables van con filtración de tres capas: papel, filtro integrado y malla antipolvo." },
+  { left: "50%", icon: Wind, k: "04 · Purificación", t: "Ozono integrado", p: "El generador de ozono va dentro del equipo y se activa por ciclos. Es lo que mantiene el agua sin necesidad de cloro de alberca." },
+  { left: "62%", icon: Wifi, k: "05 · Control", t: "App Smart Life", p: "Programas la temperatura y los horarios desde el celular, así que llegas y el agua ya está donde la dejaste." },
+  { left: "74%", icon: VolumeX, k: "06 · Silencioso", t: "68 dB(A) a un metro", p: "Es el nivel de una conversación normal. Puedes tenerla en una terraza sin discutir con los vecinos." },
+  { left: "86%", icon: Shield, k: "07 · Estructura", t: "Acrílico y acero inoxidable", p: "Casco de acrílico de alta resistencia con acabados y componentes en acero inoxidable. Va bajo techo, adentro o afuera." },
 ];
+
 
 /* ---------- Feature reveal ---------- */
 
@@ -123,13 +137,12 @@ const TRUST = [
 
 /* Comparativa real de mentefria.com — "La tecnología de cold plunge #1 en MX" */
 const COMPARE_ROWS: { mf: string; otras: string }[] = [
-  { mf: "Enfría hasta 3° sin fallar", otras: "Se descomponen a cada rato" },
-  { mf: "Calienta hasta 42 °C", otras: "Jacuzzi no incluido" },
-  { mf: "0 hielos requeridos", otras: "Otras no" },
-  { mf: "Controla desde la app Wi-Fi", otras: "Sin control remoto" },
-  { mf: "Garantía incluida y alguien que contesta", otras: "Sin soporte" },
-  { mf: "Ozono integrado purificando el agua", otras: "No purifican" },
-  { mf: "Filtro de 3 capas", otras: "No tienen filtro" },
+  { mf: "Enfriamiento activo hasta 3 °C", otras: "Dependes de comprar hielo" },
+  { mf: "Calienta hasta 42 °C con Motor Premium", otras: "Solo frío" },
+  { mf: "Temperatura y horarios desde la app", otras: "Ajuste manual, si acaso" },
+  { mf: "Ozono trabajando dentro del equipo", otras: "Cloro, o cambiar el agua" },
+  { mf: "Filtración de 3 capas en los inflables", otras: "Sin sistema de filtrado" },
+  { mf: "Garantía y alguien que contesta después", otras: "Compra y arréglatelas" },
 ];
 
 /* ---------- Testimonials ---------- */

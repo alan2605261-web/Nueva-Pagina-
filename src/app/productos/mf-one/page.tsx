@@ -180,7 +180,7 @@ export default function MFOnePage() {
                       },
                       {
                         t: "Prueba, garantía y devoluciones",
-                        c: "30 días de prueba sin preguntas: si no es la mejor cold plunge que has probado, te reembolsamos. Garantía de 12 meses por defectos de fabricación, válida también para uso comercial. Después de la garantía nos sigues escribiendo y te seguimos contestando.",
+                        c: "30 días de prueba sin preguntas: si no es la mejor cold plunge que has probado, te reembolsamos. Garantía de 12 meses por defectos de fabricación, válida también para uso comercial. Cuando se vence, el número por el que nos escribes sigue siendo el mismo.",
                       },
                     ].map((a) => (
                       <details key={a.t} className="group rounded-[14px] border border-[var(--line-1)] bg-white">
@@ -197,7 +197,7 @@ export default function MFOnePage() {
                   <div className="mt-7 grid grid-cols-3 gap-3">
                     {[
                       { icon: RotateCcw, t: "30 días de prueba", d: "Sin preguntas: te reembolsamos." },
-                      { icon: ShieldCheck, t: "Garantía 1 año", d: "Y después, seguimos aquí." },
+                      { icon: ShieldCheck, t: "Garantía 1 año", d: "Válida para uso comercial." },
                       { icon: CreditCard, t: "Hasta 6 MSI", d: "Con Mercado Pago." },
                     ].map((b) => (
                       <div key={b.t} className="rounded-[14px] border border-[var(--line-1)] bg-white p-4 text-center">

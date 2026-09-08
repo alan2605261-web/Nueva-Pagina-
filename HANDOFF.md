@@ -323,6 +323,27 @@ aplicable.
     Ojo con un cruce: `unnamed-removebg-preview.png` son TRES filtros, no uno. No sirve para
     "Filtro de papel" de la MF ONE, que es un solo cartucho.
 
+25. **Patrones de redacción: cómo detectarlos.** Saul insiste en que el copy "se siente
+    hecho por IA" y tiene razón cada vez. El problema casi nunca son las palabras sueltas:
+    es la **forma repetida**. Un buscador de palabras prohibidas no lo encuentra.
+
+    Lo que sí lo encuentra: extraer todas las cadenas de copy visible y contar los **cierres
+    de frase** y las **aperturas**. Cuando la misma coletilla de tres palabras aparece cinco
+    veces, ahí está la plantilla. Así se detectaron:
+
+    · Los siete puntos del showcase estaban escritos con forma idéntica —dato técnico, punto,
+      coletilla de beneficio— y cinco de siete remataban con un eslogan corto
+      ("sin un solo hielo", "todo el año", "listo cuando llegas", "sin ruido que lo
+      interrumpa"). Reescritos con formas distintas y sin remate.
+    · "nos sigues escribiendo y te seguimos contestando" pegado en cinco lugares.
+    · La columna "otras" de la comparativa era un muñeco de paja: "Otras no", "No purifican",
+      "No tienen filtro". Reescrita con contrastes concretos.
+    · El meta description del sitio decía "Sin hielo, sin excusas. MIND OVER BODY", que es
+      la construcción "sin X, sin Y" más el eslogan. Cambiado por lo que el producto hace.
+
+    **Regla:** antes de dar por bueno un bloque de copy, leer las piezas en fila. Si todas
+    tienen la misma forma, hay que romperla aunque cada una por separado esté bien escrita.
+
 ## 5. Estado página por página
 
 ### `/` — Landing (`src/components/LandingV2.tsx`)

@@ -41,6 +41,9 @@ const MEGA_PRODUCTS = [
 
 const MEGA_LINKS = [
   { label: "Explora todos los plunges", href: "/productos", strong: true },
+  /* El mega-menú de Productos no lee el submenu de content.ts: trae su
+     propio contenido. Por eso el enlace al quiz hay que ponerlo aquí. */
+  { label: "Encuentra tu plunge", href: "/quiz", strong: true },
   { label: "Accesorios", href: "/accesorios" },
   { label: "Kits de mantenimiento", href: "/accesorios#mantenimiento" },
   { label: "Para negocios", href: "/#b2b" },

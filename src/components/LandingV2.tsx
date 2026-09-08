@@ -589,6 +589,77 @@ export function LandingV2() {
         </div>
       </section>
 
+      {/* ===== QUIZ =====
+          Va justo después de la reja de productos, que es donde aparece la
+          duda: ya vio los tres y no sabe cuál. Antes de esto sólo estaba en
+          el mega-menú y no lo encontraba nadie. */}
+      <section className="msection panel" id="quiz">
+        <div className="mwrap">
+          <Reveal
+            className="grid items-center gap-10 rounded-[22px] border p-8 sm:p-12 lg:grid-cols-[1.1fr_1fr]"
+            style={{ borderColor: "var(--line-1)", background: "var(--m-white)" }}
+          >
+            <div>
+              <span className="m-eyebrow accent">Encuentra tu plunge</span>
+              <h2
+                className="mdisplay mt-4 text-[clamp(28px,3.6vw,46px)] leading-[1.05]"
+                style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
+              >
+                ¿No sabes cuál de las tres?
+              </h2>
+              <p
+                className="mt-5 max-w-[50ch] text-[16px] leading-relaxed"
+                style={{ color: "var(--fg-muted)" }}
+              >
+                Siete preguntas sobre tu espacio, tu presupuesto y cómo te
+                quieres meter. Empieza por el espacio, que es lo que de verdad
+                descarta: si el lado largo no da, no hay presupuesto que lo
+                arregle. Te decimos cuál cabe y también qué vas a estar
+                cediendo.
+              </p>
+              <Link href="/quiz" className="mbtn mbtn-primary mt-8">
+                Empezar
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+            <ul className="grid gap-3">
+              {[
+                { n: "01", t: "Tu espacio", d: "El lado largo libre, con lo que cada modelo necesita alrededor." },
+                { n: "02", t: "Cómo te metes", d: "Estirado o sentado, y tu estatura contra el interior real de cada tina." },
+                { n: "03", t: "Tu presupuesto", d: "Y si es para tu casa, para la familia o para un negocio." },
+              ].map((x) => (
+                <li
+                  key={x.n}
+                  className="flex gap-5 rounded-[14px] border p-5"
+                  style={{ borderColor: "var(--line-1)", background: "var(--bg-panel)" }}
+                >
+                  <span
+                    className="mdisplay text-[20px] leading-none"
+                    style={{ color: "var(--fg-subtle)" }}
+                  >
+                    {x.n}
+                  </span>
+                  <span>
+                    <span
+                      className="block text-[15px] font-semibold"
+                      style={{ color: "var(--fg-metal)" }}
+                    >
+                      {x.t}
+                    </span>
+                    <span
+                      className="mt-1 block text-[13.5px] leading-relaxed"
+                      style={{ color: "var(--fg-muted)" }}
+                    >
+                      {x.d}
+                    </span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ===== STATS (dark) ===== */}
       <section className="msection dark-s">
         <div className="mwrap">

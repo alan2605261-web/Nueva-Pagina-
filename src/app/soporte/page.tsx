@@ -207,8 +207,8 @@ export default function SoportePage() {
             <span className="m-eyebrow accent">Videos oficiales</span>
             <h2>Instalación y cuidado</h2>
             <p>
-              Instala tu plunge en 15–20 minutos sin herramientas. Estos son los
-              videos oficiales paso a paso.
+              Montas tu plunge en 15 a 20 minutos y sin herramientas. Estos son
+              los videos oficiales.
             </p>
           </Reveal>
           <div className="grid gap-6 md:grid-cols-3">
@@ -222,10 +222,10 @@ export default function SoportePage() {
                   className="aspect-video w-full object-cover"
                 />
               </div>
-              <h3 className="mt-4 text-[17px] font-semibold">Instalación MF ONE</h3>
+              <h3 className="mt-4 text-[17px] font-semibold">MF ONE por dentro</h3>
               <p className="mt-1 text-[13.5px] text-[var(--fg-muted)]">
-                Del empaque a tu primera inmersión. Conéctalo, llénalo y programa
-                tu temperatura.
+                El recorrido del equipo: la tina, el módulo de enfriamiento y el
+                portafiltro.
               </p>
             </Reveal>
             <Reveal delay={100}>
@@ -239,11 +239,11 @@ export default function SoportePage() {
                 />
               </div>
               <h3 className="mt-4 text-[17px] font-semibold">
-                Instalación Motor Pro / Premium
+                Cómo inflar tu MF Horizon o MF Barrel
               </h3>
               <p className="mt-1 text-[13.5px] text-[var(--fg-muted)]">
-                Conecta las mangueras, enchufa y listo. Para MF Horizon y MF
-                Barrel.
+                Conecta la bomba a la válvula e infla hasta 8 PSI, sin pasarte.
+                Después van las mangueras al motor.
               </p>
             </Reveal>
             <Reveal delay={200}>

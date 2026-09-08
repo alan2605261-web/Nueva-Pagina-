@@ -24,10 +24,10 @@
     MF Horizon 160 × 70 × 65 cm · 550 L máx · 12 kg · $74,000
     MF Barrel  Ø 90 × 90 cm     · 500 L máx · 11 kg · $69,000
 
-  NOTA PARA SAUL: el precio de los motores no está publicado en ningún lado
-  del sitio, así que el quiz NO suma totales ni dice "más el motor". Muestra
-  el precio de la tina tal como está publicado y manda a /motores. Si el
-  precio del inflable ya incluye motor, o si no, hay que decirlo explícito.
+  El precio de los inflables YA INCLUYE el motor: no se venden por separado
+  (confirmado por Saul, sep 2026). Por eso el quiz muestra un solo precio y
+  nunca habla de sumar el motor. Lo que sí hace es recomendar cuál de los dos
+  conviene, porque esa elección sigue existiendo.
 */
 
 export type ModeloId = "mf-one" | "mf-horizon" | "mf-barrel";
@@ -279,7 +279,10 @@ export function recomendar(r: Respuestas): Resultado {
     advertencias.push("Va a quedar justa. Antes de comprar, mide el acceso: la MF ONE viaja en una sola pieza de 195 cm y no se desarma.");
   }
   if (ganador !== "mf-one") {
-    advertencias.push("El motor va aparte y necesita estar bajo techo, protegido de la lluvia y del sol directo.");
+    // "Va aparte" era falso: el precio del inflable ya incluye el motor.
+    // Lo que sí hay que advertir es dónde va, que es una restricción real
+    // de instalación.
+    advertencias.push("El motor es una unidad separada de la tina y tiene que quedar bajo techo, protegido de la lluvia y del sol directo.");
   }
 
   return { modelo, motor, razones, advertencias, concesion, b2b: r.uso === "negocio" };

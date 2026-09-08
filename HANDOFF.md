@@ -302,9 +302,10 @@ aplicable.
        sin servidor. Cuando esté en Shopify, ese mismo resumen es lo que hay que empujar a
        Klaviyo junto con el correo.
     b) **El PDF de regalo** que pidió Saul no existe todavía. No se anuncia lo que no hay.
-    c) **Precio de los motores.** No está publicado en ninguna parte del sitio, así que el
-       quiz NO suma totales ni dice "más el motor": muestra el precio de la tina tal cual y
-       manda a `/motores`. **Hay que aclarar si los $69,000 y $74,000 ya incluyen motor.**
+    c) ~~Precio de los motores~~ — **RESUELTO.** Los $69,000 y $74,000 **ya incluyen el
+       motor**: la tina y el motor no se venden por separado (Saul, sep 2026). El quiz
+       muestra un solo precio y nunca habla de sumar el motor; sí recomienda cuál de los
+       dos conviene, porque esa elección sigue existiendo.
 
 ## 5. Estado página por página
 

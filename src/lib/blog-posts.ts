@@ -227,7 +227,7 @@ export const BLOG_POSTS: BlogPost[] = [
         h: "Dónde se nota fuera del agua",
         p: [
           "Esa es la parte que no se mide en un laboratorio pero que reporta prácticamente todo el que sostiene la práctica: la junta difícil, la llamada complicada, el imprevisto de las siete de la mañana. Ya entrenaste el reflejo de respirar lento cuando el cuerpo pide reaccionar rápido.",
-          "Mind over body no es un eslogan de marca. Es la descripción literal de lo que estás practicando cada vez que te quedas treinta segundos más.",
+          "Cada vez que te quedas treinta segundos más de los que querías, estás practicando exactamente eso: decidir con la cabeza lo que el cuerpo te está pidiendo a gritos que no hagas.",
         ],
       },
     ],

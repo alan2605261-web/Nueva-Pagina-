@@ -164,7 +164,7 @@ export const CONSEJO: Referente[] = [
     nombre: "Dra. Rhonda Patrick",
     campo: "Bioquímica",
     filiacion: "FoundMyFitness",
-    bio: "Ha divulgado cómo la inmersión en frío eleva la norepinefrina, activa la grasa parda y estimula la biogénesis mitocondrial, y cómo el contraste calor-frío funciona como herramienta de recuperación.",
+    bio: "Ha divulgado cómo la inmersión en frío eleva la norepinefrina, activa la grasa parda y estimula la biogénesis mitocondrial, y cómo el contraste calor-frío acelera la recuperación.",
     url: "https://www.foundmyfitness.com/topics/cold-exposure-therapy",
   },
   {

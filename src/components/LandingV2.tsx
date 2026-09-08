@@ -45,23 +45,37 @@ const HOTSPOTS = [
    un rango que no tiene. Lo mismo con la filtración, que es distinta en cada
    familia. Las imágenes anteriores eran capturas del sitio en inglés. */
 const FEATURES = [
-  { word: "Temperatura", img: "/images/mfone-frio.jpg", copy: "De 1 a 42 °C según el equipo que elijas. Frío para recuperar, calor para relajar, ajustable al grado. Una sola tina para todo el año." },
+  { word: "Temperatura", img: "/photography/mfone-patio/entrada.jpg", copy: "De 1 a 42 °C según el equipo que elijas. Frío para recuperar, calor para relajar, ajustable al grado. Una sola tina para todo el año." },
   { word: "Filtración", img: "/images/ozono-agua.jpg", copy: "Filtración y ozono en toda la línea: filtro de papel y skimmer en la MF ONE, filtración de 3 capas en los inflables. Agua cristalina, sin cloro de alberca." },
   { word: "Control", img: "/photography/feature/control-app-1049.jpg", copy: "Control total desde la app. Programa temperatura, horarios y tu ritual. El frío te espera listo cuando llegas a casa." },
 ];
 
 /* ---------- Ocho Razones ---------- */
 
-/* Copy real de mentefria.com — "Los beneficios científicamente probados del cold-plunging" */
+/*
+  Las ocho razones. Copy heredado de mentefria.com, reescrito por tres motivos:
+
+  1. La séptima decía "estudios muestran que la inmersión helada puede elevar
+     tu tasa metabólica hasta un 80%". Ni el estudio ni la cifra tienen
+     respaldo localizable, y "estudios muestran" sin nombrar cuál es
+     precisamente lo que no queremos publicar. Se sustituye por lo que sí está
+     documentado: la activación de grasa parda.
+  2. Siete de las ocho terminaban con el mismo gerundio explicativo
+     (reduciendo, estimulando, generando, desarrollando, ayudándote,
+     fortaleciendo). Leídas en fila sonaban a plantilla.
+  3. "La MF Plunge" no es el nombre de ningún producto.
+
+  Cada una lleva a su artículo, donde sí están las fuentes.
+*/
 const RAZONES = [
-  { img: "/photography/modelaje/modelo-01.jpg", t: "Acelera la recuperación", p: "La inmersión en agua fría contrae los vasos sanguíneos, reduciendo la hinchazón y el daño muscular para que te recuperes más rápido entre cada sesión de entrenamiento." , slug: "acelera-la-recuperacion" },
-  { img: "/photography/action/running-02.jpg", t: "Mejora el ánimo", p: "La MF Plunge activa la liberación de dopamina, estimulando la motivación, reduciendo el estrés y elevando la energía y el estado de ánimo desde los primeros minutos." , slug: "mejora-el-animo" },
-  { img: "/photography/action/golf-01.jpg", t: "Energía natural", p: "El choque térmico libera adrenalina y noradrenalina de forma inmediata, generando un estado de alerta, claridad mental y energía sostenida durante horas sin cafeína." , slug: "energia-natural" },
-  { img: "/photography/lifestyle/bajo-bajio-06.jpg", t: "Reduce la inflamación", p: "El agua fría frena la actividad metabólica que genera inflamación, reduciendo el dolor, la hinchazón y la rigidez articular tanto de entrenamientos intensos como del día a día." , slug: "reduce-la-inflamacion" },
-  { img: "/photography/action/hyrox-02.webp", t: "Mayor resiliencia", p: "Cada inmersión entrena tu sistema nervioso para manejar el estrés de forma controlada, desarrollando una disciplina y fortaleza mental que se transfiere a cada área de tu vida." , slug: "mayor-resiliencia" },
-  { img: "/photography/modelaje/modelo-04.jpg", t: "Mejor descanso", p: "La exposición al frío activa tu sistema nervioso parasimpático y reduce la temperatura corporal, ayudándote a entrar más fácil en la fase de sueño profundo y reparador." , slug: "mejor-descanso" },
-  { img: "/photography/action/golf-02.jpg", t: "Acelera el metabolismo", p: "El frío activa la grasa parda, un tejido que quema calorías para generar calor. Estudios muestran que la inmersión helada puede elevar tu tasa metabólica hasta un 80%." , slug: "acelera-el-metabolismo" },
-  { img: "/photography/lifestyle/surf-02.jpg", t: "Acelera el sistema inmune", p: "La exposición al agua fría estimula la producción de glóbulos blancos, fortaleciendo el sistema inmunológico y mejorando la resistencia a infecciones y enfermedades." , slug: "acelera-el-sistema-inmune" },
+  { img: "/photography/mfone-patio/inmersion.jpg", t: "Acelera la recuperación", p: "El agua fría contrae los vasos sanguíneos y baja la hinchazón y el daño muscular. Al día siguiente amaneces con menos peso encima y la siguiente sesión cuesta menos." , slug: "acelera-la-recuperacion" },
+  { img: "/photography/mfone-patio/salida.jpg", t: "Mejora el ánimo", p: "La inmersión dispara la dopamina muy por encima de su nivel de reposo. El efecto no se queda en los tres minutos: se sostiene durante horas." , slug: "mejora-el-animo" },
+  { img: "/photography/action/golf-01.jpg", t: "Energía natural", p: "El choque térmico libera adrenalina y noradrenalina de inmediato. Es un estado de alerta y claridad que dura buena parte de la mañana, sin cafeína." , slug: "energia-natural" },
+  { img: "/photography/lifestyle/bajo-bajio-06.jpg", t: "Reduce la inflamación", p: "El frío frena la actividad metabólica que genera inflamación. Baja el dolor, la hinchazón y la rigidez articular, la del entrenamiento y la del día a día." , slug: "reduce-la-inflamacion" },
+  { img: "/photography/action/hyrox-02.webp", t: "Mayor resiliencia", p: "Meterte al agua a 3 °C y quedarte quieto es un ejercicio de control. Entrenas a tu sistema nervioso a sostener la calma cuando el cuerpo pide salir." , slug: "mayor-resiliencia" },
+  { img: "/photography/mfone-patio/mujer-tina.jpg", t: "Mejor descanso", p: "El frío activa tu sistema nervioso parasimpático y baja la temperatura corporal. El cuerpo entra más fácil en la fase profunda del sueño." , slug: "mejor-descanso" },
+  { img: "/photography/mfone-patio/tina-sola.jpg", t: "Acelera el metabolismo", p: "El frío activa la grasa parda, un tejido que quema calorías para producir calor. Es el mecanismo que está detrás del gasto energético extra." , slug: "acelera-el-metabolismo" },
+  { img: "/photography/mfone-patio/mujer-de-pie.jpg", t: "Acelera el sistema inmune", p: "La exposición al agua fría estimula la producción de glóbulos blancos, que son las células con las que tu cuerpo pelea las infecciones." , slug: "acelera-el-sistema-inmune" },
 ];
 
 /* Productos — precios y bullets reales de mentefria.com.
@@ -328,7 +342,7 @@ export function LandingV2() {
         <Reveal className="showcase">
           <div className="showcase-stage">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/photography/hero/mf-one-concrete-dark.jpg" alt="MF ONE" />
+            <img src="/photography/mfone-patio/tina-sola.jpg" alt="MF ONE instalada en un patio" />
             {HOTSPOTS.map((h, i) => (
               <div key={h.k} className={`hotspot floor${spot === i ? " active" : ""}`} style={{ left: h.left }}>
                 <button aria-label={h.t} onClick={() => setSpot(spot === i ? null : i)}>

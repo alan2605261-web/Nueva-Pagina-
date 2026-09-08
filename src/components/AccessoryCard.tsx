@@ -93,20 +93,22 @@ export function AccessoryCard({
       )}
       style={{ background: "var(--grad-ink)" }}
     >
-      {/* resplandor de acento, mismo lenguaje que el bento */}
+      {/* Resplandor neutro. Era azul y en un muro de tarjetas se leía como
+          un fondo de color, no como profundidad — la misma corrección que se
+          hizo en los gráficos de /soporte. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at 88% 6%, rgba(91,155,213,0.20), transparent 58%)",
+            "radial-gradient(ellipse at 88% 6%, rgba(255,255,255,0.10), transparent 58%)",
         }}
       />
       <div className="relative flex flex-1 flex-col">
         <div className="flex items-start justify-between gap-4">
           <span
             className="mdisplay text-[40px] leading-none"
-            style={{ color: "var(--m-blue-400)" }}
+            style={{ color: "rgba(255,255,255,0.34)" }}
           >
             {num}
           </span>

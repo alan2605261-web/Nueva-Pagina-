@@ -31,7 +31,7 @@ const categoryCards = [
   {
     title: "Garantía",
     media: <SoporteGrafico titulo="Garantía" />,
-    body: "12 meses en la MF ONE y 6 meses en los modelos inflables, por defectos de fabricación. Son garantías independientes. Atención de por vida.",
+    body: "12 meses en la MF ONE y 6 meses en los modelos inflables, por defectos de fabricación. Son garantías independientes. Y cuando se acaben, nos sigues escribiendo: te seguimos contestando.",
     tag: "Cobertura",
     tone: "cool" as const,
   },
@@ -61,7 +61,7 @@ const categoryCards = [
 const faqItems = [
   {
     q: "¿Cómo funciona la prueba de 30 días?",
-    a: "Prueba Mente Fria por 30 días; si no es la mejor cold plunge que has probado, te regresamos tu dinero, sin preguntas.",
+    a: "Tienes 30 días naturales desde la entrega. Llénala, métete y pruébala todos los días de ese mes: que el equipo esté usado no te quita el derecho al reembolso, ese es el punto de una prueba. Si no es la mejor cold plunge que has probado, nos escribes, la recogemos sin costo y te regresamos tu dinero, sin preguntas."
   },
   {
     q: "¿Qué cubre la garantía?",

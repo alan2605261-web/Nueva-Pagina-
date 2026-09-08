@@ -328,7 +328,7 @@ export default function ProductosPage() {
       {/* 5 · CTA dark */}
       <CTASection
         title="Tu rutina empieza cuando tú decides."
-        body="Garantía real, soporte de por vida y ozono integrado manteniendo el agua. Sin hielo y sin logística: te metes y ya."
+        body="Garantía real, ozono integrado manteniendo el agua y alguien del otro lado cuando escribes. Sin hielo y sin logística: te metes y ya."
         cta={{ label: "Ver todos los productos", href: "#" }}
         dark
       />

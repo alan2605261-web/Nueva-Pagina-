@@ -33,6 +33,7 @@ const SPECS: { label: string; pro: string; premium: string }[] = [
   { label: "Resistencia al agua", pro: "IPX4", premium: "IPX4" },
   { label: "Dimensiones", pro: "55 × 42.5 × 53 cm", premium: "58.5 × 42.5 × 53 cm" },
   { label: "Peso", pro: "39 kg", premium: "41.5 kg" },
+  { label: "Color", pro: "Blanco o negro", premium: "Blanco o negro" },
   { label: "Compatibilidad", pro: "MF Barrel y MF Horizon", premium: "MF Barrel y MF Horizon" },
 ];
 

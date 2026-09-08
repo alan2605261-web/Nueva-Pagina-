@@ -168,7 +168,7 @@ export default function MFHorizonPage() {
                       },
                       {
                         t: "Prueba, garantía y devoluciones",
-                        c: "30 días de prueba sin preguntas: si no es la mejor cold plunge que has probado, te reembolsamos. Garantía de 6 meses por defectos de fabricación y atención de por vida por nuestros canales.",
+                        c: "30 días de prueba sin preguntas: si no es la mejor cold plunge que has probado, te reembolsamos. Garantía de 6 meses por defectos de fabricación. Después de la garantía nos sigues escribiendo y te seguimos contestando.",
                       },
                     ].map((a) => (
                       <details key={a.t} className="group rounded-[14px] border border-[var(--line-1)] bg-white">
@@ -185,7 +185,7 @@ export default function MFHorizonPage() {
                   <div className="mt-7 grid grid-cols-3 gap-3">
                     {[
                       { icon: RotateCcw, t: "30 días de prueba", d: "Sin preguntas: te reembolsamos." },
-                      { icon: ShieldCheck, t: "Garantía 6 meses", d: "Y atención de por vida." },
+                      { icon: ShieldCheck, t: "Garantía 6 meses", d: "Y después, seguimos aquí." },
                       { icon: CreditCard, t: "Hasta 6 MSI", d: "Con Mercado Pago." },
                     ].map((b) => (
                       <div key={b.t} className="rounded-[14px] border border-[var(--line-1)] bg-white p-4 text-center">

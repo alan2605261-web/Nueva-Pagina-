@@ -225,21 +225,26 @@ aplicable.
     el costado, así que **no son intercambiables**. Preferir la foto real siempre que la
     composición lo permita.
 
-17. **PROMESA COMERCIAL CONTRADICTORIA — pendiente de decisión de Saul.** La barra de
-    avisos dice "PRUÉBALA 30 DÍAS SIN COMPROMISO" y el hero de `/devoluciones` dice "si no
-    es para ti, la recogemos sin preguntas". Pero el cuerpo de esa misma página dice que
-    el producto "usado o con daños causados por el cliente no es elegible para reembolso"
-    y que el reembolso al 100% aplica al "producto sin abrir, sin usar y sin daños".
-    **No se puede probar 30 días un equipo sin usarlo.** Es una promesa publicada y por
-    tanto exigible. `/terminos` cláusula 7 remite a `/devoluciones` a propósito, sin
-    resolver la contradicción: hay que arreglar esa página primero y es decisión de
-    negocio, no de quien escribe el código.
+17. **La prueba de 30 días es real: usar el equipo NO descalifica. RESUELTO sep 2026.**
+    `/devoluciones` se contradecía: prometía "pruébala 30 días sin compromiso" y tres
+    párrafos después decía que el reembolso al 100% aplicaba al "producto sin abrir, sin
+    usar y sin daños" y que el "producto usado no es elegible". Saul decidió a favor de la
+    promesa publicada: *"déjala como el de sin preguntas"*. La página se reescribió y ahora
+    dice explícitamente que llenarla, meterse y usarla todos los días del mes es el punto,
+    y que el desgaste normal de un mes de uso no es daño. Lo único excluido es el daño por
+    uso indebido, las piezas faltantes y las solicitudes fuera de plazo. **No volver a
+    meter condiciones de "sin abrir" o "sin usar".**
 
-18. **Claims que necesitan respaldo o baja.** Siguen publicados y no los tocamos porque
-    son decisión comercial: "la cold plunge #1 en México", "soporte/atención de por vida"
-    y "si no es la mejor cold plunge que has probado, te regresamos el dinero". El
-    primero es una afirmación de superioridad no verificable; los otros dos son
-    obligaciones a plazo indefinido. Conviene que legal los revise junto con los términos.
+18. **"Atención de por vida" se eliminó del sitio. Decisión de Saul sep 2026.** Se leía como
+    mantenimiento vitalicio y no es lo que se ofrece: *"no es mantenimiento de por vida, es
+    que les vamos a responder"*. Las 14 apariciones se reemplazaron por redacción menos
+    absoluta —"cuando se acabe la garantía, nos sigues escribiendo", "siempre hay a quién
+    escribirle", "y después, seguimos aquí"—. **No reintroducir "de por vida" ni "soporte
+    vitalicio".**
+
+    Sigue publicado y no lo tocamos porque es decisión comercial: **"la cold plunge #1 en
+    México"**, que es una afirmación de superioridad no verificable. Conviene que legal la
+    revise junto con los términos.
 
 19. **Enlaces científicos: son de Saul, no generados.** Los 16 enlaces de `/aprender` y los
     6 del consejo científico se extrajeron uno a uno de las páginas del sitio vivo que él
@@ -250,6 +255,18 @@ aplicable.
     peer-reviewed. **"Mayor dopamina natural" es el único beneficio sin enlace**, igual
     que en el sitio vivo. No asignarle uno por parecido.
 
+
+20. **El color NO identifica al modelo de motor.** Pro y Premium se piden los dos en blanco
+    y en negro; lo confirmó Saul en sep 2026. El comparador tenía la foto blanca en la
+    tarjeta del Pro y la negra en la del Premium, lo que sugería lo contrario. Además no
+    consta cuál de los dos modelos es la unidad fotografiada, así que atribuirle una foto a
+    uno u otro sería inventar. Ahora las fotos salieron de las tarjetas y viven en una
+    figura compartida arriba del comparador, con pie que lo dice. Los archivos se
+    renombraron a `motor-2-0-blanco.jpg` y `motor-2-0-negro.jpg` justo para que nadie los
+    vuelva a leer como "el del Pro" y "el del Premium".
+
+    **Lo que sí distingue a los modelos** son los 0.8 vs 1 HP, la calefacción, el ozono, el
+    tiempo de enfriamiento y las medidas (55 vs 58.5 cm de ancho, 39 vs 41.5 kg).
 
 ## 5. Estado página por página
 
@@ -358,8 +375,10 @@ Existen con contenido real pero **sin el restyle profundo** al sistema metal. Pe
    carpeta original de Rafa.
 10. **Eventual: construir el tema Shopify Liquid** (Acto 2). Confirmado por Saul: cuando el
     blueprint esté cerrado, todo se pasa a código nativo de Shopify.
-11. **Arreglar la contradicción de `/devoluciones`** (ver regla 17). Bloquea el cierre de
-    `/terminos`, que remite a esa página.
+11. ~~Arreglar la contradicción de `/devoluciones`~~ — **RESUELTO** (ver regla 17). Queda
+    un detalle menor: la página dice que se devuelve lo que pagaste y que la recolección no
+    tiene costo, pero no aclara si el envío ORIGINAL se reembolsa, y en la MF ONE son
+    $6,000. Confirmar y escribirlo.
 12. **Revisión legal de `/privacidad` y `/terminos`.** Los dos están escritos completos y
     fundados —LFPDPPP art. 16 y Reglamento art. 24 el aviso, LFPC art. 76 bis los
     términos—, pero no los escribió un abogado. Falta confirmar: correo del departamento

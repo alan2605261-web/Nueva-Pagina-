@@ -115,7 +115,7 @@ const PRODUCTOS = [
 /* Trust trio — real de mentefria.com */
 const TRUST = [
   { k: "30 días", t: "Pruébala sin riesgo", p: "Si no es la mejor cold plunge que has probado, te regresamos tu dinero. Sin preguntas y sin trámites." },
-  { k: "Garantía", t: "12 meses en la MF ONE", p: "Seis meses en los modelos inflables, y atención de por vida por nuestros canales." },
+  { k: "Garantía", t: "12 meses en la MF ONE", p: "Seis meses en los modelos inflables. Y cuando se acabe la garantía, nos sigues escribiendo." },
   { k: "Hasta 6 MSI", t: "Financiamiento disponible", p: "Meses sin intereses con tarjetas participantes a través de Mercado Pago." },
 ];
 
@@ -127,7 +127,7 @@ const COMPARE_ROWS: { mf: string; otras: string }[] = [
   { mf: "Calienta hasta 42 °C", otras: "Jacuzzi no incluido" },
   { mf: "0 hielos requeridos", otras: "Otras no" },
   { mf: "Controla desde la app Wi-Fi", otras: "Sin control remoto" },
-  { mf: "Soporte de por vida + garantía incluida", otras: "Sin soporte" },
+  { mf: "Garantía incluida y alguien que contesta", otras: "Sin soporte" },
   { mf: "Ozono integrado purificando el agua", otras: "No purifican" },
   { mf: "Filtro de 3 capas", otras: "No tienen filtro" },
 ];

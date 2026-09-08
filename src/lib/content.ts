@@ -163,7 +163,7 @@ export const featuredReviews = {
   badges: [
     "30 días de prueba",
     "Garantía hasta 1 año",
-    "Atención de por vida",
+    "Siempre hay a quién escribirle",
     "Hasta 6 MSI con Mercado Pago",
     "Envío a todo México",
   ],
@@ -232,7 +232,7 @@ export const customerReviews = {
 
 export const finalCta = {
   title: "El frío te está esperando.",
-  body: "30 días de prueba, envío a todo México y atención de por vida. Da el primer paso.",
+  body: "30 días de prueba, envío a todo México y alguien que te contesta cuando escribes. Da el primer paso.",
   cta: "Explora Mente Fria",
 };
 

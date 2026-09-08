@@ -14,8 +14,6 @@ const MOTORS = [
   {
     name: "Motor Pro 2.0",
     tag: null,
-    img: "/images/motor-pro-card.jpg",
-    imgAlt: "Motor Pro 2.0",
     power: "0.8 HP",
     sub: "Solo frío",
     blurb:
@@ -32,8 +30,6 @@ const MOTORS = [
   {
     name: "Motor Premium 2.0",
     tag: "Más popular",
-    img: "/images/motor-premium-card.jpg",
-    imgAlt: "Motor Premium 2.0",
     power: "1 HP",
     sub: "Frío y calor",
     blurb:
@@ -71,6 +67,45 @@ export function MotorPicker({ productName }: { productName?: string }) {
             </div>
           )}
         </Reveal>
+        {/* Los dos colores, una sola vez.
+            Antes cada tarjeta llevaba su foto: la blanca en el Pro y la negra
+            en el Premium. Eso sugería que el color identificaba al modelo, y
+            no es así — Saul confirmó que Pro y Premium se piden en los dos
+            colores. Además no consta cuál de los dos modelos es la unidad
+            fotografiada, así que atribuirle una foto a uno u otro sería
+            inventar. La foto ilustra la línea; las tarjetas comparan. */}
+        <Reveal className="mb-10">
+          <figure
+            className="m-0 overflow-hidden rounded-[18px] border"
+            style={{ borderColor: "var(--line-1)" }}
+          >
+            <div className="grid grid-cols-2">
+              {[
+                { src: "/images/motor-2-0-blanco.jpg", alt: "Motor 2.0 en blanco" },
+                { src: "/images/motor-2-0-negro.jpg", alt: "Motor 2.0 en negro" },
+              ].map((f) => (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  key={f.src}
+                  src={f.src}
+                  alt={f.alt}
+                  className="aspect-[4/3] w-full object-cover"
+                />
+              ))}
+            </div>
+            <figcaption
+              className="px-6 py-4 text-center text-[13px]"
+              style={{
+                background: "var(--m-white)",
+                color: "var(--fg-muted)",
+              }}
+            >
+              Los dos modelos se piden en blanco o en negro. El color no cambia
+              nada del equipo.
+            </figcaption>
+          </figure>
+        </Reveal>
+
         <Reveal className="grid gap-6 lg:grid-cols-2">
           {MOTORS.map((m) => (
             <article
@@ -84,21 +119,6 @@ export function MotorPicker({ productName }: { productName?: string }) {
                   {m.tag}
                 </span>
               )}
-              {/* Foto del motor.
-                  Los originales eran verticales (1050×1400 y 829×1500) con el
-                  equipo descentrado y mucho fondo muerto: con object-cover se
-                  cortaba y con object-contain quedaba un marco vacío enorme.
-                  Estos archivos ya vienen reencuadrados a 4:3 desde el mismo
-                  script, con el motor centrado al 86% del alto en ambos, así
-                  que la foto llena la caja sin recortar el equipo. */}
-              <div className="mb-7 aspect-[4/3] overflow-hidden rounded-[14px]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={m.img}
-                  alt={m.imgAlt}
-                  className="h-full w-full object-cover"
-                />
-              </div>
               <h3
                 className="mdisplay text-[clamp(24px,2.4vw,32px)]"
                 style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}

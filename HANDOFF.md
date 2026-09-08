@@ -411,7 +411,13 @@ Existen con contenido real pero **sin el restyle profundo** al sistema metal. Pe
 
 ## 6.5 Cómo publicar una versión para revisar
 
-**URL viva:** https://mentefria-web.vercel.app — proyecto `saul-mf/mentefria-web` en Vercel.
+**Ahora mismo NO hay nada publicado, a propósito.** El 8-sep-2026 se publicó el proyecto
+`saul-mf/mentefria-web` para que Saul revisara y él pidió bajarlo enseguida: para revisar le
+sirve el localhost, no un sitio en internet. El proyecto se borró completo. **No volver a
+desplegar sin que Saul lo pida explícitamente** — "dame el link para revisarlo" significa
+`npm run dev` y `http://localhost:3000`, no un deploy.
+
+Lo que sigue es el recetario, ya probado, para cuando sí toque publicar.
 
 Es un **deploy de archivos estáticos**, no un build de Next del lado de Vercel: se sube el
 contenido de `out/` ya generado en la Mac. Vercel no detecta framework y solo sirve los
@@ -442,9 +448,9 @@ npx vercel@latest deploy . --token=$VERCEL_TOKEN --scope=saul-mf --yes --prod
    de GitHub al proyecto de Vercel **falla** porque la app de Vercel no tiene acceso a
    `alan2605261-web/Nueva-Pagina-`; por eso se sube por CLI y no por git.
 
-**Ojo: la URL es pública.** Cualquiera con el link entra, y ahí están las páginas legales
-que todavía no revisa un abogado (pendientes 11 y 12). Para revisión interna está bien;
-antes de compartirla fuera conviene prender Deployment Protection en el proyecto.
+**Ojo: la URL de Vercel es pública.** Cualquiera con el link entra, y ahí están las páginas
+legales que todavía no revisa un abogado (pendientes 11 y 12). Prender Deployment Protection
+antes de publicar, no después.
 
 ## 7. Assets — dónde vive todo
 

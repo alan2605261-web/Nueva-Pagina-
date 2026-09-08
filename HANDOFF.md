@@ -265,8 +265,23 @@ aplicable.
     renombraron a `motor-2-0-blanco.jpg` y `motor-2-0-negro.jpg` justo para que nadie los
     vuelva a leer como "el del Pro" y "el del Premium".
 
+    **Solo se publica la foto del motor NEGRO.** La del blanco está bien encuadrada y sigue
+    en el repo, pero su placa dice "MASTER THE MIND" (ver regla 21). El dato de los dos
+    colores va en el pie de foto, que es texto.
+
     **Lo que sí distingue a los modelos** son los 0.8 vs 1 HP, la calefacción, el ozono, el
     tiempo de enfriamiento y las medidas (55 vs 58.5 cm de ancho, 39 vs 41.5 kg).
+
+21. **"MASTER THE MIND" es el logo anterior y quedó abolido.** Confirmado por Saul en sep
+    2026. El tagline vigente es **"MIND OVER BODY"**. Se revisaron las fotos de producto en
+    uso: las tinas —MF ONE real de patio, MF ONE render de estudio, prod-barrel,
+    prod-horizon— todas llevan el logo actual. **La única pieza con el logo viejo es
+    `public/images/motor-2-0-blanco.jpg`**, que por eso salió del sitio. Si aparece otra
+    unidad fotografiada con esa placa, no se publica.
+
+    Ojo: "MIND OVER BODY" sí es el eslogan de la marca, pero eso no lo vuelve un titular
+    válido en cualquier lado. Ya se corrigió una tarjeta de `/atletas` donde se usaba como
+    si fuera el nombre de un beneficio.
 
 ## 5. Estado página por página
 

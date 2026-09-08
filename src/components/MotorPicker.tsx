@@ -67,38 +67,32 @@ export function MotorPicker({ productName }: { productName?: string }) {
             </div>
           )}
         </Reveal>
-        {/* Los dos colores, una sola vez.
+        {/* Foto de la línea, no de un modelo.
             Antes cada tarjeta llevaba su foto: la blanca en el Pro y la negra
             en el Premium. Eso sugería que el color identificaba al modelo, y
             no es así — Saul confirmó que Pro y Premium se piden en los dos
             colores. Además no consta cuál de los dos modelos es la unidad
             fotografiada, así que atribuirle una foto a uno u otro sería
-            inventar. La foto ilustra la línea; las tarjetas comparan. */}
+            inventar.
+
+            Va una sola foto, la del motor negro. La del blanco existe y está
+            bien encuadrada, pero su placa dice "MASTER THE MIND", que es el
+            logo anterior y quedó abolido: no se publica. El dato de los dos
+            colores va en el pie, que es texto y no arrastra logo viejo. */}
         <Reveal className="mb-10">
           <figure
             className="m-0 overflow-hidden rounded-[18px] border"
             style={{ borderColor: "var(--line-1)" }}
           >
-            <div className="grid grid-cols-2">
-              {[
-                { src: "/images/motor-2-0-blanco.jpg", alt: "Motor 2.0 en blanco" },
-                { src: "/images/motor-2-0-negro.jpg", alt: "Motor 2.0 en negro" },
-              ].map((f) => (
-                /* eslint-disable-next-line @next/next/no-img-element */
-                <img
-                  key={f.src}
-                  src={f.src}
-                  alt={f.alt}
-                  className="aspect-[4/3] w-full object-cover"
-                />
-              ))}
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/motor-2-0-negro.jpg"
+              alt="Motor de la línea 2.0"
+              className="aspect-[21/9] w-full object-cover"
+            />
             <figcaption
               className="px-6 py-4 text-center text-[13px]"
-              style={{
-                background: "var(--m-white)",
-                color: "var(--fg-muted)",
-              }}
+              style={{ background: "var(--m-white)", color: "var(--fg-muted)" }}
             >
               Los dos modelos se piden en blanco o en negro. El color no cambia
               nada del equipo.

@@ -589,7 +589,7 @@ export function LandingV2() {
                   <div className="n">
                     8,000<span className="u">L/h</span>
                   </div>
-                  <div className="l">La bomba recircula toda el agua unas 19 veces por hora, con ozono integrado.</div>
+                  <div className="l">Caudal de la bomba: el agua circula sin parar, con ozono integrado.</div>
                 </div>
                 <div className="stat">
                   <Counter target={0} />

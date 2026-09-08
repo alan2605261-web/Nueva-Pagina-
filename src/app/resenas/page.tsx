@@ -65,11 +65,19 @@ const REVIEWS = [
   },
 ];
 
-const VIDEO_TESTIMONIALS = [
-  { name: "Ana Martínez", city: "CDMX", tone: "cool" as const },
-  { name: "Carlos Herrera", city: "Monterrey", tone: "ink" as const },
-  { name: "Lucía Peña", city: "Guadalajara", tone: "warm" as const },
-  { name: "Iván Molina", city: "CDMX", tone: "cool" as const },
+/* Video reseñas — SOLO personas reales.
+   Los cuatro nombres que había antes (Ana Martínez, Carlos Herrera, Lucía Peña,
+   Iván Molina) estaban inventados: no coinciden con ninguna reseña publicada en
+   la tienda, y encima se mostraban con un placeholder gris en lugar del video.
+   Se dejan únicamente los testimonios que existen. Al llegar más, se agregan
+   aquí con su video o su foto. No inventar personas. */
+const VIDEO_TESTIMONIALS: { name: string; city: string; video?: string; img?: string }[] = [
+  {
+    name: "Dr. Patricio Ochoa",
+    city: "Medicina deportiva",
+    video: "/videos/testimonial-patricio.mp4",
+    img: "/photography/action/hyrox-01.jpg",
+  },
 ];
 
 const TRUST_BADGES = [
@@ -167,14 +175,24 @@ export default function ResenasPage() {
 
           <div className="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4">
             {VIDEO_TESTIMONIALS.map((v, i) => (
-              <Reveal key={v.name} delay={i * 80} className="shrink-0 w-52 snap-start">
-                <div className="relative aspect-[9/16] w-full overflow-hidden rounded-2xl">
-                  <Placeholder
-                    tone={v.tone}
-                    label={`Video — ${v.name}`}
-                    rounded="rounded-2xl"
-                    className="absolute inset-0 h-full"
-                  />
+              <Reveal key={v.name} delay={i * 80} className="shrink-0 w-64 snap-start">
+                <div
+                  className="relative aspect-[9/16] w-full overflow-hidden rounded-2xl"
+                  style={{ background: "var(--m-graphite)" }}
+                >
+                  {v.video ? (
+                    <video
+                      src={v.video}
+                      poster={v.img}
+                      controls
+                      playsInline
+                      preload="metadata"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                  ) : (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img src={v.img} alt={v.name} className="absolute inset-0 h-full w-full object-cover" />
+                  )}
                   {/* Caption overlay */}
                   <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-4 pt-10">
                     <p className="text-sm font-semibold text-white leading-tight">{v.name}</p>

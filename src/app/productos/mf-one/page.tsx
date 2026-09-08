@@ -253,7 +253,7 @@ export default function MFOnePage() {
                   </div>
                   <div className="stat">
                     <div className="n">8,000<span className="u">L/h</span></div>
-                    <div className="l">Toda el agua recircula unas 19 veces por hora, con filtro de papel y ozono integrado.</div>
+                    <div className="l">Caudal de la bomba, con filtro de papel y ozono integrado trabajando en circuito.</div>
                   </div>
                 </div>
               </Reveal>
@@ -325,11 +325,11 @@ export default function MFOnePage() {
                   Siempre lista.
                 </h2>
 
-                {/* Dato estrella: 19× */}
+                {/* Dato estrella: caudal de la bomba, de la ficha oficial */}
                 <div className="mt-8 flex items-center gap-5 rounded-[16px] border border-[var(--on-dark-line)] bg-white/[0.04] p-5">
-                  <div className="mdisplay text-[54px] leading-none text-[var(--m-blue-400)]">19×</div>
+                  <div className="mdisplay text-[54px] leading-none text-[var(--m-blue-400)]">8,000</div>
                   <p className="m-0 max-w-[30ch] text-[13.5px] leading-relaxed text-[var(--on-dark-muted)]">
-                    La bomba de 8,000 L/h filtra <span className="text-white">toda el agua de la tina ~19 veces cada hora</span>. Por eso siempre está cristalina.
+                    <span className="text-white">Litros por hora</span> moviéndose por el filtro de papel y el ozono integrado. El agua nunca se queda quieta.
                   </p>
                 </div>
 

@@ -148,8 +148,8 @@ export default function ProductosPage() {
           <div className="grid gap-5 sm:grid-cols-2">
             {[
               {
-                t: "Frío de verdad, sin hielo",
-                p: "La MF ONE ajusta desde 1 °C; los inflables llegan a 3 °C con motores de la línea 2.0. Cero bolsas de hielo, para siempre.",
+                t: "Frío de verdad, todos los días",
+                p: "Programas la temperatura y el equipo la sostiene: desde 1 °C en la MF ONE y hasta 3 °C en los inflables. Se acabó cargar bolsas de hielo cada mañana.",
                 img: "/images/mfone-frio.jpg",
                 pos: "center 30%",
               },
@@ -160,8 +160,8 @@ export default function ProductosPage() {
                 pos: "center 30%",
               },
               {
-                t: "Agua cristalina, sin cloro",
-                p: "Tres sistemas trabajando juntos. En la MF ONE, la bomba recircula toda el agua ~19 veces por hora.",
+                t: "Agua cristalina, sin cloro de alberca",
+                p: "Filtración y ozono trabajando juntos. En la MF ONE la bomba mueve 8,000 litros por hora, así que el agua nunca se queda quieta.",
                 triptych: [
                   { img: "/images/acc-filtro-carbon-vert.webp", cap: "Filtro de carbón", bg: null },
                   { img: "/images/acc-filtro-cartucho-uno.webp", cap: "Filtro de papel", bg: null },
@@ -171,7 +171,7 @@ export default function ProductosPage() {
               {
                 t: "Control total desde tu celular",
                 p: "WiFi + app en toda la línea: temperatura exacta, timers programables y modo automático 24/7.",
-                img: "/images/mfone-gallery/negro/09.jpg",
+                img: "/photography/feature/control-app-1049.jpg",
                 pos: "center",
               },
             ].map((f, i) => (
@@ -179,19 +179,19 @@ export default function ProductosPage() {
                 <article className="group relative h-[340px] overflow-hidden rounded-[18px] sm:h-[400px]">
                   {"triptych" in f && f.triptych ? (
                     /* Tres sistemas de purificación, lado a lado */
-                    <div className="absolute inset-0 flex">
+                    <div className="absolute inset-0 flex gap-1.5">
                       {f.triptych.map((s) => (
                         <div
                           key={s.cap}
-                          className="relative min-w-0 flex-1 overflow-hidden"
-                          style={s.bg ? { background: s.bg } : undefined}
+                          className="relative min-w-0 flex-1 overflow-hidden rounded-[12px]"
+                          style={{ background: s.bg ?? "var(--bg-panel)" }}
                         >
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={s.img}
                             alt={s.cap}
                             className={`absolute inset-0 h-full w-full transition-transform duration-700 group-hover:scale-[1.05] ${
-                              s.img.endsWith(".webp") ? "object-contain px-4 py-10" : "object-cover"
+                              s.img.endsWith(".webp") ? "object-contain px-3 py-12" : "object-cover"
                             }`}
                           />
                           <span className="absolute left-1/2 top-4 z-10 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/20 bg-black/35 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-md">

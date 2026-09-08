@@ -111,7 +111,7 @@ export const featureScroll = {
     {
       word: "Ozono",
       body:
-        "Purificación por ozono cada 5 minutos y filtración de 3 capas. Agua limpia y cristalina, sin químicos de alberca ni cloro.",
+        "Ozono integrado y filtración de 3 capas trabajando juntos. Agua limpia y cristalina, sin cloro de alberca de alberca ni cloro.",
       left: { label: "Ozono", value: "24/7" },
       right: { label: "Filtros", value: "3" },
     },

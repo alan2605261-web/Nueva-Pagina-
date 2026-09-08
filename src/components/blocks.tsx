@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Reveal } from "@/components/Reveal";
 import { Placeholder } from "@/components/Placeholder";
@@ -127,7 +126,12 @@ export function FeatureCards({
             {c.media ? (
               c.media
             ) : c.image ? (
-              <Image src={c.image} alt={c.title} fill sizes="400px" className="object-cover" />
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img
+                src={c.image}
+                alt={c.title}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
             ) : (
               <Placeholder tone={c.tone ?? "cool"} label={c.tag ?? c.title} rounded="rounded-none" className="absolute inset-0" />
             )}

@@ -98,7 +98,9 @@ export default function AprenderPage() {
                     >
                       {b.fuente.tipo === "estudio"
                         ? "Artículo científico"
-                        : "Leer más"}
+                        : b.fuente.tipo === "interno"
+                          ? "Leer el artículo"
+                          : "Leer más"}
                       <ArrowUpRight className="h-3.5 w-3.5" />
                     </span>
                   )}
@@ -113,8 +115,8 @@ export default function AprenderPage() {
                   {b.fuente ? (
                     <a
                       href={b.fuente.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target={b.fuente.tipo === "interno" ? undefined : "_blank"}
+                      rel={b.fuente.tipo === "interno" ? undefined : "noopener noreferrer"}
                       className={`${clases} hover:border-[var(--accent-ice)]`}
                       style={{
                         borderColor: "var(--line-1)",
@@ -212,38 +214,44 @@ export default function AprenderPage() {
         </div>
       </section>
 
-      {/* ── Nota sobre las fuentes ─────────────────────────────────────── */}
+      {/* ── Fuentes y aviso, en un solo bloque ─────────────────────────
+          Eran DOS secciones seguidas, cada una con el padding completo de
+          .msection: entre las dos dejaban casi dos pantallas de aire muerto
+          antes del cierre, y el recuadro del aviso quedaba flotando al final
+          sin nada alrededor. Ahora es una sola franja de dos columnas. */}
       <section className="msection panel">
         <div className="mwrap">
-          <Reveal>
-            <div className="mx-auto flex max-w-3xl flex-col gap-4 text-center">
-              <SectionHeader eyebrow="Fuentes" title="Ciencia, no marketing" center />
-              <p className="text-[16px] leading-relaxed text-[var(--fg-muted)]">
+          <Reveal className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
+            <div>
+              <span className="m-eyebrow accent">Fuentes</span>
+              <h2
+                className="mdisplay mt-3 text-[clamp(22px,2.4vw,30px)]"
+                style={{ color: "var(--fg-metal)" }}
+              >
+                Ciencia, no marketing.
+              </h2>
+              <p
+                className="mt-4 text-[14.5px] leading-relaxed"
+                style={{ color: "var(--fg-muted)" }}
+              >
                 La mayoría de estas referencias son estudios publicados en
-                revistas con revisión por pares —PubMed, Frontiers in
-                Physiology, Cell Metabolism, Journal of Dermatological Science—.
-                Dos son artículos de divulgación que resumen esa literatura, y
+                revistas con revisión por pares: PubMed, Frontiers in
+                Physiology, Cell Metabolism, Journal of Dermatological Science.
+                Dos son artículos de divulgación que resumen esa literatura y
                 están señalados como tales. Preferimos decirlo a presentarlo
                 todo como investigación clínica.
               </p>
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── Aviso ──────────────────────────────────────────────────────── */}
-      <section style={{ background: "var(--bg-panel)" }}>
-        <div className="mwrap py-8">
-          <Reveal>
             <div
-              className="mx-auto max-w-3xl rounded-2xl border p-6"
-              style={{ borderColor: "var(--line-1)", background: "var(--m-white)" }}
+              className="rounded-2xl border p-6"
+              style={{ borderColor: "var(--line-2)", background: "var(--m-white)" }}
             >
-              <p className="text-sm leading-relaxed text-[var(--fg-muted)]">
-                <strong style={{ color: "var(--fg-metal)" }}>
-                  Aviso importante:
-                </strong>{" "}
-                el cold plunge no es un tratamiento médico, es un complemento.
+              <span className="m-eyebrow">Antes de empezar</span>
+              <p
+                className="mt-3 text-[14.5px] leading-relaxed"
+                style={{ color: "var(--fg-muted)" }}
+              >
+                El cold plunge no es un tratamiento médico, es un complemento.
                 Si estás embarazada, o tienes enfermedades cardiovasculares,
                 epilepsia o diabetes, consulta a tu médico antes de empezar.
               </p>

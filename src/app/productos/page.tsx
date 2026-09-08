@@ -11,6 +11,13 @@ import { StatSpark } from "@/components/StatSpark";
 import { ArrowRight } from "@/components/icons";
 
 /* ─── Product card data ─────────────────────────────────────────────────── */
+/*
+  Orden deliberado: la MF ONE va AL CENTRO, no al final.
+
+  Es el producto insignia y la tarjeta del medio es la que primero mira el
+  ojo en una reja de tres. Antes cerraba la fila y quedaba en la posición de
+  menos peso visual. Decisión de Saul, sep 2026: MF Barrel · MF ONE · MF Horizon.
+*/
 const tinas = [
   {
     name: "MF Barrel",
@@ -23,6 +30,16 @@ const tinas = [
     badge: null,
   },
   {
+    name: "MF ONE",
+    tag: "All-In-One · Chiller 1 HP integrado · 420 L",
+    tagline: "Diseño All-In-One con el chiller dentro de la tina. Filtro de papel + ozono integrado. Iluminación LED interior. 12 meses de garantía.",
+    specs: "195 × 80 × 71 cm · 135 kg · Acrílico + acero inoxidable",
+    price: "$169,000 MXN",
+    image: "/images/prod-mfone.webp",
+    href: "/productos/mf-one",
+    badge: "Más vendido",
+  },
+  {
     name: "MF Horizon",
     tag: "Rectangular · 550 L máx · Mayor espacio de inmersión",
     tagline: "Filtración de 3 capas + purificación por ozono. Control WiFi programable. 6 meses de garantía.",
@@ -32,17 +49,8 @@ const tinas = [
     href: "/productos/mf-horizon",
     badge: null,
   },
-  {
-    name: "MF ONE",
-    tag: "All-In-One · Chiller 1 HP integrado · 420 L",
-    tagline: "Diseño All-In-One con el chiller dentro de la tina. Filtro de papel + ozono integrado. Iluminación LED interior. 12 meses de garantía.",
-    specs: "195 × 80 × 71 cm · 135 kg · Acrílico + acero inoxidable",
-    price: "$169,000 MXN",
-    image: "/images/prod-mfone.webp",
-    href: "/productos/mf-one",
-    badge: "Más vendido",
-  }
 ];
+
 
 /* ─── Page ────────────────────────────────────────────────────────────────── */
 export default function ProductosPage() {

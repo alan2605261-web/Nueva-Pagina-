@@ -222,6 +222,7 @@ export default function MFOnePage() {
               <Reveal className="stats-visual">
                 <video
                   src="/videos/mfone-diferencia.mp4"
+                  poster="/videos/posters/mfone-diferencia.jpg"
                   autoPlay
                   muted
                   loop

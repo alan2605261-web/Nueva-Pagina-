@@ -45,7 +45,7 @@ const HOTSPOTS = [
    un rango que no tiene. Lo mismo con la filtración, que es distinta en cada
    familia. Las imágenes anteriores eran capturas del sitio en inglés. */
 const FEATURES = [
-  { word: "Temperatura", img: "/photography/mfone-patio/entrada.jpg", copy: "De 1 a 42 °C según el equipo que elijas. Frío para recuperar, calor para relajar, ajustable al grado. Una sola tina para todo el año." },
+  { word: "Temperatura", img: "/images/mfone-frio.jpg", copy: "De 1 a 42 °C según el equipo que elijas. Frío para recuperar, calor para relajar, ajustable al grado. Una sola tina para todo el año." },
   { word: "Filtración", img: "/images/ozono-agua.jpg", copy: "Filtración y ozono en toda la línea: filtro de papel y skimmer en la MF ONE, filtración de 3 capas en los inflables. Agua cristalina, sin cloro de alberca." },
   { word: "Control", img: "/photography/feature/control-app-1049.jpg", copy: "Control total desde la app. Programa temperatura, horarios y tu ritual. El frío te espera listo cuando llegas a casa." },
 ];
@@ -68,14 +68,14 @@ const FEATURES = [
   Cada una lleva a su artículo, donde sí están las fuentes.
 */
 const RAZONES = [
-  { img: "/photography/mfone-patio/inmersion.jpg", t: "Acelera la recuperación", p: "El agua fría contrae los vasos sanguíneos y baja la hinchazón y el daño muscular. Al día siguiente amaneces con menos peso encima y la siguiente sesión cuesta menos." , slug: "acelera-la-recuperacion" },
-  { img: "/photography/mfone-patio/salida.jpg", t: "Mejora el ánimo", p: "La inmersión dispara la dopamina muy por encima de su nivel de reposo. El efecto no se queda en los tres minutos: se sostiene durante horas." , slug: "mejora-el-animo" },
+  { img: "/photography/modelaje/modelo-01.jpg", t: "Acelera la recuperación", p: "El agua fría contrae los vasos sanguíneos y baja la hinchazón y el daño muscular. Al día siguiente amaneces con menos peso encima y la siguiente sesión cuesta menos." , slug: "acelera-la-recuperacion" },
+  { img: "/photography/action/running-02.jpg", t: "Mejora el ánimo", p: "La inmersión dispara la dopamina muy por encima de su nivel de reposo. El efecto no se queda en los tres minutos: se sostiene durante horas." , slug: "mejora-el-animo" },
   { img: "/photography/action/golf-01.jpg", t: "Energía natural", p: "El choque térmico libera adrenalina y noradrenalina de inmediato. Es un estado de alerta y claridad que dura buena parte de la mañana, sin cafeína." , slug: "energia-natural" },
   { img: "/photography/lifestyle/bajo-bajio-06.jpg", t: "Reduce la inflamación", p: "El frío frena la actividad metabólica que genera inflamación. Baja el dolor, la hinchazón y la rigidez articular, la del entrenamiento y la del día a día." , slug: "reduce-la-inflamacion" },
   { img: "/photography/action/hyrox-02.webp", t: "Mayor resiliencia", p: "Meterte al agua a 3 °C y quedarte quieto es un ejercicio de control. Entrenas a tu sistema nervioso a sostener la calma cuando el cuerpo pide salir." , slug: "mayor-resiliencia" },
-  { img: "/photography/mfone-patio/mujer-tina.jpg", t: "Mejor descanso", p: "El frío activa tu sistema nervioso parasimpático y baja la temperatura corporal. El cuerpo entra más fácil en la fase profunda del sueño." , slug: "mejor-descanso" },
-  { img: "/photography/mfone-patio/tina-sola.jpg", t: "Acelera el metabolismo", p: "El frío activa la grasa parda, un tejido que quema calorías para producir calor. Es el mecanismo que está detrás del gasto energético extra." , slug: "acelera-el-metabolismo" },
-  { img: "/photography/mfone-patio/mujer-de-pie.jpg", t: "Acelera el sistema inmune", p: "La exposición al agua fría estimula la producción de glóbulos blancos, que son las células con las que tu cuerpo pelea las infecciones." , slug: "acelera-el-sistema-inmune" },
+  { img: "/photography/modelaje/modelo-04.jpg", t: "Mejor descanso", p: "El frío activa tu sistema nervioso parasimpático y baja la temperatura corporal. El cuerpo entra más fácil en la fase profunda del sueño." , slug: "mejor-descanso" },
+  { img: "/photography/action/golf-02.jpg", t: "Acelera el metabolismo", p: "El frío activa la grasa parda, un tejido que quema calorías para producir calor. Es el mecanismo que está detrás del gasto energético extra." , slug: "acelera-el-metabolismo" },
+  { img: "/photography/lifestyle/surf-02.jpg", t: "Acelera el sistema inmune", p: "La exposición al agua fría estimula la producción de glóbulos blancos, que son las células con las que tu cuerpo pelea las infecciones." , slug: "acelera-el-sistema-inmune" },
 ];
 
 /* Productos — precios y bullets reales de mentefria.com.
@@ -342,7 +342,7 @@ export function LandingV2() {
         <Reveal className="showcase">
           <div className="showcase-stage">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/photography/mfone-patio/tina-sola.jpg" alt="MF ONE instalada en un patio" />
+            <img src="/photography/hero/mf-one-concrete-dark.jpg" alt="MF ONE" />
             {HOTSPOTS.map((h, i) => (
               <div key={h.k} className={`hotspot floor${spot === i ? " active" : ""}`} style={{ left: h.left }}>
                 <button aria-label={h.t} onClick={() => setSpot(spot === i ? null : i)}>
@@ -692,8 +692,15 @@ export function LandingV2() {
               {[1, 2, 3, 4, 5, 6].map((n) => (
                 <div key={n} className="bcard">
                   <div className="img">
+                    {/* El poster es obligatorio: sin él, cuando el navegador
+                        bloquea el autoplay —modo de bajo consumo, ahorro de
+                        datos, o la preferencia del usuario— los seis videos
+                        quedan como rectángulos vacíos sobre la sección
+                        oscura y la sección se ve muerta. Con poster siempre
+                        hay imagen, se reproduzca o no. */}
                     <video
                       src={`/videos/original/en-accion-home-${n}.mp4`}
+                      poster={`/videos/posters/en-accion-home-${n}.jpg`}
                       autoPlay
                       muted
                       loop

@@ -14,6 +14,8 @@ const MOTORS = [
   {
     name: "Motor Pro 2.0",
     tag: null,
+    img: "/images/motor-2-0-blanco.jpg",
+    imgAlt: "Motor Pro 2.0",
     power: "0.8 HP",
     sub: "Solo frío",
     blurb:
@@ -30,6 +32,8 @@ const MOTORS = [
   {
     name: "Motor Premium 2.0",
     tag: "Más popular",
+    img: "/images/motor-2-0-negro.jpg",
+    imgAlt: "Motor Premium 2.0",
     power: "1 HP",
     sub: "Frío y calor",
     blurb:
@@ -67,39 +71,6 @@ export function MotorPicker({ productName }: { productName?: string }) {
             </div>
           )}
         </Reveal>
-        {/* Foto de la línea, no de un modelo.
-            Antes cada tarjeta llevaba su foto: la blanca en el Pro y la negra
-            en el Premium. Eso sugería que el color identificaba al modelo, y
-            no es así — Saul confirmó que Pro y Premium se piden en los dos
-            colores. Además no consta cuál de los dos modelos es la unidad
-            fotografiada, así que atribuirle una foto a uno u otro sería
-            inventar.
-
-            Va una sola foto, la del motor negro. La del blanco existe y está
-            bien encuadrada, pero su placa dice "MASTER THE MIND", que es el
-            logo anterior y quedó abolido: no se publica. El dato de los dos
-            colores va en el pie, que es texto y no arrastra logo viejo. */}
-        <Reveal className="mb-10">
-          <figure
-            className="m-0 overflow-hidden rounded-[18px] border"
-            style={{ borderColor: "var(--line-1)" }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/motor-2-0-negro.jpg"
-              alt="Motor de la línea 2.0"
-              className="aspect-[21/9] w-full object-cover"
-            />
-            <figcaption
-              className="px-6 py-4 text-center text-[13px]"
-              style={{ background: "var(--m-white)", color: "var(--fg-muted)" }}
-            >
-              Los dos modelos se piden en blanco o en negro. El color no cambia
-              nada del equipo.
-            </figcaption>
-          </figure>
-        </Reveal>
-
         <Reveal className="grid gap-6 lg:grid-cols-2">
           {MOTORS.map((m) => (
             <article
@@ -113,6 +84,17 @@ export function MotorPicker({ productName }: { productName?: string }) {
                   {m.tag}
                 </span>
               )}
+              {/* Los archivos ya vienen reencuadrados a 4:3 desde el mismo
+                  script, con el motor centrado al 86% del alto en ambos: la
+                  foto llena la caja sin recortar el equipo. */}
+              <div className="mb-7 aspect-[4/3] overflow-hidden rounded-[14px]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={m.img}
+                  alt={m.imgAlt}
+                  className="h-full w-full object-cover"
+                />
+              </div>
               <h3
                 className="mdisplay text-[clamp(24px,2.4vw,32px)]"
                 style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}

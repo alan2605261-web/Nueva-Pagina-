@@ -432,11 +432,13 @@ npx vercel@latest deploy . --token=$VERCEL_TOKEN --scope=saul-mf --yes --prod
 **Tres trampas que ya costaron un intento fallido cada una:**
 
 1. **El `out/` completo pesa 155 MB y el CLI truena al final del upload** con
-   `fetch failed / AbortError`, después de haber subido todo. 117 MB son videos y **85 MB
-   de esos no se referencian en ningún lado** (`videos/original/en-accion-*`,
-   `reel-*`): son material crudo scrapeado del sitio vivo. Borrándolos de la copia
-   temporal el paquete baja a 65 MB y el deploy pasa. Los únicos videos en uso son
-   `mfone-diferencia.mp4`, `testimonial-patricio.mp4` y los dos de `original/instalacion-*`.
+   `fetch failed / AbortError`, después de haber subido todo. 117 MB son videos.
+
+   **Cuidado al decidir cuáles sobran.** Los seis `videos/original/en-accion-home-*.mp4`
+   SÍ se usan: el carrusel "El frío, en la vida real" los arma con una plantilla,
+   `` `/videos/original/en-accion-home-${n}.mp4` ``, así que un grep de cadenas literales
+   NO los encuentra y parecen huérfanos. Los que de verdad no se referencian son
+   `en-accion-producto-*`, `reel-*` y `edge-template-*`.
 
 2. **Hace falta un `vercel.json` con `cleanUrls: true`** dentro de la carpeta que se sube.
    El export genera `productos.html`, no `productos/index.html`, así que sin eso la portada

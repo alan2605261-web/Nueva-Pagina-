@@ -42,7 +42,7 @@ export const BLOG_POSTS: BlogPost[] = [
     num: "01",
     titulo: "Acelera la recuperación",
     dek: "Por qué el frío baja la hinchazón, cuánto dura el efecto y en qué caso conviene esperar.",
-    img: "/photography/mfone-patio/inmersion.jpg",
+    img: "/photography/modelaje/modelo-01.jpg",
     lectura: "5 min",
     secciones: [
       {
@@ -83,7 +83,7 @@ export const BLOG_POSTS: BlogPost[] = [
     num: "02",
     titulo: "Mejora el ánimo",
     dek: "La dopamina que libera el frío, cuánto dura y por qué no se parece a ningún estimulante.",
-    img: "/photography/mfone-patio/salida.jpg",
+    img: "/photography/action/running-03.jpg",
     lectura: "4 min",
     secciones: [
       {
@@ -124,7 +124,7 @@ export const BLOG_POSTS: BlogPost[] = [
     num: "03",
     titulo: "Energía natural",
     dek: "Adrenalina y noradrenalina en segundos, sin cafeína y sin la caída de la tarde.",
-    img: "/photography/mfone-patio/de-pie-hombre.jpg",
+    img: "/photography/action/running-01.jpg",
     lectura: "4 min",
     secciones: [
       {
@@ -247,7 +247,7 @@ export const BLOG_POSTS: BlogPost[] = [
     num: "06",
     titulo: "Mejor descanso",
     dek: "Cómo la caída de temperatura corporal facilita el sueño profundo, y a qué hora conviene entrar.",
-    img: "/photography/mfone-patio/mujer-tina.jpg",
+    img: "/photography/modelaje/modelo-04.jpg",
     lectura: "5 min",
     secciones: [
       {
@@ -329,7 +329,7 @@ export const BLOG_POSTS: BlogPost[] = [
     num: "08",
     titulo: "Acelera el sistema inmune",
     dek: "El ensayo con más de tres mil participantes que midió días de incapacidad, y qué se puede concluir de él.",
-    img: "/photography/mfone-patio/mujer-de-pie.jpg",
+    img: "/photography/lifestyle/surf-01.jpg",
     lectura: "5 min",
     secciones: [
       {

@@ -9,7 +9,6 @@ import { Reveal } from "@/components/Reveal";
 import { ArrowRight } from "@/components/icons";
 import { Placeholder } from "@/components/Placeholder";
 import { QuoteMark, StarIcon } from "@/components/icons";
-import Image from "next/image";
 
 export default function AtletasPage() {
   return (
@@ -17,12 +16,12 @@ export default function AtletasPage() {
       {/* 1. Dark Hero */}
       <section className="relative min-h-[70vh] bg-black text-white flex items-center">
         <div className="absolute inset-0 overflow-hidden">
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/images/hero-mfone.jpg"
             alt="MF ONE hero"
-            fill
-            className="object-cover opacity-40"
-            priority
+            fetchPriority="high"
+            className="absolute inset-0 h-full w-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
         </div>
@@ -205,12 +204,13 @@ export default function AtletasPage() {
             {/* Right: product image */}
             <Reveal>
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl" style={{ background: "var(--grad-silver)" }}>
-                <Image
+                {/* Mismo bug que en /negocios: next/image dentro de un
+                    Reveal en opacity:0 nunca dispara su carga diferida. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src="/images/prod-mfone.webp"
                   alt="MF ONE, tina de inmersión en frío"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-contain p-10"
+                  className="absolute inset-0 h-full w-full object-contain p-10"
                 />
                 <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-black/10" />
               </div>

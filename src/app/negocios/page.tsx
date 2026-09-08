@@ -1,5 +1,4 @@
 import { Fragment } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
 import { FAQ } from "@/components/FAQ";
@@ -230,13 +229,12 @@ export default function NegociosPage() {
           Foto luminosa del Barrel en el campo de golf con overlay ligero,
           en lugar del render oscuro anterior. Punto ① de Rafa.          */}
       <section className="relative flex min-h-[78vh] items-center overflow-hidden">
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src="/images/barrel-golf-wide.jpg"
           alt="MF Barrel instalado al aire libre en un campo de golf"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
         {/* Overlay ligero: mantiene la foto luminosa y a la vez sostiene el
             texto. La capa vertical rescata el eyebrow, que caía sobre pasto. */}
@@ -410,12 +408,11 @@ export default function NegociosPage() {
                   className="relative aspect-[4/3] w-full"
                   style={{ background: "var(--grad-silver)" }}
                 >
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src={p.image}
                     alt={p.name}
-                    fill
-                    sizes="(max-width: 640px) 100vw, 400px"
-                    className="object-contain p-6"
+                    className="absolute inset-0 h-full w-full object-contain p-6"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-7">
@@ -501,12 +498,11 @@ export default function NegociosPage() {
                 className="relative min-h-[320px] lg:min-h-[520px]"
                 style={{ background: "var(--m-graphite)" }}
               >
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src={CASO_HYROX.imagen}
                   alt="Recovery Zone de Mente Fria en Hyrox Cancún 2026"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
               </div>
               <div className="flex flex-col justify-center p-8 sm:p-11">

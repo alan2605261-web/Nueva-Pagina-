@@ -9,15 +9,18 @@
   Dos advertencias honestas, para no repetir la promesa de más de lo que hay:
 
   1. "Mayor dopamina natural" es el ÚNICO beneficio que en el sitio vivo no
-     tiene enlace. Se deja sin enlace en vez de asignarle uno por parecido.
-     Si Saul confirma la fuente del "2.5 veces", se agrega aquí.
+     tiene enlace. Dejarlo sin enlace hacía que su tarjeta se viera rota al
+     lado de las otras dieciséis, así que apunta a NUESTRO artículo sobre el
+     tema, que sí lleva sus fuentes a la vista (Šrámek 2000 y Shevchuk 2008).
+     No se le inventa un estudio externo; se manda a donde la evidencia está
+     citada de forma transparente.
 
   2. No las 16 referencias son estudios peer-reviewed: healthline y
      psychologytoday son divulgación. Por eso cada entrada declara su `tipo`,
      y el cierre de la página ya no afirma que todas lo sean.
 */
 
-export type TipoFuente = "estudio" | "divulgacion";
+export type TipoFuente = "estudio" | "divulgacion" | "interno";
 
 export type Beneficio = {
   categoria: string;
@@ -61,7 +64,7 @@ export const BENEFICIOS: Beneficio[] = [
     categoria: "Ánimo",
     titulo: "Mayor dopamina natural",
     desc: "El frío intenso eleva los niveles de dopamina muy por encima de lo normal, lo que mejora la motivación, la concentración y la sensación de satisfacción.",
-    // Sin fuente: es el único beneficio que el sitio vivo no tiene ligado.
+    fuente: { url: "/blog/mejora-el-animo", tipo: "interno" },
   },
   {
     categoria: "Energía",

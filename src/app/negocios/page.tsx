@@ -75,14 +75,14 @@ const PRODUCTS = [
     name: "MF Barrel",
     image: "/images/prod-barrel.jpg",
     price: "$69,000 MXN",
-    body: "Sistema de 3 filtros + purificación por ozono. Control WiFi programable. 6 meses de garantía.",
+    body: "Filtración de 3 capas + purificación por ozono. Control WiFi programable. 6 meses de garantía.",
     href: "/productos/mf-barrel",
   },
   {
     name: "MF Horizon",
     image: "/images/prod-horizon.jpg",
     price: "$74,000 MXN",
-    body: "Sistema de 3 filtros + purificación por ozono. Control WiFi programable. 6 meses de garantía.",
+    body: "Filtración de 3 capas + purificación por ozono. Control WiFi programable. 6 meses de garantía.",
     href: "/productos/mf-horizon",
   },
   {
@@ -130,7 +130,7 @@ const WHY_BLOCKS = [
     body: "Construido para resistir el uso diario de gimnasios, hoteles y centros de recuperación. Componentes de grado comercial probados en más de 100 instalaciones activas en México.",
     bullets: [
       "Chiller industrial con capacidad de enfriamiento continuo",
-      "Filtración de 3 etapas + purificación por ozono",
+      "Filtración de 3 capas + purificación por ozono",
     ],
   },
   {

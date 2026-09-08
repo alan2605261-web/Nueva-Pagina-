@@ -19,15 +19,15 @@ const MOTORS = [
     power: "0.8 HP",
     watts: "2,230 W",
     blurb:
-      "La puerta de entrada al frío diario: potencia real, filtración de 3 etapas y control desde la app.",
+      "La puerta de entrada al frío diario: potencia real, filtración de 3 capas y control desde la app.",
     features: [
       { ok: true, t: "Enfría hasta 3 °C (de 25 a 3 °C en ~6 h)" },
-      { ok: true, t: "Filtración de 3 etapas" },
-      { ok: true, t: "Control WiFi + app" },
+      { ok: true, t: "Filtración de 3 capas (papel, integrado y malla)" },
+      { ok: true, t: "Control WiFi + app · IPX4" },
       { ok: false, t: "Sin calefacción" },
       { ok: false, t: "Sin ozono" },
     ],
-    dims: "58.5 × 42.5 × 53 cm · 39 kg",
+    dims: "55 × 42.5 × 53 cm · 39 kg",
   },
   {
     name: "Motor Premium 2.0",
@@ -37,12 +37,12 @@ const MOTORS = [
     power: "1 HP",
     watts: "2,700 W",
     blurb:
-      "Frío y calor todo el año: rango completo de 3 a 42 °C con ozono purificando el agua 24/7.",
+      "Frío y calor todo el año: rango completo de 3 a 43 °C con ozono purificando el agua 24/7.",
     features: [
       { ok: true, t: "Enfría hasta 3 °C, ~33% más rápido (~4 h)" },
-      { ok: true, t: "Filtración de 3 etapas" },
+      { ok: true, t: "Filtración de 3 capas (papel, integrado y malla)" },
       { ok: true, t: "Control WiFi + app" },
-      { ok: true, t: "Calienta hasta 42 °C — jacuzzi mode" },
+      { ok: true, t: "Calienta hasta 43 °C — jacuzzi mode" },
       { ok: true, t: "Purificación por ozono 24/7, sin cloro" },
     ],
     dims: "58.5 × 42.5 × 53 cm · 41.5 kg",

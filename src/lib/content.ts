@@ -84,14 +84,14 @@ export const showcase = {
     },
     {
       name: "MF Horizon",
-      tag: "3 filtros + ozono · WiFi · 6 meses de garantía",
+      tag: "Filtración de 3 capas + ozono · WiFi · 6 meses",
       price: "$74,000 MXN",
       image: "/images/prod-horizon.jpg",
       tone: "cool" as const,
     },
     {
       name: "MF Barrel",
-      tag: "3 filtros + ozono · WiFi · 6 meses de garantía",
+      tag: "Filtración de 3 capas + ozono · WiFi · 6 meses",
       price: "$69,000 MXN",
       image: "/images/prod-barrel.jpg",
       tone: "warm" as const,
@@ -104,7 +104,7 @@ export const featureScroll = {
     {
       word: "Temperatura",
       body:
-        "Enfría hasta 3 °C y, con el Motor Premium, calienta hasta 42 °C. Tú programas la temperatura; el equipo la mantiene, sin una sola bolsa de hielo.",
+        "Enfría hasta 3 °C y, con el Motor Premium, calienta hasta 43 °C. Tú programas la temperatura; el equipo la mantiene, sin una sola bolsa de hielo.",
       left: { label: "Frío", value: "3°" },
       right: { label: "Calor", value: "42°" },
     },

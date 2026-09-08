@@ -46,7 +46,7 @@ const kitsMantenimiento = [
   },
   {
     title: "Kit de filtros para inflables",
-    body: "Tres filtros de 1 a 5 micrones para MF Barrel y MF Horizon — cambia el filtro con cada cambio de agua.",
+    body: "Filtros de repuesto para el sistema de 3 capas de MF Barrel y MF Horizon — cámbialos con cada cambio de agua.",
     tag: "Consultar",
     img: "/images/acc-filtros-cartucho.webp",
     contain: true,

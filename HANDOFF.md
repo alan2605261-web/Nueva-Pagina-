@@ -149,13 +149,27 @@ aplicable.
    de papel y de carbón, llave de filtro, skimmer y portacelular. El PRO DECK va aparte.
    **NO decir:** certificación CE (no la tienen), hidromasaje (ya no lo trae), LED exterior
    (la iluminación es solo interior).
-5. **Inflables** (sitio vivo, slugs `/products/mf-barrel-1` y `/products/mf-horizon-1`):
-   Barrel $69,000 (Ø90×90 cm, 400 L, 13 kg) · Horizon $74,000 (160×70×65 cm, 420 L, 15 kg) ·
-   PVC ultraduradero reforzado con fibra de vidrio (ya NO decir "drop-stitch grado militar") ·
-   3 filtros de 1–5 micrones · garantía 6 meses · envío $1,500 · incluyen: mochila, bomba
-   doble acción, cubierta con seguro para niños, filtros, kit de reparación.
-6. **Motores 2.0**: Pro = 0.8 HP/2,230 W, 25→3 °C en ~6 h, SIN calor ni ozono. Premium =
-   1 HP/2,700 W, 3–42 °C, ozono 24/7, ~4 h. Dimensiones 58.5×42.5×53 cm; 39 / 41.5 kg.
+5. **Inflables** — **ACTUALIZADO sep 2026 contra el Manual Mente Fria v6, que Saul
+   confirmó como fuente de verdad vigente.** Hay 30 unidades del modelo anterior en
+   stock, así que estas specs siguen aplicando aunque el proveedor cambie pronto.
+   · **MF Horizon** $74,000 — 160×70×65 cm · **12 kg** · **550 L máx / 400 L recomendado**
+   · **MF Barrel** $69,000 — Ø90×90 cm · **11 kg** · **500 L máx / 350 L recomendado**
+   · **Material: tejido drop-stitch de grado militar.** La "fibra de vidrio" que decía
+     el sitio NO aparece en ningún documento de fábrica: era invención del sitio vivo.
+     Rafa había prohibido "grado militar" y puso el dato sin respaldo en su lugar.
+   · **Filtración: 3 capas — filtro de papel, filtro integrado y malla antipolvo.**
+     NO decir "3 filtros de 1 a 5 micras": eso no está documentado y se presta a
+     reclamación porque suena a tres cartuchos de ese micronaje.
+   · garantía 6 meses · envío $1,500 · incluyen: mochila, bomba doble acción,
+     cubierta con seguro para niños, filtros y kit de reparación.
+
+6. **Motores 2.0** (Manual v6) — Pro = 0.8 HP, enfría a 3 °C, SIN calor ni ozono,
+   **55×42.5×53 cm**, 39 kg, IPX4. Premium = 1 HP, enfría a 3 °C, **calienta a 43 °C**
+   (NO 42), ozono de alta eficiencia, 58.5×42.5×53 cm, 41.5 kg, IPX4. Ambos con la
+   filtración de 3 capas. **Ojo:** los watts (2,230 / 2,700) y los tiempos de
+   enfriamiento (~6 h / ~4 h) NO están en el manual v6; vienen del handoff original y
+   siguen sin respaldo documental.
+
 7. ~~Decir "filtro de 20 micrones"~~ — **OBSOLETA.** La documentación de ago 2026 habla de
    **"filtro de papel"** en el MF ONE. Los "3 filtros de 1–5 micrones" siguen siendo de los
    inflables. Tampoco decir "cartucho plisado".

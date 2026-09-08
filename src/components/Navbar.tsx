@@ -26,14 +26,14 @@ const MEGA_PRODUCTS = [
   {
     name: "MF HORIZON",
     img: "/images/prod-horizon-nobg.png",
-    blurb: "PVC ultraduradero reforzado con fibra de vidrio. Cabes estirado y se guarda en su mochila.",
+    blurb: "Tejido drop-stitch de grado militar. Cabes estirado, 550 L y se guarda en su mochila.",
     href: "/productos/mf-horizon",
     scale: "107px",
   },
   {
     name: "MF BARREL",
     img: "/images/prod-barrel-nobg.png",
-    blurb: "El mismo PVC reforzado en formato vertical. Ocupa poco, aguanta parejo y viaja contigo.",
+    blurb: "El mismo drop-stitch de grado militar en formato vertical. Ocupa poco, pesa 11 kg y viaja contigo.",
     href: "/productos/mf-barrel",
     scale: "116px",
   },

@@ -36,11 +36,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Qué motor me conviene: Pro 2.0 o Premium 2.0?",
-    a: "El Motor Pro 2.0 (0.8 HP) es la puerta de entrada: enfría de 25 a 3 °C en aproximadamente 6 horas, con filtración de 3 etapas y control WiFi. El Motor Premium 2.0 (1 HP) hace todo lo anterior más rápido (~4 horas), y suma calefacción hasta 42 °C y purificación por ozono 24/7. Si quieres contraste frío-calor y agua sin cloro de alberca, elige Premium.",
+    a: "El Motor Pro 2.0 (0.8 HP) es la puerta de entrada: enfría de 25 a 3 °C en aproximadamente 6 horas, con filtración de 3 capas y control WiFi. El Motor Premium 2.0 (1 HP) hace todo lo anterior más rápido (~4 horas), y suma calefacción hasta 43 °C y purificación por ozono 24/7. Si quieres contraste frío-calor y agua sin cloro de alberca, elige Premium.",
   },
   {
     q: "¿Cada cuánto cambio el agua y los filtros?",
-    a: "Con la filtración trabajando, el agua se mantiene en buen estado entre 3 y 5 semanas según el uso. Cada cambio de agua incluye cambio de filtro — el proceso es sencillo y no requiere técnico. El equipo incluye 3 filtros de 1 a 5 micrones.",
+    a: "Con la filtración trabajando, el agua se mantiene en buen estado entre 3 y 5 semanas según el uso. Cada cambio de agua incluye cambio de filtro — el proceso es sencillo y no requiere técnico. El sistema es de 3 capas: filtro de papel, filtro integrado y malla antipolvo.",
   },
   {
     q: "¿El ozono sustituye al cloro?",
@@ -59,17 +59,17 @@ const FAQ_ITEMS = [
 /* Specs de mentefria.com/products/mf-barrel-1 */
 const SPEC_ROWS = [
   { label: "Dimensiones", value: "Ø 90 × 90 cm" },
-  { label: "Capacidad", value: "400 L" },
-  { label: "Peso (tina)", value: "13 kg" },
-  { label: "Material", value: "PVC ultraduradero reforzado con fibra de vidrio" },
+  { label: "Volumen", value: "500 L máximo · 350 L recomendado" },
+  { label: "Peso (tina)", value: "11 kg" },
+  { label: "Material", value: "Tejido drop-stitch de grado militar" },
   { label: "Estructura", value: "Inflable de alta presión con cámara de aire aislante" },
   { label: "Inflado", value: "Menos de 15 min con bomba de doble acción incluida" },
-  { label: "Filtración", value: "3 filtros de 1–5 micrones" },
+  { label: "Filtración", value: "Filtración de 3 capas: filtro de papel, filtro integrado y malla antipolvo" },
   { label: "Desinfección", value: "Ozono 24/7 (con Motor Premium 2.0)" },
   { label: "Enfriamiento", value: "Hasta 3 °C, sin hielo" },
-  { label: "Calentamiento", value: "Hasta 42 °C (con Motor Premium 2.0)" },
+  { label: "Calentamiento", value: "Hasta 43 °C (con Motor Premium 2.0)" },
   { label: "Motores compatibles", value: "Motor Pro 2.0 (0.8 HP) · Motor Premium 2.0 (1 HP)" },
-  { label: "Motor (dimensiones)", value: "58.5 × 42.5 × 53 cm · 39–41.5 kg" },
+  { label: "Motor (dimensiones)", value: "Pro 55 × 42.5 × 53 cm · 39 kg — Premium 58.5 × 42.5 × 53 cm · 41.5 kg" },
   { label: "Pantalla y control", value: "WiFi + app (temperatura y horarios)" },
   { label: "Voltaje", value: "110 V" },
   { label: "Garantía", value: "6 meses" },
@@ -79,7 +79,7 @@ const SPEC_ROWS = [
 const HERO_BULLETS = [
   "Enfría hasta 3 °C sin hielo — la portátil más potente de México",
   "Compacta: Ø 90 cm, ideal para departamentos y espacios reducidos",
-  "Sistema de 3 filtros (1–5 micrones) + purificación por ozono",
+  "Filtración de 3 capas + purificación por ozono",
   "Control WiFi programable desde tu celular.",
   "6 meses de garantía.",
 ];
@@ -103,7 +103,7 @@ const PORTABILITY_STEPS = [
   {
     icon: Luggage,
     t: "Viaja con ella",
-    d: "13 kg de tina. Llévala a tu casa de vacaciones o contigo en la mudanza — tu rutina de frío no se queda atrás.",
+    d: "11 kg de tina. Llévala a tu casa de vacaciones o contigo en la mudanza — tu rutina de frío no se queda atrás.",
   },
 ];
 
@@ -125,7 +125,7 @@ const ACCESSORIES = [
   },
   {
     t: "Sistema de filtrado",
-    p: "3 filtros de 1 a 5 micrones incluidos — agua cristalina desde el día uno.",
+    p: "Filtro de papel, filtro integrado y malla antipolvo — agua cristalina desde el día uno.",
     img: null,
   },
   {
@@ -207,11 +207,11 @@ export default function MFBarrelPage() {
                     {[
                       {
                         t: "Detalles del producto",
-                        c: "Ø 90 × 90 cm · 400 L · 13 kg. PVC ultraduradero reforzado con fibra de vidrio, amigable con la piel, con cámara de aire aislante que conserva la temperatura. Enfría hasta 3 °C sin hielo; con Motor Premium 2.0 también calienta hasta 42 °C y purifica con ozono. Control WiFi desde la app.",
+                        c: "Ø 90 × 90 cm · 500 L máximo, 350 L recomendado · 11 kg. Tejido drop-stitch de grado militar, con cámara de aire aislante que conserva la temperatura. Enfría hasta 3 °C sin hielo; con Motor Premium 2.0 también calienta hasta 43 °C y purifica con ozono. Control WiFi desde la app.",
                       },
                       {
                         t: "Qué incluye",
-                        c: "Mochila de transporte, bomba de inflado de doble acción (infla en menos de 15 minutos), cubierta protectora térmica con seguro para niños, 3 filtros de 1–5 micrones y kit de reparación. Todo en la caja, sin compras extra.",
+                        c: "Mochila de transporte, bomba de inflado de doble acción (infla en menos de 15 minutos), cubierta protectora térmica con seguro para niños, filtros de repuesto y kit de reparación. Todo en la caja, sin compras extra.",
                       },
                       {
                         t: "Envío y entrega",
@@ -289,7 +289,7 @@ export default function MFBarrelPage() {
                   </div>
                   <div className="stat">
                     <div className="n">3<span className="u">filtros</span></div>
-                    <div className="l">De 1 a 5 micrones + purificación por ozono. Agua cristalina, sin cloro.</div>
+                    <div className="l">Filtro de papel, filtro integrado y malla antipolvo, más ozono. Agua cristalina, sin cloro de alberca.</div>
                   </div>
                 </div>
               </Reveal>
@@ -308,7 +308,7 @@ export default function MFBarrelPage() {
               <h2>Llévala a donde quieras.</h2>
               <p>
                 Es la ventaja del MF Barrel sobre cualquier tina rígida: inflable
-                premium de alta presión, 13 kg de tina y una mochila donde cabe todo.
+                premium de alta presión, 11 kg de tina y una mochila donde cabe todo.
                 Tu cold plunge se muda contigo.
               </p>
             </Reveal>

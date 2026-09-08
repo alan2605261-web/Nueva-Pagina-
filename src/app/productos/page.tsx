@@ -14,9 +14,9 @@ import { ArrowRight } from "@/components/icons";
 const tinas = [
   {
     name: "MF Barrel",
-    tag: "Cilíndrica · 400 L · Ideal para departamentos",
-    tagline: "Sistema de 3 filtros + purificación por ozono. Control WiFi programable. 6 meses de garantía.",
-    specs: "90 cm diámetro × 90 cm altura · 13 kg",
+    tag: "Cilíndrica · 500 L máx · Ideal para departamentos",
+    tagline: "Filtración de 3 capas + purificación por ozono. Control WiFi programable. 6 meses de garantía.",
+    specs: "90 cm diámetro × 90 cm altura · 11 kg · Tejido drop-stitch de grado militar",
     price: "$69,000 MXN",
     image: "/images/prod-barrel-nobg.png",
     href: "/productos/mf-barrel",
@@ -24,9 +24,9 @@ const tinas = [
   },
   {
     name: "MF Horizon",
-    tag: "Rectangular · 420 L · Mayor espacio de inmersión",
-    tagline: "Sistema de 3 filtros + purificación por ozono. Control WiFi programable. 6 meses de garantía.",
-    specs: "160 × 65 × 70 cm · 15 kg",
+    tag: "Rectangular · 550 L máx · Mayor espacio de inmersión",
+    tagline: "Filtración de 3 capas + purificación por ozono. Control WiFi programable. 6 meses de garantía.",
+    specs: "160 × 70 × 65 cm · 12 kg · Tejido drop-stitch de grado militar",
     price: "$74,000 MXN",
     image: "/images/prod-horizon-nobg.png",
     href: "/productos/mf-horizon",
@@ -155,7 +155,7 @@ export default function ProductosPage() {
               },
               {
                 t: "Modo calor incluido",
-                p: "Contraste frío-calor en el mismo equipo: hasta 40 °C en la MF ONE y 42 °C con Motor Premium 2.0.",
+                p: "Contraste frío-calor en el mismo equipo: hasta 40 °C en la MF ONE y 43 °C con Motor Premium 2.0.",
                 img: "/images/mfone-calor.jpg",
                 pos: "center 30%",
               },

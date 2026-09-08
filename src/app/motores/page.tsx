@@ -27,11 +27,12 @@ const SPECS: { label: string; pro: string; premium: string }[] = [
   { label: "Consumo", pro: "2,230 W", premium: "2,700 W" },
   { label: "Enfriamiento", pro: "Hasta 3 °C", premium: "Hasta 3 °C" },
   { label: "De 25 a 3 °C", pro: "~6 horas", premium: "~4 horas" },
-  { label: "Calefacción", pro: "No incluye", premium: "Hasta 42 °C" },
+  { label: "Calefacción", pro: "No incluye", premium: "Hasta 43 °C" },
   { label: "Ozono", pro: "No incluye", premium: "Purificación 24/7" },
-  { label: "Filtración", pro: "3 etapas · 1 a 5 micras", premium: "3 etapas · 1 a 5 micras" },
+  { label: "Filtración", pro: "3 capas: papel, integrado y malla", premium: "3 capas: papel, integrado y malla" },
   { label: "Control", pro: "WiFi + app", premium: "WiFi + app" },
-  { label: "Dimensiones", pro: "58.5 × 42.5 × 53 cm", premium: "58.5 × 42.5 × 53 cm" },
+  { label: "Resistencia al agua", pro: "IPX4", premium: "IPX4" },
+  { label: "Dimensiones", pro: "55 × 42.5 × 53 cm", premium: "58.5 × 42.5 × 53 cm" },
   { label: "Peso", pro: "39 kg", premium: "41.5 kg" },
   { label: "Compatibilidad", pro: "MF Barrel y MF Horizon", premium: "MF Barrel y MF Horizon" },
 ];
@@ -66,7 +67,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Cuál me conviene?",
-    a: "Si solo buscas frío, el Motor Pro 2.0 cumple: baja a 3 °C y trae la misma filtración de 3 etapas y el mismo control por app. El Motor Premium 2.0 tiene sentido si quieres contraste frío-calor en el mismo equipo, si te importa enfriar en ~4 horas en lugar de ~6, o si vas a darle uso intensivo y quieres el ozono purificando 24/7.",
+    a: "Si solo buscas frío, el Motor Pro 2.0 cumple: baja a 3 °C y trae la misma filtración de 3 capas y el mismo control por app. El Motor Premium 2.0 tiene sentido si quieres contraste frío-calor en el mismo equipo, si te importa enfriar en ~4 horas en lugar de ~6, o si vas a darle uso intensivo y quieres el ozono purificando 24/7.",
   },
   {
     q: "¿Puedo cambiar de motor después?",

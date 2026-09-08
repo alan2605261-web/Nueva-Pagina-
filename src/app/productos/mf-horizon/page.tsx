@@ -20,7 +20,7 @@ const SHOP_URL = "https://mentefria.com/products/mf-horizon-1";
 const FAQ_ITEMS = [
   {
     q: "¿Qué motor elijo: Pro 2.0 o Premium 2.0?",
-    a: "El Motor Pro 2.0 (0.8 HP, 2,230 W) es solo frío: enfría de 25 a 3 °C en ~6 horas, con filtración de 3 etapas y control WiFi — perfecto si tu objetivo es recuperación en frío. El Motor Premium 2.0 (1 HP, 2,700 W) hace todo eso más rápido (~4 horas), y además calienta hasta 42 °C y purifica con ozono 24/7. Si quieres contraste frío/calor y agua purificada sin cloro de alberca, ve por el Premium.",
+    a: "El Motor Pro 2.0 (0.8 HP, 2,230 W) es solo frío: enfría de 25 a 3 °C en ~6 horas, con filtración de 3 capas y control WiFi — perfecto si tu objetivo es recuperación en frío. El Motor Premium 2.0 (1 HP, 2,700 W) hace todo eso más rápido (~4 horas), y además calienta hasta 43 °C y purifica con ozono 24/7. Si quieres contraste frío/calor y agua purificada sin cloro de alberca, ve por el Premium.",
   },
   {
     q: "¿Necesito hielo?",
@@ -28,11 +28,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Cada cuánto cambio el agua?",
-    a: "Con el sistema de 3 filtros (1 a 5 micras) el agua se mantiene limpia entre 3 y 5 semanas según el uso. Con el Motor Premium 2.0, el ozono 24/7 extiende aún más la vida del agua. El cambio de filtros es sencillo y no requiere técnico.",
+    a: "Con el sistema de filtración de 3 capas el agua se mantiene limpia entre 3 y 5 semanas según el uso. Con el Motor Premium 2.0, el ozono 24/7 extiende aún más la vida del agua. El cambio de filtros es sencillo y no requiere técnico.",
   },
   {
     q: "¿El ozono sustituye al cloro?",
-    a: "Sí. Con el Motor Premium 2.0, la purificación con ozono esteriliza el agua 24/7 sin cloro de alberca — sin olores ni irritación en la piel. Con el Motor Pro 2.0, el sistema de 3 filtros se encarga de mantener el agua limpia entre cambios.",
+    a: "Sí. Con el Motor Premium 2.0, la purificación con ozono esteriliza el agua 24/7 sin cloro de alberca — sin olores ni irritación en la piel. Con el Motor Pro 2.0, la filtración de 3 capas se encarga de mantener el agua limpia entre cambios.",
   },
   {
     q: "¿Dónde puedo instalarla?",
@@ -40,25 +40,25 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Cuánto cuesta el envío?",
-    a: "El envío del MF Horizon cuesta $1,500 MXN a todo México. Al ser inflable y ligera (15 kg), no requiere maniobra especial de entrega: llega en caja y la instalas tú mismo.",
+    a: "El envío del MF Horizon cuesta $1,500 MXN a todo México. Al ser inflable y ligera (12 kg), no requiere maniobra especial de entrega: llega en caja y la instalas tú mismo.",
   },
   {
     q: "¿En qué se diferencia del MF Barrel?",
-    a: "El MF Barrel ($69,000 MXN) es el formato vertical compacto: te sumerges sentado y ocupa menos espacio. El MF Horizon ($74,000 MXN) es el formato horizontal con el mayor espacio de inmersión: cabes estirado, con los hombros bajo el agua. Ambos comparten el sistema de 3 filtros, la purificación con ozono y el control WiFi.",
+    a: "El MF Barrel ($69,000 MXN) es el formato vertical compacto: te sumerges sentado y ocupa menos espacio. El MF Horizon ($74,000 MXN) es el formato horizontal con el mayor espacio de inmersión: cabes estirado, con los hombros bajo el agua. Ambos comparten la filtración de 3 capas, la purificación con ozono y el control WiFi.",
   },
 ];
 
 /* Specs verificadas contra mentefria.com/products/mf-horizon-1 */
 const SPEC_ROWS = [
   { label: "Dimensiones", value: "160 × 70 × 65 cm" },
-  { label: "Capacidad", value: "420 L" },
-  { label: "Peso", value: "15 kg (sin agua)" },
+  { label: "Volumen", value: "550 L máximo · 400 L recomendado" },
+  { label: "Peso", value: "12 kg (sin agua)" },
   { label: "Formato", value: "Horizontal — inmersión estirado" },
-  { label: "Material", value: "PVC ultraduradero reforzado con fibra de vidrio" },
-  { label: "Filtración", value: "Sistema de 3 filtros (1 – 5 micras)" },
+  { label: "Material", value: "Tejido drop-stitch de grado militar" },
+  { label: "Filtración", value: "Filtración de 3 capas: filtro de papel, filtro integrado y malla antipolvo" },
   { label: "Desinfección", value: "Ozono 24/7 (con Motor Premium 2.0)" },
   { label: "Enfriamiento", value: "Hasta 3 °C, sin hielo" },
-  { label: "Calentamiento", value: "Hasta 42 °C (con Motor Premium 2.0)" },
+  { label: "Calentamiento", value: "Hasta 43 °C (con Motor Premium 2.0)" },
   { label: "Motores compatibles", value: "Motor Pro 2.0 (0.8 HP) · Motor Premium 2.0 (1 HP)" },
   { label: "Control", value: "WiFi + app, programable" },
   { label: "Colores", value: "Negro · Blanco" },
@@ -69,9 +69,9 @@ const SPEC_ROWS = [
 
 const HERO_BULLETS = [
   "Mayor espacio de inmersión: cabes estirado, con los hombros bajo el agua",
-  "Enfría hasta 3 °C sin hielo — y hasta 42 °C con Motor Premium 2.0",
-  "Inflable y portátil: 15 kg, se guarda en su mochila de transporte",
-  "Sistema de 3 filtros + ozono. Control WiFi programable.",
+  "Enfría hasta 3 °C sin hielo — y hasta 43 °C con Motor Premium 2.0",
+  "Inflable y portátil: 12 kg, se guarda en su mochila de transporte",
+  "Filtración de 3 capas + ozono. Control WiFi programable.",
   "6 meses de garantía y 30 días de prueba.",
 ];
 
@@ -79,7 +79,7 @@ const ACCESORIOS = [
   { t: "Mochila de transporte", p: "Desínflala y guárdala completa en su mochila — tu cold plunge viaja contigo.", img: null },
   { t: "Bomba de doble acción", p: "Infla y desinfla la tina sin herramientas ni compresor.", img: null },
   { t: "Cubierta protectora", p: "Con seguro para niños — conserva la temperatura y mantiene el agua limpia.", img: null },
-  { t: "Sistema de 3 filtros", p: "Tres filtros de 1 a 5 micras que retienen impurezas y dejan el agua cristalina.", img: null },
+  { t: "Filtración de 3 capas", p: "Filtro de papel, filtro integrado y malla antipolvo trabajando juntos para dejar el agua cristalina.", img: null },
   { t: "Kit de reparación", p: "Herramientas básicas para mantener tu tina como nueva, incluso de viaje.", img: null },
 ];
 
@@ -156,15 +156,15 @@ export default function MFHorizonPage() {
                     {[
                       {
                         t: "Detalles del producto",
-                        c: "160 × 70 × 65 cm · 420 L · 15 kg. PVC ultraduradero reforzado con fibra de vidrio, amigable con la piel. Formato horizontal: el mayor espacio de inmersión de la línea — cabes estirado. Compatible con Motor Pro 2.0 y Motor Premium 2.0, con control WiFi y app.",
+                        c: "160 × 70 × 65 cm · 550 L máximo, 400 L recomendado · 12 kg. Tejido drop-stitch de grado militar. Formato horizontal: el mayor espacio de inmersión de la línea — cabes estirado. Compatible con Motor Pro 2.0 y Motor Premium 2.0, con control WiFi y app.",
                       },
                       {
                         t: "Qué incluye",
-                        c: "Mochila de transporte, bomba de inflado de doble acción, cubierta protectora con seguro para niños, sistema de 3 filtros (1 a 5 micras) y kit de reparación. Todo en la caja, sin compras extra.",
+                        c: "Mochila de transporte, bomba de inflado de doble acción, cubierta protectora con seguro para niños, filtros de repuesto y kit de reparación. Todo en la caja, sin compras extra.",
                       },
                       {
                         t: "Envío y entrega",
-                        c: "$1,500 MXN a todo México. Al ser inflable y ligera (15 kg), no requiere maniobra especial: llega en caja y la instalas tú mismo, sin obra ni plomería.",
+                        c: "$1,500 MXN a todo México. Al ser inflable y ligera (12 kg), no requiere maniobra especial: llega en caja y la instalas tú mismo, sin obra ni plomería.",
                       },
                       {
                         t: "Prueba, garantía y devoluciones",
@@ -270,7 +270,7 @@ export default function MFHorizonPage() {
                 {
                   n: "02",
                   t: "Guárdala",
-                  p: "Cabe en su mochila de transporte. Con 15 kg, la mueves tú solo.",
+                  p: "Cabe en su mochila de transporte. Con 12 kg, la mueves tú solo.",
                 },
                 {
                   n: "03",

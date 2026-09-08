@@ -307,6 +307,22 @@ aplicable.
        muestra un solo precio y nunca habla de sumar el motor; sí recomienda cuál de los
        dos conviene, porque esa elección sigue existiendo.
 
+23. **"MASTER THE MIND" también está en la carpeta Fotos Shopify.** Se revisaron las 20
+    imágenes de esa carpeta del Drive: todas llevan el logo vigente MIND OVER BODY **menos
+    `MOTORES/MOTOR NEGRO SHOPIFY.png`**, que trae el abolido. Junto con
+    `images/motor-2-0-blanco.jpg` (ver regla 21), son las dos piezas conocidas con el logo
+    viejo. Ninguna se publica.
+
+24. **Carpeta "Fotos Shopify - Mente Fria" del Drive.** 20 PNG a 3125×3125, las que Saul
+    subió al sitio vivo. Bajada a `~/Desktop/MENTE FRIA - Fotos Shopify`. Los accesorios
+    vienen ya con transparencia de origen y son mejores que los recortes que se habían hecho
+    a mano: de ahí salen el MF Mat, los dos Pro Deck y el juego de filtros del Motor Premium.
+    También hay lifestyle real (Barrel junto a la chimenea, grupo en la alberca, golf,
+    Horizon en la playa y en la van) que todavía no se usa en el sitio.
+
+    Ojo con un cruce: `unnamed-removebg-preview.png` son TRES filtros, no uno. No sirve para
+    "Filtro de papel" de la MF ONE, que es un solo cartucho.
+
 ## 5. Estado página por página
 
 ### `/` — Landing (`src/components/LandingV2.tsx`)
@@ -418,10 +434,10 @@ Existen con contenido real pero **sin el restyle profundo** al sistema metal. Pe
    Ojo con un error que ya se cometió: hay una carpeta "Case 08 - Kevin Murko" en el Drive y
    **Kevin Murko es OTRA persona**. Coincidencia de nombre, nada más.
 
-   **Lo que sí sigue mal es la foto.** La tarjeta de Kevin está publicada con una foto de
-   **dos mujeres corriendo**, y la de Ana (ya retirada) tenía un **hombre con tabla de surf**.
-   Hay que ponerle a Kevin una foto suya: en el Drive están sus clips en
-   `KEVIN (Estacionamiento Facu Clips)` y se puede sacar un fotograma.
+   **La foto ya se arregló** (sep 2026): la tarjeta llevaba una foto de archivo de **dos
+   mujeres corriendo**. Ahora lleva un fotograma suyo sacado de su propio material del Drive,
+   junto a un MF Barrel, en `photography/testimonios/kevin.jpg`. Su rol dice "Atleta ·
+   Embajador Mente Fria", que es lo que es.
 
    El material de Kevin en el Drive son **anuncios actuados** —habla a cámara con guion y
    subtítulos quemados— no una entrevista de testimonio. Sirve para publicidad; para la fila

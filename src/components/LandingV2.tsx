@@ -135,10 +135,12 @@ const COMPARE_ROWS: { mf: string; otras: string }[] = [
 /* ---------- Testimonials ---------- */
 
 const TESTIMONIALS: { img: string; who: string; role: string; video?: string }[] = [
-  // Kevin y Ana: el archivo de video se perdio (nunca estuvo en git, era gitignored por peso).
-  // Sin `video` la card queda solo con foto, igual que Dani y Maximo. Al recuperarlos, devolver:
-  //   video: "/videos/testimonial-kevin.mp4"  /  video: "/videos/testimonial-surf.mp4"
-  { img: "/photography/action/running-02.jpg", who: "Kevin", role: "Runner · CDMX" },
+  // Kevin es atleta embajador de la marca. Su tarjeta estaba publicada con una
+  // foto de archivo de DOS MUJERES corriendo, que obviamente no es el. Ahora
+  // lleva un fotograma suyo, sacado de su propio material en el Drive, junto a
+  // un MF Barrel. El video editado del testimonio sigue perdido: nunca estuvo
+  // en git, era gitignored por peso, y en el Drive solo esta el bruto.
+  { img: "/photography/testimonios/kevin.jpg", who: "Kevin", role: "Atleta · Embajador Mente Fria" },
   { img: "/photography/action/hyrox-01.jpg", who: "Dr. Patricio Ochoa", role: "Medicina deportiva", video: "/videos/testimonial-patricio.mp4" },
   { img: "/photography/action/golf-03.jpg", who: "Dani", role: "Triatleta" },
   { img: "/photography/action/golf-01.jpg", who: "Máximo", role: "Golfista" },

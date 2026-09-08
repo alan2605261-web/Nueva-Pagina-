@@ -77,7 +77,8 @@ export const INCLUIDO_MF_ONE: Accesorio[] = [
   {
     title: "Filtro de papel",
     body: "El filtro de operación de la MF ONE. Cámbialo cada 3 a 4 semanas.",
-    img: "/images/acc-filtros-cartucho.webp",
+    // Es UN cartucho, no el juego de tres del motor.
+    img: "/images/acc-filtro-cartucho-uno.webp",
     activo: true,
   },
   {

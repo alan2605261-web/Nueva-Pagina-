@@ -93,13 +93,85 @@ const faqItems = [
   },
 ];
 
+/* Cuidado del equipo. Rescatado de la pagina "Cuida tu MF Plunge" del sitio
+   anterior, que no se habia migrado. Todo aplica a los tres modelos salvo lo
+   marcado como exclusivo de inflables. */
+const CUIDADOS = [
+  {
+    cuando: "Con agua dentro",
+    grupo: "Higiene del día a día",
+    puntos: [
+      {
+        t: "Dúchate antes de entrar",
+        d: "Enjuagarte y lavarte las manos reduce muchísimo la carga de suciedad que entra al agua. Es lo que más alarga la vida del filtro y lo que más espacia los cambios de agua.",
+      },
+      {
+        t: "Pasa la red por la superficie",
+        d: "Cabellos, insectos y hojas se retiran en segundos con el skimmer. Si la tina está al aire libre, hazlo antes de cada sesión.",
+      },
+      {
+        t: "Pon un tapete en la entrada",
+        d: "Si el equipo está en exterior, un tapete absorbente frente a la tina evita que la tierra del piso termine dentro del agua.",
+      },
+      {
+        t: "Cúbrela cuando no la uses",
+        d: "La cubierta mantiene fuera el polvo y los insectos, y conserva la temperatura: el equipo trabaja menos y consume menos.",
+      },
+    ],
+  },
+  {
+    cuando: "Al vaciar",
+    grupo: "Limpieza a fondo",
+    puntos: [
+      {
+        t: "Desconecta antes de empezar",
+        d: "Apaga y desconecta el equipo antes de cualquier mantenimiento, y vacía la tina por completo.",
+      },
+      {
+        t: "Agua y jabón suave, nada más",
+        d: "Limpia interior y exterior con un paño o esponja. Nada de productos corrosivos, abrasivos ni cloro: además de dañar el material, su uso anula la garantía.",
+      },
+      {
+        t: "Revisa que no haya moho",
+        d: "Verifica el contorno y las uniones. Si aparece, se quita con un trapo húmedo y jabón antes de volver a llenar.",
+      },
+      {
+        t: "Enjuaga y deja secar",
+        d: "Enjuaga la tina y las mangueras con agua limpia y déjalas secar al aire antes de volver a llenar.",
+      },
+    ],
+  },
+  {
+    cuando: "Siempre",
+    grupo: "Cuidado del motor",
+    puntos: [
+      {
+        t: "Vertical, sin excepción",
+        d: "El motor se transporta y se guarda de pie. Si estuvo acostado, déjalo vertical 24 horas antes de conectarlo para que el gas refrigerante se asiente. Solo aplica a MF Barrel y MF Horizon: la MF ONE lleva su sistema integrado.",
+      },
+      {
+        t: "Bajo techo",
+        d: "Los motores no son resistentes al agua. Al aire libre tienen que estar protegidos de la lluvia; la exposición los daña y anula la garantía.",
+      },
+      {
+        t: "Fuera del sol directo",
+        d: "El sol constante baja la eficiencia y acorta la vida de los componentes. Sombra y aire circulando alrededor de las rejillas.",
+      },
+      {
+        t: "Cobertor cuando no se usa",
+        d: "Cúbrelo para protegerlo del polvo y la humedad, y limpia la malla antipolvo cada tres meses.",
+      },
+    ],
+  },
+];
+
 export default function SoportePage() {
   return (
     <PageShell>
       {/* 1. SubHero */}
       <SubHero
         eyebrow="Soporte"
-        title="Centro de Ayuda"
+        title="Centro de ayuda"
         subtitle="Todo lo que necesitas saber sobre tu cold plunge Mente Fria."
         tone="warm"
       />
@@ -191,6 +263,80 @@ export default function SoportePage() {
               </p>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* ── Cuida tu plunge ───────────────────────────────────
+          Contenido rescatado de mentefria.com/pages/cuida-tu-mf-plunge, que
+          en el sitio nuevo se habia perdido: solo quedaba el video. Es
+          material que aplica a toda la linea, no a un modelo.
+
+          Dos ajustes sobre el original:
+          · El reposo del motor va a 24 horas, que es lo que dice el manual
+            v6; la pagina vieja decia 12.
+          · Se quito el "estamos disponibles 24/7" del cierre. */}
+      <section className="msection" id="cuidado">
+        <div className="mwrap">
+          <Reveal className="msection-head">
+            <span className="m-eyebrow accent">Cuida tu plunge</span>
+            <h2>Lo que alarga la vida de tu equipo.</h2>
+            <p>
+              Nada de esto es complicado y todo es la diferencia entre un equipo
+              que dura y uno que da problemas. Aplica a la MF ONE y a los dos
+              modelos inflables por igual, salvo donde se indique.
+            </p>
+          </Reveal>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {CUIDADOS.map((g, i) => (
+              <Reveal
+                key={g.grupo}
+                delay={(i % 3) * 80}
+                className="flex h-full flex-col rounded-[18px] border p-8"
+                style={{
+                  borderColor: "var(--line-1)",
+                  background: "var(--m-white)",
+                }}
+              >
+                <span className="m-eyebrow accent">{g.cuando}</span>
+                <h3
+                  className="mdisplay mt-3 text-[21px] leading-tight"
+                  style={{ color: "var(--fg-metal)" }}
+                >
+                  {g.grupo}
+                </h3>
+                <ul className="mt-6 flex-1 space-y-5">
+                  {g.puntos.map((pt) => (
+                    <li key={pt.t}>
+                      <p
+                        className="text-[15px] font-semibold leading-snug"
+                        style={{ color: "var(--fg-metal)" }}
+                      >
+                        {pt.t}
+                      </p>
+                      <p
+                        className="mt-1.5 text-[14px] leading-relaxed"
+                        style={{ color: "var(--fg-muted)" }}
+                      >
+                        {pt.d}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="mt-8">
+            <p
+              className="text-[13px] leading-relaxed"
+              style={{ color: "var(--fg-subtle)" }}
+            >
+              No dar el mantenimiento en los tiempos indicados, exponer el motor
+              a la lluvia o al sol directo, o usar cloro y limpiadores abrasivos
+              dentro de la tina puede anular la garantía.
+            </p>
+          </Reveal>
         </div>
       </section>
 

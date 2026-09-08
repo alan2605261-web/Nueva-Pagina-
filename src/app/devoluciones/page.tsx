@@ -3,7 +3,7 @@ import { SubHero } from "@/components/blocks";
 import { Reveal } from "@/components/Reveal";
 
 export const metadata = {
-  title: "Devoluciones y Reembolsos | Mente Fria",
+  title: "Devoluciones y reembolsos | Mente Fria",
   description: "Política de devoluciones y reembolsos de Mente Fria. 30 días de prueba sin preguntas.",
 };
 

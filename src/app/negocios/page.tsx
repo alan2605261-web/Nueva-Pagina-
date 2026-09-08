@@ -40,7 +40,7 @@ const BUSINESS_TYPES = [
   },
   {
     num: "03",
-    title: "Centros Wellness",
+    title: "Centros wellness",
     body: "Complementa tu oferta de longevidad, biohacking y recuperación con la cold plunge líder del mercado.",
   },
   {
@@ -50,7 +50,7 @@ const BUSINESS_TYPES = [
   },
   {
     num: "05",
-    title: "Estudios de Wellness",
+    title: "Estudios de wellness",
     body: "Yoga, pilates, breathwork y meditación. Cierra cada clase con inmersión fría de grado comercial.",
   },
   {
@@ -60,12 +60,12 @@ const BUSINESS_TYPES = [
   },
   {
     num: "07",
-    title: "Clínicas y Fisioterapia",
+    title: "Clínicas y fisioterapia",
     body: "Crioterapia y recuperación para medicina deportiva, fisioterapia y rehabilitación.",
   },
   {
     num: "08",
-    title: "Equipos Deportivos",
+    title: "Equipos deportivos",
     body: "Solución de recuperación para clubes profesionales, academias y centros de alto rendimiento.",
   },
 ];

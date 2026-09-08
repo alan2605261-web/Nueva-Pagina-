@@ -22,7 +22,7 @@ export const nav: {
       label: "Productos",
       href: "/productos",
       submenu: [
-        { label: "All MF Plunges", href: "/productos" },
+        { label: "Todos los plunges", href: "/productos" },
         { label: "MF ONE", href: "/productos/mf-one" },
         { label: "MF Horizon", href: "/productos/mf-horizon" },
         { label: "MF Barrel", href: "/productos/mf-barrel" },
@@ -33,8 +33,8 @@ export const nav: {
       label: "Aprender",
       href: "/aprender",
       submenu: [
-        { label: "La Ciencia Detrás de los Plunges", href: "/aprender" },
-        { label: "Consejo Científico", href: "/aprender#consejo" },
+        { label: "La ciencia detrás del frío", href: "/aprender" },
+        { label: "Consejo científico", href: "/aprender#consejo" },
         { label: "Motores Mente Fria", href: "/motores" },
       ],
     },
@@ -42,17 +42,17 @@ export const nav: {
       label: "Soporte",
       href: "/soporte",
       submenu: [
-        { label: "Instrucciones de Instalación", href: "/soporte#instalacion" },
-        { label: "Cuida Tu MF Plunge", href: "/soporte#instalacion" },
-        { label: "Centro de Ayuda", href: "/soporte" },
+        { label: "Instrucciones de instalación", href: "/soporte#instalacion" },
+        { label: "Cuida tu MF Plunge", href: "/soporte#cuidado" },
+        { label: "Centro de ayuda", href: "/soporte" },
         { label: "Contáctanos", href: "/soporte" },
         { label: "Garantía", href: "/garantia" },
         { label: "Términos y condiciones", href: "/terminos" },
-        { label: "Avisos de privacidad", href: "/privacidad" },
+        { label: "Aviso de privacidad", href: "/privacidad" },
       ],
     },
     { label: "Blog", href: "/blog" },
-    { label: "Para Negocios", href: "/negocios" },
+    { label: "Para negocios", href: "/negocios" },
   ],
   account: "Cuenta",
   search: "Buscar",
@@ -236,13 +236,3 @@ export const finalCta = {
   cta: "Explora Mente Fria",
 };
 
-export const footer = {
-  columns: [
-    { title: "Productos", links: ["MF ONE", "MF Horizon", "MF Barrel", "Motores", "Accesorios"] },
-    { title: "Empresa", links: ["Nosotros", "MIND OVER BODY", "Eventos", "Mayoreo / B2B"] },
-    { title: "Soporte", links: ["Centro de ayuda", "Envíos", "Garantía", "Mantenimiento", "Contacto"] },
-    { title: "Recursos", links: ["Blog", "Ciencia del frío", "Reseñas", "FAQ"] },
-    { title: "Legal", links: ["Privacidad", "Términos", "Devoluciones"] },
-  ],
-  bottom: "© Mente Fria — MIND OVER BODY. Hecho en México. Precios en MXN, no incluyen IVA.",
-};

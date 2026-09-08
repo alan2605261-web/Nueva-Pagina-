@@ -59,20 +59,25 @@ export default function AtletasPage() {
             <FeatureCards
               columns={3}
               cards={[
+                /* Las tres tarjetas tenian el mismo problema: la etiqueta
+                   repetia la primera palabra del titulo, el cuerpo de la
+                   segunda era la mitad de largo que el de las otras y se veia
+                   vacia, y la tercera usaba el eslogan de la marca como si
+                   fuera el nombre de un beneficio. */
                 {
-                  tag: "Recuperación",
-                  title: "Recuperación más rápida",
-                  body: "La inmersión contrae los vasos sanguíneos, reduce la hinchazón y el daño muscular post-entreno. Para recuperación rápida, hazlo dentro de la primera hora después de entrenar.",
+                  tag: "Después de entrenar",
+                  title: "Vuelves antes a entrenar",
+                  body: "La inmersión contrae los vasos sanguíneos y reduce la hinchazón y el daño muscular posterior al esfuerzo. Para recuperación, la ventana buena es la primera hora después de entrenar.",
                 },
                 {
-                  tag: "Inflamación",
-                  title: "Menos inflamación y dolor",
-                  body: "Reduce el dolor y la rigidez articular tras entrenamientos intensos.",
+                  tag: "Al día siguiente",
+                  title: "Menos dolor y rigidez",
+                  body: "El dolor muscular tardío, ese que aparece entre 24 y 72 horas después, baja de intensidad. Las articulaciones amanecen menos rígidas y la segunda sesión de la semana cuesta menos.",
                 },
                 {
-                  tag: "Disciplina mental",
-                  title: "MIND OVER BODY",
-                  body: "Cada inmersión entrena tu sistema nervioso a manejar el estrés; la misma fortaleza que usas en competencia.",
+                  tag: "En competencia",
+                  title: "Cabeza fría bajo presión",
+                  body: "Entrar al agua a 3 °C y quedarte quieto es un ejercicio de control. Cada inmersión entrena a tu sistema nervioso a sostener la calma en incomodidad, que es exactamente lo que necesitas el día que compites.",
                   tone: "ink",
                 },
               ]}

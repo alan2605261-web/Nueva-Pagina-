@@ -14,14 +14,14 @@ const cols: { title: string; links: { label: string; href: string }[] }[] = [
       { label: "MF ONE", href: "/productos/mf-one" },
       { label: "MF Horizon", href: "/productos/mf-horizon" },
       { label: "MF Barrel", href: "/productos/mf-barrel" },
-      { label: "Motores & Accesorios", href: "/accesorios" },
-      { label: "Para Negocios", href: "/negocios" },
+      { label: "Motores y accesorios", href: "/accesorios" },
+      { label: "Para negocios", href: "/negocios" },
     ],
   },
   {
     title: "Aprender",
     links: [
-      { label: "La Ciencia", href: "/aprender" },
+      { label: "La ciencia", href: "/aprender" },
       { label: "Atletas", href: "/atletas" },
       { label: "Reseñas", href: "/resenas" },
       { label: "Blog", href: "/blog" },
@@ -30,11 +30,11 @@ const cols: { title: string; links: { label: string; href: string }[] }[] = [
   {
     title: "Soporte",
     links: [
-      { label: "Centro de Ayuda", href: "/soporte" },
+      { label: "Centro de ayuda", href: "/soporte" },
       { label: "Garantía", href: "/garantia" },
       { label: "Devoluciones", href: "/devoluciones" },
-      { label: "Términos y Condiciones", href: "/terminos" },
-      { label: "Aviso de Privacidad", href: "/privacidad" },
+      { label: "Términos y condiciones", href: "/terminos" },
+      { label: "Aviso de privacidad", href: "/privacidad" },
     ],
   },
 ];

@@ -399,16 +399,41 @@ Existen con contenido real pero **sin el restyle profundo** al sistema metal. Pe
 3. **Comprimir videos** — falta `ffmpeg`; no hay Homebrew en la Mac de Saul y su instalación
    pide contraseña. Gitignored por peso: `mfone-diferencia.mp4` (el original está en el Drive
    de Saul, privado), testimoniales kevin/surf (PERDIDOS, ver abajo), instalación motor.
-4. **Videos de testimonios de Kevin y Ana: se perdieron.** Nunca estuvieron en git. No están en
-   disco, papelera, WhatsApp, Drive ni el sitio vivo. Sus tarjetas quedaron solo con foto. Hay
-   material alterno disponible (Rodrigo, del shoot de Arturo, y Máximo jugando golf) pero falta
-   decidir nombres y roles.
-5. **Peso del MF ONE**: Saul confirmó que siguen siendo 135 kg *de momento*, pero el proveedor
+4. **Videos perdidos: son exactamente DOS, y ninguno más.** Se recorrió toda la historia de
+   git (`git rev-list --all`, buscando cada ruta `/videos/*.mp4` citada en `src/` en cualquier
+   commit) y sólo estos dos se referencian sin existir en disco. Todo lo demás está completo.
+
+   | Archivo | Tarjeta a la que pertenecía | Foto que sigue en su lugar |
+   |---|---|---|
+   | `public/videos/testimonial-kevin.mp4` | Kevin · Runner · CDMX | `photography/action/running-02.jpg` |
+   | `public/videos/testimonial-surf.mp4` | Ana · Surfista · Vallarta | `photography/lifestyle/surf-01.jpg` |
+
+   Aparecen por primera vez en el commit inicial de Rafa (`5491fcd`, 5-jul-2026), en el array
+   `TESTIMONIALS` de LandingV2. Nunca se versionaron: estaban gitignored por peso, así que el
+   zip que Rafa mandó no los traía. No están en disco, papelera, WhatsApp, Drive ni en el
+   sitio vivo.
+
+   **Antes de gastar tiempo buscándolos, ojo con esto:** las fotos de esas dos tarjetas no
+   corresponden a esas personas. La de "Kevin" es una foto de **dos mujeres corriendo**; la de
+   "Ana" es un **hombre con tabla de surf**. Ni el género coincide. Son fotos genéricas con un
+   nombre encima, del mismo lote de testimonios inventados que ya se depuró. La tarjeta de Ana
+   ya se quitó del sitio; la de Kevin sigue publicada, con la foto de las dos corredoras.
+   Conviene decidir si esas personas existen antes de buscar sus videos.
+
+   De las cuatro tarjetas que quedan hoy, sólo **Patricio Ochoa** tiene video y foto real en un
+   equipo Mente Fria. **Dani** es un hombre real en un MF Barrel (sesión propia). **Máximo,
+   Golfista** es un primer plano de una mano poniendo una pelota en el tee: no se ve a nadie.
+
+5. **Assets originales que Rafa nunca pasó y no están en esta Mac.** La carpeta
+   `Mente Fria/Mente Fria Website/` completa (ver §7): manuales PDF, renders de fábrica,
+   sesión lifestyle original, y `03 Brand & Assets/Videos/` con MF ESTUDIO 01/02 y
+   MENTE FRIA X GUDSLIP. Nada de eso está en el repo ni en el disco.
+6. **Peso del MF ONE**: Saul confirmó que siguen siendo 135 kg *de momento*, pero el proveedor
    cambió — reconfirmar antes de imprimir nada.
-6. **Póliza de garantía de los inflables**: no existe documento equivalente al del MF ONE.
-7. **Fotos del evento de Westin Santa Fe** (su caso es solo texto). No existen fotos ni de
+7. **Póliza de garantía de los inflables**: no existe documento equivalente al del MF ONE.
+8. **Fotos del evento de Westin Santa Fe** (su caso es solo texto). No existen fotos ni de
    Westin ni de Casa Polanco; esta última además ya no aplica.
-8. **Barrel agotado** en el sitio vivo. Decisión de Saul: **el inventario debe vivir en el
+9. **Barrel agotado** en el sitio vivo. Decisión de Saul: **el inventario debe vivir en el
    backend**, porque al final el sitio se conecta a Shopify. No hardcodear disponibilidad.
 9. **`_DSC02878.jpg` corrupto** — no está en esta Mac ni se referencia en el código; vive en la
    carpeta original de Rafa.

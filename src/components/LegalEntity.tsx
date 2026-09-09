@@ -22,7 +22,7 @@ export const LEGAL = {
   telefono: "+52 56 1647 1386",
   telefonoHref: "tel:+525616471386",
   soporte: "soporte@mentefria.com",
-  privacidad: "privacidad@mentefria.com",
+  privacidad: "correo@mentefria.com",
   importador: "Laplace Business & Consulting, S.A. de C.V.",
   rfcImportador: "LBA260414C93",
 } as const;

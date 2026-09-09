@@ -253,7 +253,7 @@ export function recomendar(r: Respuestas): Resultado {
     razones.push(`Pesa ${ganador === "mf-horizon" ? "12" : "11"} kg vacía: se desinfla, se guarda y se vuelve a montar en menos de 15 minutos.`);
     if (ganador === "mf-horizon" && r.postura === "estirado") razones.push("Es la inflable horizontal: te metes estirado, no sentado.");
     if (ganador === "mf-barrel" && r.postura !== "estirado") razones.push("Vertical y compacta: 90 cm de diámetro y te cubre hasta los hombros.");
-    if (motor === "premium") razones.push("Con el Motor Premium 2.0 sumas calor hasta 42 °C y ozono purificando el agua.");
+    if (motor === "premium") razones.push("Con el Motor Premium 2.0 sumas calor hasta 40 °C y ozono purificando el agua.");
     if (motor === "pro") razones.push("El Motor Pro 2.0 cumple: baja a 3 °C con la misma filtración de 3 capas y el mismo control por app.");
   }
 

@@ -54,12 +54,12 @@ const HOTSPOTS = [
 /* ---------- Feature reveal ---------- */
 
 /* Copy deliberadamente de gama, no de un solo producto: la MF ONE ajusta de
-   1 a 40 °C y los inflables con Motor Premium 2.0 van de 3 a 42 °C. Decir "de
-   1 a 42 °C según el equipo" cubre la línea completa sin atribuirle a ninguno
+   1 a 40 °C y los inflables con Motor Premium 2.0 van de 1 a 40 °C. Decir "de
+   1 a 40 °C según el equipo" cubre la línea completa sin atribuirle a ninguno
    un rango que no tiene. Lo mismo con la filtración, que es distinta en cada
    familia. Las imágenes anteriores eran capturas del sitio en inglés. */
 const FEATURES = [
-  { word: "Temperatura", img: "/images/mfone-frio.jpg", copy: "De 1 a 42 °C según el equipo que elijas. Frío para recuperar, calor para relajar, ajustable al grado. Una sola tina para todo el año." },
+  { word: "Temperatura", img: "/images/mfone-frio.jpg", copy: "De 1 a 40 °C según el equipo que elijas. Frío para recuperar, calor para relajar, ajustable al grado. Una sola tina para todo el año." },
   { word: "Filtración", img: "/images/ozono-agua.jpg", copy: "Filtración y ozono en toda la línea: filtro de papel y skimmer en la MF ONE, filtración de 3 capas en los inflables. Agua cristalina, sin cloro de alberca." },
   { word: "Control", img: "/photography/feature/control-app-1049.jpg", copy: "Control total desde la app. Programa temperatura, horarios y tu ritual. El frío te espera listo cuando llegas a casa." },
 ];
@@ -138,7 +138,7 @@ const TRUST = [
 /* Comparativa real de mentefria.com — "La tecnología de cold plunge #1 en MX" */
 const COMPARE_ROWS: { mf: string; otras: string }[] = [
   { mf: "Enfriamiento activo hasta 3 °C", otras: "Dependes de comprar hielo" },
-  { mf: "Calienta hasta 42 °C con Motor Premium", otras: "Solo frío" },
+  { mf: "Calienta hasta 40 °C con Motor Premium", otras: "Solo frío" },
   { mf: "Temperatura y horarios desde la app", otras: "Ajuste manual, si acaso" },
   { mf: "Ozono trabajando dentro del equipo", otras: "Cloro, o cambiar el agua" },
   { mf: "Filtración de 3 capas en los inflables", otras: "Sin sistema de filtrado" },

@@ -18,10 +18,9 @@ import { Doc, Vigencia, Clausula, P, Lista, Fuerte, Correo } from "@/components/
   días es real y usar el equipo NO te descalifica. Lo único que queda fuera es
   el daño que causa el cliente y las piezas que faltan, que es otra cosa.
 
-  PENDIENTE MENOR PARA SAUL: aquí dice que se devuelve lo que pagaste y que la
-  recolección no tiene costo, porque es la lectura llana de "te regresamos el
-  dinero, sin preguntas". Si el envío original NO se reembolsa —y en la MF ONE
-  son $6,000— hay que decirlo aquí de forma explícita.
+  El envío original NO se reembolsa (confirmado por Saul, sep 2026). Se dice
+  explícito en la cláusula 4, porque en la MF ONE son $6,000 y enterarse
+  después de pedir la devolución sería una sorpresa desagradable.
 */
 
 export const metadata = {
@@ -117,6 +116,11 @@ export default function DevolucionesPage() {
                   El reembolso tarda lo que tarde tu banco o la plataforma de
                   pago en reflejarlo, normalmente entre 5 y 10 días hábiles
                   desde que lo procesamos.
+                </P>
+                <P>
+                  <Fuerte>El envío original no se reembolsa.</Fuerte> La
+                  recolección corre por nuestra cuenta, pero lo que pagaste por
+                  la entrega inicial no forma parte de la devolución.
                 </P>
               </Clausula>
 

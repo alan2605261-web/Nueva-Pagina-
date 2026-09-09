@@ -112,7 +112,7 @@ export default function GarantiaPage() {
       <SubHero
         eyebrow="Soporte"
         title="Garantía"
-        subtitle="Cada producto tiene su propia garantía. La de la MF ONE y la de los modelos inflables son independientes entre sí."
+        subtitle="Cada producto tiene su propia póliza. La de la MF ONE, la de los inflables y la del motor son independientes entre sí y no se mezclan."
         tone="warm"
       />
 
@@ -131,6 +131,11 @@ export default function GarantiaPage() {
                 <li>
                   <strong>MF Barrel y MF Horizon</strong> — 6 meses contra
                   defectos de fabricación, contados desde la fecha de entrega.
+                </li>
+                <li>
+                  <strong>Motor Pro y Motor Premium</strong> — 6 meses contra
+                  defectos de fabricación y de funcionamiento. El motor tiene
+                  póliza propia, distinta de la de la tina con la que se usa.
                 </li>
               </ul>
               <p className="text-[16px] leading-relaxed text-[var(--fg-muted)]">
@@ -283,9 +288,9 @@ export default function GarantiaPage() {
                 condiciones normales de uso.
               </p>
               <p className="text-[16px] leading-relaxed text-[var(--fg-muted)] mb-4">
-                Es una garantía independiente de la de la MF ONE: cubre productos
-                distintos, con componentes distintos. Los motores de la línea 2.0
-                y sus consumibles se rigen por sus propias condiciones.
+                Es una garantía independiente de la de la MF ONE: cubre
+                productos distintos, con componentes distintos. El motor tiene
+                su propia póliza, que está más abajo en esta misma página.
               </p>
               <p className="text-[16px] leading-relaxed text-[var(--fg-muted)] mb-8">
                 Igual que en la MF ONE, quedan fuera el desgaste natural y los
@@ -301,6 +306,134 @@ export default function GarantiaPage() {
                     soporte@mentefria.com
                   </a>{" "}
                   con la descripción, fotos o video y tu comprobante de compra.
+                </p>
+              </div>
+            </article>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Motores ────────────────────────────────────────
+          Hasta sep 2026 la página sólo decía "6 meses" y remitía a unas
+          "propias condiciones" que no existían en ninguna parte. Ya existen:
+          Saul entregó las pólizas MOT-PRO y MOT-PREM, y esto las resume. Son
+          iguales para las dos generaciones de motor. */}
+      <section id="motores" className="msection panel scroll-mt-20">
+        <div className="mwrap">
+          <Reveal>
+            <article className="mx-auto max-w-[68ch]">
+              <p className="m-eyebrow accent mb-3">
+                Garantía limitada · Motor Pro y Motor Premium
+              </p>
+              <h2 className="mdisplay mb-6 text-[clamp(26px,3.4vw,44px)]">
+                Seis meses en los motores
+              </h2>
+
+              <p className="mb-4 text-[16px] leading-relaxed text-[var(--fg-muted)]">
+                El motor tiene su propia póliza, separada de la de la tina.
+                Cubre defectos de fabricación y de funcionamiento durante seis
+                meses contados desde el día en que recibes el equipo, y el
+                tiempo que dure una reparación al amparo de la garantía no se
+                descuenta de esos seis meses.
+              </p>
+
+              <h3 className="mdisplay mb-3 mt-8 text-[20px]">Qué componentes ampara</h3>
+              <p className="mb-4 text-[16px] leading-relaxed text-[var(--fg-muted)]">
+                Compresor, intercambiador, ventilador, bomba, sistema de
+                filtración, y el sistema eléctrico, electrónico y de control de
+                fábrica con sus sensores. En el Motor Premium ampara además el
+                generador de ozono.
+              </p>
+              <p className="mb-4 text-[16px] leading-relaxed text-[var(--fg-muted)]">
+                Los accesorios y consumibles que vienen en la caja quedan fuera:
+                las mangueras, los filtros y la llave del compartimiento de
+                filtros. La tina, su cubierta y su bomba de inflado van por
+                separado y tienen su propia garantía.
+              </p>
+
+              <h3 className="mdisplay mb-3 mt-8 text-[20px]">Qué corre por nuestra cuenta</h3>
+              <ul className="mb-4 list-disc space-y-2 pl-6 text-[16px] leading-relaxed text-[var(--fg-muted)]">
+                <li>Refacciones originales, sin costo.</li>
+                <li>Diagnóstico remoto por videollamada, sin costo.</li>
+                <li>Mano de obra de nuestro personal o de un técnico de nuestra red.</li>
+                <li>Transportación del equipo o del componente en territorio nacional, con guía prepagada.</li>
+                <li>Traslado del técnico hasta tu domicilio.</li>
+              </ul>
+              <p className="mb-4 text-[16px] leading-relaxed text-[var(--fg-muted)]">
+                Si prefieres a un técnico fuera de nuestra red, lo autorizamos
+                por escrito antes del servicio. Las refacciones instaladas
+                quedan garantizadas 90 días naturales desde su entrega.
+              </p>
+
+              <h3 className="mdisplay mb-3 mt-8 text-[20px]">Lo que la anula</h3>
+              <p className="mb-4 text-[16px] leading-relaxed text-[var(--fg-muted)]">
+                Casi todo lo que deja fuera esta póliza tiene que ver con cómo
+                queda instalado el motor y con el mantenimiento:
+              </p>
+              <ul className="mb-4 list-disc space-y-2 pl-6 text-[16px] leading-relaxed text-[var(--fg-muted)]">
+                <li>
+                  Operarlo por encima del nivel del agua de la tina, con el
+                  nivel por debajo de las tomas, sin agua, o con una manguera
+                  desconectada, doblada o con las válvulas cerradas.
+                </li>
+                <li>
+                  Instalarlo a la intemperie, cubrirlo mientras opera, obstruir
+                  sus rejillas o dejarlo al sol directo de forma prolongada.
+                </li>
+                <li>
+                  Congelamiento del agua dentro del circuito, incluido no
+                  drenarlo cuando la temperatura ambiente puede bajar de 2 °C.
+                </li>
+                <li>
+                  Cloro de alberca, bromo, solventes, ácidos, álcalis o
+                  cualquier químico corrosivo en el agua.
+                </li>
+                <li>
+                  Filtros saturados o que no cumplan la especificación del
+                  manual. Un filtro tapado reduce el flujo, obliga al compresor
+                  a trabajar de más y termina por dañarlo.
+                </li>
+                <li>
+                  Transportarlo o guardarlo en posición distinta a la vertical,
+                  y cortar la corriente con el equipo en marcha en lugar de
+                  apagarlo desde el panel.
+                </li>
+                <li>
+                  Conectarlo con extensiones, multicontactos o a una instalación
+                  sin tierra. Un regulador de voltaje no cuenta como extensión.
+                </li>
+              </ul>
+
+              <h3 className="mdisplay mb-3 mt-8 text-[20px]">Cómo se hace válida</h3>
+              <ol className="mb-6 list-decimal space-y-2 pl-6 text-[16px] leading-relaxed text-[var(--fg-muted)]">
+                <li>
+                  Escríbenos por WhatsApp o correo con la descripción de la
+                  falla, el código que aparece en pantalla, fotos o video y el
+                  número de serie, que está en la etiqueta del costado.
+                </li>
+                <li>
+                  Respondemos dentro de los 3 días hábiles siguientes y
+                  agendamos videollamada con un técnico.
+                </li>
+                <li>
+                  Según el caso: lo recibimos en nuestras instalaciones con guía
+                  prepagada, lo atendemos en sitio, mandamos a un técnico, o te
+                  enviamos la refacción con acompañamiento por videollamada. Si
+                  hay que enviarlo, va drenado y vertical.
+                </li>
+                <li>
+                  Si la reparación no deja el equipo en condiciones, puedes
+                  pedir su reposición, la bonificación o la devolución de tu
+                  dinero.
+                </li>
+              </ol>
+
+              <div className="rounded-xl border border-[var(--line-1)] p-6">
+                <p className="text-[16px] leading-relaxed text-[var(--fg-muted)]">
+                  Si compraste directo con nosotros no tienes que llenar ni
+                  firmar nada: el número de serie liga tu equipo con la fecha de
+                  entrega. Si lo compraste con un distribuidor, pídele que selle
+                  y feche tu póliza.
                 </p>
               </div>
             </article>

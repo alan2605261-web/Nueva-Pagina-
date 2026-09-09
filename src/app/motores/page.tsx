@@ -1,9 +1,11 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
 import { MotorPicker } from "@/components/MotorPicker";
 import { FAQ } from "@/components/FAQ";
 import { Reveal } from "@/components/Reveal";
 import { ArrowRight } from "@/components/icons";
+import { SPECS_NUEVOS, ESPACIOS, GENERACION_ANTERIOR } from "@/lib/motores";
 
 /* ─────────────────────────────────────────────────────────────
    MOTORES MENTE FRIA
@@ -22,19 +24,7 @@ export const metadata = {
     "El motor es el corazón de tu cold plunge inflable. Compara el Motor Pro 2.0 y el Motor Premium 2.0: potencia, velocidad de enfriamiento, calefacción y ozono.",
 };
 
-const SPECS: { label: string; pro: string; premium: string }[] = [
-  { label: "Potencia", pro: "0.8 HP", premium: "1 HP" },
-  { label: "Enfriamiento", pro: "Hasta 3 °C", premium: "Hasta 3 °C" },
-  { label: "De 25 a 3 °C", pro: "~6 horas", premium: "~4 horas" },
-  { label: "Calefacción", pro: "No incluye", premium: "Hasta 42 °C" },
-  { label: "Ozono", pro: "No incluye", premium: "Purificación 24/7" },
-  { label: "Filtración", pro: "3 capas: papel, integrado y malla", premium: "3 capas: papel, integrado y malla" },
-  { label: "Control", pro: "WiFi + app", premium: "WiFi + app" },
-  { label: "Resistencia al agua", pro: "IPX4", premium: "IPX4" },
-  { label: "Dimensiones", pro: "55 × 42.5 × 53 cm", premium: "58.5 × 42.5 × 53 cm" },
-  { label: "Peso", pro: "39 kg", premium: "41.5 kg" },
-  { label: "Compatibilidad", pro: "MF Barrel y MF Horizon", premium: "MF Barrel y MF Horizon" },
-];
+
 
 const CUIDADOS = [
   {
@@ -148,16 +138,120 @@ export default function MotoresPage() {
                 </tr>
               </thead>
               <tbody>
-                {SPECS.map((r, i) => (
-                  <tr key={r.label} style={{ "--i": i } as React.CSSProperties}>
-                    <td>{r.label}</td>
-                    <td>{r.pro}</td>
-                    <td className="col-mf">{r.premium}</td>
-                  </tr>
-                ))}
+                {(["Desempeño", "Eléctrico", "Circuito de agua", "Físico"] as const).map(
+                  (grupo) => (
+                    <Fragment key={grupo}>
+                      <tr>
+                        <td
+                          colSpan={3}
+                          className="!pt-8 !pb-2 text-[11px] uppercase tracking-[0.18em]"
+                          style={{ color: "var(--fg-subtle)" }}
+                        >
+                          {grupo}
+                        </td>
+                      </tr>
+                      {SPECS_NUEVOS.filter((r) => r.grupo === grupo).map((r, i) => (
+                        <tr key={r.label} style={{ "--i": i } as React.CSSProperties}>
+                          <td>{r.label}</td>
+                          <td>{r.pro}</td>
+                          <td className="col-mf">{r.premium}</td>
+                        </tr>
+                      ))}
+                    </Fragment>
+                  ),
+                )}
               </tbody>
             </table>
           </Reveal>
+
+          {/* Aviso de generación. No es un detalle: hay unas 30 unidades de
+              la versión anterior en inventario y sus medidas, su peso y el
+              rango del Premium son distintos. Publicar la ficha nueva como
+              si fuera la única sería vender algo que no es lo que llega. */}
+          <Reveal
+            className="mt-10 rounded-[18px] border p-7"
+            style={{ borderColor: "var(--line-2)", background: "var(--m-white)" }}
+          >
+            <span className="m-eyebrow accent">Antes de comprar</span>
+            <p
+              className="mt-3 max-w-[70ch] text-[15px] leading-relaxed"
+              style={{ color: "var(--fg-muted)" }}
+            >
+              {GENERACION_ANTERIOR.aviso}
+            </p>
+            <div className="mt-6 overflow-x-auto">
+              <table className="w-full text-left text-[14px]">
+                <thead>
+                  <tr
+                    className="text-[11px] uppercase tracking-[0.14em]"
+                    style={{ color: "var(--fg-subtle)" }}
+                  >
+                    <th className="pb-3 pr-6 font-medium">Dato</th>
+                    <th className="pb-3 pr-6 font-medium">Generación anterior</th>
+                    <th className="pb-3 font-medium">Generación actual</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {GENERACION_ANTERIOR.filas.map((f) => (
+                    <tr
+                      key={f.label}
+                      className="border-t"
+                      style={{ borderColor: "var(--line-1)" }}
+                    >
+                      <td className="py-3 pr-6" style={{ color: "var(--fg-metal)" }}>
+                        {f.label}
+                      </td>
+                      <td className="py-3 pr-6" style={{ color: "var(--fg-muted)" }}>
+                        {f.antes}
+                      </td>
+                      <td className="py-3" style={{ color: "var(--fg-metal)" }}>
+                        {f.ahora}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Espacios libres ────────────────────────────────── */}
+      <section className="msection">
+        <div className="mwrap">
+          <Reveal className="msection-head">
+            <span className="m-eyebrow accent">Dónde va</span>
+            <h2>El espacio que necesita alrededor.</h2>
+            <p>
+              El motor va en interiores, con ventilación hacia el exterior,
+              fuera del sol directo y protegido de la lluvia. Sobre piso firme
+              y nivelado, siempre vertical, y a la misma altura que la tina:
+              el agua tiene que quedar por encima de las tomas.
+            </p>
+          </Reveal>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {ESPACIOS.map((e, i) => (
+              <Reveal
+                key={e.donde}
+                delay={(i % 4) * 70}
+                className="rounded-[16px] border p-7"
+                style={{ borderColor: "var(--line-1)", background: "var(--m-white)" }}
+              >
+                <p
+                  className="mdisplay text-[38px] leading-none"
+                  style={{ color: "var(--fg-metal)" }}
+                >
+                  {e.d}
+                </p>
+                <p
+                  className="mt-3 text-[14px] leading-relaxed"
+                  style={{ color: "var(--fg-muted)" }}
+                >
+                  {e.donde}
+                </p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

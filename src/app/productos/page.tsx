@@ -163,7 +163,7 @@ export default function ProductosPage() {
               },
               {
                 t: "Modo calor incluido",
-                p: "Contraste frío-calor en el mismo equipo: hasta 40 °C en la MF ONE y 42 °C con Motor Premium 2.0.",
+                p: "Contraste frío-calor en el mismo equipo: hasta 40 °C en la MF ONE y 40 °C con Motor Premium 2.0.",
                 img: "/images/mfone-calor.jpg",
                 pos: "center 30%",
               },

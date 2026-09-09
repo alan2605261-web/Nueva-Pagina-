@@ -56,3 +56,6 @@ public/videos/testimonial-surf.mp4
 .github/
 .netlify/
 public/videos.zip
+
+# Carpeta lista para publicar (out/ sin los videos que no se usan + vercel.json)
+.deploy/

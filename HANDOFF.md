@@ -674,6 +674,15 @@ npx vercel@latest deploy . --token=$VERCEL_TOKEN --scope=saul-mf --yes --prod
    NO los encuentra y parecen huérfanos. Los que de verdad no se referencian son
    `en-accion-producto-*`, `reel-*` y `edge-template-*`.
 
+   **La trampa se agravó en sep 2026.** Ahora esos seis videos los inyecta `LazyVideo`
+   en el cliente, así que ya ni siquiera aparecen en el HTML del export: escanear solo
+   `out/**/*.html` los reporta como huérfanos y borrarlos deja la sección muerta.
+   Hay que escanear también `out/_next/static/**/*.js`, que es donde vive la plantilla.
+   Total correcto a excluir: 50.3 MB en 7 archivos, y la carpeta queda en 80.5 MB.
+
+   Esa carpeta ya armada vive en `.deploy/` (gitignored). Se regenera con `npm run build`
+   y volviendo a copiar `out/` sin esos 7 videos, más el `vercel.json`.
+
 2. **Hace falta un `vercel.json` con `cleanUrls: true`** dentro de la carpeta que se sube.
    El export genera `productos.html`, no `productos/index.html`, así que sin eso la portada
    carga y **las 17 subpáginas dan 404**.

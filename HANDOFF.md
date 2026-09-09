@@ -400,10 +400,15 @@ Cinco contratos, cinco precios. `src/lib/garantia-extendida.ts` es la fuente de 
 En todos los casos la cobertura total llega al mes 24. El precio de los inflables
 es el 10 % del valor del equipo.
 
-**Los contratos mandan en lo legal. Los manuales mandan en las especificaciones.**
-Por eso NO se publicó nada técnico tomado del contrato. En particular, el contrato
-de la MF ONE dice que la unidad pesa "más de 200 kg" y el sitio publica 135 kg, que
-es lo que trae la ficha. Pendiente de aclarar con Saul; mientras tanto, 135 kg.
+**Los contratos solo sirven para la parte legal.** Saul fue explícito: no están
+actualizados con la información actual de muchas cosas. Sirven para coberturas,
+exclusiones, procedimiento de reclamación, precios y vigencias. Para cualquier dato
+del producto mandan los manuales y las fichas.
+
+Dos ejemplos de por qué: el contrato de la MF ONE dice que la unidad pesa "más de
+200 kg" cuando la ficha dice 135 kg, y menciona "bombas incluidas las de
+hidromasaje" cuando **el modelo nuevo ya no trae hidromasaje**. Ninguno de los dos
+datos se publica.
 
 Diferencia de fondo entre pólizas: en los inflables MF Shield cubre además defectos
 de fabricación de la tina, y da derecho a reponer la tina dañada por mal uso en
@@ -436,9 +441,12 @@ que tenía datos falsos. Lo corregido:
 Lo que el sitio vivo afirma y **no se publicó por no estar en ningún documento**:
 presión de inflado de 8 PSI, velocidad de enfriamiento por motor en °C/hora, costo
 de electricidad por día, chorros de hidromasaje de la MF ONE y luces LED exteriores.
-Ojo con los dos últimos: el contrato de garantía extendida de la MF ONE sí menciona
-"bombas incluidas las de hidromasaje". Si existen, hay que confirmarlo con Saul y
-con la ficha antes de publicarlo.
+Saul confirmó en sep 2026 que **el modelo nuevo de la MF ONE ya no incluye
+hidromasaje**, aunque el sitio vivo y el contrato de garantía extendida lo
+mencionen. No publicarlo.
+
+Sobre desempeño de motores: mantenerlo ambiguo. Nada de velocidad de enfriamiento
+en °C por hora por motor, ni cifras de consumo diario en pesos.
 
 ### 30. Los filtros no son intercambiables entre modelos
 
@@ -452,14 +460,17 @@ Dos cartuchos distintos, y confundirlos es un error visible:
 30 clientes, 15 estados, 33 unidades. 15 MF ONE, 12 MF Horizon, 3 MF Barrel, más un
 Acero Inoxidable, un Motor Comercial y un Motor Premium. CDMX concentra 9 cuentas.
 
-El sitio publicaba "más de 100 instalaciones activas", que no cuadra con nada. Ya se
-corrigió en /negocios y /productos. **No volver a inflar ese número.**
+**El "más de 100 instalaciones activas" del sitio SÍ es correcto y se queda.** No es
+lo mismo que la base instalada: ese documento cuenta cuentas comerciales, y el 100+
+incluye casas además de negocios, varios de los cuales han comprado más de una tina.
+Se intentó corregir a 33 y Saul lo revirtió.
 
-Casos publicables tomados de la base: Radiant Love (Alberto Álvarez, Guadalupe Inn,
-CDMX — centro de wellness y recovery con sauna, cabinas y varias tinas) y Gains
-Units 01 (Daniel Padilla, Guadalajara — gimnasio). Radiant Love ya está en /negocios;
-Gains Units 01 queda disponible. El resto de la base son nombres de personas y no se
-publican.
+Casos publicables tomados de la base: **UMAAH HAUS** (Alberto Álvarez, Guadalupe Inn,
+CDMX — centro de wellness y recovery con sauna, cabinas y varias tinas) y **Gains
+Units 01** (Daniel Padilla, Guadalajara — gimnasio). UMAAH HAUS ya está en /negocios;
+Gains Units 01 queda disponible. El nombre del negocio no viene en el PDF de base
+instalada, que solo trae el del cliente: lo dio Saul. El resto de la base son nombres
+de personas y no se publican.
 
 Recordatorio: **Casa Polanco no existe**, el proyecto nunca se llevó a cabo.
 

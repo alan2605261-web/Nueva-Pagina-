@@ -120,7 +120,7 @@ const CASOS = [
     body: "Activación con creadores de contenido en el Westin Santa Fe: los equipos Mente Fria como pieza central de la experiencia de recuperación dentro de un hotel de ciudad.",
   },
   {
-    cliente: "Radiant Love",
+    cliente: "UMAAH HAUS",
     rol: "Centro de wellness y recovery",
     fecha: "Guadalupe Inn, CDMX",
     body: "Un circuito de recuperación completo, con sauna, cabinas y varias tinas de inmersión. La MF ONE opera ahí en uso comercial, dentro del catálogo de servicios del centro.",
@@ -132,7 +132,7 @@ const WHY_BLOCKS = [
     num: "01",
     tag: "Cold plunge comercial",
     title: "Diseñado para operación intensiva",
-    body: "Construido para resistir el uso diario de gimnasios, hoteles y centros de recuperación. Componentes de grado comercial probados en 33 equipos instalados en 15 estados de la República.",
+    body: "Construido para resistir el uso diario de gimnasios, hoteles y centros de recuperación. Componentes de grado comercial probados en más de 100 instalaciones activas en México.",
     bullets: [
       "Chiller industrial con capacidad de enfriamiento continuo",
       "Filtración de 3 capas + purificación por ozono",

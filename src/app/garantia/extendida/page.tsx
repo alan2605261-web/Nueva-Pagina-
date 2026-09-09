@@ -282,6 +282,14 @@ export default function GarantiaExtendidaPage() {
             </p>
           </Reveal>
 
+          <Reveal className="mb-5 rounded-[16px] border border-[var(--line-1)] bg-white px-7 py-5">
+            <p className="text-[14px] leading-relaxed text-[var(--fg-muted)]">
+              El tabulador que te aplica es el del Anexo A de tu contrato y el del
+              manual de tu equipo. Si el tuyo dice algo distinto a lo de abajo, manda
+              el suyo.
+            </p>
+          </Reveal>
+
           <Reveal className="space-y-8 rounded-[16px] border border-[var(--line-1)] bg-white p-7">
             <Tabla t={TABULADOR_MF_ONE} />
             <div className="border-t border-[var(--line-1)] pt-8">

@@ -52,7 +52,7 @@ export function BenefitsCarousel() {
               <article key={b.t} className="bcard">
                 <div className="img">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={b.img} alt={b.t} />
+                  <img loading="lazy" decoding="async" src={b.img} alt={b.t} />
                   <span className="tag">{String(i + 1).padStart(2, "0")}</span>
                 </div>
                 <h3>{b.t}</h3>

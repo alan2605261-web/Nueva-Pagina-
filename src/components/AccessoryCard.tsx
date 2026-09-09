@@ -52,7 +52,7 @@ export function AccessoryCard({
           style={{ background: "var(--bg-panel)" }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <img loading="lazy" decoding="async"
             src={a.img}
             alt={a.t}
             className="absolute inset-0 h-full w-full object-contain p-7"

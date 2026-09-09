@@ -65,7 +65,7 @@ export function FrioCalor() {
               style={{ flexGrow: isActive ? 1.45 : 1, flexBasis: 0 }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <img loading="lazy" decoding="async"
                 src={p.img}
                 alt={`MF ONE en modo ${p.label.toLowerCase()} (${p.temp})`}
                 className="absolute inset-0 h-full w-full object-cover transition-[transform,opacity] duration-1000"

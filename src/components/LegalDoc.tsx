@@ -12,7 +12,7 @@ import type { ReactNode } from "react";
 */
 
 export function Doc({ children }: { children: ReactNode }) {
-  return <article className="mx-auto max-w-[70ch]">{children}</article>;
+  return <article className="mdoc">{children}</article>;
 }
 
 export function Vigencia({ fecha }: { fecha: string }) {

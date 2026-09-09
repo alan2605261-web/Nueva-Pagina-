@@ -103,7 +103,7 @@ export default async function ColeccionPage({
                 style={{ background: "var(--m-graphite)" }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <img loading="lazy" decoding="async"
                   src={primero.img}
                   alt=""
                   aria-hidden
@@ -162,7 +162,7 @@ export default async function ColeccionPage({
                     style={{ background: "var(--m-graphite)" }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={p.img}
                       alt=""
                       aria-hidden

@@ -191,7 +191,7 @@ export default function ResenasPage() {
                     />
                   ) : (
                     /* eslint-disable-next-line @next/next/no-img-element */
-                    <img src={v.img} alt={v.name} className="absolute inset-0 h-full w-full object-cover" />
+                    <img loading="lazy" decoding="async" src={v.img} alt={v.name} className="absolute inset-0 h-full w-full object-cover" />
                   )}
                   {/* Caption overlay */}
                   <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-4 pt-10">

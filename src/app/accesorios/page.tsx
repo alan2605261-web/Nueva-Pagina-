@@ -111,7 +111,7 @@ export default function AccesoriosPage() {
                     style={{ background: "var(--bg-panel)" }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={item.img ?? undefined}
                       alt={item.title}
                       className="h-full w-full object-contain p-6 transition-transform duration-500 hover:scale-[1.04]"

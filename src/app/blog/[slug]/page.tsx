@@ -166,7 +166,7 @@ export default async function ArticuloPage({
               style={{ background: "var(--m-graphite)" }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <img loading="lazy" decoding="async"
                 src={post.img}
                 alt=""
                 aria-hidden

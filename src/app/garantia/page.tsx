@@ -120,38 +120,56 @@ export default function GarantiaPage() {
       {/* ── Resumen por producto ───────────────────────────── */}
       <section className="msection">
         <div className="mwrap">
-          <Reveal>
-            <article className="mx-auto max-w-[68ch]">
-              <h2 className="mdisplay text-[clamp(20px,2.2vw,26px)] mb-4">Cobertura por producto</h2>
-              <ul className="mb-4 list-disc space-y-2 pl-6 text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                <li>
-                  <strong>MF ONE</strong> — 12 meses contra defectos de
-                  fabricación y de funcionamiento, contados desde la fecha de
-                  entrega.
-                </li>
-                <li>
-                  <strong>MF Barrel y MF Horizon</strong> — 6 meses contra
-                  defectos de fabricación, contados desde la fecha de entrega.
-                </li>
-                <li>
-                  <strong>Motor Pro y Motor Premium</strong> — 6 meses contra
-                  defectos de fabricación y de funcionamiento. El motor tiene
-                  póliza propia, distinta de la de la tina con la que se usa.
-                </li>
-              </ul>
-              <p className="text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                Son garantías distintas, con coberturas y condiciones propias.
-                Lo que aplica a la MF ONE no aplica a los inflables, ni al revés.
-              </p>
-              <p className="mt-4 text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                Cualquiera de las tres se puede extender hasta el mes 24 con{" "}
-                <Link href="/garantia/extendida" className="font-semibold text-[var(--accent-ice)] underline underline-offset-4">
-                  MF Shield
-                </Link>
-                , nuestra garantía extendida. Se contrata mientras la garantía
-                estándar siga vigente.
-              </p>
-            </article>
+          <Reveal className="mb-10">
+            <h2 className="mdisplay text-[clamp(22px,2.4vw,30px)]">Cobertura por producto</h2>
+            <p className="mjust mt-3 max-w-[80ch] text-[16px] leading-relaxed text-[var(--fg-muted)]">
+              Son garantías distintas, con coberturas y condiciones propias. Lo que
+              aplica a la MF ONE no aplica a los inflables, ni al revés. Cualquiera
+              de las tres se puede extender hasta el mes 24 con{" "}
+              <Link
+                href="/garantia/extendida"
+                className="font-semibold text-[var(--accent-ice)] underline underline-offset-4"
+              >
+                MF Shield
+              </Link>
+              , que se contrata mientras la garantía estándar siga vigente.
+            </p>
+          </Reveal>
+
+          <Reveal className="grid gap-4 md:grid-cols-3">
+            {[
+              {
+                t: "MF ONE",
+                meses: "12 meses",
+                d: "Contra defectos de fabricación y de funcionamiento, contados desde la fecha de entrega.",
+                href: "#mf-one",
+              },
+              {
+                t: "MF Barrel y MF Horizon",
+                meses: "6 meses",
+                d: "Contra defectos de fabricación, contados desde la fecha de entrega.",
+                href: "#inflables",
+              },
+              {
+                t: "Motor Pro y Motor Premium",
+                meses: "6 meses",
+                d: "Contra defectos de fabricación y de funcionamiento. El motor tiene póliza propia, distinta de la de la tina con la que se usa.",
+                href: "#motores",
+              },
+            ].map((c) => (
+              <a
+                key={c.t}
+                href={c.href}
+                className="rounded-[16px] border p-6 transition-colors duration-200 hover:border-[var(--accent-ice)]"
+                style={{ borderColor: "var(--line-1)", background: "var(--m-white)" }}
+              >
+                <p className="m-eyebrow accent">{c.meses}</p>
+                <p className="mt-3 text-[16px] font-semibold">{c.t}</p>
+                <p className="mjust mt-2 text-[14px] leading-relaxed text-[var(--fg-muted)]">
+                  {c.d}
+                </p>
+              </a>
+            ))}
           </Reveal>
         </div>
       </section>
@@ -160,7 +178,7 @@ export default function GarantiaPage() {
       <section id="mf-one" className="msection panel scroll-mt-20">
         <div className="mwrap">
           <Reveal>
-            <article className="mx-auto max-w-[68ch]">
+            <article className="mdoc">
               <p className="m-eyebrow accent mb-3">Garantía limitada · MF ONE · CP-ONE</p>
               <h2 className="mdisplay text-[clamp(26px,3.4vw,44px)] mb-6">Doce meses, desde que la recibes</h2>
 
@@ -287,7 +305,7 @@ export default function GarantiaPage() {
       <section id="inflables" className="msection scroll-mt-20">
         <div className="mwrap">
           <Reveal>
-            <article className="mx-auto max-w-[68ch]">
+            <article className="mdoc">
               <p className="m-eyebrow accent mb-3">Garantía limitada · MF Barrel y MF Horizon</p>
               <h2 className="mdisplay text-[clamp(26px,3.4vw,44px)] mb-6">Seis meses en los modelos inflables</h2>
 
@@ -330,7 +348,7 @@ export default function GarantiaPage() {
       <section id="motores" className="msection panel scroll-mt-20">
         <div className="mwrap">
           <Reveal>
-            <article className="mx-auto max-w-[68ch]">
+            <article className="mdoc">
               <p className="m-eyebrow accent mb-3">
                 Garantía limitada · Motor Pro y Motor Premium
               </p>
@@ -454,7 +472,7 @@ export default function GarantiaPage() {
       <section className="msection panel">
         <div className="mwrap">
           <Reveal>
-            <article className="mx-auto max-w-[68ch]">
+            <article className="mdoc">
               <h2 className="mdisplay text-[clamp(20px,2.2vw,26px)] mb-4">Además: 30 días de prueba</h2>
               <p className="text-[16px] leading-relaxed text-[var(--fg-muted)]">
                 La garantía es una cosa y la prueba es otra. Todos nuestros

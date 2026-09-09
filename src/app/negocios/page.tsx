@@ -415,7 +415,7 @@ export default function NegociosPage() {
                   style={{ background: "var(--grad-silver)" }}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={p.image}
                     alt={p.name}
                     className="absolute inset-0 h-full w-full object-contain p-6"
@@ -505,7 +505,7 @@ export default function NegociosPage() {
                 style={{ background: "var(--m-graphite)" }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <img loading="lazy" decoding="async"
                   src={CASO_HYROX.imagen}
                   alt="Recovery Zone de Mente Fria en Hyrox Cancún 2026"
                   className="absolute inset-0 h-full w-full object-cover"

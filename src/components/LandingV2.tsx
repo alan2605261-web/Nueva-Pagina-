@@ -16,6 +16,7 @@ import {
   Wind,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { LazyVideo } from "@/components/LazyVideo";
 
 /*
   Landing V2 — 1:1 port of the Claude Design "site_v2" landing
@@ -357,7 +358,7 @@ export function LandingV2() {
         <Reveal className="showcase">
           <div className="showcase-stage">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/photography/hero/mf-one-render-showcase.jpg" alt="MF ONE con su Pro Deck" />
+            <img loading="lazy" decoding="async" src="/photography/hero/mf-one-render-showcase.jpg" alt="MF ONE con su Pro Deck" />
             {HOTSPOTS.map((h, i) => (
               <div key={h.k} className={`hotspot floor${spot === i ? " active" : ""}`} style={{ left: h.left }}>
                 <button aria-label={h.t} onClick={() => setSpot(spot === i ? null : i)}>
@@ -399,7 +400,7 @@ export function LandingV2() {
             <Reveal className="mfeature-media">
               {FEATURES.map((f, i) => (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img
+                <img loading="lazy" decoding="async"
                   key={f.word}
                   src={f.img}
                   alt={f.word}
@@ -433,7 +434,7 @@ export function LandingV2() {
                   <Link href={`/blog/${r.slug}`} className="group block">
                     <div className="img">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={r.img} alt={r.t} />
+                      <img loading="lazy" decoding="async" src={r.img} alt={r.t} />
                       <span className="tag">{String(i + 1).padStart(2, "0")}</span>
                     </div>
                     <h3>{r.t}</h3>
@@ -571,7 +572,7 @@ export function LandingV2() {
                       }`}
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                      <img loading="lazy" decoding="async"
                         src={p.img}
                         alt={p.name}
                         style={{ "--pw": p.scale } as React.CSSProperties}
@@ -681,7 +682,7 @@ export function LandingV2() {
           <div className="stats-wrap">
             <Reveal className="stats-visual">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/photography/product/mf-one-courtyard.jpg" alt="MF ONE en patio" className="!object-cover !p-0" />
+              <img loading="lazy" decoding="async" src="/photography/product/mf-one-courtyard.jpg" alt="MF ONE en patio" className="!object-cover !p-0" />
             </Reveal>
             <Reveal>
               <span className="m-eyebrow accent">Por los números</span>
@@ -749,7 +750,7 @@ export function LandingV2() {
                   <video src={t.video} autoPlay playsInline onEnded={() => setPlaying(null)} />
                 ) : (
                   /* eslint-disable-next-line @next/next/no-img-element */
-                  <img src={t.img} alt={t.who} />
+                  <img loading="lazy" decoding="async" src={t.img} alt={t.who} />
                 )}
                 {t.video && playing !== i && (
                   <div className="play">
@@ -783,15 +784,14 @@ export function LandingV2() {
                         datos, o la preferencia del usuario— los seis videos
                         quedan como rectángulos vacíos sobre la sección
                         oscura y la sección se ve muerta. Con poster siempre
-                        hay imagen, se reproduzca o no. */}
-                    <video
+                        hay imagen, se reproduzca o no.
+
+                        LazyVideo además difiere la descarga hasta que la
+                        sección entra en pantalla: son los seis archivos más
+                        pesados del home y arrancaban todos al cargar. */}
+                    <LazyVideo
                       src={`/videos/original/en-accion-home-${n}.mp4`}
                       poster={`/videos/posters/en-accion-home-${n}.jpg`}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
                       className="h-full w-full object-cover"
                     />
                   </div>
@@ -825,7 +825,7 @@ export function LandingV2() {
                 ) : (
                   <div key={i} className="r-photo">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={w.img} alt={w.cap} />
+                    <img loading="lazy" decoding="async" src={w.img} alt={w.cap} />
                     <div className="cap">{w.cap}</div>
                   </div>
                 ),
@@ -849,7 +849,7 @@ export function LandingV2() {
             {B2B.map((b, i) => (
               <div key={b.who} className="vcard stagger-i !cursor-default" style={{ "--i": i } as React.CSSProperties}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={b.img} alt={b.who} />
+                <img loading="lazy" decoding="async" src={b.img} alt={b.who} />
                 <div className="cap">
                   <div className="who">{b.who}</div>
                   <div className="role">{b.role}</div>

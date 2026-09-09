@@ -303,7 +303,7 @@ export default function GarantiaExtendidaPage() {
       <section className="msection panel">
         <div className="mwrap">
           <Reveal>
-            <article className="mx-auto max-w-[68ch]">
+            <article className="mdoc">
               <p className="m-eyebrow accent mb-3">Antes de firmar</p>
               <h2 className="mdisplay mb-6 text-[clamp(22px,2.4vw,30px)]">
                 Lo que conviene que sepas

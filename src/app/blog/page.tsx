@@ -72,7 +72,7 @@ export default function BlogPage() {
                     style={{ background: "var(--m-graphite)" }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={c.img}
                       alt=""
                       aria-hidden

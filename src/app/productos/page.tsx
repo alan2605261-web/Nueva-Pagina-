@@ -100,7 +100,7 @@ export default function ProductosPage() {
                   </div>
                   <div className="relative flex min-h-[270px] items-end justify-center pb-8">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={tina.image}
                       alt={tina.name}
                       style={
@@ -195,7 +195,7 @@ export default function ProductosPage() {
                           style={{ background: s.bg ?? "var(--bg-panel)" }}
                         >
                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
+                          <img loading="lazy" decoding="async"
                             src={s.img}
                             alt={s.cap}
                             className={`absolute inset-0 h-full w-full transition-transform duration-700 group-hover:scale-[1.05] ${
@@ -210,7 +210,7 @@ export default function ProductosPage() {
                     </div>
                   ) : (
                     /* eslint-disable-next-line @next/next/no-img-element */
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={f.img}
                       alt={f.t}
                       style={{ objectPosition: f.pos }}
@@ -318,7 +318,7 @@ export default function ProductosPage() {
                   <Reveal key={g.img} delay={i * 80} className={i % 2 === 1 ? "lg:translate-y-6" : ""}>
                     <figure className="group overflow-hidden rounded-[18px]">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                      <img loading="lazy" decoding="async"
                         src={g.img}
                         alt={g.alt}
                         style={{ objectPosition: g.pos }}

@@ -267,7 +267,7 @@ export default function MFBarrelPage() {
             <div className="stats-wrap">
               <Reveal className="stats-visual">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <img loading="lazy" decoding="async"
                   src="/images/barrel-studio-tapa.jpg"
                   alt="MF Barrel en estudio — colocando la cubierta térmica"
                   className="!object-cover !p-0"
@@ -336,13 +336,13 @@ export default function MFBarrelPage() {
             <Reveal delay={80}>
               <div className="mt-5 grid gap-5 overflow-hidden sm:grid-cols-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <img loading="lazy" decoding="async"
                   src="/images/barrel-golf-wide.jpg"
                   alt="MF Barrel en el campo de golf, junto a la bolsa de palos"
                   className="h-[320px] w-full rounded-[18px] object-cover sm:h-[420px]"
                 />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <img loading="lazy" decoding="async"
                   src="/images/barrel-retrato-moody.jpg"
                   alt="MF Barrel — inmersión en frío"
                   className="h-[320px] w-full rounded-[18px] object-cover sm:h-[420px]"

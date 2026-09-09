@@ -127,7 +127,7 @@ export function FeatureCards({
               c.media
             ) : c.image ? (
               /* eslint-disable-next-line @next/next/no-img-element */
-              <img
+              <img loading="lazy" decoding="async"
                 src={c.image}
                 alt={c.title}
                 className="absolute inset-0 h-full w-full object-cover"

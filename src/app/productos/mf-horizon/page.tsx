@@ -216,7 +216,7 @@ export default function MFHorizonPage() {
             <div className="stats-wrap">
               <Reveal className="stats-visual">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <img loading="lazy" decoding="async"
                   src="/images/horizon-patio.jpg"
                   alt="MF Horizon en un patio — dos amigos durante una inmersión"
                   className="!object-cover !p-0"
@@ -295,13 +295,13 @@ export default function MFHorizonPage() {
             <Reveal delay={80}>
               <div className="mt-5 grid gap-5 sm:grid-cols-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <img loading="lazy" decoding="async"
                   src="/images/horizon-playa.jpg"
                   alt="MF Horizon en la playa, frente al mar"
                   className="h-[320px] w-full rounded-[18px] object-cover sm:h-[420px]"
                 />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <img loading="lazy" decoding="async"
                   src="/images/horizon-playa-van.jpg"
                   alt="MF Horizon junto a la van — llega contigo a donde vayas"
                   className="h-[320px] w-full rounded-[18px] object-cover sm:h-[420px]"

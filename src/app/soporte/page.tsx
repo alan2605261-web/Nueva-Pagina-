@@ -5,7 +5,6 @@ import {
   FeatureCards,
   CTASection,
 } from "@/components/blocks";
-import { FAQ } from "@/components/FAQ";
 import { TOTAL_PREGUNTAS } from "@/lib/ayuda";
 import { SoporteGrafico } from "@/components/SoporteGraphics";
 import { Reveal } from "@/components/Reveal";
@@ -59,40 +58,6 @@ const categoryCards = [
   },
 ];
 
-const faqItems = [
-  {
-    q: "¿Cómo funciona la prueba de 30 días?",
-    a: "Tienes 30 días naturales desde la entrega. Llénala, métete y pruébala todos los días de ese mes: que el equipo esté usado no te quita el derecho al reembolso, ese es el punto de una prueba. Si no es la mejor cold plunge que has probado, nos escribes, la recogemos sin costo y te regresamos tu dinero, sin preguntas."
-  },
-  {
-    q: "¿Qué cubre la garantía?",
-    a: "Cualquier defecto de fabricación o de materiales: 6 meses en modelos inflables (Horizon/Barrel) y 1 año en MF ONE. No cubre daños por caídas, golpes o uso inadecuado.",
-  },
-  {
-    q: "¿Cada cuánto cambio el agua y los filtros?",
-    a: "El agua puede durar hasta un mes; drena y rellena cada 3 a 5 semanas. Cada cambio de agua requiere cambiar el filtro del motor.",
-  },
-  {
-    q: "¿Necesito hielo?",
-    a: "No. Los motores mantienen la temperatura que programas (hasta 3 °C en los inflables, desde 1 °C en la MF ONE) y filtran el agua continuamente, eliminando la necesidad de comprar hielo.",
-  },
-  {
-    q: "¿Cuánto tarda en llegar y cuánto cuesta el envío?",
-    a: "3 a 7 días hábiles a todo México. $1,500 MXN para Horizon o Barrel, y $6,000 MXN para la MF ONE.",
-  },
-  {
-    q: "¿Qué tan difícil es el montaje?",
-    a: "Sin herramientas: infla la tina, conecta las mangueras al motor, enchufa y llena con agua. Todo listo en 15 a 20 minutos.",
-  },
-  {
-    q: "¿La MF ONE usa motor externo?",
-    a: "No. La MF ONE es all-in-one: lleva el chiller dentro de la tina, con 1 HP y 3,500 W de enfriamiento. Ajusta de 1 a 40 °C sin accesorios adicionales. Los motores de la línea 2.0 son solo para MF Barrel y MF Horizon.",
-  },
-  {
-    q: "¿Puedo controlar la temperatura desde mi celular?",
-    a: "Sí, monitorea y ajusta la temperatura desde la app móvil para que el agua esté lista cuando la necesites.",
-  },
-];
 
 /* Cuidado del equipo. Rescatado de la pagina "Cuida tu MF Plunge" del sitio
    anterior, que no se habia migrado. Todo aplica a los tres modelos salvo lo
@@ -167,9 +132,13 @@ const CUIDADOS = [
 ];
 
 /*
-  Videos oficiales de /soporte. Los dos primeros ya estaban en el sitio; los
-  tres siguientes se sumaron en sep 2026 desde la carpeta "Tutoriales
-  oficiales" del Drive, comprimidos para web y alojados aquí.
+  Videos oficiales de /soporte. Los dos primeros ya estaban en el sitio; el de
+  mantenimiento se sumó en sep 2026 desde la carpeta "Tutoriales oficiales"
+  del Drive.
+
+  Los tutoriales "Conecta tu Motor Pro" y "Conecta tu Motor Premium" se
+  quitaron: muestran motores de la generación anterior y no hacen falta.
+  No volver a subirlos.
 */
 const VIDEOS: { src: string; poster?: string; t: string; d: string }[] = [
   {
@@ -181,18 +150,6 @@ const VIDEOS: { src: string; poster?: string; t: string; d: string }[] = [
     src: "/videos/original/instalacion-motor-pro-premium.mp4",
     t: "Instalación de los inflables",
     d: "Del inflado a las mangueras. Aplica igual para MF Barrel y para MF Horizon.",
-  },
-  {
-    src: "/videos/tutorial-motor-pro.mp4",
-    poster: "/videos/posters/tutorial-motor-pro.jpg",
-    t: "Conecta tu Motor Pro",
-    d: "Armado de las mangueras, entrada y salida de agua, y el arranque. Las conexiones van apretadas a mano, sin herramienta.",
-  },
-  {
-    src: "/videos/tutorial-motor-premium.mp4",
-    poster: "/videos/posters/tutorial-motor-premium.jpg",
-    t: "Conecta tu Motor Premium",
-    d: "El mismo armado que el Pro, con el equipo que además calienta de 1 a 40 grados y desinfecta con ozono.",
   },
   {
     src: "/videos/tutorial-mantenimiento.mp4",
@@ -225,27 +182,25 @@ export default function SoportePage() {
         </div>
       </section>
 
-      {/* 3. FAQ */}
+      {/* 3. Centro de ayuda
+          Aquí vivía un FAQ de 8 preguntas que repetía lo que ya está en
+          /soporte/centro-de-ayuda. Se eliminó para no tener dos respuestas
+          a la misma pregunta en la misma página. */}
       <section className="msection panel">
         <div className="mwrap">
-          <SectionHeader
-            title="Preguntas frecuentes"
-            center
-            className="mb-12"
-          />
-          <FAQ items={faqItems} />
-
-          <Reveal className="mt-12 text-center">
-            <a
-              href="/soporte/centro-de-ayuda"
-              className="mbtn mbtn-primary"
-            >
-              Ver las {TOTAL_PREGUNTAS} preguntas
-            </a>
-            <p className="mt-3 text-[13px] text-[var(--fg-muted)]">
-              Códigos de error, calendario de filtros, protocolo de inmersión y
-              contraindicaciones, con buscador.
+          <Reveal className="msection-head">
+            <span className="m-eyebrow accent">Centro de ayuda</span>
+            <h2>{TOTAL_PREGUNTAS} preguntas, con buscador.</h2>
+            <p>
+              Códigos de error, calendario de filtros por número de inmersiones,
+              protocolo de inmersión por nivel, contraindicaciones y qué revisar
+              antes de llamarnos.
             </p>
+          </Reveal>
+          <Reveal className="text-center">
+            <a href="/soporte/centro-de-ayuda" className="mbtn mbtn-primary">
+              Abrir el centro de ayuda
+            </a>
           </Reveal>
         </div>
       </section>

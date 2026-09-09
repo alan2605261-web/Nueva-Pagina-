@@ -574,3 +574,27 @@
 @media (prefers-reduced-motion: reduce) {
   .sop-travel, .sop-fill, .sop-rise, .sop-drop, .sop-grow, .sop-step { animation: none !important; }
 }
+
+/* ── Columnas de documento ──────────────────────────────────────────────
+   Los módulos de prosa (garantía, devoluciones, términos, privacidad)
+   vivían en columnas de 68-70ch centradas dentro de un wrap de 1280px.
+   En escritorio eso dejaba más de 300px de margen por lado y estiraba
+   las páginas al doble de lo necesario. La medida sube a 84ch y el texto
+   va justificado, que es como Saul quiere leer todos los módulos. */
+.mdoc { max-width: 84ch; margin-inline: auto; }
+
+.mdoc p,
+.mdoc li,
+.mjust {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+/* La última línea de un párrafo justificado no se estira. */
+.mdoc p, .mdoc li, .mjust { text-align-last: left; }
+
+/* En móvil el justificado abre ríos feos: se apaga. */
+@media (max-width: 640px) {
+  .mdoc p, .mdoc li, .mjust { text-align: left; hyphens: auto; }
+}

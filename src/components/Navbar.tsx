@@ -86,7 +86,7 @@ export function Navbar({ solid: _solid = false }: { solid?: boolean }) {
                       <Link key={p.name} href={p.href} className="group/card block min-w-0">
                         <div className="grid aspect-[4/3] place-items-center overflow-hidden rounded-xl bg-[var(--bg-panel)] p-4">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
+                          <img loading="lazy" decoding="async"
                             src={p.img}
                             alt={p.name}
                             style={{ height: p.scale, translate: p.name === "MF HORIZON" ? "-20px 0" : undefined }}

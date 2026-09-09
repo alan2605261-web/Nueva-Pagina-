@@ -25,7 +25,7 @@ export function ProductColorStage({
     <div>
       <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[18px] [background:var(--grad-silver)] lg:aspect-square">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <img fetchPriority="high"
           key={current.src}
           src={current.src}
           alt={`${alt} — color ${active.toLowerCase()}`}

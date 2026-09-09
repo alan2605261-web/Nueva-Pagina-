@@ -105,7 +105,7 @@ export function ProductStage({ alt }: { alt: string }) {
     <div>
       <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[18px] [background:var(--grad-silver)] lg:aspect-square">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <img fetchPriority="high"
           key={current}
           src={current}
           alt={`${alt} — color ${color.toLowerCase()}`}
@@ -129,7 +129,7 @@ export function ProductStage({ alt }: { alt: string }) {
               }`}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={src} alt="" className="h-full w-full object-cover" />
+              <img loading="lazy" decoding="async" src={src} alt="" className="h-full w-full object-cover" />
             </button>
           ))}
         </div>
@@ -232,7 +232,7 @@ export function AddonCard({
       <div className="flex items-center gap-4">
         <div className="h-20 w-36 flex-none overflow-hidden rounded-[10px] bg-[var(--bg-panel)]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <img loading="lazy" decoding="async"
             key={imgByColor[color]}
             src={imgByColor[color]}
             alt={name}
@@ -349,24 +349,29 @@ function ShieldMark() {
   );
 }
 
-/* ---- Plan de pago (solo MF ONE): liquidar o apartar con 40 %.
-        La MF ONE no está en inventario de forma recurrente, así que el
-        apartado funciona como lista de espera: 40 % ahora, 60 % antes
-        del envío, entrega estimada en 12 semanas. ---- */
+/* ---- Plan de pago (solo MF ONE).
+
+   La MF ONE no está en inventario de forma recurrente, así que hoy la
+   única vía es el apartado: 40 % ahora, 60 % antes del envío, entrega
+   estimada en 12 semanas. NO hay opción de entrega inmediata mientras
+   no haya inventario; si algún día la hay, aquí vuelve el selector.
+
+   El anticipo se cobra por Shopify con un permalink de carrito sobre una
+   variante de $1 MXN, multiplicada por el monto: /cart/<variante>:<monto>.
+   Mientras esa variante no exista, el botón manda la configuración por
+   WhatsApp para cobrarla a mano. Es lo único que hay que cambiar aquí:
+   pon el id numérico de la variante y el cobro queda en línea. ---- */
 
 const WHATSAPP = "5215616471386";
+const TIENDA = "https://mentefria.com";
 export const ANTICIPO = 0.4;
 export const SEMANAS_ENTREGA = 12;
 
-export function PaymentPlan({
-  cartUrl,
-  demoUrl,
-}: {
-  cartUrl: string;
-  demoUrl: string;
-}) {
+/** Variante Shopify de $1 MXN para cobrar el anticipo. null = todavía no existe. */
+const VARIANTE_APARTADO: string | null = null;
+
+export function PaymentPlan({ demoUrl }: { demoUrl: string }) {
   const { total, addons, color } = useProductOptions();
-  const [modo, setModo] = useState<"completo" | "apartado">("completo");
 
   const anticipo = Math.round(total * ANTICIPO);
   const resto = total - anticipo;
@@ -381,22 +386,9 @@ export function PaymentPlan({
       `Resto antes del envío: ${money(resto)} MXN`,
   );
 
-  const opciones = [
-    {
-      k: "completo" as const,
-      t: "Pago completo",
-      d: "Liquidas hoy y entramos directo a programación de envío.",
-      monto: total,
-      pie: "Un solo cargo",
-    },
-    {
-      k: "apartado" as const,
-      t: "Apártala con 40 %",
-      d: `Pagas el 40 % ahora y el 60 % antes del envío. Entrega estimada en ${SEMANAS_ENTREGA} semanas.`,
-      monto: anticipo,
-      pie: `Hoy · después ${money(resto)} MXN`,
-    },
-  ];
+  const checkout = VARIANTE_APARTADO
+    ? `${TIENDA}/cart/${VARIANTE_APARTADO}:${anticipo}`
+    : `https://wa.me/${WHATSAPP}?text=${mensaje}`;
 
   return (
     <div className="mt-8 max-w-md">
@@ -404,73 +396,51 @@ export function PaymentPlan({
         Cómo lo pagas
       </p>
 
-      <div className="mt-3 grid gap-2.5 sm:grid-cols-2">
-        {opciones.map((o) => (
-          <button
-            key={o.k}
-            onClick={() => setModo(o.k)}
-            aria-pressed={modo === o.k}
-            className={`rounded-[14px] border bg-white p-4 text-left transition-colors duration-200 ${
-              modo === o.k ? "border-[var(--accent-ice)]" : "border-[var(--line-1)] hover:border-[var(--line-2)]"
-            }`}
-          >
-            <div className="flex items-center justify-between gap-2">
-              <span className="text-[13.5px] font-semibold">{o.t}</span>
-              <span
-                className={`h-4 w-4 flex-none rounded-full border transition-colors duration-200 ${
-                  modo === o.k
-                    ? "border-[var(--accent-ice)] bg-[var(--accent-ice)] shadow-[inset_0_0_0_3px_white]"
-                    : "border-[var(--line-2)]"
-                }`}
-              />
-            </div>
-            <p className="mt-1.5 text-[15px] font-semibold">
-              {money(o.monto)} <span className="text-[11px] font-normal text-[var(--fg-subtle)]">MXN</span>
-            </p>
-            <p className="text-[11px] text-[var(--fg-subtle)]">{o.pie}</p>
-            <p className="mt-2 text-[12px] leading-snug text-[var(--fg-muted)]">{o.d}</p>
-          </button>
-        ))}
-      </div>
-
-      {modo === "apartado" && (
-        <div className="mt-3 rounded-[14px] border border-[var(--line-1)] bg-white p-4">
-          <div className="space-y-2.5">
-            {[
-              { icon: Wallet, t: `Hoy: ${money(anticipo)} MXN`, d: "Reservas tu lugar en la lista y tu equipo entra a producción." },
-              { icon: Truck, t: `Antes del envío: ${money(resto)} MXN`, d: "Te avisamos cuando tu MF ONE esté lista y liquidas para programar la entrega." },
-            ].map((s) => (
-              <div key={s.t} className="flex items-start gap-3">
-                <s.icon size={17} strokeWidth={1.8} className="mt-0.5 flex-none text-[var(--accent-ice)]" />
-                <div>
-                  <p className="text-[13px] font-semibold">{s.t}</p>
-                  <p className="text-[12px] leading-snug text-[var(--fg-muted)]">{s.d}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <p className="mt-3 border-t border-[var(--line-1)] pt-3 text-[11.5px] leading-snug text-[var(--fg-subtle)]">
-            Entrega estimada: {SEMANAS_ENTREGA} semanas desde el anticipo. Los montos de arriba no
-            incluyen el envío ($6,000 MXN a todo México) ni IVA.
+      <div className="mt-3 rounded-[14px] border border-[var(--accent-ice)] bg-white p-5">
+        <div className="flex items-baseline justify-between gap-3">
+          <p className="text-[15px] font-semibold">Apártala con 40 %</p>
+          <p className="text-[11px] uppercase tracking-[0.1em] text-[var(--fg-subtle)]">
+            {SEMANAS_ENTREGA} semanas
           </p>
         </div>
-      )}
+
+        <p className="mdisplay mt-2 text-[clamp(26px,2.8vw,34px)]">
+          {money(anticipo)} <span className="text-[12px] font-normal text-[var(--fg-subtle)]">MXN hoy</span>
+        </p>
+
+        <div className="mt-4 space-y-2.5 border-t border-[var(--line-1)] pt-4">
+          {[
+            {
+              icon: Wallet,
+              t: `Hoy: ${money(anticipo)} MXN`,
+              d: "Reservas tu lugar en la lista y tu equipo entra a producción.",
+            },
+            {
+              icon: Truck,
+              t: `Antes del envío: ${money(resto)} MXN`,
+              d: "Te avisamos cuando tu MF ONE esté lista y liquidas para programar la entrega.",
+            },
+          ].map((s) => (
+            <div key={s.t} className="flex items-start gap-3">
+              <s.icon size={17} strokeWidth={1.8} className="mt-0.5 flex-none text-[var(--accent-ice)]" />
+              <div>
+                <p className="text-[13px] font-semibold">{s.t}</p>
+                <p className="text-[12px] leading-snug text-[var(--fg-muted)]">{s.d}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-3 border-t border-[var(--line-1)] pt-3 text-[11.5px] leading-snug text-[var(--fg-subtle)]">
+          Entrega estimada: {SEMANAS_ENTREGA} semanas desde el anticipo. Los montos no
+          incluyen el envío ($6,000 MXN a todo México) ni IVA.
+        </p>
+      </div>
 
       <div className="mt-5 flex flex-wrap gap-3">
-        {modo === "completo" ? (
-          <a href={cartUrl} target="_blank" rel="noopener noreferrer" className="mbtn mbtn-primary">
-            Agregar al carrito
-          </a>
-        ) : (
-          <a
-            href={`https://wa.me/${WHATSAPP}?text=${mensaje}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mbtn mbtn-primary"
-          >
-            Apartar con {money(anticipo)}
-          </a>
-        )}
+        <a href={checkout} target="_blank" rel="noopener noreferrer" className="mbtn mbtn-primary">
+          Apartar con {money(anticipo)}
+        </a>
         <a href={demoUrl} target="_blank" rel="noopener noreferrer" className="mbtn mbtn-ghost">
           Agendar demo
         </a>

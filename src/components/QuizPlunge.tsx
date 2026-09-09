@@ -87,7 +87,7 @@ export function QuizPlunge() {
               style={{ background: "var(--grad-silver)" }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <img loading="lazy" decoding="async"
                 src={modelo.img}
                 alt={modelo.nombre}
                 className="max-h-[260px] w-auto max-w-full object-contain"

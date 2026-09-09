@@ -158,7 +158,7 @@ export default function MFOnePage() {
                   <ShieldAddon />
 
                   {/* Pago: liquidar o apartar con 40 % */}
-                  <PaymentPlan cartUrl="https://mentefria.com/products/mf-one" demoUrl={WHATSAPP} />
+                  <PaymentPlan demoUrl={WHATSAPP} />
 
                   {/* Acordeones estilo Plunge */}
                   <div className="mt-7 space-y-2.5">
@@ -357,16 +357,16 @@ export default function MFOnePage() {
                 <div className="grid gap-4">
                   <div className="overflow-hidden rounded-[16px]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/images/mfone-gallery/negro/06.jpg" alt="Chiller integrado de la MF ONE" className="w-full" />
+                    <img loading="lazy" decoding="async" src="/images/mfone-gallery/negro/06.jpg" alt="Chiller integrado de la MF ONE" className="w-full" />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="overflow-hidden rounded-[16px]">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src="/images/mfone-gallery/negro/01.jpg" alt="Frente del chiller" className="w-full" />
+                      <img loading="lazy" decoding="async" src="/images/mfone-gallery/negro/01.jpg" alt="Frente del chiller" className="w-full" />
                     </div>
                     <div className="overflow-hidden rounded-[16px]">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src="/images/mfone-gallery/negro/04.jpg" alt="Panel de control táctil" className="w-full" />
+                      <img loading="lazy" decoding="async" src="/images/mfone-gallery/negro/04.jpg" alt="Panel de control táctil" className="w-full" />
                     </div>
                   </div>
                 </div>

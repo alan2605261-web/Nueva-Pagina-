@@ -89,7 +89,7 @@ export function MotorPicker({ productName }: { productName?: string }) {
                   foto llena la caja sin recortar el equipo. */}
               <div className="mb-7 aspect-[4/3] overflow-hidden rounded-[14px]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <img loading="lazy" decoding="async"
                   src={m.img}
                   alt={m.imgAlt}
                   className="h-full w-full object-cover"

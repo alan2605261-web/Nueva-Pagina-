@@ -207,7 +207,7 @@ export default function AtletasPage() {
                 {/* Mismo bug que en /negocios: next/image dentro de un
                     Reveal en opacity:0 nunca dispara su carga diferida. */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <img loading="lazy" decoding="async"
                   src="/images/prod-mfone.webp"
                   alt="MF ONE, tina de inmersión en frío"
                   className="absolute inset-0 h-full w-full object-contain p-10"

@@ -433,9 +433,10 @@ Existen con contenido real pero **sin el restyle profundo** al sistema metal. Pe
    luego Saul pidió blanco y negro porque el azul competía con la identidad, y que cada
    gráfico dibujara el dato de su tarjeta en vez de ser adorno. Versión actual en
    `SoporteGraphics.tsx`.
-3. **Comprimir videos** — falta `ffmpeg`; no hay Homebrew en la Mac de Saul y su instalación
-   pide contraseña. Gitignored por peso: `mfone-diferencia.mp4` (el original está en el Drive
-   de Saul, privado), testimoniales kevin/surf (PERDIDOS, ver abajo), instalación motor.
+3. ~~Comprimir videos~~ — **RESUELTO.** `ffmpeg` quedó instalado vía PyPI
+   (`imageio-ffmpeg`) en `~/.local/bin/ffmpeg`, sin Homebrew y sin contraseña. Todos los
+   videos del repo están por debajo de 15 MB y versionados. De ahí salieron también los
+   pósters de `/videos/posters/`.
 4. **Videos perdidos: son exactamente DOS, y ninguno más.** Se recorrió toda la historia de
    git (`git rev-list --all`, buscando cada ruta `/videos/*.mp4` citada en `src/` en cualquier
    commit) y sólo estos dos se referencian sin existir en disco. Todo lo demás está completo.

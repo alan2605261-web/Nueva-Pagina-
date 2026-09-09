@@ -274,7 +274,7 @@ export default function ProductosPage() {
                 { img: "/images/barrel-golf-wide.jpg", alt: "MF Barrel en un club de golf", pos: "center" },
                 { img: "/images/barrel-retrato-moody.jpg", alt: "Inmersión en frío en un MF Barrel", pos: "center 30%" },
                 { img: "/images/barrel-golf-close.jpg", alt: "MF Barrel — detalle en el club", pos: "center" },
-                { img: "/images/barrel-studio-tapa.jpg", alt: "MF Barrel en estudio con cubierta térmica", pos: "center" },
+                { img: "/photography/lifestyle/barrel-chimenea.jpg", alt: "MF Barrel junto a una chimenea", pos: "center" },
               ],
             },
             {

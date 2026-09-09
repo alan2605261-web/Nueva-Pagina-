@@ -165,6 +165,42 @@ const CUIDADOS = [
   },
 ];
 
+/*
+  Videos oficiales de /soporte. Los dos primeros ya estaban en el sitio; los
+  tres siguientes se sumaron en sep 2026 desde la carpeta "Tutoriales
+  oficiales" del Drive, comprimidos para web y alojados aquí.
+*/
+const VIDEOS: { src: string; poster?: string; t: string; d: string }[] = [
+  {
+    src: "/videos/original/instalacion-mf-one.mp4",
+    t: "MF ONE, pieza por pieza",
+    d: "El recorrido del equipo: la tina, el módulo de enfriamiento, el control y el portafiltro.",
+  },
+  {
+    src: "/videos/original/instalacion-motor-pro-premium.mp4",
+    t: "Instalación de los inflables",
+    d: "Del inflado a las mangueras. Aplica igual para MF Barrel y para MF Horizon.",
+  },
+  {
+    src: "/videos/tutorial-motor-pro.mp4",
+    poster: "/videos/posters/tutorial-motor-pro.jpg",
+    t: "Conecta tu Motor Pro",
+    d: "Armado de las mangueras, entrada y salida de agua, y el arranque. Las conexiones van apretadas a mano, sin herramienta.",
+  },
+  {
+    src: "/videos/tutorial-motor-premium.mp4",
+    poster: "/videos/posters/tutorial-motor-premium.jpg",
+    t: "Conecta tu Motor Premium",
+    d: "El mismo armado que el Pro, con el equipo que además calienta de 1 a 40 grados y desinfecta con ozono.",
+  },
+  {
+    src: "/videos/tutorial-mantenimiento.mp4",
+    poster: "/videos/posters/tutorial-mantenimiento.jpg",
+    t: "Mantenimiento paso a paso",
+    d: "Limpieza del filtro interno con la llave incluida, cambio del filtro de papel y drenado. Es lo que sostiene la garantía.",
+  },
+];
+
 export default function SoportePage() {
   return (
     <PageShell>
@@ -200,68 +236,46 @@ export default function SoportePage() {
         </div>
       </section>
 
-      {/* 3.5 Instalación & cuidado — videos reales del sitio original */}
+      {/* ── Videos oficiales ───────────────────────────────
+          Se conservan los dos que ya estaban (los subió Rafa) y se suman los
+          tres que faltaban, alojados aquí en lugar de depender de nadie.
+
+          El de mantenimiento venía como embed de Vimeo: el sitio dependía de
+          un tercero para servir un video que ya teníamos. Ahora va local.
+
+          Nota de comparación: "Mente Fria Video tutorial FINAL.mov" del Drive
+          resultó ser el MISMO archivo que instalacion-motor-pro-premium.mp4
+          —3:06.7 los dos— sólo que en 4K. Por eso no se subió otra vez. */}
       <section className="msection panel" id="instalacion">
         <div className="mwrap">
           <Reveal className="msection-head">
             <span className="m-eyebrow accent">Videos oficiales</span>
             <h2>Instalación y cuidado</h2>
             <p>
-              Instala tu plunge en 15–20 minutos sin herramientas. Estos son los
-              videos oficiales paso a paso.
+              Montas tu plunge en 15 a 20 minutos y sin herramientas. Estos son
+              los videos oficiales, paso a paso.
             </p>
           </Reveal>
-          <div className="grid gap-6 md:grid-cols-3">
-            <Reveal>
-              <div className="overflow-hidden rounded-[14px] bg-[var(--m-graphite)]">
-                <video
-                  src="/videos/original/instalacion-mf-one.mp4"
-                  controls
-                  preload="metadata"
-                  playsInline
-                  className="aspect-video w-full object-cover"
-                />
-              </div>
-              <h3 className="mt-4 text-[17px] font-semibold">Instalación MF ONE</h3>
-              <p className="mt-1 text-[13.5px] text-[var(--fg-muted)]">
-                Del empaque a tu primera inmersión. Conéctalo, llénalo y programa
-                tu temperatura.
-              </p>
-            </Reveal>
-            <Reveal delay={100}>
-              <div className="overflow-hidden rounded-[14px] bg-[var(--m-graphite)]">
-                <video
-                  src="/videos/original/instalacion-motor-pro-premium.mp4"
-                  controls
-                  preload="metadata"
-                  playsInline
-                  className="aspect-video w-full object-cover"
-                />
-              </div>
-              <h3 className="mt-4 text-[17px] font-semibold">
-                Instalación Motor Pro / Premium
-              </h3>
-              <p className="mt-1 text-[13.5px] text-[var(--fg-muted)]">
-                Conecta las mangueras, enchufa y listo. Para MF Horizon y MF
-                Barrel.
-              </p>
-            </Reveal>
-            <Reveal delay={200}>
-              <div className="overflow-hidden rounded-[14px] bg-[var(--m-graphite)]">
-                <iframe
-                  src="https://player.vimeo.com/video/1082020405"
-                  title="Cuida tu MF Plunge"
-                  allow="fullscreen; picture-in-picture"
-                  allowFullScreen
-                  className="aspect-video w-full"
-                />
-              </div>
-              <h3 className="mt-4 text-[17px] font-semibold">Cuida tu MF Plunge</h3>
-              <p className="mt-1 text-[13.5px] text-[var(--fg-muted)]">
-                Agua cada 3–5 semanas, filtro en cada cambio, limpieza sin
-                abrasivos ni cloro.
-              </p>
-            </Reveal>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {VIDEOS.map((v, i) => (
+              <Reveal key={v.src} delay={(i % 3) * 90}>
+                <div className="overflow-hidden rounded-[14px] bg-[var(--m-graphite)]">
+                  <video
+                    src={v.src}
+                    poster={v.poster}
+                    controls
+                    preload="metadata"
+                    playsInline
+                    className="aspect-video w-full object-cover"
+                  />
+                </div>
+                <h3 className="mt-4 text-[17px] font-semibold">{v.t}</h3>
+                <p className="mt-1 text-[13.5px] leading-relaxed text-[var(--fg-muted)]">
+                  {v.d}
+                </p>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>

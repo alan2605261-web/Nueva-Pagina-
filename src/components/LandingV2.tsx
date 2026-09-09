@@ -175,7 +175,7 @@ const WALL: WallItem[] = [
   { kind: "photo", img: "/photography/lifestyle/bajo-bajio-04.jpg", cap: "Ritual de la mañana" },
   { kind: "text", hd: "Piel más sana", p: "Las cold plunges de Mente Fria han mejorado significativamente mi piel. La exposición al frío ha reducido mis brotes de acné y mi piel se ve más clara y saludable. Es un beneficio inesperado pero muy bienvenido.", nm: "Gabriela F. · CDMX" },
   { kind: "text", hd: "Recuperación de lesión", p: "Después de una lesión deportiva, las cold plunges de Mente Fria aceleraron mi recuperación. La inflamación bajó rápidamente y pude volver a entrenar mucho antes de lo esperado. ¡Muy recomendadas para cualquier atleta!", nm: "Eduardo V. · CDMX" },
-  { kind: "photo", img: "/photography/action/running-03.jpg", cap: "Kevin · Runner" },
+  { kind: "photo", img: "/photography/testimonios/kevin.jpg", cap: "Kevin · Atleta embajador" },
   { kind: "text", hd: "Menos inflamación", p: "Siempre he tenido problemas con la inflamación, especialmente después de hacer ejercicio. Las cold plunges de Mente Fria han reducido significativamente la inflamación y el dolor post-entrenamiento.", nm: "Rodrigo P. · Guadalajara" },
   { kind: "text", hd: "Alivio articular", p: "Sufría de dolores articulares crónicos y las cold plunges de Mente Fria han sido un alivio increíble. Mi movilidad ha mejorado y los dolores han disminuido significativamente. Es una gran herramienta para la salud.", nm: "Miguel T. · CDMX" },
   { kind: "photo", img: "/photography/lifestyle/surf-02.jpg", cap: "Después del mar" },

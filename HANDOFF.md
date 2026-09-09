@@ -163,23 +163,43 @@ aplicable.
    · garantía 6 meses · envío $1,500 · incluyen: mochila, bomba doble acción,
      cubierta con seguro para niños, filtros y kit de reparación.
 
-6. **Motores 2.0** — Pro = 0.8 HP, enfría a 3 °C, SIN calor ni ozono, **55×42.5×53 cm**,
-   39 kg, IPX4. Premium = 1 HP, enfría a 3 °C, **calienta a 42 °C**, ozono de alta
-   eficiencia, 58.5×42.5×53 cm, 41.5 kg, IPX4. Ambos con la filtración de 3 capas.
+6. **Motores — HAY DOS GENERACIONES CIRCULANDO.** Es la trampa más peligrosa de esta
+   sección. En sep 2026 Saul entregó las fichas oficiales de los motores NUEVOS
+   (`MOTOR PRO FICHA.pdf` · MOT-PRO y `MOTOR PREMIUM FICHA.pdf` · MOT-PREM), y sus datos NO
+   coinciden con el Manual v6. Quedan unas 30 unidades de la generación anterior en
+   inventario, así que a los próximos clientes les puede tocar cualquiera de las dos.
 
-   **CORREGIDO sep 2026 — el manual dice 43, el dato bueno es 42.** El Manual v6, tanto
-   en inglés ("Heating Capability: 43ºC") como en español ("Capacidad de calentamiento:
-   43°C"), dice 43. Saul corrigió: *"El Motor Premium no calienta hasta los 43, calienta
-   hasta los 42."* Se publicó 42 en las 15 apariciones del sitio. Si alguien vuelve a
-   revisar el manual y "corrige" a 43, está deshaciendo una corrección deliberada del
-   dueño; el manual está mal, no el sitio.
+   Todo esto vive en `src/lib/motores.ts`, que es la fuente única.
 
-   **Consumo eléctrico: FUERA del sitio.** Los 2,230 W / 2,700 W que estaban publicados
-   no salen del manual. Se revisaron las 12 páginas de la v6 en ambos idiomas y **no hay
-   un solo dato eléctrico**: ni watts, ni volts, ni amperes, ni Hz. Venían del handoff
-   original sin fuente. Se eliminaron de /motores y de la PDP del Horizon. No volver a
-   publicarlos hasta tener la ficha eléctrica del proveedor por escrito. Los tiempos de
-   enfriamiento (~6 h / ~4 h) tampoco están en el manual y siguen sin respaldo.
+   **Generación nueva (fichas 2026), lo verificado contra PDF:**
+
+   | | Pro · MOT-PRO | Premium · MOT-PREM |
+   |---|---|---|
+   | Compresor | 0.8 HP | 1 HP |
+   | Enfriamiento | 2,050 W | 2,600 W |
+   | Calentamiento | no incluye | 3,416 W |
+   | Rango | — | 1 a 40 °C |
+   | **Potencia de entrada** | **790 W** | **1,150 W** |
+   | Corriente | 7 A | 9 A nominal · 12.8 A máx |
+   | Circuito | dedicado 15 A+ | dedicado 20 A |
+   | Bomba | 80 W · 1.0 m³/h | 120 W · 1.5 m³/h |
+   | Medidas | 400 × 340 × 350 mm | 619 × 402 × 475 mm |
+   | Peso | 30 kg | 41.5 kg |
+   | Ruido | 60 dB(A) | 63 dB(A) |
+   | Filtro | papel plisado 20 micras | papel plisado 20 micras |
+
+   **Lo que cambió respecto de lo que estaba publicado, y es mucho:**
+   · El consumo que había (2,230 / 2,700 W) no sólo carecía de fuente: estaba lejísimos del
+     dato real. La potencia de entrada es de 790 y 1,150 W.
+   · El Pro pasó de 55 × 42.5 × 53 cm y 39 kg a 400 × 340 × 350 mm y 30 kg.
+   · El Premium ya no calienta "hasta 42 °C": ajusta de 1 a 40 °C. Ojo, esto invierte la
+     corrección de 42 que Saul había hecho sobre el Manual v6: aquélla aplica a la
+     generación ANTERIOR, ésta a la nueva.
+
+   **Regla:** el sitio publica la ficha NUEVA, y `/motores` lleva una tabla que compara las
+   dos generaciones y avisa que puede llegar la anterior. Publicar la nueva como si fuera la
+   única sería vender algo distinto a lo que se entrega. La garantía sí es idéntica en ambas.
+
 
 7. ~~Decir "filtro de 20 micrones"~~ — **OBSOLETA.** La documentación de ago 2026 habla de
    **"filtro de papel"** en el MF ONE. Los "3 filtros de 1–5 micrones" siguen siendo de los
@@ -344,6 +364,27 @@ aplicable.
     **Regla:** antes de dar por bueno un bloque de copy, leer las piezas en fila. Si todas
     tienen la misma forma, hay que romperla aunque cada una por separado esté bien escrita.
 
+26. **Los cinco videos de /soporte y de dónde salió cada uno.** En sep 2026 se completó la
+    sección. Dato útil para no volver a subir lo mismo: `Mente Fria Video tutorial FINAL.mov`
+    del Drive resultó ser **el mismo archivo** que `instalacion-motor-pro-premium.mp4` que ya
+    estaba en el repo —3:06.7 los dos, uno en 4K y otro en 1080p—. Se comparó por duración
+    antes de subirlo.
+
+    | Video | Origen | Peso |
+    |---|---|---|
+    | MF ONE, pieza por pieza | ya estaba (Rafa) | 4 MB |
+    | Instalación de los inflables | ya estaba (Rafa) | 9 MB |
+    | Conecta tu Motor Pro | Drive · Tutoriales oficiales | 12.8 MB |
+    | Conecta tu Motor Premium | Drive · Tutoriales oficiales | 8.8 MB |
+    | Mantenimiento paso a paso | Drive · Tutoriales oficiales | 6.6 MB |
+
+    **El de mantenimiento venía como embed de Vimeo**: el sitio dependía de un tercero para
+    servir un video que ya teníamos. Ahora es local y no queda ningún iframe externo.
+
+    Compresión: H.264, ancho máximo 1152–1280 px, CRF 31–34. El Motor Pro necesitó tres
+    pasadas —salió en 51 MB a CRF 26— porque tiene mucho más movimiento que los otros. El
+    presupuesto del repo es 15 MB por archivo.
+
 ## 5. Estado página por página
 
 ### `/` — Landing (`src/components/LandingV2.tsx`)
@@ -478,7 +519,12 @@ Existen con contenido real pero **sin el restyle profundo** al sistema metal. Pe
    MENTE FRIA X GUDSLIP. Nada de eso está en el repo ni en el disco.
 6. **Peso del MF ONE**: Saul confirmó que siguen siendo 135 kg *de momento*, pero el proveedor
    cambió — reconfirmar antes de imprimir nada.
-7. **Póliza de garantía de los inflables**: no existe documento equivalente al del MF ONE.
+7. **Póliza de garantía**: la de los MOTORES ya existe y está publicada. Saul entregó
+   `MOTOR PRO GARANTIA.pdf` y `MOTOR PREMIUM GARANTIA.pdf` en sep 2026, y `/garantia#motores`
+   las resume: componentes amparados, qué corre por nuestra cuenta, lo que la anula y cómo se
+   hace válida. Es la misma para las dos generaciones de motor. **Lo que sigue faltando es la
+   póliza de las TINAS inflables** (MF Barrel y MF Horizon), que no tiene documento
+   equivalente al de la MF ONE.
 8. **Fotos del evento de Westin Santa Fe** (su caso es solo texto). No existen fotos ni de
    Westin ni de Casa Polanco; esta última además ya no aplica.
 9. **Barrel agotado** en el sitio vivo. Decisión de Saul: **el inventario debe vivir en el

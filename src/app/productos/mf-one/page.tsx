@@ -286,7 +286,7 @@ export default function MFOnePage() {
             </Reveal>
             <Reveal className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {[
-                { t: "Filtro de papel", p: "Retiene los sólidos del agua. Es el filtro de operación: cámbialo cada 3 a 4 semanas.", img: "/images/acc-filtros-cartucho.webp" },
+                { t: "Filtro de papel", p: "Retiene los sólidos del agua. Es el filtro de operación: cámbialo cada 3 a 4 semanas.", img: "/images/acc-filtro-cartucho-uno.webp" },
                 { t: "Filtro de carbón", p: "Se conecta a la manguera al llenar la tina. Es un extra que ayuda con el olor y el sabor del agua, no un requisito de operación.", img: "/images/acc-filtro-prellenado.webp" },
                 { t: "Skimmer", p: "Atrapa hojas e impurezas de la superficie — limpieza en segundos.", img: "/images/acc-red-limpieza.webp" },
                 { t: "Portacelular", p: "Se monta en el borde de la tina — tu timer, tu música o tu serie durante la inmersión.", img: "/images/acc-soporte-celular.webp" },

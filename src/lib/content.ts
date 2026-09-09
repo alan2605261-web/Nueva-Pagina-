@@ -45,9 +45,10 @@ export const nav: {
       submenu: [
         { label: "Instrucciones de instalación", href: "/soporte#instalacion" },
         { label: "Cuida tu MF Plunge", href: "/soporte#cuidado" },
-        { label: "Centro de ayuda", href: "/soporte" },
+        { label: "Centro de ayuda", href: "/soporte/centro-de-ayuda" },
         { label: "Contáctanos", href: "/soporte" },
         { label: "Garantía", href: "/garantia" },
+        { label: "Garantía extendida", href: "/garantia/extendida" },
         { label: "Términos y condiciones", href: "/terminos" },
         { label: "Aviso de privacidad", href: "/privacidad" },
       ],

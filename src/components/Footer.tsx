@@ -30,8 +30,9 @@ const cols: { title: string; links: { label: string; href: string }[] }[] = [
   {
     title: "Soporte",
     links: [
-      { label: "Centro de ayuda", href: "/soporte" },
+      { label: "Centro de ayuda", href: "/soporte/centro-de-ayuda" },
       { label: "Garantía", href: "/garantia" },
+      { label: "Garantía extendida", href: "/garantia/extendida" },
       { label: "Devoluciones", href: "/devoluciones" },
       { label: "Términos y condiciones", href: "/terminos" },
       { label: "Aviso de privacidad", href: "/privacidad" },

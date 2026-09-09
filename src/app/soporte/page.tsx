@@ -6,6 +6,7 @@ import {
   CTASection,
 } from "@/components/blocks";
 import { FAQ } from "@/components/FAQ";
+import { TOTAL_PREGUNTAS } from "@/lib/ayuda";
 import { SoporteGrafico } from "@/components/SoporteGraphics";
 import { Reveal } from "@/components/Reveal";
 
@@ -233,6 +234,19 @@ export default function SoportePage() {
             className="mb-12"
           />
           <FAQ items={faqItems} />
+
+          <Reveal className="mt-12 text-center">
+            <a
+              href="/soporte/centro-de-ayuda"
+              className="mbtn mbtn-primary"
+            >
+              Ver las {TOTAL_PREGUNTAS} preguntas
+            </a>
+            <p className="mt-3 text-[13px] text-[var(--fg-muted)]">
+              Códigos de error, calendario de filtros, protocolo de inmersión y
+              contraindicaciones, con buscador.
+            </p>
+          </Reveal>
         </div>
       </section>
 

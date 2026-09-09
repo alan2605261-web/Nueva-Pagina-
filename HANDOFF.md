@@ -385,6 +385,86 @@ aplicable.
     pasadas —salió en 51 MB a CRF 26— porque tiene mucho más movimiento que los otros. El
     presupuesto del repo es 15 MB por archivo.
 
+### 27. MF SHIELD — la garantía extendida
+
+Cinco contratos, cinco precios. `src/lib/garantia-extendida.ts` es la fuente de verdad:
+
+| Equipo | Precio | Estándar | MF Shield | Uso amparado |
+|---|---|---|---|---|
+| MF ONE | $13,000 | 12 meses | mes 13 al 24 | residencial y comercial |
+| MF Barrel · Pro | $6,900 | 6 meses | mes 7 al 24 | solo residencial |
+| MF Barrel · Premium | $8,400 | 6 meses | mes 7 al 24 | residencial y comercial |
+| MF Horizon · Pro | $7,400 | 6 meses | mes 7 al 24 | solo residencial |
+| MF Horizon · Premium | $8,900 | 6 meses | mes 7 al 24 | residencial y comercial |
+
+En todos los casos la cobertura total llega al mes 24. El precio de los inflables
+es el 10 % del valor del equipo.
+
+**Los contratos mandan en lo legal. Los manuales mandan en las especificaciones.**
+Por eso NO se publicó nada técnico tomado del contrato. En particular, el contrato
+de la MF ONE dice que la unidad pesa "más de 200 kg" y el sitio publica 135 kg, que
+es lo que trae la ficha. Pendiente de aclarar con Saul; mientras tanto, 135 kg.
+
+Diferencia de fondo entre pólizas: en los inflables MF Shield cubre además defectos
+de fabricación de la tina, y da derecho a reponer la tina dañada por mal uso en
+$6,000. En la MF ONE no hay equivalente.
+
+### 28. Apartado 40/60 — solo MF ONE
+
+La MF ONE no está en inventario de forma recurrente, así que el apartado funciona
+como lista de espera: 40 % ahora, 60 % antes del envío, entrega estimada a
+12 semanas. Vive en `PaymentPlan` dentro de `src/components/ProductOptions.tsx`.
+Los add-ons seleccionados subieron al contexto del provider para que el anticipo se
+calcule sobre la configuración real, no sobre el precio base. El CTA abre WhatsApp
+con el desglose ya armado.
+
+NO aplica a los inflables. No inventar políticas de reembolso del anticipo: Saul no
+las ha definido.
+
+### 29. Centro de ayuda — qué se corrigió del sitio vivo
+
+`/soporte/centro-de-ayuda`, 90 preguntas en 9 categorías, con buscador y FAQPage
+schema. Reconstruye el troubleshooting de mentefria.com/pages/preguntas-frecuentes,
+que tenía datos falsos. Lo corregido:
+
+- Consumo de motores: publicaba 2,230 y 2,700 W. La entrada real es 790 y 1,150 W.
+- Rango del Premium: publicaba hasta 42 °C. Va de 1 a 40 °C.
+- Medidas y pesos de las tres tinas.
+- "Producto usado no es elegible para reembolso", que contradice la prueba de 30 días.
+- La app es Smart Life, no una app propia de Mente Fria.
+
+Lo que el sitio vivo afirma y **no se publicó por no estar en ningún documento**:
+presión de inflado de 8 PSI, velocidad de enfriamiento por motor en °C/hora, costo
+de electricidad por día, chorros de hidromasaje de la MF ONE y luces LED exteriores.
+Ojo con los dos últimos: el contrato de garantía extendida de la MF ONE sí menciona
+"bombas incluidas las de hidromasaje". Si existen, hay que confirmarlo con Saul y
+con la ficha antes de publicarlo.
+
+### 30. Los filtros no son intercambiables entre modelos
+
+Dos cartuchos distintos, y confundirlos es un error visible:
+
+- **MF ONE** → `acc-filtro-cartucho-uno.webp`. Gordo y chaparro, tapas azules.
+- **MF Barrel y MF Horizon** → `acc-filtros-cartucho.webp`. Delgados y altos, van de tres.
+
+### 31. Base instalada, septiembre 2026
+
+30 clientes, 15 estados, 33 unidades. 15 MF ONE, 12 MF Horizon, 3 MF Barrel, más un
+Acero Inoxidable, un Motor Comercial y un Motor Premium. CDMX concentra 9 cuentas.
+
+El sitio publicaba "más de 100 instalaciones activas", que no cuadra con nada. Ya se
+corrigió en /negocios y /productos. **No volver a inflar ese número.**
+
+Casos publicables tomados de la base: Radiant Love (Alberto Álvarez, Guadalupe Inn,
+CDMX — centro de wellness y recovery con sauna, cabinas y varias tinas) y Gains
+Units 01 (Daniel Padilla, Guadalajara — gimnasio). Radiant Love ya está en /negocios;
+Gains Units 01 queda disponible. El resto de la base son nombres de personas y no se
+publican.
+
+Recordatorio: **Casa Polanco no existe**, el proyecto nunca se llevó a cabo.
+
+---
+
 ## 5. Estado página por página
 
 ### `/` — Landing (`src/components/LandingV2.tsx`)

@@ -262,7 +262,7 @@ export default function ProductosPage() {
             <span className="m-eyebrow accent">Comunidad</span>
             <h2>Mente Fria, en todas partes.</h2>
             <p>
-              Más de 100 instalaciones activas en casas, clubes, hoteles y spas
+              Equipos instalados en 15 estados, en casas, gimnasios, hoteles y spas
               de todo México.
             </p>
           </Reveal>

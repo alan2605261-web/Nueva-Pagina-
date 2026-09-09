@@ -3,7 +3,7 @@ import { PageShell } from "@/components/PageShell";
 import { FAQ } from "@/components/FAQ";
 import { Reveal } from "@/components/Reveal";
 import { AccessoryCard } from "@/components/AccessoryCard";
-import { ProductOptionsProvider, ProductStage, ColorPicker } from "@/components/ProductOptions";
+import { ProductOptionsProvider, ProductStage, ColorPicker, ShieldAddon, ConfigTotal } from "@/components/ProductOptions";
 import { BenefitsCarousel } from "@/components/BenefitsCarousel";
 import { MotorPicker } from "@/components/MotorPicker";
 import {
@@ -144,6 +144,8 @@ export default function MFBarrelPage() {
         <section className="msection !pt-[clamp(40px,6vh,80px)]">
           <div className="mwrap">
             <ProductOptionsProvider
+              producto="mf-barrel"
+              basePrice={69000}
               variants={[
                 { color: "Negro", images: ["/images/pdp-barrel-negro.png"] },
                 { color: "Blanco", images: ["/images/pdp-barrel-blanco.png"] },
@@ -192,6 +194,9 @@ export default function MFBarrelPage() {
                   {/* Color (patrón Plunge: opciones arriba del CTA) */}
                   <ColorPicker />
 
+                  {/* Garantía extendida MF Shield */}
+                  <ShieldAddon />
+
                   {/* CTAs */}
                   <div className="mt-8 flex flex-wrap gap-3">
                     <a href="https://mentefria.com/products/mf-barrel-1" target="_blank" rel="noopener noreferrer" className="mbtn mbtn-primary">
@@ -201,6 +206,8 @@ export default function MFBarrelPage() {
                       Agendar demo
                     </a>
                   </div>
+
+                  <ConfigTotal />
 
                   {/* Acordeones estilo Plunge */}
                   <div className="mt-7 space-y-2.5">

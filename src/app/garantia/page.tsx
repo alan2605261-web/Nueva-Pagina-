@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
 import { LegalEntity } from "@/components/LegalEntity";
 import { SubHero } from "@/components/blocks";
@@ -141,6 +142,14 @@ export default function GarantiaPage() {
               <p className="text-[16px] leading-relaxed text-[var(--fg-muted)]">
                 Son garantías distintas, con coberturas y condiciones propias.
                 Lo que aplica a la MF ONE no aplica a los inflables, ni al revés.
+              </p>
+              <p className="mt-4 text-[16px] leading-relaxed text-[var(--fg-muted)]">
+                Cualquiera de las tres se puede extender hasta el mes 24 con{" "}
+                <Link href="/garantia/extendida" className="font-semibold text-[var(--accent-ice)] underline underline-offset-4">
+                  MF Shield
+                </Link>
+                , nuestra garantía extendida. Se contrata mientras la garantía
+                estándar siga vigente.
               </p>
             </article>
           </Reveal>

@@ -3,7 +3,7 @@ import { PageShell } from "@/components/PageShell";
 import { FAQ } from "@/components/FAQ";
 import { Reveal } from "@/components/Reveal";
 import { AccessoryCard } from "@/components/AccessoryCard";
-import { ProductOptionsProvider, ProductStage, ColorPicker } from "@/components/ProductOptions";
+import { ProductOptionsProvider, ProductStage, ColorPicker, ShieldAddon, ConfigTotal } from "@/components/ProductOptions";
 import { BenefitsCarousel } from "@/components/BenefitsCarousel";
 import { MotorPicker } from "@/components/MotorPicker";
 import { RotateCcw, ShieldCheck, CreditCard, Plus } from "lucide-react";
@@ -92,6 +92,8 @@ export default function MFHorizonPage() {
         <section className="msection !pt-[clamp(40px,6vh,80px)]">
           <div className="mwrap">
             <ProductOptionsProvider
+              producto="mf-horizon"
+              basePrice={74000}
               variants={[
                 { color: "Negro", images: ["/images/pdp-horizon-negro.png", "/images/horizon-studio-mujer-01.jpg", "/images/horizon-studio-mujer-02.jpg", "/images/horizon-closeup-perfil.jpg"] },
                 { color: "Blanco", images: ["/images/pdp-horizon-blanco.png", "/images/horizon-blanco-studio.jpg"] },
@@ -141,6 +143,9 @@ export default function MFHorizonPage() {
                   {/* Color (patrón Plunge: opciones arriba del CTA) */}
                   <ColorPicker />
 
+                  {/* Garantía extendida MF Shield */}
+                  <ShieldAddon />
+
                   {/* CTAs */}
                   <div className="mt-8 flex flex-wrap gap-3">
                     <a href={SHOP_URL} target="_blank" rel="noopener noreferrer" className="mbtn mbtn-primary">
@@ -150,6 +155,8 @@ export default function MFHorizonPage() {
                       Agendar demo
                     </a>
                   </div>
+
+                  <ConfigTotal />
 
                   {/* Acordeones estilo Plunge */}
                   <div className="mt-7 space-y-2.5">

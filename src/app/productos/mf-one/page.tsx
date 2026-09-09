@@ -3,7 +3,7 @@ import { PageShell } from "@/components/PageShell";
 import { FAQ } from "@/components/FAQ";
 import { Reveal } from "@/components/Reveal";
 import { AccessoryCard } from "@/components/AccessoryCard";
-import { ProductOptionsProvider, ProductStage, ColorPicker, AddonCard } from "@/components/ProductOptions";
+import { ProductOptionsProvider, ProductStage, ColorPicker, AddonCard, ShieldAddon, PaymentPlan } from "@/components/ProductOptions";
 import { FrioCalor } from "@/components/FrioCalor";
 import { MfOneBento } from "@/components/MfOneBento";
 import { MfOneDimensions } from "@/components/MfOneDimensions";
@@ -93,6 +93,8 @@ export default function MFOnePage() {
         <section className="msection !pt-[clamp(40px,6vh,80px)]">
           <div className="mwrap">
             <ProductOptionsProvider
+              producto="mf-one"
+              basePrice={169000}
               variants={[
                 { color: "Negro", images: ["/images/mfone-gallery/negro/front.jpg", ...Array.from({ length: 9 }, (_, i) => `/images/mfone-gallery/negro/${String(i + 1).padStart(2, "0")}.jpg`)] },
                 { color: "Blanco", images: ["/images/mfone-gallery/blanco/front.jpg", ...Array.from({ length: 9 }, (_, i) => `/images/mfone-gallery/blanco/${String(i + 1).padStart(2, "0")}.jpg`)] },
@@ -146,22 +148,17 @@ export default function MFOnePage() {
                     name="MF ONE PRO DECK"
                     description="El escalón de acceso diseñado para tu MF ONE."
                     price={6900}
-                    basePrice={169000}
                     imgByColor={{
                       Negro: "/images/prodeck-negro.webp",
                       Blanco: "/images/prodeck-blanco.webp",
                     }}
                   />
 
-                  {/* CTAs */}
-                  <div className="mt-8 flex flex-wrap gap-3">
-                    <a href="https://mentefria.com/products/mf-one" target="_blank" rel="noopener noreferrer" className="mbtn mbtn-primary">
-                      Agregar al carrito
-                    </a>
-                    <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="mbtn mbtn-ghost">
-                      Agendar demo
-                    </a>
-                  </div>
+                  {/* Garantía extendida MF Shield */}
+                  <ShieldAddon />
+
+                  {/* Pago: liquidar o apartar con 40 % */}
+                  <PaymentPlan cartUrl="https://mentefria.com/products/mf-one" demoUrl={WHATSAPP} />
 
                   {/* Acordeones estilo Plunge */}
                   <div className="mt-7 space-y-2.5">

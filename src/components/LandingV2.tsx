@@ -7,7 +7,6 @@ import {
   ArrowRight,
   Filter,
   Flame,
-  MessageCircle,
   Play,
   Shield,
   Snowflake,
@@ -15,6 +14,7 @@ import {
   Wifi,
   Wind,
 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 import { LazyVideo } from "@/components/LazyVideo";
 
@@ -878,7 +878,7 @@ export function LandingV2() {
         rel="noopener noreferrer"
         aria-label="Escríbenos por WhatsApp"
       >
-        <MessageCircle size={22} />
+        <WhatsAppIcon width={24} height={24} />
       </a>
 
     </main>

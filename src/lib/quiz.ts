@@ -83,11 +83,13 @@ export const MODELOS: Record<ModeloId, Modelo> = {
 
 /* ── Preguntas ─────────────────────────────────────────────────────────── */
 
-export type Opcion = { valor: string; etiqueta: string; nota?: string };
+export type Opcion = { valor: string; etiqueta: string };
+/* Sin notas ni textos de ayuda: Saul los quitó en sep 2026. Sugerir "un patio
+   de departamento" bajo cada medida no ayuda a decidir y alarga la pantalla.
+   La pregunta se sostiene sola. */
 export type Pregunta = {
   id: string;
   pregunta: string;
-  ayuda?: string;
   opciones: Opcion[];
 };
 
@@ -95,37 +97,34 @@ export const PREGUNTAS: Pregunta[] = [
   {
     id: "espacio",
     pregunta: "¿Cuánto mide el lado más largo del lugar donde la vas a poner?",
-    ayuda:
-      "Cuenta el espacio libre, no el del mueble. La MF ONE necesita 100 cm despejados al frente para poder entrar y salir.",
     opciones: [
-      { valor: "xs", etiqueta: "Menos de 1.2 m", nota: "Un rincón, un balcón chico" },
-      { valor: "s", etiqueta: "Entre 1.2 y 2 m", nota: "Un patio de departamento" },
-      { valor: "m", etiqueta: "Entre 2 y 3 m", nota: "Una terraza o un cuarto de servicio" },
-      { valor: "l", etiqueta: "Más de 3 m", nota: "Jardín, roof, cuarto dedicado" },
+      { valor: "xs", etiqueta: "Menos de 1.2 m" },
+      { valor: "s", etiqueta: "Entre 1.2 y 2 m" },
+      { valor: "m", etiqueta: "Entre 2 y 3 m" },
+      { valor: "l", etiqueta: "Más de 3 m" },
     ],
   },
   {
     id: "movilidad",
     pregunta: "¿Se queda fija o necesitas poder moverla?",
     opciones: [
-      { valor: "fija", etiqueta: "Se queda fija", nota: "Tiene su lugar y ahí se queda" },
-      { valor: "guardar", etiqueta: "Quiero poder guardarla", nota: "La saco cuando la uso" },
-      { valor: "viajar", etiqueta: "Quiero poder llevármela", nota: "Casa de fin de semana, viajes" },
+      { valor: "fija", etiqueta: "Se queda fija" },
+      { valor: "guardar", etiqueta: "Quiero poder guardarla" },
+      { valor: "viajar", etiqueta: "Quiero poder llevármela" },
     ],
   },
   {
     id: "postura",
     pregunta: "¿Cómo te quieres meter?",
     opciones: [
-      { valor: "estirado", etiqueta: "Estirado", nota: "Piernas extendidas, como en una tina" },
-      { valor: "sentado", etiqueta: "Sentado está bien", nota: "Sumergido hasta los hombros" },
+      { valor: "estirado", etiqueta: "Estirado" },
+      { valor: "sentado", etiqueta: "Sentado está bien" },
       { valor: "igual", etiqueta: "Me da igual" },
     ],
   },
   {
     id: "estatura",
     pregunta: "¿Cuánto mides?",
-    ayuda: "Es lo que define si de verdad vas a poder estirarte o vas a ir con las rodillas dobladas.",
     opciones: [
       { valor: "baja", etiqueta: "Menos de 1.65 m" },
       { valor: "media", etiqueta: "Entre 1.65 y 1.78 m" },
@@ -136,8 +135,8 @@ export const PREGUNTAS: Pregunta[] = [
     id: "temperatura",
     pregunta: "¿Solo frío, o también calor?",
     opciones: [
-      { valor: "frio", etiqueta: "Solo frío", nota: "Recuperación y nada más" },
-      { valor: "ambos", etiqueta: "Frío y calor", nota: "Contraste en el mismo equipo" },
+      { valor: "frio", etiqueta: "Solo frío" },
+      { valor: "ambos", etiqueta: "Frío y calor" },
     ],
   },
   {
@@ -146,7 +145,7 @@ export const PREGUNTAS: Pregunta[] = [
     opciones: [
       { valor: "80", etiqueta: "Hasta $80,000" },
       { valor: "120", etiqueta: "Hasta $120,000" },
-      { valor: "abierto", etiqueta: "Más de $150,000", nota: "El presupuesto no es la restricción" },
+      { valor: "abierto", etiqueta: "Más de $150,000" },
     ],
   },
   {
@@ -154,8 +153,8 @@ export const PREGUNTAS: Pregunta[] = [
     pregunta: "¿Para quién es?",
     opciones: [
       { valor: "personal", etiqueta: "Para mí y mi casa" },
-      { valor: "familia", etiqueta: "Para toda la familia", nota: "Varias personas al día" },
-      { valor: "negocio", etiqueta: "Para un negocio", nota: "Gimnasio, spa, clínica, estudio" },
+      { valor: "familia", etiqueta: "Para toda la familia" },
+      { valor: "negocio", etiqueta: "Para un negocio" },
     ],
   },
 ];
@@ -164,8 +163,21 @@ export const PREGUNTAS: Pregunta[] = [
 
 export type Motor = "pro" | "premium" | null;
 
+/** Una opción evaluada: sirve para la ganadora y para las alternativas. */
+export type Opcionada = {
+  modelo: Modelo;
+  motor: Motor;
+  precio: number;
+  /** Qué gana o qué cede frente a la recomendada. */
+  contraste: string;
+};
+
 export type Resultado = {
   modelo: Modelo;
+  /** Las que siguieron en el puntaje, de mejor a peor. Puede venir vacía. */
+  alternativas: Opcionada[];
+  /** Precio de la combinación tina + motor, no del modelo suelto. */
+  precio: number;
   /** Sólo para inflables. La MF ONE no lleva motor aparte. */
   motor: Motor;
   razones: string[];
@@ -177,62 +189,183 @@ export type Resultado = {
 
 const LARGO_DISPONIBLE: Record<string, number> = { xs: 120, s: 200, m: 300, l: 600 };
 const TECHO_PRESUPUESTO: Record<string, number> = { "80": 80000, "120": 120000, abierto: Infinity };
-const PRECIO: Record<ModeloId, number> = { "mf-one": 169000, "mf-horizon": 74000, "mf-barrel": 69000 };
+/* El precio depende del motor, no solo del modelo. Los inflables cambian
+   $15,000 entre Pro y Premium. Cuadran con el valor de equipo que declaran
+   los contratos de garantía extendida. */
+export const PRECIOS: Record<ModeloId, { pro: number; premium: number }> = {
+  "mf-barrel": { pro: 69000, premium: 84000 },
+  "mf-horizon": { pro: 74000, premium: 89000 },
+  "mf-one": { pro: 169000, premium: 169000 }, // no lleva motor aparte
+};
+
+export function precioDe(id: ModeloId, motor: Motor): number {
+  return PRECIOS[id][motor === "premium" ? "premium" : "pro"];
+}
 const ESTATURA_CM: Record<string, number> = { baja: 163, media: 172, alta: 185 };
 
 export type Respuestas = Record<string, string>;
+
+/* ── Preguntas adaptativas ─────────────────────────────────────────────
+
+   No se preguntan siempre las siete. Varias dejan de importar según lo que
+   ya contestó, y preguntarlas de todos modos alarga el quiz sin cambiar el
+   resultado. Cada regla de aquí abajo sale de `recomendar`:
+
+   · `estatura` solo se usa cuando la postura es "estirado".
+   · `postura` y `estatura` solo importan si queda viva alguna tina horizontal.
+     En la Barrel te metes sentado, no hay nada que elegir.
+   · `presupuesto` no puede descartar a la Barrel: es la más barata y la opción
+     más baja del quiz ya la cubre. Si es la única viable, sobra preguntarlo.
+
+   El resultado es que alguien con poco espacio contesta cuatro preguntas en
+   lugar de siete, y llega al mismo lugar.
+─────────────────────────────────────────────────────────────────────── */
+
+/** Modelos que siguen siendo posibles con lo contestado hasta ahora. */
+export function viablesCon(r: Respuestas): ModeloId[] {
+  const largo = LARGO_DISPONIBLE[r.espacio] ?? 600;
+  const techo = TECHO_PRESUPUESTO[r.presupuesto] ?? Infinity;
+  return (Object.keys(MODELOS) as ModeloId[]).filter((id) => {
+    const m = MODELOS[id];
+    if (m.largoNecesarioCm > largo) return false;
+    if (id === "mf-one" && (r.movilidad === "guardar" || r.movilidad === "viajar")) return false;
+    return true;
+  });
+}
+
+export function preguntasAplicables(r: Respuestas): Pregunta[] {
+  const viables = viablesCon(r);
+  const soloBarrel = viables.length === 1 && viables[0] === "mf-barrel";
+  const hayHorizontal = viables.length === 0 || viables.some((id) => MODELOS[id].interiorCm !== null);
+
+  return PREGUNTAS.filter((q) => {
+    if (q.id === "postura") return hayHorizontal;
+    if (q.id === "estatura") return hayHorizontal && r.postura === "estirado";
+    if (q.id === "presupuesto") return !soloBarrel;
+    return true;
+  });
+}
+
+/* ── La fórmula ────────────────────────────────────────────────────────
+
+   Antes el presupuesto era un MURO: si el equipo costaba más que el techo,
+   quedaba descartado y ya. Con eso, alguien con $120,000 que quería frío y
+   calor, espacio de sobra y meterse estirado terminaba con un inflable,
+   aunque todo lo demás apuntara a la MF ONE. Una sola variable decidía.
+
+   Ahora solo se descarta lo FÍSICAMENTE IMPOSIBLE, que es lo que ninguna
+   preferencia arregla:
+     · no cabe en el lado largo disponible
+     · pesa 135 kg y el cliente necesita guardarla o llevársela
+
+   Lo demás se puntúa. Cuatro dimensiones, 100 puntos repartidos:
+
+     Espacio            30   qué tan bien entra, no solo si entra
+     Postura y estatura 25   si de verdad te vas a poder estirar
+     Temperatura        25   si necesita calor y el equipo lo da
+     Uso                20   una persona, una familia o un negocio
+
+   Y al final se multiplica por un FACTOR de presupuesto, que penaliza sin
+   eliminar:
+     dentro del presupuesto        × 1.00
+     hasta 25 % arriba             × 0.92
+     hasta 50 % arriba             × 0.82
+     hasta el doble                × 0.60
+     más del doble                 × 0.35
+
+   Así el dinero pesa, pero no manda solo. Un equipo 40 % arriba del techo
+   puede ganar si arrasa en las otras cuatro; uno al doble de precio, casi
+   nunca. Cuando gana algo por encima del presupuesto, el resultado lo dice
+   de frente en las advertencias.
+─────────────────────────────────────────────────────────────────────── */
+
+export const PESOS = { espacio: 30, postura: 25, temperatura: 25, uso: 20 } as const;
+
+function factorPresupuesto(precio: number, techo: number): number {
+  if (techo === Infinity || precio <= techo) return 1;
+  const veces = precio / techo;
+  if (veces <= 1.25) return 0.92;
+  if (veces <= 1.5) return 0.82;
+  if (veces <= 2) return 0.6;
+  return 0.35;
+}
+
+/** Motor que le toca a un inflable según lo que pidió. La MF ONE no lleva. */
+function motorPara(id: ModeloId, r: Respuestas): Motor {
+  if (id === "mf-one") return null;
+  return r.temperatura === "ambos" || r.uso === "negocio" || r.uso === "familia"
+    ? "premium"
+    : "pro";
+}
 
 export function recomendar(r: Respuestas): Resultado {
   const largo = LARGO_DISPONIBLE[r.espacio] ?? 600;
   const techo = TECHO_PRESUPUESTO[r.presupuesto] ?? Infinity;
   const estatura = ESTATURA_CM[r.estatura] ?? 172;
 
-  /* 1. Descartes duros: lo que no cabe o no alcanza. */
+  /* 1. Descartes duros: SOLO lo físicamente imposible. */
   const viables = (Object.keys(MODELOS) as ModeloId[]).filter((id) => {
     const m = MODELOS[id];
     if (m.largoNecesarioCm > largo) return false;
-    if (PRECIO[id] > techo) return false;
     // 135 kg no se guardan ni viajan.
     if (id === "mf-one" && (r.movilidad === "guardar" || r.movilidad === "viajar")) return false;
     return true;
   });
 
   const concesion = viables.length === 0;
-  // Si nada pasó los filtros, se recomienda lo más chico y barato y se explica.
   const candidatos: ModeloId[] = concesion ? ["mf-barrel"] : viables;
 
-  /* 2. Puntaje entre los que sí son posibles. */
+  /* 2. Puntaje por dimensión, y el presupuesto como factor al final. */
   const puntos: Record<string, number> = {};
   for (const id of candidatos) {
-    let p = 0;
     const m = MODELOS[id];
+    const motor = motorPara(id, r);
 
-    if (r.postura === "estirado") p += m.interiorCm ? 3 : -3;
-    if (r.postura === "sentado" && id === "mf-barrel") p += 2;
+    // Espacio: entrar es el mínimo; sobrar espacio favorece a la grande.
+    const holgura = largo - m.largoNecesarioCm;
+    let espacio = holgura >= 100 ? 30 : holgura >= 40 ? 24 : 18;
+    if (id === "mf-one" && holgura < 40) espacio = 12; // entra, pero justa
 
-    // Estirarse de verdad: el interior tiene que darle al cuerpo.
-    if (r.postura === "estirado" && m.interiorCm && m.interiorCm >= estatura - 10) p += 2;
+    // Postura y estatura: si quiere estirarse, que el interior le dé.
+    let postura: number;
+    if (r.postura === "estirado") {
+      if (!m.interiorCm) postura = 4;                          // la Barrel es vertical
+      else if (m.interiorCm >= estatura - 10) postura = 25;    // se estira de verdad
+      else postura = 12;                                       // cabe, con rodillas dobladas
+    } else if (r.postura === "sentado") {
+      postura = id === "mf-barrel" ? 25 : 18;
+    } else {
+      postura = 20;
+    }
 
-    if (r.movilidad === "viajar") p += id === "mf-horizon" ? 3 : id === "mf-barrel" ? 2 : 0;
-    if (r.movilidad === "guardar") p += id === "mf-one" ? 0 : 2;
-    if (r.movilidad === "fija") p += id === "mf-one" ? 3 : 0;
+    // Temperatura: quien pide calor necesita MF ONE o Motor Premium.
+    let temperatura: number;
+    if (r.temperatura === "ambos") temperatura = id === "mf-one" ? 25 : motor === "premium" ? 22 : 0;
+    else temperatura = id === "mf-one" ? 20 : 25; // solo frío: el inflable sobra y cuesta menos
 
-    if (r.uso === "negocio" || r.uso === "familia") p += id === "mf-one" ? 3 : 0;
-    if (r.temperatura === "ambos" && id === "mf-one") p += 2;
-    if (r.presupuesto === "abierto" && id === "mf-one") p += 2;
-    if (largo >= 300 && id === "mf-one") p += 1;
+    // Uso: varias personas al día, o un negocio, empujan a la rígida.
+    let uso: number;
+    if (r.uso === "negocio") uso = id === "mf-one" ? 20 : 10;
+    else if (r.uso === "familia") uso = id === "mf-one" ? 20 : 13;
+    else uso = id === "mf-one" ? 15 : 20;
 
-    puntos[id] = p;
+    // Movilidad, entre los que ya pasaron el filtro duro.
+    let movilidad = 0;
+    if (r.movilidad === "viajar") movilidad = id === "mf-horizon" ? 4 : id === "mf-barrel" ? 3 : 0;
+    if (r.movilidad === "guardar") movilidad = id === "mf-one" ? 0 : 3;
+    if (r.movilidad === "fija") movilidad = id === "mf-one" ? 4 : 0;
+
+    const base = espacio + postura + temperatura + uso + movilidad;
+    puntos[id] = base * factorPresupuesto(precioDe(id, motor), techo);
   }
 
-  const ganador = candidatos.reduce((a, b) => (puntos[b] > puntos[a] ? b : a));
+  const orden = [...candidatos].sort((a, b) => puntos[b] - puntos[a]);
+  const ganador = orden[0];
   const modelo = MODELOS[ganador];
 
-  /* 3. Motor: sólo para inflables. */
-  let motor: Motor = null;
-  if (ganador !== "mf-one") {
-    motor = r.temperatura === "ambos" || r.uso === "negocio" || r.uso === "familia" ? "premium" : "pro";
-  }
+  /* 3. Motor y precio real de esa combinación. */
+  const motor: Motor = motorPara(ganador, r);
+  const precio = precioDe(ganador, motor);
 
   /* 4. Por qué. */
   const razones: string[] = [];
@@ -259,6 +392,12 @@ export function recomendar(r: Respuestas): Resultado {
 
   /* 5. Lo que hay que decirle aunque no le guste. */
   const advertencias: string[] = [];
+  if (techo !== Infinity && precio > techo) {
+    const arriba = Math.round(((precio - techo) / techo) * 100);
+    advertencias.push(
+      `Está ${arriba}% arriba del presupuesto que nos diste. Te la recomendamos porque es la que mejor resuelve lo demás que nos contaste, pero el número es el que es: $${precio.toLocaleString("en-US")} MXN.`,
+    );
+  }
   if (concesion) {
     advertencias.push(
       "Con el espacio, el presupuesto y la movilidad que nos diste no hay una opción que cumpla las tres cosas. Esta es la que más se acerca; escríbenos y lo vemos contigo.",
@@ -285,5 +424,34 @@ export function recomendar(r: Respuestas): Resultado {
     advertencias.push("El motor es una unidad separada de la tina y tiene que quedar bajo techo, protegido de la lluvia y del sol directo.");
   }
 
-  return { modelo, motor, razones, advertencias, concesion, b2b: r.uso === "negocio" };
+  /* 6. Las que siguieron. Recomendar a ciegas cuando el ganador no cumple
+        todo deja al cliente sin salida: mejor enseñarle el siguiente escalón
+        y qué gana o qué cede si se mueve para allá. */
+  const alternativas: Opcionada[] = orden.slice(1, 3).map((id) => {
+    const m = MODELOS[id];
+    const mt = motorPara(id, r);
+    const pr = precioDe(id, mt);
+    const dif = pr - precio;
+
+    let contraste: string;
+    if (dif < 0) {
+      const ahorro = Math.abs(dif).toLocaleString("en-US");
+      contraste =
+        id === "mf-barrel" && r.postura === "estirado"
+          ? `Ahorras $${ahorro}, pero es vertical: te metes sentado.`
+          : m.interiorCm && m.interiorCm < (ESTATURA_CM[r.estatura] ?? 172) - 10
+            ? `Ahorras $${ahorro}, pero con ${m.interiorCm} cm de interior vas con las rodillas dobladas.`
+            : `Ahorras $${ahorro} y es inflable: se guarda y se transporta.`;
+    } else if (dif > 0) {
+      contraste = `Cuesta $${dif.toLocaleString("en-US")} más${
+        id === "mf-one" ? ", y a cambio el chiller va dentro de la tina y ajusta de 1 a 40 °C." : "."
+      }`;
+    } else {
+      contraste = "Cuesta lo mismo y cambia el formato.";
+    }
+
+    return { modelo: m, motor: mt, precio: pr, contraste };
+  });
+
+  return { modelo, alternativas, motor, precio, razones, advertencias, concesion, b2b: r.uso === "negocio" };
 }

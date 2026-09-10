@@ -17,6 +17,7 @@ import {
 import { WhatsAppIcon } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 import { LazyVideo } from "@/components/LazyVideo";
+import { QuizCarousel } from "@/components/QuizCarousel";
 
 /*
   Landing V2 — 1:1 port of the Claude Design "site_v2" landing
@@ -46,7 +47,7 @@ const HOTSPOTS = [
   { left: "26%", icon: Flame, k: "02 · Temperatura", t: "Calienta hasta 40 °C", p: "La misma tina que usas a 3 grados en la mañana la puedes tener a 38 por la noche." },
   { left: "38%", icon: Filter, k: "03 · Filtración", t: "Filtración", p: "La MF ONE trae filtro de papel y skimmer. Los inflables van con filtración de tres capas: papel, filtro integrado y malla antipolvo." },
   { left: "50%", icon: Wind, k: "04 · Purificación", t: "Ozono integrado", p: "El generador de ozono va dentro del equipo y se activa por ciclos. Es lo que mantiene el agua sin necesidad de cloro de alberca." },
-  { left: "62%", icon: Wifi, k: "05 · Control", t: "App Smart Life", p: "Programas la temperatura y los horarios desde el celular, así que llegas y el agua ya está donde la dejaste." },
+  { left: "62%", icon: Wifi, k: "05 · Control", t: "App de control WiFi", p: "Programas la temperatura y los horarios desde el celular, así que llegas y el agua ya está donde la dejaste." },
   { left: "74%", icon: VolumeX, k: "06 · Silencioso", t: "68 dB(A) a un metro", p: "Es el nivel de una conversación normal. Puedes tenerla en una terraza sin discutir con los vecinos." },
   { left: "86%", icon: Shield, k: "07 · Estructura", t: "Acrílico y acero inoxidable", p: "Casco de acrílico de alta resistencia con acabados y componentes en acero inoxidable. Va bajo techo, adentro o afuera." },
 ];
@@ -138,8 +139,8 @@ const TRUST = [
 
 /* Comparativa real de mentefria.com — "La tecnología de cold plunge #1 en MX" */
 const COMPARE_ROWS: { mf: string; otras: string }[] = [
-  { mf: "Enfriamiento activo hasta 3 °C", otras: "Dependes de comprar hielo" },
-  { mf: "Calienta hasta 40 °C con Motor Premium", otras: "Solo frío" },
+  { mf: "Enfriamiento activo hasta 1 °C", otras: "Dependes de comprar hielo" },
+  { mf: "Calienta hasta 42 °C con Motor Premium", otras: "Solo frío" },
   { mf: "Temperatura y horarios desde la app", otras: "Ajuste manual, si acaso" },
   { mf: "Ozono trabajando dentro del equipo", otras: "Cloro, o cambiar el agua" },
   { mf: "Filtración de 3 capas en los inflables", otras: "Sin sistema de filtrado" },
@@ -508,7 +509,7 @@ export function LandingV2() {
       {/* ===== TRUST (real de mentefria.com) ===== */}
       <section className="panel !py-0">
         <div className="mwrap">
-          <div className="grid gap-5 py-[clamp(40px,6vh,64px)] md:grid-cols-3">
+          <div className="grid gap-5 py-[clamp(16px,2.5vh,28px)] md:grid-cols-3">
             {TRUST.map((t, i) => (
               <Reveal key={t.t} delay={i * 100}>
                 <div className="flex h-full flex-col rounded-[16px] border border-[var(--line-1)] bg-white p-7">
@@ -609,70 +610,40 @@ export function LandingV2() {
           Va justo después de la reja de productos, que es donde aparece la
           duda: ya vio los tres y no sabe cuál. Antes de esto sólo estaba en
           el mega-menú y no lo encontraba nadie. */}
-      <section className="msection panel" id="quiz">
+      <section className="msection !bg-white" id="quiz">
         <div className="mwrap">
-          <Reveal
-            className="grid items-center gap-10 rounded-[22px] border p-8 sm:p-12 lg:grid-cols-[1.1fr_1fr]"
-            style={{ borderColor: "var(--line-1)", background: "var(--m-white)" }}
-          >
-            <div>
-              <span className="m-eyebrow accent">Encuentra tu plunge</span>
+          <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+            <Reveal>
               <h2
-                className="mdisplay mt-4 text-[clamp(28px,3.6vw,46px)] leading-[1.05]"
+                className="mdisplay text-[clamp(34px,4.6vw,60px)] leading-[1.02]"
                 style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
               >
-                ¿No sabes cuál de las tres?
+                ¿Cuál de las tres
+                <br />
+                es para ti?
               </h2>
               <p
-                className="mt-5 max-w-[50ch] text-[16px] leading-relaxed"
+                className="mt-6 max-w-[38ch] text-[17px] leading-relaxed"
                 style={{ color: "var(--fg-muted)" }}
               >
-                Siete preguntas sobre tu espacio, tu presupuesto y cómo te
-                quieres meter. Empieza por el espacio, que es lo que de verdad
-                descarta: si el lado largo no da, no hay presupuesto que lo
-                arregle. Te decimos cuál cabe y también qué vas a estar
-                cediendo.
+                Siete preguntas y te decimos cuál de las tres cabe en tu espacio
+                y en tu presupuesto.
               </p>
-              <Link href="/quiz" className="mbtn mbtn-primary mt-8">
-                Empezar
+              <Link href="/quiz" className="mbtn mbtn-primary mt-9">
+                Empezar el quiz
                 <ArrowRight className="h-4 w-4" />
               </Link>
-            </div>
-            <ul className="grid gap-3">
-              {[
-                { n: "01", t: "Tu espacio", d: "El lado largo libre, con lo que cada modelo necesita alrededor." },
-                { n: "02", t: "Cómo te metes", d: "Estirado o sentado, y tu estatura contra el interior real de cada tina." },
-                { n: "03", t: "Tu presupuesto", d: "Y si es para tu casa, para la familia o para un negocio." },
-              ].map((x) => (
-                <li
-                  key={x.n}
-                  className="flex gap-5 rounded-[14px] border p-5"
-                  style={{ borderColor: "var(--line-1)", background: "var(--bg-panel)" }}
-                >
-                  <span
-                    className="mdisplay text-[20px] leading-none"
-                    style={{ color: "var(--fg-subtle)" }}
-                  >
-                    {x.n}
-                  </span>
-                  <span>
-                    <span
-                      className="block text-[15px] font-semibold"
-                      style={{ color: "var(--fg-metal)" }}
-                    >
-                      {x.t}
-                    </span>
-                    <span
-                      className="mt-1 block text-[13.5px] leading-relaxed"
-                      style={{ color: "var(--fg-muted)" }}
-                    >
-                      {x.d}
-                    </span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
+            </Reveal>
+
+            {/* Las tres rotando, para que no parezca que la recomendación ya
+                está decidida. Se probó con las tres juntas en una sola imagen y
+                no funciona: perspectivas y fondos distintos, el Barrel trae su
+                motor al lado y el Horizon es blanco. Rotando sí, porque cada una
+                se ve en su propio cuadro. */}
+            <Reveal delay={120}>
+              <QuizCarousel />
+            </Reveal>
+          </div>
         </div>
       </section>
 

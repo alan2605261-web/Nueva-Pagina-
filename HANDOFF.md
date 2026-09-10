@@ -385,6 +385,61 @@ aplicable.
     pasadas —salió en 51 MB a CRF 26— porque tiene mucho más movimiento que los otros. El
     presupuesto del repo es 15 MB por archivo.
 
+### 26.3 Los leads del quiz van a respond.io, por WhatsApp
+
+El WhatsApp de Mente Fria está conectado a respond.io (Saul, sep 2026). Cuando
+alguien termina el quiz y deja su número, el botón abre WhatsApp con el teléfono,
+la recomendación y todas las respuestas ya escritas. Ese mensaje cae en la bandeja
+de respond.io como conversación, con el número del cliente. **No hace falta
+integración, ni token, ni endpoint.**
+
+`ENDPOINT_LEADS` en `src/lib/leads.ts` queda vacío a propósito. Existe por si algún
+día se quiere además un registro automático que no dependa de que el cliente mande
+el mensaje. Eso necesitaría un intermediario propio (Apps Script o Cloudflare
+Worker): **la API de respond.io NO se puede llamar desde el navegador**, porque el
+token quedaría a la vista de cualquiera que abra la página.
+
+### 26.4 Qué imágenes son de la MF ONE NUEVA y cuáles del modelo anterior
+
+Saul lo confirmó en sep 2026, después de que se colara el modelo viejo dos veces.
+**Preguntar antes de usar cualquier imagen de MF ONE que no esté en esta lista.**
+
+**Son la MF ONE nueva:**
+- `images/prod-mfone.webp` — salió de su archivo "Portada producto MF One".
+- `photography/hero/mf-one-render-showcase.jpg` — salió de su `222.png`.
+- `images/quiz/one-negro.jpg` — compuesta a partir de `prod-mfone.webp`.
+
+**Son del modelo ANTERIOR, no publicarlas:**
+- `images/pdp-one-negro.png` y `images/pdp-one-blanco.png`. Hoy no se usan en
+  ningún lado. Se usaron un rato en el carrusel del quiz y Saul lo cachó.
+- `photography/hero/mf-one-concrete.jpg` (= `images/hero-mfone.jpg`, mismo archivo),
+  la del cuarto de concreto con alberca. **Ojo: esa sí está publicada**, es el hero
+  de /atletas y aparece en `content.ts`. Pendiente de reemplazar.
+- `photography/hero/mf-one-concrete-dark.jpg`, la tina negra en el cuarto de
+  concreto. Era la del showcase de Rafa. Hoy no se usa.
+
+**Sin confirmar:** el resto de las 24 imágenes de MF ONE del repo, incluidas las de
+`images/mfone-gallery/` y la sesión de patio. Preguntar antes de moverlas de lugar.
+
+### 26.5 Los 42 °C del inicio NO son un error
+
+El bloque "La tecnología de cold plunge #1 en MX" del inicio dice **"Calienta hasta
+42 °C con Motor Premium"**, mientras que /motores, el PDP de la MF ONE y el centro
+de ayuda publican **1 a 40 °C**. Las dos cosas son correctas al mismo tiempo y así
+lo quiere Saul (sep 2026):
+
+- Los motores de la **generación anterior**, de los que todavía hay stock, calientan
+  hasta 42 °C. Se van a seguir vendiendo hasta agotarlos.
+- Los de la **generación nueva** van de 1 a 40 °C, que es lo que dice su ficha.
+
+El bloque de inicio anuncia lo mejor que hay disponible hoy; las páginas de
+especificaciones publican la ficha vigente. **No "corregir" el 42 a 40.** Cuando se
+agote el stock viejo, ahí sí se cambia. Ver la regla 6 para la tabla completa de las
+dos generaciones.
+
+El mismo bloque dice "Enfriamiento activo hasta 1 °C", que es el piso de la MF ONE.
+Es un bloque de toda la línea: anuncia lo mejor de la línea, no el mínimo común.
+
 ### 27. MF SHIELD — la garantía extendida
 
 Cinco contratos, cinco precios. `src/lib/garantia-extendida.ts` es la fuente de verdad:

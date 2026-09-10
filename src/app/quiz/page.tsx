@@ -5,7 +5,7 @@ import { Reveal } from "@/components/Reveal";
 export const metadata = {
   title: "Encuentra tu plunge | Mente Fria",
   description:
-    "Siete preguntas sobre tu espacio, tu presupuesto y cómo te quieres meter, y te decimos cuál de las tres cabe de verdad.",
+    "Contesta unas preguntas y te decimos cuál de las tres cabe en tu espacio y en tu presupuesto.",
 };
 
 export default function QuizPage() {
@@ -25,10 +25,8 @@ export default function QuizPage() {
               className="mt-5 text-[17px] leading-relaxed"
               style={{ color: "var(--fg-muted)" }}
             >
-              Siete preguntas. La primera es cuánto espacio tienes, porque esa
-              es la que de verdad descarta: si el lado largo no da, no hay
-              presupuesto que lo arregle. Te decimos cuál cabe y también qué
-              vas a estar cediendo.
+              Empezamos por tu espacio, que es lo que de verdad descarta. Las
+              demás preguntas dependen de lo que vayas contestando.
             </p>
           </Reveal>
         </div>

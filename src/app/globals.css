@@ -3,6 +3,13 @@
 @import "shadcn/tailwind.css";
 @import "./metal.css";
 
+/* Tailwind v4 rastrea el proyecto solo para descubrir clases, y se estaba
+   comiendo favicon.ico. De ahí sacaba basura binaria y generaba reglas como
+   .bg-[var(--bg-\10 t)], con bytes de control adentro. Eso reventaba el
+   parseo del CSS y, con él, el bundle del cliente: ningún componente
+   interactivo hidrataba. No quitar esta línea. */
+@source not "./favicon.ico";
+
 @custom-variant dark (&:is(.dark *));
 
 /*

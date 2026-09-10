@@ -137,18 +137,31 @@
 .mhero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 
 /* ===== Section base ===== */
-.msection { padding: calc(clamp(72px, 11vh, 150px) * var(--sec-scale, 1)) 0; }
+/* Cada sección paga relleno arriba y abajo, así que entre dos seguidas el vacío
+   se DUPLICA: con 88px por lado quedaban 176px de nada entre bloque y bloque.
+   Bajado a ~60px por lado, la separación entre secciones queda en 120px, que
+   sigue respirando pero ya no se siente hueco. */
+.msection { padding: calc(clamp(44px, 6vh, 84px) * var(--sec-scale, 1)) 0; }
 .msection.dark-s { background: var(--grad-ink); color: var(--on-dark-fg); position: relative; }
 .msection.panel { background: var(--bg-panel); }
-.msection-head { max-width: 760px; margin: 0 auto 56px; text-align: center; }
+/* Los 56px de aire bajo el encabezado eran hueco puro: el título y el contenido
+   que le sigue son la misma idea, no hay nada que separar ahí. La separación
+   ENTRE secciones sí se respeta, porque es la que le da estructura a la página. */
+.msection-head { max-width: 760px; margin: 0 auto 34px; text-align: center; }
 .msection-head h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(30px, 4vw, 56px); letter-spacing: -0.035em; line-height: 1; margin: 14px 0 0; -webkit-text-stroke: var(--bold-stroke) currentColor; }
 .msection-head p { color: var(--fg-muted); font-size: 16px; margin: 16px auto 0; max-width: 52ch; }
 .dark-s .msection-head p { color: var(--on-dark-muted); }
 
 /* ===== Product showcase + hotspots ===== */
+/* La foto de este bloque es el render de estudio de la MF ONE nueva, sobre fondo
+   gris. El archivo ya viene recortado apretado contra el producto: la tina ocupa
+   el 94% del ancho y el 65% del alto del cuadro. La proporción es 1.85 y no 3:2
+   porque el producto es ancho y bajo — a 3:2 sobraba casi la mitad del cuadro en
+   gris, y eso es lo que hacía que el bloque se viera enorme sin mostrar nada.
+   Si algún día hay un render AMBIENTADO de la MF ONE nueva, ese sí aguanta 3:2. */
 .showcase { position: relative; width: min(1600px, 94vw); margin: 0 auto; }
-.showcase-stage { position: relative; border-radius: 18px; overflow: hidden; background: var(--grad-silver); aspect-ratio: 1.5; }
-.showcase-stage img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 68%; }
+.showcase-stage { position: relative; border-radius: 18px; overflow: hidden; background: var(--grad-silver); aspect-ratio: 1.85; }
+.showcase-stage img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
 .hotspot { position: absolute; width: 34px; height: 34px; z-index: 3; transform: translate(-50%, -50%); }
 .hotspot.floor { top: 90%; }
 .hotspot button {
@@ -171,8 +184,15 @@
 .hotspot .pop h4 { font-family: var(--font-display); font-size: 17px; margin: 0 0 5px; letter-spacing: -0.01em; }
 .hotspot .pop p { font-size: 12.5px; line-height: 1.5; color: rgba(255, 255, 255, 0.7); margin: 0; }
 .hotspot .pop .k { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--m-blue-400); margin-bottom: 8px; }
+/* En teléfono la foto mide unos 200px de alto, y una tarjeta de 190px con seis
+   renglones de texto la tapaba entera. Ahí la tarjeta se queda en el número y el
+   título: la descripción completa vive en la sección de Temperatura / Filtración
+   / Control que va justo debajo, así que no se pierde nada. */
 @media (max-width: 700px) {
-  .hotspot .pop { width: 190px; }
+  .hotspot .pop { width: auto; max-width: 60vw; padding: 8px 12px; border-radius: 10px; }
+  .hotspot .pop .k { font-size: 8.5px; letter-spacing: 0.14em; margin-bottom: 3px; }
+  .hotspot .pop h4 { font-size: 13px; margin: 0; }
+  .hotspot .pop p { display: none; }
 }
 
 /* ===== Feature reveal (stacked words + image) ===== */
@@ -242,7 +262,11 @@
 
 /* ===== Comparison table (Mente Fria vs otros) ===== */
 .compare-scroll { overflow-x: auto; }
-.compare { width: 100%; min-width: 720px; border-collapse: separate; border-spacing: 0; }
+/* Las columnas se repartían por el largo del texto, y como las frases de Mente
+   Fria son más largas que las de la competencia, la columna negra salía mucho
+   más ancha que la blanca. Fijas al 50% quedan parejas. */
+.compare { width: 100%; min-width: 720px; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
+.compare th, .compare td { width: 50%; }
 .compare th, .compare td { padding: 18px 20px; text-align: center; font-size: 13.5px; border-bottom: 1px solid var(--line-1); }
 .compare th { font-family: var(--font-display); font-weight: 400; font-size: 15px; letter-spacing: -0.01em; padding-bottom: 14px; }
 .compare td:first-child, .compare th:first-child { text-align: left; font-weight: 500; color: var(--fg-metal); }

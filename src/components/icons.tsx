@@ -157,6 +157,24 @@ export function StarIcon({ className, ...props }: IconProps) {
   );
 }
 
+/* Estrella HUECA, para las que faltan en una calificación. La versión sólida en
+   gris claro se confundía con una estrella llena en tamaños chicos. */
+export function StarOutlineIcon({ className, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinejoin="round"
+      className={className}
+      {...props}
+    >
+      <path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.9 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9L12 2.5z" />
+    </svg>
+  );
+}
+
 export function PlayIcon({ className, ...props }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} {...props}>

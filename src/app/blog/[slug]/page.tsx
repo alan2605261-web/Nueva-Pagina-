@@ -297,6 +297,17 @@ export default async function ArticuloPage({
                 estás embarazada, consulta a tu médico antes de empezar con la
                 inmersión en frío.
               </p>
+              {/* Deslinde de las fuentes citadas (Saul, sep 2026). */}
+              <p
+                className="mt-3 text-[13px] leading-relaxed"
+                style={{ color: "var(--fg-subtle)" }}
+              >
+                Los estudios citados en este artículo son de terceros. Mente Fria los
+                referencia con fines informativos, no los realizó ni validó y no
+                garantiza que sean exactos o vigentes. No asume responsabilidad por el
+                uso que se dé a esta información, que no es una promesa de resultados
+                de salud por el uso de sus productos.
+              </p>
             </Reveal>
           </article>
         </div>

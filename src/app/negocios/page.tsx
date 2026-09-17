@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, type CSSProperties } from "react";
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
 import { FAQ } from "@/components/FAQ";
@@ -30,58 +30,66 @@ const BUSINESS_TYPES = [
   {
     num: "01",
     title: "Hoteles",
-    body: "Cold plunge integrado al circuito de bienestar en hoteles 5 estrellas de Tulum, CDMX y Los Cabos.",
+    body: "Integrada al circuito de bienestar, junto a alberca, sauna o spa.",
+    img: "/images/negocios/hoteles.jpg",
   },
   {
     num: "02",
     title: "Spas",
-    body: "Eleva el ritual de tu spa con inmersión fría comercial. Diferenciándote como destino premium.",
+    body: "Cierra el ritual con inmersión fría de grado comercial.",
+    img: "/images/negocios/spas.jpg",
   },
   {
     num: "03",
     title: "Centros wellness",
-    body: "Complementa tu oferta de longevidad, biohacking y recuperación con la cold plunge líder del mercado.",
+    body: "Suma recuperación y longevidad a lo que ya ofreces.",
+    img: "/images/negocios/centros-wellness.jpg",
   },
   {
     num: "04",
     title: "Gimnasios",
-    body: "Diferénciate de la cadena con un beneficio premium que justifica membresías más altas.",
+    body: "Un beneficio que justifica la membresía más alta.",
+    img: "/images/negocios/gimnasios.jpg",
   },
   {
     num: "05",
     title: "Estudios de wellness",
-    body: "Yoga, pilates, breathwork y meditación. Cierra cada clase con inmersión fría de grado comercial.",
+    body: "Yoga, pilates, breathwork. El frío cierra la clase.",
+    img: "/images/negocios/estudios.jpg",
   },
   {
     num: "06",
     title: "CrossFit Boxes",
-    body: "Recuperación post-WOD validada por atletas. Aumenta retención y add-ons en tu box.",
+    body: "Recuperación post-WOD, dentro del box.",
+    img: "/images/negocios/crossfit.jpg",
   },
   {
     num: "07",
     title: "Clínicas y fisioterapia",
-    body: "Crioterapia y recuperación para medicina deportiva, fisioterapia y rehabilitación.",
+    body: "Para medicina deportiva y rehabilitación.",
+    img: "/images/negocios/clinicas.jpg",
   },
   {
     num: "08",
     title: "Equipos deportivos",
-    body: "Solución de recuperación para clubes profesionales, academias y centros de alto rendimiento.",
+    body: "Clubes, academias y centros de alto rendimiento.",
+    img: "/images/negocios/equipos.jpg",
   },
 ];
 
 const PRODUCTS = [
   {
     name: "MF Barrel",
-    image: "/images/prod-barrel.jpg",
+    image: "/images/prod-barrel-nobg.png",
     price: "$69,000 MXN",
-    body: "Filtración de 3 capas + purificación por ozono. Control WiFi programable. 6 meses de garantía.",
+    body: "Filtración de 3 capas + purificación por ozono. Control por app Wi-Fi, programable. 6 meses de garantía.",
     href: "/productos/mf-barrel",
   },
   {
     name: "MF Horizon",
-    image: "/images/prod-horizon.jpg",
+    image: "/images/prod-horizon-nobg.png",
     price: "$74,000 MXN",
-    body: "Filtración de 3 capas + purificación por ozono. Control WiFi programable. 6 meses de garantía.",
+    body: "Filtración de 3 capas + purificación por ozono. Control por app Wi-Fi, programable. 6 meses de garantía.",
     href: "/productos/mf-horizon",
   },
   {
@@ -132,10 +140,12 @@ const WHY_BLOCKS = [
     num: "01",
     tag: "Cold plunge comercial",
     title: "Diseñado para operación intensiva",
-    body: "Construido para resistir el uso diario de gimnasios, hoteles y centros de recuperación. Componentes de grado comercial probados en más de 100 instalaciones activas en México.",
+    body: "Construido para resistir el uso diario de gimnasios, hoteles y centros de recuperación. La MF ONE va en acrílico de alta resistencia con acabados y componentes en acero inoxidable, y opera lo mismo en interiores que en exteriores bajo techo o cubierta. Componentes de grado comercial probados en más de 100 instalaciones activas en México.",
     bullets: [
       "Chiller industrial con capacidad de enfriamiento continuo",
       "Filtración de 3 capas + purificación por ozono",
+      "Acrílico de alta resistencia con acabados en acero inoxidable en la MF ONE",
+      "Instalación en interiores o en exteriores bajo techo, pérgola o cubierta",
     ],
   },
   {
@@ -174,7 +184,37 @@ const LEASING_STATS = [
   {
     value: "24",
     label: "Hasta 24 meses",
-    body: "Elige el plazo que se ajuste a tu flujo de caja: 12 o 24 mensualidades.",
+    body: "Elige el plazo que se ajuste a tu flujo de caja: 12, 18 o 24 mensualidades.",
+  },
+];
+
+/* Capacitación y certificación. Confirmado por el cliente: es un curso
+   grabado, diseñado para negocios, que se comparte con la compra del equipo, y
+   cubre fundamentos de la terapia de frío más temas complementarios. Saul
+   (sep 2026) pidió profundizar: no solo se capacita, también se certifica al
+   negocio, se le acompaña y recibe la insignia MF (Mente Fria Certified), que
+   se obtiene a través del curso. NO hay duración, número de módulos,
+   plataforma, temario ni costo de la certificación: no inventarlos aquí. */
+const CAPACITACION_PUNTOS = [
+  {
+    n: "01",
+    title: "Tu equipo aprende",
+    body: "Un curso grabado y hecho para negocios: los fundamentos de la terapia de frío y los temas que la complementan. Tu staff lo toma en el horario que le acomode, sin parar la operación.",
+  },
+  {
+    n: "02",
+    title: "Te certificamos",
+    body: "Al terminar el curso, tu negocio queda certificado por Mente Fria. Tus clientes saben que el servicio lo da gente preparada.",
+  },
+  {
+    n: "03",
+    title: "Recibes la insignia MF",
+    body: "La insignia Mente Fria Certified se obtiene a través del curso. Es la señal para tus clientes de que tu equipo se formó con nosotros.",
+  },
+  {
+    n: "04",
+    title: "Te acompañamos",
+    body: "No termina con la entrega. Resolvemos las dudas de tu equipo mientras arranca el servicio y conforme crece.",
   },
 ];
 
@@ -204,7 +244,7 @@ const PROCESS_STEPS = [
 const FAQ_ITEMS = [
   {
     q: "¿Cómo funciona el esquema de leasing y su beneficio fiscal?",
-    a: "Adquieres el equipo a 12 o 24 meses con un anticipo del 10% más una comisión de apertura del 2%. Al final del plazo ejerces la opción de compra con un valor residual del 5%. La renta mensual es deducible al 100% según el régimen fiscal aplicable a tu empresa — consulta con tu contador el tratamiento exacto para tu caso.",
+    a: "Adquieres el equipo a 12, 18 o 24 meses con un anticipo del 10% más una comisión de apertura del 2%. Al final del plazo ejerces la opción de compra con un valor residual del 5%. La renta mensual es deducible al 100% según el régimen fiscal aplicable a tu empresa — consulta con tu contador el tratamiento exacto para tu caso.",
   },
   {
     q: "¿Necesito buró de crédito empresarial?",
@@ -232,13 +272,17 @@ export default function NegociosPage() {
   return (
     <PageShell>
       {/* ── 1. HERO ────────────────────────────────────────────
-          Foto luminosa del Barrel en el campo de golf con overlay ligero,
-          en lugar del render oscuro anterior. Punto ① de Rafa.          */}
+          Render de los tres equipos en un espacio de lujo. Sustituye a la foto
+          del campo de golf, que a Saul no le gusto en sep 2026 y que ademas
+          mostraba un inflable: aqui se ven los tres, incluido el de acero
+          inoxidable, que es lo que sostiene el texto de la pagina.          */}
       <section className="relative flex min-h-[78vh] items-center overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
+        {/* "MF Negocios" (Saul, sep 2026): la portada anterior tenía los
+            equipos muy pegados entre sí; en esta van separados. */}
         <img
-          src="/images/barrel-golf-wide.jpg"
-          alt="MF Barrel instalado al aire libre en un campo de golf"
+          src="/images/negocios/hero-mf-negocios.jpg"
+          alt="Tres equipos comerciales Mente Fria en un espacio de lujo"
           fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
@@ -341,7 +385,7 @@ export default function NegociosPage() {
       {/* ── 3. VERTICALES — FORMATO HORIZONTAL ─────────────────
           Punto ④: las 8 verticales pasan de rejilla de 4 columnas a
           bandas horizontales de ancho completo, estilo editorial.       */}
-      <section className="msection">
+      <section id="segmentos" className="msection scroll-mt-20">
         <div className="mwrap">
           <Reveal className="msection-head">
             <span className="m-eyebrow accent">Para todo tipo de negocio</span>
@@ -353,35 +397,45 @@ export default function NegociosPage() {
             </p>
           </Reveal>
 
-          <div style={{ borderBottom: "1px solid var(--line-1)" }}>
+          {/* Rejilla con foto por vertical.
+
+              Antes eran ocho bandas horizontales de puro texto: numero, titulo
+              y parrafo, sin una sola imagen. Saul lo llamo "cero visual" y
+              tenia razon — literalmente no habia nada que ver.
+
+              Cada render sale de la carpeta de fotos aprobadas de la MF ONE
+              del Drive y esta elegido por lo que muestra la escena, no al
+              azar: el de gimnasios tiene equipo al fondo, el de estudios
+              tapetes de yoga, el de spas concreto y madera. */}
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {BUSINESS_TYPES.map((b, i) => (
-              <Reveal
-                key={b.num}
-                delay={(i % 4) * 60}
-                className="grid items-baseline gap-x-8 gap-y-2 py-7 md:grid-cols-[84px_minmax(0,260px)_minmax(0,1fr)]"
-                style={{ borderTop: "1px solid var(--line-1)" }}
-              >
-                <span
-                  className="mdisplay text-[34px] leading-none"
-                  style={{ color: "var(--fg-subtle)" }}
-                >
-                  {b.num}
-                </span>
-                <h3
-                  className="mdisplay text-[23px] leading-tight"
-                  style={{
-                    color: "var(--fg-metal)",
-                    WebkitTextStroke: "var(--bold-stroke) currentColor",
-                  }}
-                >
-                  {b.title}
-                </h3>
-                <p
-                  className="max-w-[70ch] text-[15px] leading-relaxed"
-                  style={{ color: "var(--fg-muted)" }}
-                >
-                  {b.body}
-                </p>
+              <Reveal key={b.num} delay={(i % 4) * 70}>
+                <article className="group flex h-full flex-col overflow-hidden rounded-[16px] border border-[var(--line-1)] bg-white">
+                  <div className="relative aspect-[4/5] overflow-hidden bg-[var(--bg-panel)]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={b.img}
+                      alt={`MF ONE en ${b.title.toLowerCase()}`}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    />
+                    <span className="absolute left-4 top-4 grid h-8 w-8 place-items-center rounded-full bg-[rgba(8,9,11,0.55)] text-[11px] font-semibold text-white backdrop-blur-sm">
+                      {b.num}
+                    </span>
+                  </div>
+                  <div className="flex flex-1 flex-col p-5">
+                    <h3
+                      className="mdisplay text-[18px] leading-tight"
+                      style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
+                    >
+                      {b.title}
+                    </h3>
+                    <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--fg-muted)]">
+                      {b.body}
+                    </p>
+                  </div>
+                </article>
               </Reveal>
             ))}
           </div>
@@ -389,40 +443,54 @@ export default function NegociosPage() {
       </section>
 
       {/* ── 4. PRODUCTOS ───────────────────────────────────────── */}
-      <section className="msection panel">
+      <section id="equipos" className="msection panel scroll-mt-20">
         <div className="mwrap">
           <Reveal className="msection-head">
             <span className="m-eyebrow accent">Los equipos</span>
             <h2>Encuentra la cold plunge perfecta para tu negocio</h2>
           </Reveal>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Sin tarjeta blanca contenedora. En el inicio (LandingV2, sección
+              #productos) las mismas tres tinas se muestran con la losa .pfloor
+              detrás del producto y el texto suelto sobre el fondo de la
+              sección. Aquí se replica: la ficha blanca con borde y sombra no
+              existía en ningún otro lugar del sitio y rompía el sistema. */}
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {PRODUCTS.map((p, i) => (
-              <Reveal
-                key={p.name}
-                delay={(i % 3) * 80}
-                className="relative flex flex-col overflow-hidden rounded-[18px] border"
-                style={{
-                  borderColor: "var(--line-1)",
-                  background: "var(--m-white)",
-                }}
-              >
-                {/* Las tres fotos tienen proporciones muy distintas (1.28, 2.16
-                    y 2.00) y con object-cover en una caja 4:3 el Horizon y la
-                    MF ONE salian cortados por los lados. Con contain y aire
-                    alrededor se ve el equipo completo en las tres. */}
-                <div
-                  className="relative aspect-[4/3] w-full"
-                  style={{ background: "var(--grad-silver)" }}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img loading="lazy" decoding="async"
-                    src={p.image}
-                    alt={p.name}
-                    className="absolute inset-0 h-full w-full object-contain p-6"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-7">
-                  <p className="m-eyebrow accent">{p.price}</p>
+              <Reveal key={p.name} delay={(i % 3) * 80}>
+                <Link href={p.href} className="group block">
+                  {/* Las tres fotos tienen proporciones muy distintas (1.28,
+                      2.16 y 2.00) y con object-cover en una caja 4:3 el
+                      Horizon y la MF ONE salian cortados por los lados. Con
+                      contain y aire alrededor se ve el equipo completo en las
+                      tres. */}
+                  {/* Mismo piso gris que el inicio, el menú desplegable y
+                      /productos: la clase .pfloor. El 58% de --floor-top es el
+                      mismo valor que usa el inicio en los tres productos. */}
+                  <div
+                    className="pfloor"
+                    style={{ "--floor-top": "58%" } as CSSProperties}
+                  >
+                    <div className="flex aspect-[4/3] w-full items-end justify-center px-6 pb-7">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img loading="lazy" decoding="async"
+                        src={p.image}
+                        alt={p.name}
+                        /* Ancho en % de la columna, igual que en el inicio, en
+                           /productos y en el menú. Antes cada foto llenaba el
+                           alto de la caja y el Barrel, que es la foto más
+                           alta, salía mucho más grande que la MF ONE (Saul,
+                           sep 2026). El cálculo está explicado en LandingV2. */
+                        className={`h-auto flex-none object-contain transition-transform duration-500 group-hover:scale-[1.04] ${
+                          /barrel/i.test(p.name)
+                            ? "w-[68%]"
+                            : /one/i.test(p.name)
+                              ? "w-[76%]"
+                              : "w-full"
+                        }`}
+                      />
+                    </div>
+                  </div>
+                  <p className="m-eyebrow accent mt-5">{p.price}</p>
                   <h3
                     className="mdisplay mt-2 text-[22px]"
                     style={{
@@ -433,25 +501,19 @@ export default function NegociosPage() {
                     {p.name}
                   </h3>
                   <p
-                    className="mt-3 flex-1 text-[14px] leading-relaxed"
+                    className="mt-3 text-[14px] leading-relaxed"
                     style={{ color: "var(--fg-muted)" }}
                   >
                     {p.body}
                   </p>
                   <span
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-medium"
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-medium"
                     style={{ color: "var(--fg-metal)" }}
                   >
                     Ver detalles
                     <ArrowRight className="h-4 w-4" />
                   </span>
-                </div>
-                {/* Stretched link: la card completa es clickeable */}
-                <Link
-                  href={p.href}
-                  className="absolute inset-0 z-[5]"
-                  aria-label={`Ver detalles de ${p.name}`}
-                />
+                </Link>
               </Reveal>
             ))}
           </div>
@@ -480,7 +542,7 @@ export default function NegociosPage() {
           Punto ⑥. Solo datos verificados: sin porcentajes ni cifras de
           ingreso, porque no existen medidos. Falta foto de Westin y
           Westin — Saul las va a conseguir.                            */}
-      <section className="msection panel">
+      <section id="casos" className="msection panel scroll-mt-20">
         <div className="mwrap">
           <Reveal className="msection-head">
             <span className="m-eyebrow accent">Casos reales</span>
@@ -666,24 +728,153 @@ export default function NegociosPage() {
         </div>
       </section>
 
+      {/* ── 7b. CAPACITACIÓN INCLUIDA ──────────────────────────
+          Va pegada al bloque "Por qué Mente Fria", justo después de la razón
+          02 (soporte real) y antes del leasing: es otra cosa que viene
+          incluida con el equipo, y se lee antes de hablar de dinero. El paso
+          04 del proceso ya la menciona; aquí se explica.                  */}
+      <section id="capacitacion" className="msection panel scroll-mt-20">
+        <div className="mwrap grid items-center gap-12 lg:grid-cols-[1.25fr_0.75fr] lg:gap-16">
+          <div>
+            <Reveal className="msection-head !mb-0 !max-w-none">
+              <span className="m-eyebrow accent">Capacitación y certificación</span>
+              <h2>No solo capacitamos a tu equipo. Te certificamos.</h2>
+              <p>
+                Con la compra de tu equipo te compartimos un curso diseñado para
+                negocios. Tu staff aprende a dar el servicio con criterio, tu
+                negocio se certifica y seguimos contigo después de la entrega.
+              </p>
+            </Reveal>
+
+            <div
+              className="mt-10 grid gap-x-10 gap-y-9 pt-10 sm:grid-cols-2"
+              style={{ borderTop: "1px solid var(--line-1)" }}
+            >
+              {CAPACITACION_PUNTOS.map((c, i) => (
+                <Reveal key={c.title} delay={i * 80}>
+                  <span className="mdisplay text-[15px] leading-none text-[var(--accent-ice)]">
+                    {c.n}
+                  </span>
+                  <h3
+                    className="mdisplay mt-2.5 text-[20px]"
+                    style={{
+                      color: "var(--fg-metal)",
+                      WebkitTextStroke: "var(--bold-stroke) currentColor",
+                    }}
+                  >
+                    {c.title}
+                  </h3>
+                  <p
+                    className="mt-2.5 text-[14px] leading-relaxed"
+                    style={{ color: "var(--fg-muted)" }}
+                  >
+                    {c.body}
+                  </p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+          {/* La insignia física, recortada de su fondo para que flote sobre el
+              panel. Original: "Insignia MF.jpg" del escritorio de Saul. */}
+          <Reveal delay={120}>
+            <figure className="mx-auto flex max-w-[340px] flex-col items-center lg:max-w-none">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                loading="lazy"
+                decoding="async"
+                src="/images/negocios/insignia-mf-certified.webp"
+                alt="Insignia Mente Fria Certified: placa metálica sobre piedra volcánica"
+                className="w-[78%] max-w-[360px] drop-shadow-[0_28px_40px_rgba(8,9,11,0.22)]"
+              />
+              <figcaption className="mt-8 text-center">
+                <span className="block text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--fg-muted)]">
+                  Insignia MF
+                </span>
+                <span className="mt-1.5 block text-[14px] text-[var(--fg-metal)]">
+                  Mente Fria Certified
+                </span>
+              </figcaption>
+            </figure>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ── 8. LEASING (dark) ──────────────────────────────────── */}
-      <section className="msection dark-s">
+      <section id="arrendamiento" className="msection dark-s scroll-mt-20">
         <div className="mwrap">
           <Reveal className="max-w-3xl">
-            <span className="m-eyebrow accent">Leasing Mente Fria</span>
+            {/* El eyebrow a 11px (tamaño base de .m-eyebrow en metal.css) se
+                perdía sobre el fondo oscuro. Se sube solo en esta instancia
+                con utilidades de Tailwind: metal.css no se toca porque esa
+                clase la usa todo el sitio. */}
+            <span className="m-eyebrow accent !text-[16px] !font-semibold !tracking-[0.16em]">
+              Leasing Mente Fria
+            </span>
             <h2
-              className="mdisplay mt-4 text-[clamp(28px,3.6vw,50px)]"
+              className="mdisplay mt-5 text-[clamp(28px,3.6vw,50px)]"
               style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
             >
-              Beneficio fiscal para tu empresa. Sin descapitalizarte.
+              Beneficio fiscal para tu empresa, mes con mes.
             </h2>
             <p
               className="mt-5 text-[16px] leading-relaxed"
               style={{ color: "var(--on-dark-muted)" }}
             >
-              Adquiere tu equipo a 12 o 24 meses sin descapitalizarte. Al final
-              del plazo, ejerces opción de compra con valor residual del 5%. Sin
-              tocar tu línea de crédito bancaria.
+              Adquiere tu equipo a 12, 18 o 24 meses. Al final del plazo, ejerces
+              opción de compra con valor residual del 5%. Sin tocar tu línea de
+              crédito bancaria.
+            </p>
+          </Reveal>
+
+          {/* Explicación contable en lenguaje llano: comprar de contado es
+              inversión en activo fijo y se recupera vía depreciación durante
+              años; la renta se registra como gasto de operación del periodo.
+              Sin porcentajes, tasas ni artículos de ley, y con el aviso de que
+              lo confirme su contador: no damos asesoría fiscal.            */}
+          <div className="mt-12 grid gap-4 lg:grid-cols-2">
+            {[
+              {
+                tag: "Si la compras de contado",
+                accent: false,
+                body: "Es una inversión en activo fijo: el dinero sale de tu flujo de una sola vez y fiscalmente lo vas recuperando poco a poco, vía depreciación, a lo largo de varios años.",
+              },
+              {
+                tag: "Si la tomas en arrendamiento",
+                accent: true,
+                body: "La renta mensual se registra como gasto de operación del periodo y se deduce en el mismo ejercicio en que la pagas. En vez de descontar la compra de a poco durante años, deduces la renta mes con mes.",
+              },
+            ].map((c, i) => (
+              <Reveal
+                key={c.tag}
+                delay={i * 90}
+                className="rounded-[16px] border p-7 sm:p-9"
+                style={{
+                  borderColor: "var(--on-dark-line)",
+                  background: "rgba(255,255,255,0.035)",
+                }}
+              >
+                <span className={c.accent ? "m-eyebrow accent" : "m-eyebrow"}>
+                  {c.tag}
+                </span>
+                <p
+                  className="mt-4 text-[15px] leading-relaxed"
+                  style={{ color: "var(--on-dark-muted)" }}
+                >
+                  {c.body}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="mt-5">
+            <p
+              className="max-w-3xl text-[13px] leading-relaxed"
+              style={{ color: "var(--on-dark-subtle)" }}
+            >
+              El tratamiento fiscal depende del régimen de cada empresa y del
+              tipo de arrendamiento que se contrate. Confírmalo con tu contador
+              antes de decidir: esto es información general, no asesoría fiscal.
             </p>
           </Reveal>
 

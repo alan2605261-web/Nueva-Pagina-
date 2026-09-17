@@ -18,6 +18,10 @@
   --m-silver: #d2d7dd;
   --m-platinum: #e7eaee;
   --m-paper: #f3f5f7;
+  /* Fondos de pagina: el platino se veia como un gris marcado en bloques
+     grandes. Estos dos son los que visten la pagina; el platino se queda
+     solo para piezas chicas (losa de producto, monogramas). */
+  --m-mist: #f7f9fa;
   --m-white: #ffffff;
 
   /* ----- Accent (locked pick from Cloud Design) ----- */
@@ -30,14 +34,14 @@
   /* ----- Metallic gradients ----- */
   --grad-chrome: linear-gradient(135deg, #edeff2 0%, #c2c8d0 38%, #9aa1ab 52%, #d6dbe1 70%, #aeb4bd 100%);
   --grad-steel: linear-gradient(160deg, #3a3f46 0%, #21252b 50%, #2e333a 100%);
-  --grad-silver: linear-gradient(180deg, #f4f6f8 0%, #dde1e6 100%);
+  --grad-silver: linear-gradient(180deg, #fdfdfe 0%, #eef1f4 100%);
   --grad-blue: linear-gradient(135deg, #001bff 0%, #1536ff 55%, #4458ff 100%);
   --grad-ink: linear-gradient(180deg, #16191d 0%, #08090b 100%);
   --grad-ice: radial-gradient(ellipse at 50% 0%, rgba(0, 27, 255, 0.22) 0%, rgba(8, 9, 11, 0) 60%);
 
   /* ----- Semantic ----- */
-  --bg-metal: var(--m-paper);
-  --bg-panel: var(--m-platinum);
+  --bg-metal: var(--m-white);
+  --bg-panel: var(--m-mist);
   --bg-dark: var(--m-ink);
   --fg-metal: var(--m-ink);
   --fg-muted: rgba(14, 16, 19, 0.62);
@@ -95,23 +99,37 @@
 }
 
 /* ===== Liquid-glass nav (glass = "Medio") ===== */
+/* Barra superior.
+
+   Tenía tres cosas que se sumaban y la hacían verse cortada sobre los fondos
+   claros: esquinas redondeadas abajo, por donde se asomaba el fondo de la
+   página; un degradado con los extremos grises oscuros, que dejaba dos
+   esquinas sucias sobre blanco; y una sombra de 28px que remarcaba la curva.
+
+   Queda RECTA y de borde a borde. Se probaron y Saul descartó las otras dos
+   salidas: despegarla de las orillas para que flotara con esquinas redondas
+   (se ve chica y se pierde contra el fondo) y dejarla de borde a borde con el
+   redondeo limpio. No volver a proponerlas.
+
+   Del arreglo original se conserva lo que sí servía: los extremos del
+   degradado ya no son el gris oscuro 150,156,164, que ensuciaba las esquinas
+   sobre fondo blanco, sino un 222,227,233 claro. */
 .glass-nav {
   color: var(--m-ink);
   background: linear-gradient(
     90deg,
-    rgba(150, 156, 164, 0.52) 0%,
-    rgba(236, 239, 243, 0.8) 22%,
-    rgba(247, 249, 251, 0.82) 50%,
-    rgba(236, 239, 243, 0.8) 78%,
-    rgba(150, 156, 164, 0.52) 100%
+    rgba(222, 227, 233, 0.72) 0%,
+    rgba(240, 243, 246, 0.82) 24%,
+    rgba(248, 250, 252, 0.86) 50%,
+    rgba(240, 243, 246, 0.82) 76%,
+    rgba(222, 227, 233, 0.72) 100%
   );
   backdrop-filter: blur(22px) saturate(180%);
   -webkit-backdrop-filter: blur(22px) saturate(180%);
-  border-radius: 0 0 16px 16px;
+  border-bottom: 1px solid rgba(14, 16, 19, 0.09);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.92),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.06),
-    0 8px 28px rgba(0, 0, 0, 0.12);
+    0 1px 12px rgba(8, 9, 11, 0.05);
 }
 .glass-nav .nl {
   font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 500;
@@ -144,6 +162,11 @@
 .msection { padding: calc(clamp(44px, 6vh, 84px) * var(--sec-scale, 1)) 0; }
 .msection.dark-s { background: var(--grad-ink); color: var(--on-dark-fg); position: relative; }
 .msection.panel { background: var(--bg-panel); }
+
+/* El bloque que sigue al encabezado de pagina no vuelve a abrir con el
+   padding completo: el SubHero ya cerro con el suyo. Sin esto se apilaban
+   dos paddings de seccion y quedaba una franja muerta bajo el subtitulo. */
+.subhero + .msection { padding-top: clamp(18px, 2.2vh, 30px); }
 /* Los 56px de aire bajo el encabezado eran hueco puro: el título y el contenido
    que le sigue son la misma idea, no hay nada que separar ahí. La separación
    ENTRE secciones sí se respeta, porque es la que le da estructura a la página. */
@@ -159,7 +182,12 @@
    porque el producto es ancho y bajo — a 3:2 sobraba casi la mitad del cuadro en
    gris, y eso es lo que hacía que el bloque se viera enorme sin mostrar nada.
    Si algún día hay un render AMBIENTADO de la MF ONE nueva, ese sí aguanta 3:2. */
-.showcase { position: relative; width: min(1600px, 94vw); margin: 0 auto; }
+/* El ancho también se limita por el ALTO de la pantalla: Rafa pidió que desde
+   "Ingeniería del frío" hasta el borde inferior de la foto quepa en una sola
+   pantalla. Alto disponible = 100svh menos el menú fijo de arriba (73px), menos
+   el encabezado de la sección (~185px), menos aire arriba y abajo; por 1.85 da el
+   ancho máximo sin recortar la foto. */
+.showcase { position: relative; width: min(1600px, 94vw, calc((100svh - 300px) * 1.85)); margin: 0 auto; }
 .showcase-stage { position: relative; border-radius: 18px; overflow: hidden; background: var(--grad-silver); aspect-ratio: 1.85; }
 .showcase-stage img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
 .hotspot { position: absolute; width: 34px; height: 34px; z-index: 3; transform: translate(-50%, -50%); }
@@ -211,6 +239,17 @@
 .mfeature-words .w.active { color: #fff; }
 .mfeature-words .w .num { font-size: 0.22em; vertical-align: super; color: var(--accent-ice); letter-spacing: 0; margin-right: 10px; -webkit-text-stroke: 0; }
 .mfeature-copy { font-size: clamp(16px, 1.35vw, 19px); line-height: 1.5; color: var(--on-dark-muted); max-width: 42ch; margin-top: auto; padding-top: 44px; }
+.mfeature-copy { display: grid; }
+.mfeature-copy .fc { grid-area: 1 / 1; transition: opacity 0.4s; }
+.mfeature-copy .fc:not(.active) { visibility: hidden; opacity: 0; }
+.mfeature-checks { list-style: none; margin: 22px 0 0; padding: 0; max-width: 46ch; display: grid; gap: 16px; }
+.mfeature-checks li { display: flex; align-items: flex-start; gap: 12px; }
+.mfeature-checks .ck { flex: none; display: grid; place-items: center; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background: var(--accent-ice); color: #fff; }
+.mfeature-checks b { display: block; color: #fff; font-weight: 600; font-size: clamp(15px, 1.2vw, 17px); line-height: 1.35; }
+.mfeature-checks span.d { display: block; margin-top: 4px; color: var(--on-dark-muted); font-size: 14px; line-height: 1.5; }
+/* La sección no lleva margen derecho (la foto va a sangre); en celular el texto
+   quedaba pegado al borde. */
+@media (max-width: 880px) { .mfeature-copy { padding-right: 20px; } }
 /* Full-bleed height: stretches to the section's full height (Eight Sleep style) */
 .mfeature-media { position: relative; overflow: hidden; width: 100%; align-self: stretch; min-height: 560px; background: var(--m-graphite); }
 .mfeature-media img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s; }
@@ -218,9 +257,51 @@
 .mfeature-media img[data-contain="true"] { object-fit: contain; }
 @media (max-width: 880px) { .mfeature { grid-template-columns: 1fr; } .mfeature-media { aspect-ratio: 4 / 3; min-height: 0; } }
 
+/* ===== Marquesina de reseñas (bloque claro del inicio) ===== */
+/* La tira corre sola de derecha a izquierda. El track lleva la lista DOS veces
+   y se desplaza exactamente la mitad: al terminar vuelve al inicio sin salto.
+   Se detiene al pasar el cursor y no se mueve si el sistema pide menos
+   movimiento. Las orillas se desvanecen con una máscara para que las tarjetas
+   no se corten en seco. */
+.rmarquee { position: relative; overflow: hidden; width: 100%; }
+.rmarquee::before, .rmarquee::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: clamp(40px, 8vw, 120px); z-index: 2; pointer-events: none;
+}
+.rmarquee::before { left: 0; background: linear-gradient(90deg, var(--bg-panel), rgba(247, 249, 250, 0)); }
+.rmarquee::after { right: 0; background: linear-gradient(270deg, var(--bg-panel), rgba(247, 249, 250, 0)); }
+.rmarquee-track { display: flex; width: max-content; gap: 18px; animation: rmarquee-run 45s linear infinite; }
+.rmarquee:hover .rmarquee-track { animation-play-state: paused; }
+.rmarquee-card {
+  width: clamp(260px, 26vw, 330px); flex: none;
+  border: 1px solid var(--line-1); border-radius: 16px; padding: 22px 24px;
+  background: #fff;
+}
+.rmarquee-card p { font-size: 14.5px; line-height: 1.6; color: var(--fg-metal); margin: 0; }
+.rmarquee-card .nm { margin-top: 14px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-subtle); }
+@keyframes rmarquee-run { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 9px)); } }
+@media (prefers-reduced-motion: reduce) {
+  .rmarquee-track { animation: none; }
+  .rmarquee { overflow-x: auto; }
+}
+
 /* ===== Benefit cards (Ocho Razones carousel) ===== */
 .bcar { position: relative; }
-.bcar-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: none; }
+/* El carrusel de las ocho razones atrapaba el scroll de la página: con
+   overflow-x en auto y overflow-y sin declarar, el navegador calcula el
+   vertical también como auto, así que la rueda del mouse se quedaba dentro de
+   la tira y había que irse de lado para seguir bajando (Rafa, sep 2026).
+   overflow-y: hidden lo suelta. overscroll-behavior-x evita además que el
+   gesto horizontal se encadene y dispare el "atrás" del navegador, y el snap
+   pasa a proximity para que no pelee con el dedo a medio arrastre. */
+.bcar-track {
+  display: flex; gap: 20px;
+  overflow-x: auto; overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  /* 24px abajo, no 8: las tarjetas entran con un desplazamiento de ~16px y con
+     overflow-y en hidden ese tramo se recortaba a media animación. */
+  padding-bottom: 24px; scrollbar-width: none;
+}
 .bcar-track::-webkit-scrollbar { display: none; }
 .bcard { flex: 0 0 clamp(260px, 30vw, 360px); scroll-snap-align: start; }
 .bcard .img { aspect-ratio: 3 / 4; border-radius: 14px; overflow: hidden; background: var(--m-graphite); position: relative; }
@@ -241,7 +322,7 @@
 .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--on-dark-line); border: 1px solid var(--on-dark-line); border-radius: 14px; overflow: hidden; }
 .stat { background: var(--m-ink); padding: 30px 26px; }
 .stat .n { font-family: var(--font-display); font-weight: 400; font-size: clamp(44px, 6vw, 80px); letter-spacing: -0.04em; line-height: 0.9; background: var(--grad-chrome); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-.stat .n .u { font-size: 0.4em; -webkit-text-fill-color: rgba(255, 255, 255, 0.65); }
+.stat .n .u { font-size: 0.4em; margin-left: 0.22em; letter-spacing: 0; -webkit-text-fill-color: rgba(255, 255, 255, 0.65); }
 .stat .l { font-size: 12.5px; color: var(--on-dark-muted); margin-top: 12px; line-height: 1.45; }
 @media (max-width: 880px) { .stats-wrap { grid-template-columns: 1fr; } }
 
@@ -252,6 +333,10 @@
 .vcard img, .vcard video { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); transition: transform 0.6s, filter 0.4s; }
 .vcard:hover img, .vcard:hover video { transform: scale(1.04); filter: grayscale(0.4); }
 .vcard.playing video { filter: none; }
+/* Capa clicable de la tarjeta de testimonio. Existe para que el <video> NO
+   viva dentro de un <button>: con esa anidación, cada clic en los controles
+   del video subía al botón y terminaban sonando dos audios encima. */
+.vhit { position: absolute; inset: 0; z-index: 3; border: 0; padding: 0; background: transparent; cursor: pointer; }
 .vcard .play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 54px; height: 54px; border-radius: 50%; background: rgba(255, 255, 255, 0.92); display: grid; place-items: center; color: var(--m-ink); z-index: 2; transition: opacity 0.3s; }
 .vcard.playing .play { opacity: 0; }
 .vcard .cap { position: absolute; left: 14px; bottom: 12px; right: 14px; color: #fff; z-index: 2; }
@@ -261,7 +346,7 @@
 @media (max-width: 880px) { .vrow, .vrow.cols-4 { grid-template-columns: repeat(2, 1fr); } }
 
 /* ===== Comparison table (Mente Fria vs otros) ===== */
-.compare-scroll { overflow-x: auto; }
+.compare-scroll { overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; }
 /* Las columnas se repartían por el largo del texto, y como las frases de Mente
    Fria son más largas que las de la competencia, la columna negra salía mucho
    más ancha que la blanca. Fijas al 50% quedan parejas. */
@@ -290,7 +375,16 @@
 .masonry > * { break-inside: avoid; margin-bottom: 16px; }
 .r-text { background: var(--m-white); border: 1px solid var(--line-1); border-radius: 14px; padding: 20px; }
 .r-text .top { display: flex; align-items: center; gap: 10px; }
-.r-text .av { width: 32px; height: 32px; border-radius: 50%; background: var(--grad-chrome); }
+/* Monograma, no foto falsa. Antes era un círculo con gradiente cromado que
+   simulaba una foto de perfil inexistente y se leía como un hueco. La inicial
+   de cada quien es honesta, cambia entre tarjetas y da vida al mosaico. */
+.r-text .av {
+  width: 32px; height: 32px; border-radius: 50%; flex: none;
+  display: grid; place-items: center;
+  background: var(--m-platinum); border: 1px solid var(--line-2);
+  font-family: var(--font-display); font-size: 14px; line-height: 1;
+  color: var(--fg-metal);
+}
 .r-text .nm { font-size: 13px; font-weight: 600; }
 .r-text .hd { font-family: var(--font-display); font-size: 16px; letter-spacing: -0.01em; margin: 4px 0 6px; }
 .r-text p { font-size: 13px; color: var(--fg-muted); margin: 0; line-height: 1.5; }
@@ -325,7 +419,9 @@
 .mfooter-news { display: flex; gap: 10px; max-width: 440px; margin: 28px auto 0; }
 .mfooter-news input { flex: 1; background: transparent; border: 1.5px solid var(--on-dark-line); border-radius: 100px; padding: 14px 20px; color: #fff; font-size: 13px; outline: none; }
 .mfooter-news input:focus { border-color: var(--accent-ice); }
-.mfooter-cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 56px; }
+/* Seis bloques: la marca y cinco columnas de enlaces (antes eran tres). */
+.mfooter-cols { display: grid; grid-template-columns: 1.5fr repeat(5, 1fr); gap: 36px 28px; margin-bottom: 56px; }
+@media (max-width: 1180px) { .mfooter-cols { grid-template-columns: 1.4fr repeat(3, 1fr); } }
 .mfooter-cols h5 { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--on-dark-subtle); margin: 0 0 16px; font-weight: 500; }
 .mfooter-cols ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; color: var(--on-dark-muted); }
 .mfooter-cols ul a { transition: color 0.2s; }
@@ -415,7 +511,83 @@
 .closeup .glow { animation: glow-breathe 7s ease-in-out infinite; }
 
 /* ---- Glass nav: hairline sheen on scroll (driven by .scrolled) ---- */
-.glass-nav { transition: box-shadow 0.4s var(--ease-expo); }
+/* Recta arriba del todo: así se funde con el banner del tope y con la
+   división del primer bloque. Al bajar se redondean LAS CUATRO esquinas y
+   levanta la sombra, porque ahí ya flota sobre el contenido. Para que las de
+   arriba también se puedan redondear, el header se separa 10px del tope; sin
+   ese respiro, la curva superior dejaría ver el contenido pasando por detrás
+   y volvería el efecto de recorte. */
+.glass-nav.is-scrolled {
+  border-radius: 16px;
+  border-bottom-color: transparent;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.92),
+    0 14px 40px rgba(8, 9, 11, 0.13);
+}
+.glass-nav {
+  transition:
+    border-radius 0.35s var(--ease-expo),
+    box-shadow 0.4s var(--ease-expo),
+    border-color 0.35s var(--ease-expo);
+}
+
+/* ── Piso de producto ──────────────────────────────────────────────────
+   Una sola pieza para TODOS los lugares donde se muestra un producto
+   recortado: la reja del inicio, el menú desplegable, /productos, /negocios
+   y /atletas.
+
+   Es una TABLA, no un desvanecido. Referencia: la versión anterior que
+   encontró Saul, donde cada producto se apoya en una losa gris de bordes
+   definidos, esquinas redondeadas y un gris claro.
+
+   Se intentó primero con un degradado que se desvanecía hacia arriba y
+   terminaba en #d3d9e0. Estaba mal por dos razones: se veía difuminado en
+   lugar de una figura clara, y ese es el gris "silver" de la paleta, notablemente
+   más oscuro que el "platinum" #e7eaee de la referencia. No repetirlo.
+
+   La losa arranca al 42% de la altura: el producto SIEMPRE la desborda por
+   arriba, que es lo que le da profundidad. La sombra de contacto es sutil,
+   solo para que el producto se apoye y no flote. */
+.pfloor { position: relative; }
+.pfloor::before,
+.pfloor::after { content: ""; position: absolute; pointer-events: none; }
+
+/* La losa. Su altura se ajusta por producto con --floor-top, porque los tres
+   tienen proporciones muy distintas: con un valor fijo, el Barrel desbordaba
+   el 41% de su altura, la MF ONE el 18% y el Horizon el 31%. Se ve disparejo.
+   Los valores por producto están calculados para que las tres desborden lo
+   mismo, ~35%. */
+.pfloor::before {
+  left: 0; right: 0; bottom: 0; top: var(--floor-top, 42%);
+  border-radius: 16px;
+  /* Platino fijo, no --bg-panel: la losa necesita leerse contra el fondo
+     de la seccion y ese tono ya estaba calibrado. */
+  background: var(--m-platinum);
+}
+
+/* Sombra de contacto donde el producto toca la losa */
+.pfloor::after {
+  left: 14%; right: 14%; bottom: 7%; height: 15%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(8, 9, 11, 0.13) 0%,
+    rgba(8, 9, 11, 0.05) 48%,
+    rgba(8, 9, 11, 0) 74%
+  );
+}
+
+.pfloor > * { position: relative; }
+
+/* La variante oscura es OPT-IN, con .pfloor.on-dark, y NO se hereda de
+   .dark-s. Enganchada a la sección, se activaba dentro de las tarjetas
+   BLANCAS de /productos —que viven en una sección oscura— y pintaba la losa
+   en blanco al 7%: invisible. La losa depende de la superficie donde se
+   apoya el producto, no de la sección que la contiene. */
+.pfloor.on-dark::before { background: rgba(255, 255, 255, 0.07); }
+.pfloor.on-dark::after {
+  background: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 72%);
+}
 
 /* ---- Compare table rows: cascade in ---- */
 .compare tbody tr { opacity: 0; transform: translateY(12px); transition: opacity 0.6s var(--ease-expo), transform 0.6s var(--ease-expo); transition-delay: calc(var(--i, 0) * 60ms); }

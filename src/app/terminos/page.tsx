@@ -171,7 +171,7 @@ export default function TerminosPage() {
                 </P>
                 <P>
                   El mantenimiento descrito en el manual y en{" "}
-                  <Link href="/soporte#cuidado" className="underline underline-offset-2">
+                  <Link href="/soporte/cuidado" className="underline underline-offset-2">
                     Cuida tu plunge
                   </Link>{" "}
                   es condición de la garantía. En particular, el uso de cloro o

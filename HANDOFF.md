@@ -137,7 +137,7 @@ aplicable.
    "MF ONE Garantia.pdf". Si un dato no está ahí, se omite: no se rellena con el sitio vivo ni
    con manuales de fábrica anteriores.
 4. **Specs MF ONE · CP-ONE** (ficha y manual oficiales, ago 2026 — CORREGIDAS, las de
-   jun 2026 estaban mal): **rango de ajuste 1 a 40 °C** (NO 0, NO 42) · temperatura ambiente de
+   jun 2026 estaban mal): **rango de ajuste 1 a 40 °C** (NO 0; sobre el 42 °C ver la nota de temperatura abajo) · temperatura ambiente de
    operación 3 a 40 °C · velocidad de enfriamiento 4 a 6 °C/h · 1 HP · enfriamiento 3,500 W ·
    calentamiento 1,000 W · 195×80×71 cm · 420 L · 135 kg · bomba 150 W a 8,000 L/h · 68 dB(A) ·
    **R32 · 500 g** · **filtro de papel + skimmer** (el de carbón viene en la caja pero es un
@@ -149,6 +149,17 @@ aplicable.
    de papel y de carbón, llave de filtro, skimmer y portacelular. El PRO DECK va aparte.
    **NO decir:** certificación CE (no la tienen), hidromasaje (ya no lo trae), LED exterior
    (la iluminación es solo interior).
+### Temperatura máxima: 40 o 42 °C
+
+Saul confirmó (sep 2026) que el **Motor Premium 2.0 va de 3 a 42 °C**. Las fichas
+que dicen 1 a 40 °C son de modelos futuros, no de lo que se vende. La MF ONE: 1 a 40 °C.
+En las secciones de motores (donde el Premium se nombra) sí se dice 42 °C.
+
+**Decisión de Saul:** la página NO explica la diferencia modelo por modelo. Es
+deliberado: permite orientar la conversación de venta al equipo que convenga. Por
+eso la comparativa de la página de inicio dice "Calienta hasta 42 °C", sin
+atribuirlo a un motor. NO cambiarlo a 40 °C.
+
 5. **Inflables** — **ACTUALIZADO sep 2026 contra el Manual Mente Fria v6, que Saul
    confirmó como fuente de verdad vigente.** Hay 30 unidades del modelo anterior en
    stock, así que estas specs siguen aplicando aunque el proveedor cambie pronto.
@@ -192,9 +203,9 @@ aplicable.
    · El consumo que había (2,230 / 2,700 W) no sólo carecía de fuente: estaba lejísimos del
      dato real. La potencia de entrada es de 790 y 1,150 W.
    · El Pro pasó de 55 × 42.5 × 53 cm y 39 kg a 400 × 340 × 350 mm y 30 kg.
-   · El Premium ya no calienta "hasta 42 °C": ajusta de 1 a 40 °C. Ojo, esto invierte la
-     corrección de 42 que Saul había hecho sobre el Manual v6: aquélla aplica a la
-     generación ANTERIOR, ésta a la nueva.
+   · CORREGIDO (Saul, 17 sep 2026): el Premium 2.0 que se vende va de 3 a 42 °C. Las
+     fichas que dicen "1 a 40 °C" son de modelos futuros en desarrollo: son otra cosa,
+     no se publican y no se les pone aviso de "modelo futuro".
 
    **Regla:** el sitio publica la ficha NUEVA, y `/motores` lleva una tabla que compara las
    dos generaciones y avisa que puede llegar la anterior. Publicar la nueva como si fuera la
@@ -231,8 +242,10 @@ aplicable.
 14. **No hay certificación CE.** Se eliminó de los 20 lugares donde aparecía (jun 2026 la
     afirmaba sin respaldo). No volver a ponerla hasta que exista el certificado.
 15. **Garantías independientes por producto**: MF ONE 12 meses con póliza propia y detallada;
-    Barrel/Horizon 6 meses. NO atribuir a los inflables las condiciones del MF ONE. Falta
-    redactar la póliza de los inflables.
+    Barrel/Horizon 6 meses. NO atribuir a los inflables las condiciones del MF ONE.
+    La tina inflable y su motor (Pro 2.0 o Premium 2.0) van en UNA sola póliza (Saul,
+    17 sep 2026): no existe "póliza propia del motor". /garantia/motores se eliminó y su
+    contenido vive en /garantia/inflables.
 
 ---
 

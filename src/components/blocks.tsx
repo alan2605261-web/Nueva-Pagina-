@@ -26,7 +26,11 @@ export function SubHero({
 }) {
   // Sistema metal: el tono "warm" pasa a panel, el resto queda sobre el fondo base.
   return (
-    <section className={cn("msection", tone === "warm" && "panel")}>
+    /* subhero: marca para que metal.css recorte el padding superior de la
+       seccion que venga justo despues. Un encabezado de pagina y el primer
+       bloque son la misma idea; con los dos paddings completos quedaban 108px
+       de nada entre el subtitulo y el contenido. */
+    <section className={cn("subhero msection !pb-8", tone === "warm" && "panel")}>
       <div className="mwrap">
         <Reveal className="max-w-3xl">
           {eyebrow && <span className="m-eyebrow accent">{eyebrow}</span>}
@@ -171,12 +175,25 @@ export function SpecTable({
 }
 
 /* ---- Stat row ---------------------------------------------------------- */
-export function StatRow({ stats }: { stats: { value: string; label: string }[] }) {
+/* `nota`: pone un asterisco junto a la cifra para remitir a su fuente, que la
+   página escribe debajo de la fila. */
+export function StatRow({ stats }: { stats: { value: string; label: string; nota?: boolean }[] }) {
   return (
-    <div className="grid gap-10 border-t border-[var(--line-1)] pt-12 sm:grid-cols-3">
+    <div
+      className={`grid gap-10 border-t border-[var(--line-1)] pt-12 ${
+        stats.length === 2 ? "mx-auto max-w-3xl sm:grid-cols-2" : "sm:grid-cols-3"
+      }`}
+    >
       {stats.map((s, i) => (
         <Reveal key={s.label} delay={i * 90} className="text-center">
-          <div className="mdisplay text-[clamp(32px,4.6vw,60px)] !text-foreground">{s.value}</div>
+          <div className="mdisplay text-[clamp(32px,4.6vw,60px)] !text-foreground">
+            {s.value}
+            {s.nota && (
+              <sup className="ml-0.5 align-super text-[0.4em] text-[var(--fg-subtle)]" aria-label="ver fuente">
+                *
+              </sup>
+            )}
+          </div>
           <p className="mt-2 text-sm text-[var(--fg-muted)]">{s.label}</p>
         </Reveal>
       ))}

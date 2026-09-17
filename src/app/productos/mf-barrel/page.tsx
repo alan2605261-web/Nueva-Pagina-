@@ -1,9 +1,10 @@
 import Link from "next/link";
+import { agendarLlamada } from "@/lib/whatsapp";
 import { PageShell } from "@/components/PageShell";
 import { FAQ } from "@/components/FAQ";
 import { Reveal } from "@/components/Reveal";
 import { AccessoryCard } from "@/components/AccessoryCard";
-import { ProductOptionsProvider, ProductStage, ColorPicker, ShieldAddon, ConfigTotal } from "@/components/ProductOptions";
+import { ProductOptionsProvider, ProductStage, ColorPicker, MotorSelector, PrecioBase, AddToCart, ShieldAddon, ConfigTotal } from "@/components/ProductOptions";
 import { BenefitsCarousel } from "@/components/BenefitsCarousel";
 import { MotorPicker } from "@/components/MotorPicker";
 import {
@@ -28,7 +29,7 @@ const WHATSAPP = "https://wa.me/5215616471386";
 const FAQ_ITEMS = [
   {
     q: "¿Dónde puedo instalar el MF Barrel?",
-    a: "Donde quieras: con 90 cm de diámetro cabe en un balcón, una terraza o un rincón del departamento. No requiere obra ni plomería — se infla en menos de 15 minutos con la bomba de doble acción incluida, se llena con manguera y se conecta a un contacto estándar. Idealmente bajo techo, protegida del sol directo y la lluvia.",
+    a: "Donde quieras: con 90 cm de diámetro cabe en un balcón, una terraza o un rincón del departamento. No requiere obra ni plomería: se infla en menos de 15 minutos con la bomba de doble acción incluida, se llena con manguera y se conecta a un contacto estándar. Idealmente bajo techo, protegida del sol directo y la lluvia.",
   },
   {
     q: "¿Necesito hielo?",
@@ -36,11 +37,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Qué motor me conviene: Pro 2.0 o Premium 2.0?",
-    a: "El Motor Pro 2.0 (0.8 HP) es la puerta de entrada: enfría de 25 a 3 °C en aproximadamente 6 horas, con filtración de 3 capas y control WiFi. El Motor Premium 2.0 (1 HP) hace todo lo anterior más rápido (~4 horas), y suma calefacción y ajuste de 1 a 40 °C y purificación por ozono 24/7. Si quieres contraste frío-calor y agua sin cloro de alberca, elige Premium.",
+    a: "El Motor Pro 2.0 (0.8 HP) es la puerta de entrada: enfría de 25 a 3 °C en aproximadamente 6 horas, con filtración de 3 capas y control Wi-Fi. El Motor Premium 2.0 (1 HP) hace todo lo anterior más rápido (~4 horas), y suma calefacción, ajuste de 3 a 42 °C y purificación por ozono 24/7. Si quieres contraste frío-calor y agua sin cloro de alberca, elige Premium.",
   },
   {
     q: "¿Cada cuánto cambio el agua y los filtros?",
-    a: "Con la filtración trabajando, el agua se mantiene en buen estado entre 3 y 5 semanas según el uso. Cada cambio de agua incluye cambio de filtro — el proceso es sencillo y no requiere técnico. El sistema es de 3 capas: filtro de papel, filtro integrado y malla antipolvo.",
+    a: "Depende de cuántas inmersiones tenga el equipo al día, sumando a todos los que lo usan, y de si el motor se queda encendido. Como referencia, con el Motor Pro encendido y una inmersión al día, el agua dura alrededor de tres semanas y el filtro de papel también; con cinco al día, unos cuatro días el agua y una semana el filtro. Si el agua se ve turbia o se siente resbalosa, cámbiala sin esperar. El calendario completo está en el centro de ayuda.",
   },
   {
     q: "¿El ozono sustituye al cloro?",
@@ -48,7 +49,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Cuánto cuesta el envío?",
-    a: "El envío del MF Barrel cuesta $1,500 MXN a todo México. Al ser inflable y compacto, llega en paquetería estándar — sin maniobras especiales.",
+    a: "El envío del MF Barrel cuesta $1,500 MXN a todo México. Al ser inflable y compacto, llega en paquetería estándar, sin maniobras especiales.",
   },
   {
     q: "¿Qué garantía tiene?",
@@ -67,20 +68,20 @@ const SPEC_ROWS = [
   { label: "Filtración", value: "Filtración de 3 capas: filtro de papel, filtro integrado y malla antipolvo" },
   { label: "Desinfección", value: "Ozono 24/7 (con Motor Premium 2.0)" },
   { label: "Enfriamiento", value: "Hasta 3 °C, sin hielo" },
-  { label: "Calentamiento", value: "De 1 a 40 °C (con Motor Premium 2.0)" },
+  { label: "Calentamiento", value: "De 3 a 42 °C (con Motor Premium 2.0)" },
   { label: "Motores compatibles", value: "Motor Pro 2.0 (0.8 HP) · Motor Premium 2.0 (1 HP)" },
   { label: "Motor (dimensiones)", value: "Pro 400 × 340 × 350 mm · 30 kg · Premium 619 × 402 × 475 mm · 41.5 kg" },
-  { label: "Pantalla y control", value: "WiFi + app (temperatura y horarios)" },
+  { label: "Pantalla y control", value: "Control por app Wi-Fi (temperatura y horarios)" },
   { label: "Voltaje", value: "110 V" },
   { label: "Garantía", value: "6 meses" },
   { label: "Envío", value: "$1,500 MXN a todo México" },
 ];
 
 const HERO_BULLETS = [
-  "Enfría hasta 3 °C sin hielo — la portátil más potente de México",
+  "Enfría hasta 3 °C sin hielo. La portátil más potente de México",
   "Compacta: Ø 90 cm, ideal para departamentos y espacios reducidos",
   "Filtración de 3 capas + purificación por ozono",
-  "Control WiFi programable desde tu celular.",
+  "Control por app Wi-Fi, programable desde tu celular.",
   "6 meses de garantía.",
 ];
 
@@ -103,161 +104,146 @@ const PORTABILITY_STEPS = [
   {
     icon: Luggage,
     t: "Viaja con ella",
-    d: "11 kg de tina. Llévala a tu casa de vacaciones o contigo en la mudanza — tu rutina de frío no se queda atrás.",
+    d: "11 kg de tina. Llévala a tu casa de vacaciones o contigo en la mudanza: tu rutina de frío no se queda atrás.",
   },
 ];
 
 const ACCESSORIES = [
   {
     t: "Mochila de transporte",
-    p: "La tina completa cabe adentro — guárdala o llévala a donde vayas.",
-    img: null,
+    p: "La tina completa cabe adentro. Guárdala o llévala a donde vayas.",
+    img: "/images/acc-mochila.webp",
   },
   {
     t: "Bomba de doble acción",
     p: "Infla tu MF Barrel en menos de 15 minutos, sin herramientas.",
-    img: null,
+    img: "/images/acc-bomba.webp",
   },
   {
     t: "Cubierta protectora",
-    p: "Térmica y con seguro para niños — conserva la temperatura y mantiene el agua limpia.",
-    img: null,
+    p: "Térmica y con seguro para niños. Conserva la temperatura y mantiene el agua limpia.",
+    img: "/images/acc-tapa-barrel.webp",
   },
   {
     t: "Sistema de filtrado",
-    p: "Filtro de papel, filtro integrado y malla antipolvo — agua cristalina desde el día uno.",
-    img: null,
-  },
-  {
-    t: "Kit de reparación",
-    p: "Herramientas básicas incluidas para mantener tu equipo como nuevo.",
-    img: null,
+    p: "Filtro de papel, filtro integrado y malla antipolvo, para agua cristalina desde el día uno.",
+    img: "/images/acc-filtros-motor.webp",
   },
 ];
 
 export default function MFBarrelPage() {
   return (
     <PageShell>
+      <ProductOptionsProvider
+      producto="mf-barrel"
+      basePrice={69000}
+      preciosMotor={{ Pro: 69000, Premium: 84000 }}
+      variants={[
+        // Galeria por color: cada variante solo muestra fotos de ESE color.
+        // No mezclar negro y blanco en la misma lista.
+        { color: "Negro", images: Array.from({ length: 4 }, (_, i) => `/images/barrel-gallery/negro/${String(i + 1).padStart(2, "0")}.jpg`) },
+        { color: "Blanco", images: Array.from({ length: 4 }, (_, i) => `/images/barrel-gallery/blanco/${String(i + 1).padStart(2, "0")}.jpg`) },
+      ]}
+      >
       <div className="bg-[var(--bg-metal)] text-[var(--fg-metal)]">
 
         {/* ── 1. PRODUCT HERO ─────────────────────────────────── */}
         <section className="msection !pt-[clamp(40px,6vh,80px)]">
           <div className="mwrap">
-            <ProductOptionsProvider
-              producto="mf-barrel"
-              basePrice={69000}
-              variants={[
-                { color: "Negro", images: ["/images/pdp-barrel-negro.png"] },
-                { color: "Blanco", images: ["/images/pdp-barrel-blanco.png"] },
-              ]}
-            >
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
-
-              {/* LEFT — celda estirada con stage sticky interno (estilo Plunge/Apple) */}
-              <Reveal className="lg:h-full">
-                <div className="lg:sticky lg:top-24">
-                  <ProductStage alt="MF Barrel — cold plunge portátil inflable" />
-                </div>
-              </Reveal>
-
-              {/* RIGHT — copy + CTAs */}
-              <Reveal delay={80}>
-                <div>
-                  <span className="m-eyebrow accent">MF Barrel · Portátil</span>
-                  <h1 className="mdisplay mt-4 text-[clamp(44px,5.5vw,76px)]" style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}>
-                    MF BARREL
-                  </h1>
-
-                  {/* Price */}
-                  <div className="mt-5 flex flex-wrap items-baseline gap-2">
-                    <span className="mdisplay text-[clamp(34px,3.6vw,50px)]">$69,000</span>
-                    <span className="text-lg text-[var(--fg-muted)]">MXN</span>
-                  </div>
-                  <p className="mt-1 text-[11px] uppercase tracking-[0.16em] text-[var(--fg-subtle)]">
-                    Precio no incluye IVA · Hasta 6 MSI con Mercado Pago
-                  </p>
-
-                  <p className="mt-6 max-w-md text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                    La cold plunge portátil más potente de México. Se infla, se llena y se enfría — donde tú quieras.
-                  </p>
-
-                  {/* Bullet highlights */}
-                  <ul className="mt-8 space-y-3">
-                    {HERO_BULLETS.map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <span className="mt-[8px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--accent-ice)]" />
-                        <span className="text-[15px] leading-snug">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Color (patrón Plunge: opciones arriba del CTA) */}
-                  <ColorPicker />
-
-                  {/* Garantía extendida MF Shield */}
-                  <ShieldAddon />
-
-                  {/* CTAs */}
-                  <div className="mt-8 flex flex-wrap gap-3">
-                    <a href="https://mentefria.com/products/mf-barrel-1" target="_blank" rel="noopener noreferrer" className="mbtn mbtn-primary">
-                      Agregar al carrito
-                    </a>
-                    <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="mbtn mbtn-ghost">
-                      Agendar demo
-                    </a>
-                  </div>
-
-                  <ConfigTotal />
-
-                  {/* Acordeones estilo Plunge */}
-                  <div className="mt-7 space-y-2.5">
-                    {[
-                      {
-                        t: "Detalles del producto",
-                        c: "Ø 90 × 90 cm · 500 L máximo, 350 L recomendado · 11 kg. Tejido drop-stitch de grado militar, con cámara de aire aislante que conserva la temperatura. Enfría hasta 3 °C sin hielo; con Motor Premium 2.0 también ajusta de 1 a 40 °C y purifica con ozono. Control WiFi desde la app.",
-                      },
-                      {
-                        t: "Qué incluye",
-                        c: "Mochila de transporte, bomba de inflado de doble acción (infla en menos de 15 minutos), cubierta protectora térmica con seguro para niños, filtros de repuesto y kit de reparación. Todo en la caja, sin compras extra.",
-                      },
-                      {
-                        t: "Envío y entrega",
-                        c: "$1,500 MXN a todo México. Al ser inflable y compacto, el MF Barrel viaja en paquetería estándar — sin maniobras especiales ni accesos complicados.",
-                      },
-                      {
-                        t: "Prueba, garantía y devoluciones",
-                        c: "30 días de prueba sin preguntas: si no es la mejor cold plunge que has probado, te reembolsamos. Garantía de 6 meses por defectos de fabricación. Vencida, la atención no se corta.",
-                      },
-                    ].map((a) => (
-                      <details key={a.t} className="group rounded-[14px] border border-[var(--line-1)] bg-white">
-                        <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[14px] font-semibold [&::-webkit-details-marker]:hidden">
-                          {a.t}
-                          <Plus size={18} className="flex-none text-[var(--accent-ice)] transition-transform duration-300 group-open:rotate-45" />
-                        </summary>
-                        <p className="px-5 pb-5 text-[13.5px] leading-relaxed text-[var(--fg-muted)]">{a.c}</p>
-                      </details>
-                    ))}
-                  </div>
-
-                  {/* Trust cards (formato Eight Sleep/Plunge) */}
-                  <div className="mt-7 grid grid-cols-3 gap-3">
-                    {[
-                      { icon: RotateCcw, t: "30 días de prueba", d: "Sin preguntas: te reembolsamos." },
-                      { icon: ShieldCheck, t: "Garantía 6 meses", d: "Contra defectos de fábrica." },
-                      { icon: CreditCard, t: "Hasta 6 MSI", d: "Con Mercado Pago." },
-                    ].map((b) => (
-                      <div key={b.t} className="rounded-[14px] border border-[var(--line-1)] bg-white p-4 text-center">
-                        <b.icon size={20} strokeWidth={1.8} className="mx-auto text-[var(--accent-ice)]" />
-                        <div className="mt-2 text-[12.5px] font-semibold leading-tight">{b.t}</div>
-                        <div className="mt-1 text-[11px] leading-snug text-[var(--fg-muted)]">{b.d}</div>
-                      </div>
-                    ))}
-                  </div>
-
-                </div>
-              </Reveal>
+      {/* LEFT — celda estirada con stage sticky interno (estilo Plunge/Apple) */}
+      <Reveal className="lg:h-full">
+        <div className="lg:sticky lg:top-24">
+          <ProductStage alt="MF Barrel, cold plunge portátil inflable" />
+        </div>
+      </Reveal>
+      {/* RIGHT — copy + CTAs */}
+      <Reveal delay={80}>
+        <div>
+          <span className="m-eyebrow accent">MF Barrel · Portátil</span>
+          <h1 className="mdisplay mt-4 text-[clamp(44px,5.5vw,76px)]" style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}>
+            MF BARREL
+          </h1>
+          {/* Price */}
+          <div className="mt-5 flex flex-wrap items-baseline gap-2">
+            <PrecioBase />
+            <span className="text-lg text-[var(--fg-muted)]">MXN</span>
+          </div>
+          <p className="mt-1 text-[11px] uppercase tracking-[0.16em] text-[var(--fg-subtle)]">
+            Precio no incluye IVA · Hasta 6 MSI con Mercado Pago
+          </p>
+          <p className="mt-6 max-w-md text-[16px] leading-relaxed text-[var(--fg-muted)]">
+            La cold plunge portátil más potente de México. Se infla, se llena y se enfría donde tú quieras.
+          </p>
+          {/* Bullet highlights */}
+          <ul className="mt-8 space-y-3">
+            {HERO_BULLETS.map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <span className="mt-[8px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--accent-ice)]" />
+                <span className="text-[15px] leading-snug">{item}</span>
+              </li>
+            ))}
+          </ul>
+          {/* Color (patrón Plunge: opciones arriba del CTA) */}
+          <ColorPicker />
+          {/* Motor: define el precio del equipo y el plan de MF Shield */}
+          <MotorSelector />
+          {/* Garantía extendida MF Shield (hereda el motor de arriba) */}
+          <ShieldAddon />
+          {/* CTAs */}
+          <div className="mt-8 flex flex-wrap gap-3">
+            <AddToCart label="Agregar al carrito" nombre="MF Barrel" />
+            <a href={agendarLlamada("MF Barrel")} target="_blank" rel="noopener noreferrer" className="mbtn mbtn-ghost">
+              Agendar llamada
+            </a>
+          </div>
+          <ConfigTotal />
+          {/* Acordeones estilo Plunge */}
+          <div className="mt-7 space-y-2.5">
+            {[
+              {
+                t: "Detalles del producto",
+                c: "Ø 90 × 90 cm · 500 L máximo, 350 L recomendado · 11 kg. Tejido drop-stitch de grado militar, con cámara de aire aislante que conserva la temperatura. Enfría hasta 3 °C sin hielo; con Motor Premium 2.0 también ajusta de 3 a 42 °C y purifica con ozono. Control Wi-Fi desde la app.",
+              },
+              {
+                t: "Qué incluye",
+                c: "Mochila de transporte, bomba de inflado de doble acción (infla en menos de 15 minutos), cubierta protectora térmica con seguro para niños y filtros de repuesto. Todo en la caja, sin compras extra.",
+              },
+              {
+                t: "Envío y entrega",
+                c: "$1,500 MXN a todo México. Al ser inflable y compacto, el MF Barrel viaja en paquetería estándar, sin maniobras especiales ni accesos complicados.",
+              },
+              {
+                t: "Prueba, garantía y devoluciones",
+                c: "30 días de prueba sin preguntas: si no es la mejor cold plunge que has probado, te reembolsamos. Garantía de 6 meses por defectos de fabricación. Vencida, la atención no se corta.",
+              },
+            ].map((a) => (
+              <details key={a.t} className="group rounded-[14px] border border-[var(--line-1)] bg-white">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[14px] font-semibold [&::-webkit-details-marker]:hidden">
+                  {a.t}
+                  <Plus size={18} className="flex-none text-[var(--accent-ice)] transition-transform duration-300 group-open:rotate-45" />
+                </summary>
+                <p className="px-5 pb-5 text-[13.5px] leading-relaxed text-[var(--fg-muted)]">{a.c}</p>
+              </details>
+            ))}
+          </div>
+          {/* Trust cards (formato Eight Sleep/Plunge) */}
+          <div className="mt-7 grid grid-cols-3 gap-3">
+            {[
+              { icon: RotateCcw, t: "30 días de prueba", d: "Sin preguntas: te reembolsamos." },
+              { icon: ShieldCheck, t: "Garantía 6 meses", d: "Contra defectos de fábrica." },
+              { icon: CreditCard, t: "Hasta 6 MSI", d: "Con Mercado Pago." },
+            ].map((b) => (
+              <div key={b.t} className="rounded-[14px] border border-[var(--line-1)] bg-white p-4 text-center">
+                <b.icon size={20} strokeWidth={1.8} className="mx-auto text-[var(--accent-ice)]" />
+                <div className="mt-2 text-[12.5px] font-semibold leading-tight">{b.t}</div>
+                <div className="mt-1 text-[11px] leading-snug text-[var(--fg-muted)]">{b.d}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
             </div>
-            </ProductOptionsProvider>
           </div>
         </section>
 
@@ -269,7 +255,7 @@ export default function MFBarrelPage() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img loading="lazy" decoding="async"
                   src="/images/barrel-studio-tapa.jpg"
-                  alt="MF Barrel en estudio — colocando la cubierta térmica"
+                  alt="MF Barrel en estudio, colocando la cubierta térmica"
                   className="!object-cover !p-0"
                 />
               </Reveal>
@@ -344,7 +330,7 @@ export default function MFBarrelPage() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img loading="lazy" decoding="async"
                   src="/images/barrel-retrato-moody.jpg"
-                  alt="MF Barrel — inmersión en frío"
+                  alt="MF Barrel, inmersión en frío"
                   className="h-[320px] w-full rounded-[18px] object-cover sm:h-[420px]"
                 />
               </div>
@@ -389,9 +375,7 @@ export default function MFBarrelPage() {
                     Todo lo que necesitas saber antes de tomar la decisión.
                   </p>
                   <div className="mt-8">
-                    <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="mbtn mbtn-primary">
-                      Comprar MF Barrel
-                    </a>
+                    <AddToCart label="Comprar MF Barrel" nombre="MF Barrel" conPaso />
                   </div>
                 </Reveal>
               </div>
@@ -428,7 +412,7 @@ export default function MFBarrelPage() {
         <section className="msection dark-s">
           <div className="mwrap">
             <Reveal className="mx-auto max-w-3xl text-center">
-              <span className="m-eyebrow accent">MF Barrel · $69,000 MXN</span>
+              <span className="m-eyebrow accent">MF Barrel</span>
               <h2
                 className="mdisplay mt-4 text-[clamp(34px,4.5vw,64px)]"
                 style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
@@ -438,12 +422,10 @@ export default function MFBarrelPage() {
               <p className="mx-auto mt-6 max-w-[52ch] text-[15.5px] leading-relaxed text-[var(--on-dark-muted)]">
                 30 días de prueba sin preguntas. Garantía de 6 meses con atención de
                 por vida. Hasta 6 MSI con Mercado Pago y envío de $1,500 MXN a todo
-                México. El frío que cambia tu día, en el espacio que ya tienes.
+                México.
               </p>
               <div className="mt-10 flex flex-wrap justify-center gap-3">
-                <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="mbtn mbtn-blue">
-                  Comprar MF Barrel
-                </a>
+                <AddToCart label="Comprar MF Barrel" nombre="MF Barrel" variante="blue" conPaso />
                 <Link href="/productos" className="mbtn mbtn-ghost on-dark">
                   Ver todos los productos
                 </Link>
@@ -453,6 +435,7 @@ export default function MFBarrelPage() {
         </section>
 
       </div>
+      </ProductOptionsProvider>
     </PageShell>
   );
 }

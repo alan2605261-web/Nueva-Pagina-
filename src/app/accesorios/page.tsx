@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
 import { SubHero, SectionHeader, CTASection } from "@/components/blocks";
 import { Reveal } from "@/components/Reveal";
@@ -35,15 +36,22 @@ const maintenanceSchedule = [
 
 /* Card de producto con imagen (o placeholder) + chip de precio */
 function AccessoryGrid({ items }: { items: Accesorio[] }) {
+  /* Cada tarjeta lleva a la página del accesorio, donde se compra (o se
+     consulta, si no tiene precio). Antes no llevaban a ningún lado. */
   return (
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item, i) => (
         <Reveal key={item.title} delay={i * 0.06} className="h-full">
-          <AccessoryCard
-            a={{ t: item.title, p: item.body, img: item.img ?? null, tag: item.tag }}
-            index={i}
-            className="h-full"
-          />
+          <Link
+            href={`/accesorios/${item.slug}`}
+            className="group block h-full rounded-[16px] transition-transform duration-300 hover:-translate-y-1"
+          >
+            <AccessoryCard
+              a={{ t: item.title, p: item.body, img: item.img ?? null, tag: item.tag, render: item.render }}
+              index={i}
+              className="h-full transition-shadow duration-300 group-hover:shadow-[0_18px_40px_rgba(8,9,11,0.08)]"
+            />
+          </Link>
         </Reveal>
       ))}
     </div>

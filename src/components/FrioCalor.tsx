@@ -55,7 +55,7 @@ export function FrioCalor() {
             <button
               key={p.key}
               type="button"
-              aria-label={`${p.label} — ${p.temp}`}
+              aria-label={`${p.label}, ${p.temp}`}
               onMouseEnter={() => setHovered(p.key)}
               onMouseLeave={() => setHovered(null)}
               onFocus={() => setHovered(p.key)}

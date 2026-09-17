@@ -14,7 +14,9 @@
   - El consumo publicado de los motores (2,230 y 2,700 W) era la capacidad
     de enfriamiento mal etiquetada, y ni siquiera esa. La entrada real es
     790 W y 1,150 W.
-  - El rango del Premium no llega a 42 °C: va de 1 a 40 °C.
+  - Motor Premium 2.0: va de 3 a 42 °C (Saul, sep 2026). Las fichas que dicen
+    "1 a 40 °C" son de modelos futuros: son otra cosa, no se publican ni se
+    aclaran en la página. La MF ONE sí es de 1 a 40 °C.
   - Las medidas y pesos de las tres tinas estaban mal.
   - "Producto usado no es elegible para reembolso" contradecía la prueba
     de 30 días, donde usar el equipo es justo el punto.
@@ -117,7 +119,7 @@ export const CATEGORIAS: Categoria[] = [
       },
       {
         q: "¿Cuánto dura la garantía?",
-        a: "12 meses en la MF ONE. 6 meses en MF Barrel y MF Horizon. Los motores Pro y Premium tienen 6 meses y póliza propia, distinta de la de la tina con la que se usan. Son garantías independientes: lo que aplica a una no aplica a la otra.",
+        a: "12 meses en la MF ONE. 6 meses en MF Barrel y MF Horizon, y esa misma póliza cubre la tina y su motor, Pro 2.0 o Premium 2.0. La garantía de la MF ONE y la de los inflables son independientes: lo que aplica a una no aplica a la otra.",
       },
       {
         q: "¿Qué cubre la garantía?",
@@ -236,7 +238,7 @@ export const CATEGORIAS: Categoria[] = [
     preguntas: [
       {
         q: "¿Cuál es la diferencia entre el Motor Pro y el Motor Premium?",
-        a: "El Pro es de 0.8 HP con 2,050 W de capacidad de enfriamiento, filtración de tres capas y control por Wi-Fi. Solo enfría. El Premium es de 1 HP con 2,600 W de enfriamiento, suma 3,416 W de calentamiento para ajustar de 1 a 40 °C, y trae ozono integrado. Los dos sirven para MF Barrel y MF Horizon.",
+        a: "El Pro es de 0.8 HP con 2,050 W de capacidad de enfriamiento, filtración de tres capas y control por Wi-Fi. Solo enfría. El Premium es de 1 HP con 2,600 W de enfriamiento, suma calentamiento para ajustar de 3 a 42 °C, y trae ozono integrado. Los dos sirven para MF Barrel y MF Horizon.",
       },
       {
         q: "¿Cuánta electricidad consumen?",
@@ -244,11 +246,11 @@ export const CATEGORIAS: Categoria[] = [
       },
       {
         q: "Tengo un motor con especificaciones distintas a las publicadas. ¿Está mal?",
-        a: "No. Hay dos generaciones circulando. Los motores anteriores medían 55 × 42.5 × 53 cm el Pro y 58.5 × 42.5 × 53 cm el Premium, pesaban 39 kg y el Premium calentaba hasta 42 °C. La generación nueva cambió medidas, peso y rango. La garantía funciona igual en ambas. En la página de motores está la tabla comparativa.",
+        a: "No. Hay dos generaciones circulando. Los motores anteriores medían 55 × 42.5 × 53 cm el Pro y 58.5 × 42.5 × 53 cm el Premium, pesaban 39 kg. La generación nueva cambió medidas y peso. La garantía funciona igual en ambas. En la página de motores está la tabla comparativa.",
       },
       {
         q: "¿El motor calienta además de enfriar?",
-        a: "Solo el Premium. Ajusta de 1 a 40 °C, así que la misma tina te sirve para frío y para agua caliente. El Pro únicamente enfría.",
+        a: "Solo el Premium. Ajusta de 3 a 42 °C, así que la misma tina te sirve para frío y para agua caliente. El Pro únicamente enfría.",
       },
       {
         q: "¿Hacen ruido?",
@@ -472,7 +474,7 @@ export const CATEGORIAS: Categoria[] = [
       },
       {
         q: "¿Qué app uso?",
-        a: "Smart Life, disponible en App Store y Google Play. Desde ahí enciendes el equipo y ajustas la temperatura, que es lo que te permite dejarlo enfriando antes de llegar a casa. La app no sustituye la supervisión: nunca dejes el equipo operando sin vigilancia con personas o mascotas cerca.",
+        a: "Depende de tu equipo. La MF ONE se controla con Smart Life. El MF Barrel y el MF Horizon se controlan con Tuya Smart, que es la app de su motor. Las dos están en App Store y Google Play. Desde ahí enciendes el equipo y ajustas la temperatura, que es lo que te permite dejarlo enfriando antes de llegar a casa. La app no sustituye la supervisión: nunca dejes el equipo operando sin vigilancia con personas o mascotas cerca.",
       },
       {
         q: "¿Puedo abrir el equipo para revisarlo?",

@@ -16,7 +16,7 @@ export function Gallery() {
           {items.map((item, i) => (
             <figure
               key={i}
-              className="relative aspect-[3/4] w-[clamp(220px,28vw,360px)] shrink-0 overflow-hidden rounded-3xl bg-gradient-to-b from-white to-[#e7eaee]"
+              className="relative aspect-[3/4] w-[clamp(220px,28vw,360px)] shrink-0 overflow-hidden rounded-3xl bg-gradient-to-b from-white to-[var(--bg-panel)]"
             >
               <Image
                 src={item.image}

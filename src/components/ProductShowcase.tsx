@@ -32,7 +32,7 @@ export function ProductShowcase() {
 
         {/* Product stage */}
         <Reveal className="mt-12" delay={80}>
-          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl bg-gradient-to-b from-white to-[#e7eaee] sm:aspect-[16/9]">
+          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl bg-gradient-to-b from-white to-[var(--bg-panel)] sm:aspect-[16/9]">
             {/* soft chrome floor reflection */}
             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-[radial-gradient(60%_100%_at_50%_100%,rgba(140,147,155,0.25),transparent)]" />
             {showcase.products.map((p, i) => (

@@ -35,7 +35,7 @@ export const nav: {
       href: "/aprender",
       submenu: [
         { label: "La ciencia detrás del frío", href: "/aprender" },
-        { label: "Consejo científico", href: "/aprender#consejo" },
+        { label: "Consejo científico", href: "/aprender/consejo-cientifico" },
         { label: "Motores Mente Fria", href: "/motores" },
       ],
     },
@@ -43,10 +43,10 @@ export const nav: {
       label: "Soporte",
       href: "/soporte",
       submenu: [
-        { label: "Instrucciones de instalación", href: "/soporte#instalacion" },
-        { label: "Cuida tu MF Plunge", href: "/soporte#cuidado" },
+        { label: "Instrucciones de instalación", href: "/soporte/instalacion" },
+        { label: "Cuida tu MF Plunge", href: "/soporte/cuidado" },
         { label: "Centro de ayuda", href: "/soporte/centro-de-ayuda" },
-        { label: "Contáctanos", href: "/soporte" },
+        { label: "Contáctanos", href: "/contacto" },
         { label: "Garantía", href: "/garantia" },
         { label: "Garantía extendida", href: "/garantia/extendida" },
         { label: "Términos y condiciones", href: "/terminos" },
@@ -86,16 +86,16 @@ export const showcase = {
     },
     {
       name: "MF Horizon",
-      tag: "Filtración de 3 capas + ozono · WiFi · 6 meses",
+      tag: "Filtración de 3 capas + ozono · Wi-Fi · 6 meses",
       price: "$74,000 MXN",
-      image: "/images/prod-horizon.jpg",
+      image: "/images/prod-horizon-nobg.png",
       tone: "cool" as const,
     },
     {
       name: "MF Barrel",
-      tag: "Filtración de 3 capas + ozono · WiFi · 6 meses",
+      tag: "Filtración de 3 capas + ozono · Wi-Fi · 6 meses",
       price: "$69,000 MXN",
-      image: "/images/prod-barrel.jpg",
+      image: "/images/prod-barrel-nobg.png",
       tone: "warm" as const,
     },
   ],
@@ -106,7 +106,7 @@ export const featureScroll = {
     {
       word: "Temperatura",
       body:
-        "Enfría hasta 3 °C y, con el Motor Premium, ajusta de 1 a 40 °C. Tú programas la temperatura; el equipo la mantiene, sin una sola bolsa de hielo.",
+        "Enfría hasta 3 °C y, con el Motor Premium, ajusta de 3 a 42 °C. Tú programas la temperatura; el equipo la mantiene, sin una sola bolsa de hielo.",
       left: { label: "Frío", value: "3°" },
       right: { label: "Calor", value: "42°" },
     },
@@ -120,8 +120,8 @@ export const featureScroll = {
     {
       word: "Conectividad",
       body:
-        "Programa el enfriamiento con tu rutina desde la app. Control WiFi para que el agua esté lista exactamente cuando la necesitas.",
-      left: { label: "App", value: "WiFi" },
+        "Programa el enfriamiento con tu rutina desde la app. Control por app Wi-Fi para que el agua esté lista exactamente cuando la necesitas.",
+      left: { label: "App", value: "Wi-Fi" },
       right: { label: "Garantía", value: "12 meses" },
     },
   ],
@@ -134,8 +134,8 @@ export const statement = {
 export const gallery = [
   { caption: "MF ONE", image: "/images/hero-mfone.jpg", tone: "cool" as const },
   { caption: "MF ONE · acabado", image: "/images/prod-mfone.webp", tone: "ink" as const },
-  { caption: "MF Horizon", image: "/images/prod-horizon.jpg", tone: "warm" as const },
-  { caption: "MF Barrel", image: "/images/prod-barrel.jpg", tone: "cool" as const },
+  { caption: "MF Horizon", image: "/images/prod-horizon-nobg.png", tone: "warm" as const },
+  { caption: "MF Barrel", image: "/images/prod-barrel-nobg.png", tone: "cool" as const },
 ];
 
 export const bestSleep = {
@@ -179,55 +179,6 @@ export const featuredReviews = {
       quote:
         "Las cold plunges de Mente Fria me han ayudado a manejar mejor mi ansiedad. El frío y la respiración controlada me dan una herramienta poderosa para mantener la calma.",
       source: "Daniel G. · CDMX",
-    },
-  ],
-};
-
-export const customerReviews = {
-  title: "Lo que dicen nuestros clientes",
-  subtitle: "Miles de personas alcanzando su máximo potencial con Mente Fria",
-  reviews: [
-    {
-      rating: 5,
-      title: "Calidad insuperable",
-      body: "La calidad del producto de Mente Fria es insuperable. Los materiales son muy resistentes y duraderos.",
-      name: "Carlos G. · Guadalajara",
-      verified: true,
-    },
-    {
-      rating: 5,
-      title: "Mejor sistema inmune",
-      body: "Tenía frecuentes resfriados y desde que uso las cold plunges de Mente Fria, mi sistema inmunológico se ha fortalecido. No he tenido un solo resfriado en meses.",
-      name: "Fernando L. · Monterrey",
-      verified: true,
-    },
-    {
-      rating: 5,
-      title: "Menos inflamación",
-      body: "Siempre tuve problemas con la inflamación después de hacer ejercicio. Mente Fria ha reducido significativamente el dolor post-entrenamiento.",
-      name: "Rodrigo P. · Guadalajara",
-      verified: true,
-    },
-    {
-      rating: 5,
-      title: "Adiós al insomnio",
-      body: "Llevaba años sufriendo de insomnio. Desde que empecé a usar Mente Fria, duermo profundamente y me despierto renovado.",
-      name: "Ricardo M. · Puerto Vallarta",
-      verified: true,
-    },
-    {
-      rating: 5,
-      title: "Movilidad recuperada",
-      body: "Sufría de dolores articulares crónicos y las cold plunges de Mente Fria han sido un alivio increíble. Mi movilidad ha mejorado.",
-      name: "Miguel T. · CDMX",
-      verified: true,
-    },
-    {
-      rating: 5,
-      title: "Excelente servicio",
-      body: "Estoy muy impresionado con el servicio al cliente de Mente Fria. Respondieron todas mis preguntas rápidamente y con mucha amabilidad.",
-      name: "Pedro H. · CDMX",
-      verified: true,
     },
   ],
 };

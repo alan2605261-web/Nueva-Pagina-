@@ -203,14 +203,15 @@ export default function AtletasPage() {
 
             {/* Right: product image */}
             <Reveal>
-              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl" style={{ background: "var(--grad-silver)" }}>
+              {/* Mismo piso gris que el resto del sitio: la clase .pfloor. */}
+              <div className="pfloor flex aspect-[4/5] items-end justify-center overflow-hidden rounded-3xl px-10 pb-12">
                 {/* Mismo bug que en /negocios: next/image dentro de un
                     Reveal en opacity:0 nunca dispara su carga diferida. */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img loading="lazy" decoding="async"
                   src="/images/prod-mfone.webp"
                   alt="MF ONE, tina de inmersión en frío"
-                  className="absolute inset-0 h-full w-full object-contain p-10"
+                  className="max-h-full w-auto max-w-full object-contain"
                 />
                 <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-black/10" />
               </div>

@@ -22,10 +22,11 @@ const tinas = [
   {
     name: "MF Barrel",
     tag: "Cilíndrica · 500 L máx · Ideal para departamentos",
-    tagline: "Filtración de 3 capas + purificación por ozono. Control WiFi programable. 6 meses de garantía.",
+    tagline: "Filtración de 3 capas + purificación por ozono. Control por app Wi-Fi, programable. 6 meses de garantía.",
     specs: "90 cm diámetro × 90 cm altura · 11 kg · Tejido drop-stitch de grado militar",
     price: "$69,000 MXN",
     image: "/images/prod-barrel-nobg.png",
+    floor: "58%",
     href: "/productos/mf-barrel",
     badge: null,
   },
@@ -36,16 +37,18 @@ const tinas = [
     specs: "195 × 80 × 71 cm · 135 kg · Acrílico + acero inoxidable",
     price: "$169,000 MXN",
     image: "/images/prod-mfone.webp",
+    floor: "58%",
     href: "/productos/mf-one",
     badge: "Más vendido",
   },
   {
     name: "MF Horizon",
     tag: "Rectangular · 550 L máx · Mayor espacio de inmersión",
-    tagline: "Filtración de 3 capas + purificación por ozono. Control WiFi programable. 6 meses de garantía.",
+    tagline: "Filtración de 3 capas + purificación por ozono. Control por app Wi-Fi, programable. 6 meses de garantía.",
     specs: "160 × 70 × 65 cm · 12 kg · Tejido drop-stitch de grado militar",
     price: "$74,000 MXN",
     image: "/images/prod-horizon-nobg.png",
+    floor: "58%",
     href: "/productos/mf-horizon",
     badge: null,
   },
@@ -81,49 +84,46 @@ export default function ProductosPage() {
                 {/* Stage pop-out estilo inicio: panel gris detrás, producto
                     flotando con sombra y rompiendo el marco por arriba */}
                 <div className="relative px-6 pt-6">
-                  <div className="absolute inset-x-6 bottom-0 top-[45%]">
-                    {/* Sombra de contacto en lugar del panel gris (decisión de
-                        Saul, sep 2026): el producto flota sobre la página. */}
-                    <div
-                      aria-hidden
-                      className="pointer-events-none absolute inset-x-[10%] bottom-[7%] h-[24%] rounded-[50%]"
-                      style={{
-                        background:
-                          "radial-gradient(ellipse at 50% 50%, rgba(8,9,11,0.18) 0%, rgba(8,9,11,0.07) 45%, rgba(8,9,11,0) 72%)",
-                      }}
-                    />
-                    {tina.badge && (
-                      <span className="absolute bottom-3 left-3 z-20 rounded-full bg-foreground px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-background">
-                        {tina.badge}
-                      </span>
-                    )}
-                  </div>
-                  <div className="relative flex min-h-[270px] items-end justify-center pb-8">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img loading="lazy" decoding="async"
-                      src={tina.image}
-                      alt={tina.name}
-                      style={
-                        tina.name === "MF Horizon"
-                          ? { width: "115%", maxWidth: "none", translate: "10px -8px" }
-                          : tina.name === "MF ONE"
-                            ? { width: "95%" }
-                            : undefined
-                      }
-                      className="h-auto max-h-[210px] w-auto max-w-full flex-none object-contain drop-shadow-[0_22px_28px_rgba(8,9,11,0.22)] transition-transform duration-500 group-hover:scale-[1.04]"
-                    />
+                  {/* El piso gris lo pone .pfloor, la misma pieza del inicio,
+                      del menú desplegable y de /negocios. */}
+                  <div className="pfloor" style={{ "--floor-top": tina.floor } as React.CSSProperties}>
+                    <div className="flex min-h-[270px] items-end justify-center pb-8">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img loading="lazy" decoding="async"
+                        src={tina.image}
+                        alt={tina.name}
+                        /* Ancho en % de la columna, para que las tres tinas
+                           guarden su proporción real de altura: Barrel 90 cm,
+                           MF ONE 71, Horizon 65. El cálculo está explicado en
+                           LandingV2, junto a la lista de productos. */
+                        className={`h-auto flex-none object-contain transition-transform duration-500 group-hover:scale-[1.04] ${
+                          tina.name === "MF Barrel"
+                            ? "w-[68%]"
+                            : tina.name === "MF ONE"
+                              ? "w-[76%]"
+                              : "w-full"
+                        }`}
+                      />
+                    </div>
                   </div>
                 </div>
 
                 {/* Card body — estilo Plunge */}
                 <div className="flex flex-1 flex-col p-6 sm:p-7">
                   <div className="text-[13px] tracking-[3px] text-[var(--accent-ice)]">★★★★★</div>
-                  <h3
-                    className="mdisplay mt-2 text-[26px]"
-                    style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
-                  >
-                    {tina.name}
-                  </h3>
+                  <div className="mt-2 flex flex-wrap items-center gap-3">
+                    <h3
+                      className="mdisplay text-[26px]"
+                      style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
+                    >
+                      {tina.name}
+                    </h3>
+                    {tina.badge && (
+                      <span className="rounded-full bg-foreground px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-background">
+                        {tina.badge}
+                      </span>
+                    )}
+                  </div>
                   <p className="mt-1 text-sm">
                     <span className="font-semibold">{tina.price}</span>
                     <span className="text-[var(--fg-subtle)]"> · hasta 6 MSI con Mercado Pago</span>
@@ -163,7 +163,7 @@ export default function ProductosPage() {
               },
               {
                 t: "Modo calor incluido",
-                p: "Contraste frío-calor en el mismo equipo: hasta 40 °C en la MF ONE y 40 °C con Motor Premium 2.0.",
+                p: "Contraste frío-calor en el mismo equipo: hasta 40 °C en la MF ONE y hasta 42 °C con Motor Premium 2.0.",
                 img: "/images/mfone-calor.jpg",
                 pos: "center 30%",
               },
@@ -178,7 +178,7 @@ export default function ProductosPage() {
               },
               {
                 t: "Control total desde tu celular",
-                p: "WiFi + app en toda la línea: temperatura exacta, timers programables y modo automático 24/7.",
+                p: "Control por app Wi-Fi en toda la línea: temperatura exacta, timers programables y modo automático 24/7.",
                 img: "/photography/feature/control-app-1049.jpg",
                 pos: "center",
               },
@@ -273,7 +273,7 @@ export default function ProductosPage() {
               photos: [
                 { img: "/images/barrel-golf-wide.jpg", alt: "MF Barrel en un club de golf", pos: "center" },
                 { img: "/images/barrel-retrato-moody.jpg", alt: "Inmersión en frío en un MF Barrel", pos: "center 30%" },
-                { img: "/images/barrel-golf-close.jpg", alt: "MF Barrel — detalle en el club", pos: "center" },
+                { img: "/images/galeria-estudio-barrel.jpg", alt: "MF Barrel blanco con su motor, foto de estudio", pos: "center", fondoBlanco: true },
                 { img: "/photography/lifestyle/barrel-chimenea.jpg", alt: "MF Barrel junto a una chimenea", pos: "center" },
               ],
             },
@@ -283,7 +283,7 @@ export default function ProductosPage() {
               photos: [
                 { img: "/images/horizon-playa.jpg", alt: "MF Horizon frente al mar", pos: "center 60%" },
                 { img: "/images/horizon-patio.jpg", alt: "MF Horizon en un patio en casa", pos: "center" },
-                { img: "/images/horizon-playa-van.jpg", alt: "MF Horizon de viaje con la van", pos: "center" },
+                { img: "/images/galeria-estudio-horizon.jpg", alt: "MF Horizon blanco con su motor, foto de estudio", pos: "center", fondoBlanco: true },
                 { img: "/images/horizon-closeup-perfil.jpg", alt: "Inmersión en un MF Horizon", pos: "center 30%" },
               ],
             },
@@ -316,13 +316,18 @@ export default function ProductosPage() {
               <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
                 {group.photos.map((g, i) => (
                   <Reveal key={g.img} delay={i * 80} className={i % 2 === 1 ? "lg:translate-y-6" : ""}>
-                    <figure className="group overflow-hidden rounded-[18px]">
+                    {/* Las fotos de estudio (fondo blanco) van completas, sin
+                        recorte: con object-cover el motor o la tina se cortaban
+                        en las columnas angostas del celular. */}
+                    <figure className={`group overflow-hidden rounded-[18px] ${"fondoBlanco" in g ? "bg-white" : ""}`}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img loading="lazy" decoding="async"
                         src={g.img}
                         alt={g.alt}
                         style={{ objectPosition: g.pos }}
-                        className="h-[220px] w-full object-cover transition-transform duration-700 group-hover:scale-[1.05] sm:h-[260px] lg:h-[300px]"
+                        className={`h-[220px] w-full transition-transform duration-700 group-hover:scale-[1.05] sm:h-[260px] lg:h-[300px] ${
+                          "fondoBlanco" in g ? "object-contain p-[7%]" : "object-cover"
+                        }`}
                       />
                     </figure>
                   </Reveal>

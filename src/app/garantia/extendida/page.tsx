@@ -96,6 +96,24 @@ function Tabla({ t }: { t: typeof TABULADOR_MF_ONE }) {
   );
 }
 
+const NOMBRE: Record<string, string> = {
+  "mf-one": "MF ONE",
+  "mf-barrel": "MF Barrel",
+  "mf-horizon": "MF Horizon",
+};
+
+const whatsappYaLoTengo = (equipo: string) =>
+  "https://wa.me/5215616471386?text=" +
+  encodeURIComponent(
+    `Hola, ya tengo mi ${equipo} y quiero saber si todavía puedo contratar MF Shield.`,
+  );
+
+const SHIELD_WHATSAPP =
+  "https://wa.me/5215616471386?text=" +
+  encodeURIComponent(
+    "Hola, ya tengo mi Mente Fria y quiero saber si todavía puedo contratar MF Shield.",
+  );
+
 export default function GarantiaExtendidaPage() {
   return (
     <PageShell>
@@ -151,12 +169,25 @@ export default function GarantiaExtendidaPage() {
                   </div>
                 </dl>
 
-                <Link
-                  href={`/productos/${p.producto}`}
-                  className="mt-5 inline-block text-[13px] font-semibold text-[var(--accent-ice)] underline underline-offset-4"
-                >
-                  Agregarlo a tu {p.producto === "mf-one" ? "MF ONE" : p.producto === "mf-barrel" ? "MF Barrel" : "MF Horizon"}
-                </Link>
+                {/* Dos caminos, no uno. Antes el unico enlace mandaba a la
+                    ficha del producto, o sea a comprar una tina: quien ya tenia
+                    la suya no tenia por donde contratarlo. */}
+                <div className="mt-5 flex flex-col gap-2.5">
+                  <Link
+                    href={`/productos/${p.producto}`}
+                    className="mbtn mbtn-primary !py-2.5 justify-center text-[12px]"
+                  >
+                    Agregarlo a tu compra
+                  </Link>
+                  <a
+                    href={whatsappYaLoTengo(NOMBRE[p.producto])}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mbtn mbtn-ghost !py-2.5 justify-center text-[12px]"
+                  >
+                    Ya tengo mi {NOMBRE[p.producto]}
+                  </a>
+                </div>
               </div>
             ))}
           </Reveal>
@@ -295,6 +326,38 @@ export default function GarantiaExtendidaPage() {
             <div className="border-t border-[var(--line-1)] pt-8">
               <Tabla t={TABULADOR_PRO} />
             </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Ya tienes tu equipo ────────────────────────────
+          Toda la pagina esta escrita para quien esta comprando. Faltaba la
+          puerta para quien ya tiene su plunge y no contrato MF Shield en su
+          momento: antes no habia por donde preguntar.
+
+          La condicion que se publica es la real y la misma del contrato —
+          garantia estandar vigente y validacion tecnica— y el texto promete
+          solo una respuesta, no la cobertura. */}
+      <section className="msection">
+        <div className="mwrap">
+          <Reveal className="mx-auto max-w-3xl rounded-[18px] border border-[var(--line-1)] bg-white p-8 text-center sm:p-10">
+            <span className="m-eyebrow accent">¿Ya tienes tu Mente Fria?</span>
+            <h2 className="mdisplay mt-3 text-[clamp(24px,2.8vw,34px)] leading-tight">
+              También se contrata después de la compra.
+            </h2>
+            <p className="mx-auto mt-5 max-w-[60ch] text-[15.5px] leading-relaxed text-[var(--fg-muted)]">
+              No hace falta que lo hayas contratado el día que compraste. Si tu garantía
+              estándar sigue vigente, escríbenos con tu modelo y tu fecha de entrega y te
+              confirmamos si tu equipo todavía es elegible, sujeto a validación técnica.
+            </p>
+            <a
+              href={SHIELD_WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mbtn mbtn-primary mt-7"
+            >
+              Consultar por WhatsApp
+            </a>
           </Reveal>
         </div>
       </section>

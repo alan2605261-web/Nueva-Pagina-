@@ -112,7 +112,7 @@ export default function MotoresPage() {
               className="h-[7px] w-[7px] rounded-full"
               style={{ background: "var(--accent-ice)" }}
             />
-            Solo para MF Barrel y MF Horizon — la MF ONE no necesita motor
+            Pro 2.0 y Premium 2.0 para MF Barrel y MF Horizon, y el Motor MF ONE
           </Reveal>
         </div>
       </section>
@@ -134,7 +134,8 @@ export default function MotoresPage() {
                 <tr>
                   <th />
                   <th>Motor Pro 2.0</th>
-                  <th className="col-mf">Motor Premium 2.0</th>
+                  <th>Motor Premium 2.0</th>
+                  <th className="col-mf">Motor MF ONE</th>
                 </tr>
               </thead>
               <tbody>
@@ -143,7 +144,7 @@ export default function MotoresPage() {
                     <Fragment key={grupo}>
                       <tr>
                         <td
-                          colSpan={3}
+                          colSpan={4}
                           className="!pt-8 !pb-2 text-[11px] uppercase tracking-[0.18em]"
                           style={{ color: "var(--fg-subtle)" }}
                         >
@@ -154,7 +155,8 @@ export default function MotoresPage() {
                         <tr key={r.label} style={{ "--i": i } as React.CSSProperties}>
                           <td>{r.label}</td>
                           <td>{r.pro}</td>
-                          <td className="col-mf">{r.premium}</td>
+                          <td>{r.premium}</td>
+                          <td className="col-mf">{r.mfone}</td>
                         </tr>
                       ))}
                     </Fragment>

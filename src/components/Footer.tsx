@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { InstagramIcon, TikTokIcon } from "@/components/icons";
 import { Logo } from "@/components/Logo";
+import { COLECCIONES } from "@/lib/blog-posts";
 
 /*
   Footer (ported from Claude Design site_v2): giant MIND OVER BODY cta,
   newsletter pill, four link columns, hairline bottom bar.
 */
 
+/* Las colecciones del blog salen de los datos: si se agrega una, aparece sola
+   en el footer. Nunca escribirlas a mano aquí. */
 const cols: { title: string; links: { label: string; href: string }[] }[] = [
   {
     title: "Productos",
@@ -14,17 +17,41 @@ const cols: { title: string; links: { label: string; href: string }[] }[] = [
       { label: "MF ONE", href: "/productos/mf-one" },
       { label: "MF Horizon", href: "/productos/mf-horizon" },
       { label: "MF Barrel", href: "/productos/mf-barrel" },
-      { label: "Motores y accesorios", href: "/accesorios" },
+      /* Decía "Motores y accesorios". Los motores tienen su propia página y
+         entraban aquí de refilón (Rafa, sep 2026). */
+      { label: "Accesorios", href: "/accesorios" },
+      { label: "Motores", href: "/motores" },
+    ],
+  },
+  {
+    /* "Para negocios" colgaba de Productos. Es una línea de negocio aparte, con
+       su propia página y sus secciones, así que va como columna propia. */
+    title: "Para negocios",
+    /* Cuatro enlaces, no siete: la columna con las siete secciones se veía
+       saturada (Saul, sep 2026). Queda la general y las tres que le sirven a
+       alguien que está evaluando el negocio. Las secciones que se quitaron
+       —cotización, tipos de negocio, equipos comerciales y capacitación—
+       siguen existiendo con su ancla dentro de /negocios. */
+    links: [
       { label: "Para negocios", href: "/negocios" },
+      { label: "Calculadora de ROI", href: "/negocios#roi" },
+      { label: "Casos reales", href: "/negocios#casos" },
+      { label: "Arrendamiento", href: "/negocios#arrendamiento" },
+    ],
+  },
+  {
+    title: "Blog",
+    links: [
+      ...COLECCIONES.map((c) => ({ label: c.nombre, href: `/blog/coleccion/${c.slug}` })),
+      { label: "Todos los artículos", href: "/blog" },
     ],
   },
   {
     title: "Aprender",
     links: [
       { label: "La ciencia", href: "/aprender" },
-      { label: "Atletas", href: "/atletas" },
+      { label: "Consejo científico", href: "/aprender/consejo-cientifico" },
       { label: "Reseñas", href: "/resenas" },
-      { label: "Blog", href: "/blog" },
     ],
   },
   {
@@ -67,7 +94,7 @@ export function Footer() {
         </div>
 
         <div className="mfooter-bot">
-          <span>© 2026 Mente Fria · Hecho en México</span>
+          <span>© 2026 Mente Fria · Todos los derechos reservados</span>
           <div className="flex items-center gap-3">
             <a
               href="https://www.instagram.com/mentefria.therapy"

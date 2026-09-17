@@ -1,109 +1,78 @@
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
-import { LegalEntity } from "@/components/LegalEntity";
 import { SubHero } from "@/components/blocks";
 import { Reveal } from "@/components/Reveal";
+import { ArrowRight } from "@/components/icons";
+import { Check } from "lucide-react";
+import { INCLUYE, PLANES } from "@/lib/garantia-extendida";
 
 /* ─────────────────────────────────────────────────────────────
-   GARANTÍA
+   GARANTÍA — selector
 
-   Las garantías son INDEPENDIENTES por producto y no se mezclan:
+   Era una sola página de 489 líneas con las tres pólizas apiladas: llegabas y
+   te caía todo encima. Saul pidió en sep 2026 el patrón de Plunge — elegir
+   primero tu equipo y solo entonces leer lo que te toca.
 
-   · MF ONE (CP-ONE) — 12 meses. Todo el contenido de esta sección sale
-     textualmente de la póliza oficial "MF ONE Garantía" (31 ago 2026).
-     Fuente única de verdad: no agregar coberturas que no estén ahí.
+   Esta página no lleva términos. Solo el dato que sirve para elegir: cuántos
+   meses y desde cuándo. El detalle vive en:
+     /garantia/mf-one      · 12 meses, de la póliza oficial
+     /garantia/inflables   · 6 meses, MF Barrel y MF Horizon con su motor
+     /garantia/extendida   · MF Shield, hasta el mes 24
 
-   · MF Barrel / MF Horizon — 6 meses. TODAVÍA NO EXISTE una póliza
-     equivalente para los inflables. Mientras no la haya, esta sección se
-     mantiene general y sin detallar coberturas, para no atribuirles
-     condiciones que son de la MF ONE.
+   Motor e inflable van en UNA sola póliza (Saul, sep 2026). Existía una
+   tarjeta y una página aparte para Motor Pro y Premium que decía "póliza
+   propia, distinta de la de la tina": era falso y se eliminó.
 ───────────────────────────────────────────────────────────── */
 
 export const metadata = {
   title: "Garantía | Mente Fria",
   description:
-    "Garantía de 12 meses de la MF ONE y de 6 meses de los modelos inflables MF Barrel y MF Horizon.",
+    "Elige tu equipo y consulta su póliza: 12 meses en la MF ONE y 6 meses en MF Barrel y MF Horizon, con su motor incluido.",
 };
 
-/* ── MF ONE — de la póliza oficial ───────────────────────────────────── */
-
-const ONE_CUBRE = [
-  "El módulo de enfriamiento, con su compresor y sus placas.",
-  "Las bombas.",
-  "El sistema de filtración integrado.",
-  "El sistema eléctrico, electrónico y de control de fábrica, con sus sensores.",
-];
-
-const ONE_ACCESORIOS_FUERA =
-  "Los accesorios quedan fuera de la garantía: cubierta aislante, skimmer, llave de filtro, portacelular y MF ONE PRO DECK.";
-
-const ONE_POR_NUESTRA_CUENTA: [string, string][] = [
-  ["Refacciones originales", "Siempre, sin costo"],
-  ["Diagnóstico remoto por videollamada", "Sin costo"],
-  ["Mano de obra de nuestro personal o de nuestra red", "Sin costo"],
-  ["Envíos que coordinamos nosotros", "Sin costo, con guía prepagada"],
-  [
-    "Honorarios de un técnico que tú propongas",
-    "Solo si los autorizamos por escrito antes del servicio",
-  ],
-  [
-    "Viáticos cuando no hay técnico autorizado en tu zona",
-    "Por tu cuenta, cotizados y aceptados antes de agendar",
-  ],
-];
-
-const ONE_NO_CUBRE = [
+const POLIZAS = [
   {
-    grupo: "Agua, frío y sol",
-    items: [
-      "Congelamiento del agua en la tina o en el circuito, incluido no drenar cuando el equipo no está en uso, tras un corte prolongado de energía, o cuando la temperatura ambiente puede bajar de 2 °C.",
-      "Lluvia directa, chorros, escurrimientos o inmersión sobre el compartimento del motor y sus rejillas. En exteriores va bajo techo o cubierta.",
-      "Exposición del módulo de enfriamiento a luz solar directa.",
-      "Operar sin agua, con el nivel por debajo de la marca mínima, con válvulas cerradas o con las rejillas obstruidas.",
-    ],
+    t: "MF ONE",
+    meses: "12 meses",
+    img: "/images/prod-mfone.webp",
+    d: "Contra defectos de fabricación y de funcionamiento, desde la fecha de entrega.",
+    href: "/garantia/mf-one",
   },
   {
-    grupo: "Manejo y mantenimiento",
-    items: [
-      "Falta de mantenimiento, filtros saturados o filtros que no cumplen las especificaciones del manual.",
-      "Tratamiento incorrecto del agua: cloro de alberca, bromo, solventes o químicos corrosivos.",
-      "Transportar, acostar o inclinar el módulo, que siempre va en posición vertical.",
-      "Daños en mudanzas, reubicaciones o transportes que no haya coordinado Mente Fria.",
-      "Líquidos distintos al agua, y cargar la estructura con pesos u objetos ajenos a su uso normal.",
-      "Equipos abiertos, alterados o reparados por personal que no hayamos autorizado.",
-    ],
+    t: "MF Barrel",
+    meses: "6 meses",
+    img: "/images/prod-barrel-nobg.png",
+    d: "La tina y su motor, Pro 2.0 o Premium 2.0, en una misma póliza desde la fecha de entrega.",
+    href: "/garantia/inflables",
   },
   {
-    grupo: "Desgaste, estética y causas externas",
-    items: [
-      "Desgaste natural y consumibles: filtros, empaques, sellos y mangueras.",
-      "Daños estéticos y roturas: rayones, grietas, fisuras, decoloración y manchas de la carcasa y la superficie acrílica, salvo que vengan de un defecto de fabricación.",
-      "Daños por sobretensiones, descargas eléctricas o variaciones bruscas del suministro, y el uso de extensiones, multicontactos o instalación eléctrica sin tierra. Un regulador de voltaje no cuenta como extensión.",
-      "Caso fortuito o fuerza mayor: incendio, inundación, sismo, robo, vandalismo y plagas.",
-    ],
+    t: "MF Horizon",
+    meses: "6 meses",
+    img: "/images/prod-horizon-nobg.png",
+    d: "La tina y su motor, Pro 2.0 o Premium 2.0, en una misma póliza desde la fecha de entrega.",
+    href: "/garantia/inflables",
   },
 ];
 
-const ONE_PROCESO = [
+const money = (n: number) => "$" + n.toLocaleString("en-US");
+
+/* MF Shield en cifras, para que se entienda sin abrir su página: cuántos meses
+   trae el equipo, hasta dónde llega con Shield y desde cuánto cuesta. Todo sale
+   de PLANES (contratos firmados). */
+const SHIELD = [
   {
-    n: "01",
-    t: "Avísanos",
-    d: "Escríbenos por WhatsApp o correo en cuanto detectes la falla, con la descripción, fotos o video y tu comprobante.",
+    equipo: "MF ONE",
+    incluidos: 12,
+    extra: 12,
+    desde: Math.min(...PLANES.filter((p) => p.producto === "mf-one").map((p) => p.precio)),
+    nota: "Uso residencial y comercial.",
   },
   {
-    n: "02",
-    t: "Diagnóstico remoto",
-    d: "Respondemos en máximo 3 días hábiles y agendamos una videollamada con un técnico. Buena parte de las fallas se resuelven ahí.",
-  },
-  {
-    n: "03",
-    t: "Definimos la vía de atención",
-    d: "Según el diagnóstico: enviarlo a nuestras instalaciones con guía prepagada, atenderlo en sitio con autorización por escrito, o enviarte la refacción con acompañamiento por videollamada. Si hay que enviarlo, va drenado y entarimado.",
-  },
-  {
-    n: "04",
-    t: "Reparación",
-    d: "Reparamos con refacciones originales. Cada reparación queda garantizada 90 días naturales desde su entrega, conforme al artículo 81 de la Ley Federal de Protección al Consumidor.",
+    equipo: "MF Barrel y MF Horizon",
+    incluidos: 6,
+    extra: 18,
+    desde: Math.min(...PLANES.filter((p) => p.producto !== "mf-one").map((p) => p.precio)),
+    nota: "Con Motor Premium, uso residencial y comercial. Con Motor Pro, solo residencial.",
   },
 ];
 
@@ -113,374 +82,151 @@ export default function GarantiaPage() {
       <SubHero
         eyebrow="Soporte"
         title="Garantía"
-        subtitle="Cada producto tiene su propia póliza. La de la MF ONE, la de los inflables y la del motor son independientes entre sí y no se mezclan."
+        subtitle="Elige tu equipo para ver su póliza."
         tone="warm"
       />
 
-      {/* ── Resumen por producto ───────────────────────────── */}
+      {/* ── Selector ───────────────────────────────────────── */}
       <section className="msection">
         <div className="mwrap">
-          <Reveal className="mb-10">
-            <h2 className="mdisplay text-[clamp(22px,2.4vw,30px)]">Cobertura por producto</h2>
-            <p className="mjust mt-3 max-w-[80ch] text-[16px] leading-relaxed text-[var(--fg-muted)]">
-              Son garantías distintas, con coberturas y condiciones propias. Lo que
-              aplica a la MF ONE no aplica a los inflables, ni al revés. Cualquiera
-              de las tres se puede extender hasta el mes 24 con{" "}
-              <Link
-                href="/garantia/extendida"
-                className="font-semibold text-[var(--accent-ice)] underline underline-offset-4"
-              >
-                MF Shield
-              </Link>
-              , que se contrata mientras la garantía estándar siga vigente.
+          <div className="grid gap-6 md:grid-cols-3">
+            {POLIZAS.map((p, i) => (
+              <Reveal key={p.t} delay={i * 90}>
+                <Link
+                  href={p.href}
+                  className="group flex h-full flex-col overflow-hidden rounded-[18px] border border-[var(--line-1)] bg-white transition-colors duration-200 hover:border-[var(--accent-ice)]"
+                >
+                  <div className="flex aspect-[4/3] items-center justify-center bg-[var(--bg-panel)] p-8">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={p.img}
+                      alt={p.t}
+                      loading="lazy"
+                      decoding="async"
+                      className="max-h-full w-auto max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.04]"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <span className="m-eyebrow accent">{p.meses}</span>
+                    <h2 className="mdisplay mt-2.5 text-[21px] leading-tight">{p.t}</h2>
+                    <p className="mt-2.5 flex-1 text-[13.5px] leading-relaxed text-[var(--fg-muted)]">
+                      {p.d}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--accent-ice)]">
+                      Ver la póliza
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </span>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── MF Shield ──────────────────────────────────────────
+          Antes era una tarjeta de dos líneas ("extiende cualquiera de las
+          pólizas hasta dos años") y Saul la encontró abstracta: no se
+          entendía cuánto dura cada cosa. Ahora se ve en una barra de 24 meses
+          qué parte trae el equipo y qué parte agrega Shield. */}
+      <section className="msection panel">
+        <div className="mwrap grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <Reveal>
+            <span className="m-eyebrow accent">Garantía extendida</span>
+            <h2
+              className="mdisplay mt-3 text-[clamp(28px,3.4vw,44px)] leading-[1.02]"
+              style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
+            >
+              MF Shield: tu equipo cubierto hasta el mes 24.
+            </h2>
+            <p className="mt-5 max-w-[48ch] text-[15px] leading-relaxed text-[var(--fg-muted)]">
+              Arranca el día que termina tu garantía y la lleva hasta los dos años. Es
+              un pago único y se contrata mientras la garantía de tu equipo siga
+              vigente.
             </p>
+            <ul className="mt-7 space-y-3">
+              {INCLUYE.map((x) => (
+                <li key={x} className="flex items-start gap-3 text-[14px] leading-relaxed">
+                  <Check size={16} strokeWidth={2.4} className="mt-[3px] flex-none text-[var(--accent-ice)]" />
+                  {x}
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/garantia/extendida"
+              className="mbtn mbtn-primary mt-8 inline-flex"
+            >
+              Ver cobertura y precios
+            </Link>
           </Reveal>
 
-          <Reveal className="grid gap-4 md:grid-cols-3">
-            {[
-              {
-                t: "MF ONE",
-                meses: "12 meses",
-                d: "Contra defectos de fabricación y de funcionamiento, contados desde la fecha de entrega.",
-                href: "#mf-one",
-              },
-              {
-                t: "MF Barrel y MF Horizon",
-                meses: "6 meses",
-                d: "Contra defectos de fabricación, contados desde la fecha de entrega.",
-                href: "#inflables",
-              },
-              {
-                t: "Motor Pro y Motor Premium",
-                meses: "6 meses",
-                d: "Contra defectos de fabricación y de funcionamiento. El motor tiene póliza propia, distinta de la de la tina con la que se usa.",
-                href: "#motores",
-              },
-            ].map((c) => (
-              <a
-                key={c.t}
-                href={c.href}
-                className="rounded-[16px] border p-6 transition-colors duration-200 hover:border-[var(--accent-ice)]"
-                style={{ borderColor: "var(--line-1)", background: "var(--m-white)" }}
-              >
-                <p className="m-eyebrow accent">{c.meses}</p>
-                <p className="mt-3 text-[16px] font-semibold">{c.t}</p>
-                <p className="mjust mt-2 text-[14px] leading-relaxed text-[var(--fg-muted)]">
-                  {c.d}
-                </p>
-              </a>
+          <Reveal delay={100} className="space-y-5">
+            {SHIELD.map((s) => (
+              <div key={s.equipo} className="rounded-[18px] border border-[var(--line-1)] bg-white p-6 sm:p-7">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 className="mdisplay text-[20px]">{s.equipo}</h3>
+                  <p className="text-[13px] text-[var(--fg-muted)]">
+                    MF Shield desde <span className="font-semibold text-[var(--fg-metal)]">{money(s.desde)} MXN</span>
+                  </p>
+                </div>
+
+                {/* Barra de 24 meses */}
+                <div className="mt-5 flex h-11 overflow-hidden rounded-[10px] text-[11.5px] font-semibold">
+                  <div
+                    className="flex items-center justify-center bg-[var(--m-ink)] px-2 text-white"
+                    style={{ width: `${(s.incluidos / 24) * 100}%` }}
+                  >
+                    {s.incluidos} meses
+                  </div>
+                  <div
+                    className="flex items-center justify-center bg-[var(--accent-ice)] px-2 text-white"
+                    style={{ width: `${(s.extra / 24) * 100}%` }}
+                  >
+                    +{s.extra} meses con MF Shield
+                  </div>
+                </div>
+                <div className="mt-2 flex justify-between text-[11px] text-[var(--fg-subtle)]">
+                  <span>Entrega</span>
+                  <span>Mes {s.incluidos}</span>
+                  <span>Mes 24</span>
+                </div>
+
+                <div className="mt-4 flex flex-wrap gap-x-5 gap-y-1.5 text-[12.5px] text-[var(--fg-muted)]">
+                  <span className="inline-flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-[var(--m-ink)]" /> Incluida con tu equipo
+                  </span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-[var(--accent-ice)]" /> MF Shield
+                  </span>
+                </div>
+                <p className="mt-3 text-[12.5px] text-[var(--fg-subtle)]">{s.nota}</p>
+              </div>
             ))}
           </Reveal>
         </div>
       </section>
 
-      {/* ── MF ONE ─────────────────────────────────────────── */}
-      <section id="mf-one" className="msection panel scroll-mt-20">
+      {/* ── 30 días ─────────────────────────────────────────── */}
+      <section className="msection">
         <div className="mwrap">
           <Reveal>
-            <article className="mdoc">
-              <p className="m-eyebrow accent mb-3">Garantía limitada · MF ONE · CP-ONE</p>
-              <h2 className="mdisplay text-[clamp(26px,3.4vw,44px)] mb-6">Doce meses, desde que la recibes</h2>
-
-              <p className="text-[16px] leading-relaxed text-[var(--fg-muted)] mb-4">
-                Garantizamos la MF ONE contra defectos de fabricación y de
-                funcionamiento durante doce meses contados desde la entrega, en
-                condiciones normales de uso y sin costo para ti.
-              </p>
-              <p className="text-[16px] leading-relaxed text-[var(--fg-muted)] mb-10">
-                La fecha de inicio la registra la paquetería al entregar en el
-                domicilio que nos indicaste, y queda asentada en nuestros
-                sistemas de envío. Si no existiera ese registro, cuenta la fecha
-                de tu comprobante de compra.
-              </p>
-
-              <h3 className="mdisplay text-[clamp(20px,2.2vw,26px)] mb-4">Qué componentes ampara</h3>
-              <ul className="mb-4 list-disc space-y-2 pl-6 text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                {ONE_CUBRE.map((c) => (
-                  <li key={c}>{c}</li>
-                ))}
-              </ul>
-              <p className="text-[16px] leading-relaxed text-[var(--fg-muted)] mb-10">
-                {ONE_ACCESORIOS_FUERA}
-              </p>
-
-              <h3 className="mdisplay text-[clamp(20px,2.2vw,26px)] mb-4">Qué corre por nuestra cuenta</h3>
-              <dl className="mb-10 divide-y divide-[var(--line-1)] border-y border-[var(--line-1)]">
-                {ONE_POR_NUESTRA_CUENTA.map(([k, v]) => (
-                  <div
-                    key={k}
-                    className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-4"
-                  >
-                    <dt className="text-[16px] leading-relaxed text-[var(--fg-muted)]">{k}</dt>
-                    <dd className="text-sm font-semibold text-foreground">{v}</dd>
-                  </div>
-                ))}
-              </dl>
-
-              <div className="mb-10 rounded-xl border border-[var(--line-1)] p-6">
-                <p className="m-eyebrow accent mb-3">Condición de validez</p>
-                <p className="text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                  La garantía depende de que cumplas el programa de
-                  mantenimiento del manual. Un filtro de papel saturado reduce el
-                  flujo, obliga al compresor a trabajar de más y termina por
-                  dañarlo. Conserva los comprobantes de compra de filtros:
-                  comprarlos originales con la frecuencia del calendario acredita
-                  el cumplimiento.
+            <Link
+              href="/devoluciones"
+              className="mx-auto flex max-w-4xl flex-col gap-4 rounded-[16px] border border-[var(--line-1)] bg-white p-7 transition-colors duration-200 hover:border-[var(--accent-ice)] sm:flex-row sm:items-center sm:justify-between"
+            >
+              <div>
+                <span className="m-eyebrow accent">Aparte de la garantía</span>
+                <h2 className="mdisplay mt-2.5 text-[22px] leading-tight">30 días de prueba</h2>
+                <p className="mt-2 max-w-[56ch] text-[14px] leading-relaxed text-[var(--fg-muted)]">
+                  Tienes 30 días desde la compra para solicitar una devolución. Es un
+                  derecho distinto de la garantía y corre por su cuenta.
                 </p>
               </div>
-
-              <h3 className="mdisplay text-[clamp(20px,2.2vw,26px)] mb-4">Qué no cubre</h3>
-              <p className="text-[16px] leading-relaxed text-[var(--fg-muted)] mb-6">
-                Ninguno de estos casos queda cubierto, aunque el equipo esté
-                dentro de los doce meses de vigencia.
-              </p>
-              {ONE_NO_CUBRE.map((g) => (
-                <div key={g.grupo} className="mb-8">
-                  <p className="m-eyebrow accent mb-3">{g.grupo}</p>
-                  <ul className="list-disc space-y-2 pl-6 text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                    {g.items.map((i) => (
-                      <li key={i}>{i}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-
-              <div className="mb-10 rounded-xl border border-[var(--line-1)] p-6">
-                <p className="m-eyebrow accent mb-3">Uso comercial</p>
-                <p className="text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                  La garantía cubre uso residencial y comercial. En hoteles,
-                  spas y gimnasios el mantenimiento se cumple con la frecuencia
-                  que corresponde al mayor número de inmersiones diarias.
-                </p>
-              </div>
-
-              <h3 className="mdisplay text-[clamp(20px,2.2vw,26px)] mb-6">Cómo se hace válida</h3>
-              <ol className="mb-10 space-y-6">
-                {ONE_PROCESO.map((p) => (
-                  <li key={p.n} className="flex gap-5">
-                    <span className="text-2xl font-light text-[var(--fg-subtle)]">
-                      {p.n}
-                    </span>
-                    <div>
-                      <p className="font-semibold text-foreground">{p.t}</p>
-                      <p className="text-[16px] leading-relaxed text-[var(--fg-muted)] mt-1 text-[var(--fg-muted)]">{p.d}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-
-              <h3 className="mdisplay text-[clamp(20px,2.2vw,26px)] mb-4">Los datos de tu equipo</h3>
-              <dl className="mb-4 divide-y divide-[var(--line-1)] border-y border-[var(--line-1)]">
-                {[
-                  ["Marca, producto y modelo", "Mente Fria · MF ONE · CP-ONE"],
-                  ["País de origen", "Hecho en China"],
-                  ["Vigencia", "12 meses desde la fecha de entrega"],
-                  [
-                    "Número de serie",
-                    "Impreso en la etiqueta del costado del módulo",
-                  ],
-                ].map(([k, v]) => (
-                  <div
-                    key={k}
-                    className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-4"
-                  >
-                    <dt className="text-[16px] leading-relaxed text-[var(--fg-muted)]">{k}</dt>
-                    <dd className="text-sm font-semibold text-foreground">{v}</dd>
-                  </div>
-                ))}
-              </dl>
-              <p className="text-sm leading-relaxed text-[var(--fg-subtle)]">
-                Tu recibo de compra forma parte de esta garantía. Con tu nombre y
-                tu guía localizamos el equipo; el número de serie hace falta solo
-                si cambió de domicilio o de dueño.
-              </p>
-
-              <LegalEntity rol="garantia" />
-            </article>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── Inflables ──────────────────────────────────────── */}
-      <section id="inflables" className="msection scroll-mt-20">
-        <div className="mwrap">
-          <Reveal>
-            <article className="mdoc">
-              <p className="m-eyebrow accent mb-3">Garantía limitada · MF Barrel y MF Horizon</p>
-              <h2 className="mdisplay text-[clamp(26px,3.4vw,44px)] mb-6">Seis meses en los modelos inflables</h2>
-
-              <p className="text-[16px] leading-relaxed text-[var(--fg-muted)] mb-4">
-                MF Barrel y MF Horizon tienen 6 meses de garantía contra defectos
-                de fabricación, contados desde la fecha de entrega, en
-                condiciones normales de uso.
-              </p>
-              <p className="text-[16px] leading-relaxed text-[var(--fg-muted)] mb-4">
-                Es una garantía independiente de la de la MF ONE: cubre
-                productos distintos, con componentes distintos. El motor tiene
-                su propia póliza, que está más abajo en esta misma página.
-              </p>
-              <p className="text-[16px] leading-relaxed text-[var(--fg-muted)] mb-8">
-                Igual que en la MF ONE, quedan fuera el desgaste natural y los
-                consumibles, los daños por mal uso o transporte, y las
-                reparaciones hechas por personal no autorizado.
-              </p>
-
-              <div className="rounded-xl border border-[var(--line-1)] p-6">
-                <p className="text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                  Para reportar una falla en tu MF Barrel o MF Horizon,
-                  escríbenos por WhatsApp o a{" "}
-                  <a href="mailto:soporte@mentefria.com" className="underline">
-                    soporte@mentefria.com
-                  </a>{" "}
-                  con la descripción, fotos o video y tu comprobante de compra.
-                </p>
-              </div>
-            </article>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── Motores ────────────────────────────────────────
-          Hasta sep 2026 la página sólo decía "6 meses" y remitía a unas
-          "propias condiciones" que no existían en ninguna parte. Ya existen:
-          Saul entregó las pólizas MOT-PRO y MOT-PREM, y esto las resume. Son
-          iguales para las dos generaciones de motor. */}
-      <section id="motores" className="msection panel scroll-mt-20">
-        <div className="mwrap">
-          <Reveal>
-            <article className="mdoc">
-              <p className="m-eyebrow accent mb-3">
-                Garantía limitada · Motor Pro y Motor Premium
-              </p>
-              <h2 className="mdisplay mb-6 text-[clamp(26px,3.4vw,44px)]">
-                Seis meses en los motores
-              </h2>
-
-              <p className="mb-4 text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                El motor tiene su propia póliza, separada de la de la tina.
-                Cubre defectos de fabricación y de funcionamiento durante seis
-                meses contados desde el día en que recibes el equipo, y el
-                tiempo que dure una reparación al amparo de la garantía no se
-                descuenta de esos seis meses.
-              </p>
-
-              <h3 className="mdisplay mb-3 mt-8 text-[20px]">Qué componentes ampara</h3>
-              <p className="mb-4 text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                Compresor, intercambiador, ventilador, bomba, sistema de
-                filtración, y el sistema eléctrico, electrónico y de control de
-                fábrica con sus sensores. En el Motor Premium ampara además el
-                generador de ozono.
-              </p>
-              <p className="mb-4 text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                Los accesorios y consumibles que vienen en la caja quedan fuera:
-                las mangueras, los filtros y la llave del compartimiento de
-                filtros. La tina, su cubierta y su bomba de inflado van por
-                separado y tienen su propia garantía.
-              </p>
-
-              <h3 className="mdisplay mb-3 mt-8 text-[20px]">Qué corre por nuestra cuenta</h3>
-              <ul className="mb-4 list-disc space-y-2 pl-6 text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                <li>Refacciones originales, sin costo.</li>
-                <li>Diagnóstico remoto por videollamada, sin costo.</li>
-                <li>Mano de obra de nuestro personal o de un técnico de nuestra red.</li>
-                <li>Transportación del equipo o del componente en territorio nacional, con guía prepagada.</li>
-                <li>Traslado del técnico hasta tu domicilio.</li>
-              </ul>
-              <p className="mb-4 text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                Si prefieres a un técnico fuera de nuestra red, lo autorizamos
-                por escrito antes del servicio. Las refacciones instaladas
-                quedan garantizadas 90 días naturales desde su entrega.
-              </p>
-
-              <h3 className="mdisplay mb-3 mt-8 text-[20px]">Lo que la anula</h3>
-              <p className="mb-4 text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                Casi todo lo que deja fuera esta póliza tiene que ver con cómo
-                queda instalado el motor y con el mantenimiento:
-              </p>
-              <ul className="mb-4 list-disc space-y-2 pl-6 text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                <li>
-                  Operarlo por encima del nivel del agua de la tina, con el
-                  nivel por debajo de las tomas, sin agua, o con una manguera
-                  desconectada, doblada o con las válvulas cerradas.
-                </li>
-                <li>
-                  Instalarlo a la intemperie, cubrirlo mientras opera, obstruir
-                  sus rejillas o dejarlo al sol directo de forma prolongada.
-                </li>
-                <li>
-                  Congelamiento del agua dentro del circuito, incluido no
-                  drenarlo cuando la temperatura ambiente puede bajar de 2 °C.
-                </li>
-                <li>
-                  Cloro de alberca, bromo, solventes, ácidos, álcalis o
-                  cualquier químico corrosivo en el agua.
-                </li>
-                <li>
-                  Filtros saturados o que no cumplan la especificación del
-                  manual. Un filtro tapado reduce el flujo, obliga al compresor
-                  a trabajar de más y termina por dañarlo.
-                </li>
-                <li>
-                  Transportarlo o guardarlo en posición distinta a la vertical,
-                  y cortar la corriente con el equipo en marcha en lugar de
-                  apagarlo desde el panel.
-                </li>
-                <li>
-                  Conectarlo con extensiones, multicontactos o a una instalación
-                  sin tierra. Un regulador de voltaje no cuenta como extensión.
-                </li>
-              </ul>
-
-              <h3 className="mdisplay mb-3 mt-8 text-[20px]">Cómo se hace válida</h3>
-              <ol className="mb-6 list-decimal space-y-2 pl-6 text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                <li>
-                  Escríbenos por WhatsApp o correo con la descripción de la
-                  falla, el código que aparece en pantalla, fotos o video y el
-                  número de serie, que está en la etiqueta del costado.
-                </li>
-                <li>
-                  Respondemos dentro de los 3 días hábiles siguientes y
-                  agendamos videollamada con un técnico.
-                </li>
-                <li>
-                  Según el caso: lo recibimos en nuestras instalaciones con guía
-                  prepagada, lo atendemos en sitio, mandamos a un técnico, o te
-                  enviamos la refacción con acompañamiento por videollamada. Si
-                  hay que enviarlo, va drenado y vertical.
-                </li>
-                <li>
-                  Si la reparación no deja el equipo en condiciones, puedes
-                  pedir su reposición, la bonificación o la devolución de tu
-                  dinero.
-                </li>
-              </ol>
-
-              <div className="rounded-xl border border-[var(--line-1)] p-6">
-                <p className="text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                  Si compraste directo con nosotros no tienes que llenar ni
-                  firmar nada: el número de serie liga tu equipo con la fecha de
-                  entrega. Si lo compraste con un distribuidor, pídele que selle
-                  y feche tu póliza.
-                </p>
-              </div>
-            </article>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── Prueba de 30 días ──────────────────────────────── */}
-      <section className="msection panel">
-        <div className="mwrap">
-          <Reveal>
-            <article className="mdoc">
-              <h2 className="mdisplay text-[clamp(20px,2.2vw,26px)] mb-4">Además: 30 días de prueba</h2>
-              <p className="text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                La garantía es una cosa y la prueba es otra. Todos nuestros
-                equipos incluyen 30 días de prueba: si no es la mejor cold plunge
-                que has probado, te regresamos tu dinero, sin preguntas. Los
-                costos de envío de la devolución corren por nuestra cuenta.
-              </p>
-            </article>
+              <span className="inline-flex flex-none items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--accent-ice)]">
+                Cómo funciona
+                <ArrowRight className="h-3.5 w-3.5" />
+              </span>
+            </Link>
           </Reveal>
         </div>
       </section>

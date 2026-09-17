@@ -1,8 +1,11 @@
 "use client";
 
-import { createContext, useContext, useMemo, useState } from "react";
-import { Check, Truck, Wallet } from "lucide-react";
+import { createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { Check, ChevronLeft, ChevronRight, Flame, Snowflake, Sparkles, Truck, Wallet, Wifi, X } from "lucide-react";
 import { planesDe, type PlanShield } from "@/lib/garantia-extendida";
+import { useRouter } from "next/navigation";
+import { useCarrito } from "@/components/CarritoProvider";
+import { miniaturaDe, variantIdDe } from "@/lib/carrito";
 
 /*
   Opciones de producto para los PDPs (patrón Plunge):
@@ -16,6 +19,8 @@ import { planesDe, type PlanShield } from "@/lib/garantia-extendida";
 */
 
 type Color = "Negro" | "Blanco";
+type Motor = "Pro" | "Premium";
+type PreciosMotor = { Pro: number; Premium: number };
 type Variant = { color: Color; images: string[] };
 type Producto = "mf-one" | "mf-barrel" | "mf-horizon";
 type Addon = { id: string; name: string; price: number };
@@ -23,11 +28,16 @@ type Addon = { id: string; name: string; price: number };
 const Ctx = createContext<{
   color: Color;
   setColor: (c: Color) => void;
+  motor: Motor;
+  setMotor: (m: Motor) => void;
+  /** null en la MF ONE: trae el chiller integrado, no se elige motor. */
+  preciosMotor: PreciosMotor | null;
+  /** Precio del equipo con el motor elegido. */
+  precioBase: number;
   slide: number;
   setSlide: (i: number) => void;
   variants: Variant[];
   producto: Producto;
-  basePrice: number;
   addons: Addon[];
   toggleAddon: (a: Addon) => void;
   hasAddon: (id: string) => boolean;
@@ -46,16 +56,23 @@ export function ProductOptionsProvider({
   variants,
   producto,
   basePrice,
+  preciosMotor,
   defaultColor = "Negro",
+  defaultMotor = "Pro",
   children,
 }: {
   variants: Variant[];
   producto: Producto;
+  /** Precio cuando el equipo no lleva motor aparte (MF ONE). */
   basePrice: number;
+  /** Inflables: el precio cambia con el motor. Si viene, manda sobre basePrice. */
+  preciosMotor?: PreciosMotor;
   defaultColor?: Color;
+  defaultMotor?: Motor;
   children: React.ReactNode;
 }) {
   const [color, setColorRaw] = useState<Color>(defaultColor);
+  const [motor, setMotorRaw] = useState<Motor>(defaultMotor);
   const [slide, setSlide] = useState(0);
   const [addons, setAddons] = useState<Addon[]>([]);
 
@@ -64,14 +81,36 @@ export function ProductOptionsProvider({
     setSlide(0); // al cambiar de color, regresa a la foto frontal
   };
 
+  /*
+    El MF Shield está atado al motor, no al revés: su precio y su cobertura
+    dependen de qué motor trae el equipo. Por eso el cambio de motor reescribe
+    el add-on de garantía que ya estuviera agregado, en lugar de dejar que el
+    cliente combine un motor Premium con un Shield de motor Pro (que cuesta
+    menos y cubre otra cosa).
+  */
+  const setMotor = (m: Motor) => {
+    setMotorRaw(m);
+    const nuevo = planesDe(producto).find((p) => p.motor === m);
+    if (!nuevo) return;
+    setAddons((prev) =>
+      prev.map((a) =>
+        a.id.startsWith("shield-")
+          ? { id: `shield-${nuevo.id}`, name: `MF Shield · ${nuevo.equipo}`, price: nuevo.precio }
+          : a,
+      ),
+    );
+  };
+
   const toggleAddon = (a: Addon) =>
     setAddons((prev) =>
       prev.some((x) => x.id === a.id) ? prev.filter((x) => x.id !== a.id) : [...prev, a],
     );
 
+  const precioBase = preciosMotor ? preciosMotor[motor] : basePrice;
+
   const total = useMemo(
-    () => basePrice + addons.reduce((s, a) => s + a.price, 0),
-    [basePrice, addons],
+    () => precioBase + addons.reduce((s, a) => s + a.price, 0),
+    [precioBase, addons],
   );
 
   return (
@@ -79,11 +118,14 @@ export function ProductOptionsProvider({
       value={{
         color,
         setColor,
+        motor,
+        setMotor,
+        preciosMotor: preciosMotor ?? null,
+        precioBase,
         slide,
         setSlide,
         variants,
         producto,
-        basePrice,
         addons,
         toggleAddon,
         hasAddon: (id) => addons.some((a) => a.id === id),
@@ -99,31 +141,78 @@ export function ProductOptionsProvider({
 export function ProductStage({ alt }: { alt: string }) {
   const { color, variants, slide, setSlide } = useProductOptions();
   const images = (variants.find((v) => v.color === color) ?? variants[0]).images;
-  const current = images[Math.min(slide, images.length - 1)];
+  const actual = Math.min(slide, images.length - 1);
+  const current = images[actual];
+  const varias = images.length > 1;
+  const tiraRef = useRef<HTMLDivElement>(null);
+
+  /* Flechas sobre la foto. Antes la única forma de cambiar de foto era tocar
+     la miniatura (Saul, sep 2026). Dan la vuelta: de la última pasan a la
+     primera y al revés. */
+  const ir = (paso: number) => setSlide((actual + paso + images.length) % images.length);
+
+  /* Con muchas fotos la tira de miniaturas se desborda; al avanzar con la
+     flecha, la miniatura activa se trae a la vista para que no quede oculta. */
+  useEffect(() => {
+    const tira = tiraRef.current;
+    const activa = tira?.children[actual] as HTMLElement | undefined;
+    if (!tira || !activa) return;
+    /* Solo en horizontal y dentro de la tira. scrollIntoView movía también la
+       página hacia arriba o abajo si la galería no estaba en pantalla. */
+    const izq = activa.offsetLeft;
+    const der = izq + activa.offsetWidth;
+    if (izq < tira.scrollLeft) tira.scrollTo({ left: izq - 8, behavior: "smooth" });
+    else if (der > tira.scrollLeft + tira.clientWidth)
+      tira.scrollTo({ left: der - tira.clientWidth + 8, behavior: "smooth" });
+  }, [actual]);
+
+  const flecha =
+    "absolute top-1/2 z-10 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-white/60 bg-white/55 text-[var(--fg-metal)] shadow-[0_4px_18px_rgba(8,9,11,0.12)] backdrop-blur-md transition-all duration-200 hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-ice)]";
 
   return (
     <div>
-      <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[18px] [background:var(--grad-silver)] lg:aspect-square">
+      <div
+        className="group/stage relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[18px] [background:var(--grad-silver)] lg:aspect-square"
+        onKeyDown={(e) => {
+          if (!varias) return;
+          if (e.key === "ArrowLeft") ir(-1);
+          if (e.key === "ArrowRight") ir(1);
+        }}
+      >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img fetchPriority="high"
           key={current}
           src={current}
-          alt={`${alt} — color ${color.toLowerCase()}`}
+          alt={`${alt}, color ${color.toLowerCase()}`}
           className="h-full w-full object-cover mix-blend-multiply duration-500 animate-in fade-in"
         />
+
+        {varias && (
+          <>
+            <button type="button" onClick={() => ir(-1)} aria-label="Foto anterior" className={`${flecha} left-3`}>
+              <ChevronLeft size={20} strokeWidth={2} />
+            </button>
+            <button type="button" onClick={() => ir(1)} aria-label="Foto siguiente" className={`${flecha} right-3`}>
+              <ChevronRight size={20} strokeWidth={2} />
+            </button>
+            <span className="pointer-events-none absolute bottom-3 left-1/2 z-10 -translate-x-1/2 rounded-full bg-white/60 px-2.5 py-1 text-[11px] font-medium tabular-nums text-[var(--fg-muted)] backdrop-blur-md">
+              {actual + 1} / {images.length}
+            </span>
+          </>
+        )}
       </div>
 
       {/* Slides (solo si hay más de una imagen) */}
-      {images.length > 1 && (
-        <div className="no-scrollbar mt-3 flex gap-2.5 overflow-x-auto pb-1">
+      {varias && (
+        <div ref={tiraRef} className="no-scrollbar mt-3 flex gap-2.5 overflow-x-auto pb-1">
           {images.map((src, i) => (
             <button
               key={src}
               onClick={() => setSlide(i)}
               aria-label={`Foto ${i + 1}`}
-              aria-current={slide === i}
+              aria-current={actual === i}
               className={`relative aspect-square w-[72px] flex-none overflow-hidden rounded-[10px] transition-all duration-200 ${
-                slide === i
+                actual === i
                   ? "ring-2 ring-[var(--accent-ice)] ring-offset-2 ring-offset-[var(--bg-metal)]"
                   : "opacity-60 hover:opacity-100"
               }`}
@@ -168,6 +257,97 @@ export function ColorPicker() {
     </div>
   );
 }
+
+/* ---- Precio del equipo, en vivo según el motor elegido ---- */
+export function PrecioBase() {
+  const { precioBase } = useProductOptions();
+  return (
+    <span className="mdisplay text-[clamp(34px,3.6vw,50px)] tabular-nums">{money(precioBase)}</span>
+  );
+}
+
+/* ---- Selector de motor (solo inflables).
+        Va arriba del MF Shield: el motor define el precio del equipo y
+        también qué plan de garantía extendida aplica. ---- */
+const MOTORES: { motor: Motor; nombre: string; nota: string }[] = [
+  { motor: "Pro", nombre: "Motor Pro 2.0", nota: "Solo enfriamiento" },
+  { motor: "Premium", nombre: "Motor Premium 2.0", nota: "Suma calor hasta 42 °C y ozono" },
+];
+
+export function MotorSelector() {
+  const { motor, setMotor, preciosMotor } = useProductOptions();
+  if (!preciosMotor) return null; // MF ONE: el chiller va integrado
+
+  const activa = MOTORES.find((m) => m.motor === motor);
+
+  return (
+    <div className="mt-8">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--fg-muted)]">
+        Motor · {motor}
+      </p>
+      {/* Dos lineas por boton, no tres: la nota de cada motor se saco a un solo
+          renglon debajo del par. Con la nota adentro cada boton medía 86px de
+          alto y el bloque pesaba mas que el selector de color. */}
+      <div className="mt-3 grid grid-cols-2 gap-2.5">
+        {MOTORES.map((op) => {
+          const on = op.motor === motor;
+          return (
+            <button
+              key={op.motor}
+              onClick={() => setMotor(op.motor)}
+              aria-pressed={on}
+              className={`rounded-[12px] border px-4 py-3 text-left transition-colors duration-200 ${
+                on
+                  ? "border-[var(--accent-ice)] bg-white"
+                  : "border-[var(--line-1)] bg-white hover:border-[var(--line-2)]"
+              }`}
+            >
+              <span className="block text-[13px] font-semibold leading-tight">{op.nombre}</span>
+              <span className="mt-0.5 block text-[12.5px] tabular-nums text-[var(--fg-muted)]">
+                {money(preciosMotor[op.motor])}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+      {/* Qué trae el motor elegido, en una fila chica debajo del par. Versión
+          discreta de la comparativa de "Elige tu motor": se pinta de azul lo
+          que incluye el motor seleccionado y queda gris lo que no. Al pasar a
+          Premium se encienden calor y ozono (Saul, sep 2026). */}
+      {activa && (
+        <ul className="mt-3 flex flex-wrap gap-1.5" aria-label={`Lo que incluye el ${activa.nombre}`}>
+          {RASGOS_MOTOR.map((r) => {
+            const incluye = r.en.includes(motor);
+            return (
+              <li
+                key={r.t}
+                className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11.5px] font-medium transition-colors duration-300 ${
+                  incluye
+                    ? "border-[rgba(91,155,213,0.35)] bg-[rgba(91,155,213,0.1)] text-[var(--m-blue-600)]"
+                    : "border-[var(--line-1)] bg-transparent text-[var(--fg-subtle)] line-through decoration-[var(--line-2)]"
+                }`}
+              >
+                <r.icon size={13} strokeWidth={2} aria-hidden />
+                {r.t}
+                <span className="sr-only">{incluye ? "incluido" : "no incluido"}</span>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+/* Lo que se compara en la fila chica del selector. Datos de SPECS_NUEVOS en
+   src/lib/motores.ts: los dos enfrían y se controlan por app Wi-Fi; solo el
+   Premium calienta y lleva ozono. */
+const RASGOS_MOTOR: { t: string; icon: typeof Snowflake; en: Motor[] }[] = [
+  { t: "Frío", icon: Snowflake, en: ["Pro", "Premium"] },
+  { t: "App Wi-Fi", icon: Wifi, en: ["Pro", "Premium"] },
+  { t: "Calor hasta 42 °C", icon: Flame, en: ["Premium"] },
+  { t: "Ozono", icon: Sparkles, en: ["Premium"] },
+];
 
 /* ---- Shell compartida de los add-ons ---- */
 function AddonShell({
@@ -236,7 +416,7 @@ export function AddonCard({
             key={imgByColor[color]}
             src={imgByColor[color]}
             alt={name}
-            className="h-full w-full object-contain mix-blend-multiply duration-300 animate-in fade-in"
+            className="h-full w-full object-cover duration-300 animate-in fade-in"
           />
         </div>
         <div className="min-w-0">
@@ -252,29 +432,15 @@ export function AddonCard({
 }
 
 /* ---- Add-on MF Shield (garantía extendida).
-        En los inflables el precio depende del motor, así que la card
-        trae su propio selector Pro / Premium. ---- */
+        No elige motor: lo hereda. El plan que se muestra y se cobra es
+        siempre el del motor seleccionado arriba, en <MotorSelector />, para
+        que nadie termine con un equipo Premium y un Shield de motor Pro. ---- */
 export function ShieldAddon() {
-  const { producto, toggleAddon, hasAddon } = useProductOptions();
+  const { producto, motor, toggleAddon, hasAddon } = useProductOptions();
   const planes = planesDe(producto);
-  const [motorIdx, setMotorIdx] = useState(0);
-  const p: PlanShield = planes[Math.min(motorIdx, planes.length - 1)];
+  const p: PlanShield = planes.find((x) => x.motor === motor) ?? planes[0];
   const id = `shield-${p.id}`;
   const added = hasAddon(id);
-
-  const cambiarMotor = (i: number) => {
-    // Si ya estaba agregado, la selección se mueve al plan del otro motor.
-    if (added) {
-      const nuevo = planes[i];
-      toggleAddon({ id, name: `MF Shield · ${p.equipo}`, price: p.precio });
-      toggleAddon({
-        id: `shield-${nuevo.id}`,
-        name: `MF Shield · ${nuevo.equipo}`,
-        price: nuevo.precio,
-      });
-    }
-    setMotorIdx(i);
-  };
 
   return (
     <AddonShell
@@ -297,25 +463,6 @@ export function ShieldAddon() {
           </p>
         </div>
       </div>
-
-      {planes.length > 1 && (
-        <div className="mt-3 flex gap-2">
-          {planes.map((op, i) => (
-            <button
-              key={op.id}
-              onClick={() => cambiarMotor(i)}
-              aria-pressed={i === motorIdx}
-              className={`flex-1 rounded-full border px-3 py-1.5 text-[11.5px] font-semibold transition-colors duration-200 ${
-                i === motorIdx
-                  ? "border-[var(--accent-ice)] text-[var(--accent-ice)]"
-                  : "border-[var(--line-2)] text-[var(--fg-muted)] hover:border-[var(--line-3,var(--line-2))]"
-              }`}
-            >
-              Motor {op.motor} · {money(op.precio)}
-            </button>
-          ))}
-        </div>
-      )}
 
       <p className="mt-2.5 text-[11.5px] leading-snug text-[var(--fg-subtle)]">
         Cubre uso {p.uso}. Sujeta al programa de mantenimiento del contrato.{" "}
@@ -370,7 +517,7 @@ export const SEMANAS_ENTREGA = 12;
 /** Variante Shopify de $1 MXN para cobrar el anticipo. null = todavía no existe. */
 const VARIANTE_APARTADO: string | null = null;
 
-export function PaymentPlan({ demoUrl }: { demoUrl: string }) {
+export function PaymentPlan({ llamadaUrl }: { llamadaUrl: string }) {
   const { total, addons, color } = useProductOptions();
 
   const anticipo = Math.round(total * ANTICIPO);
@@ -441,8 +588,8 @@ export function PaymentPlan({ demoUrl }: { demoUrl: string }) {
         <a href={checkout} target="_blank" rel="noopener noreferrer" className="mbtn mbtn-primary">
           Apartar con {money(anticipo)}
         </a>
-        <a href={demoUrl} target="_blank" rel="noopener noreferrer" className="mbtn mbtn-ghost">
-          Agendar demo
+        <a href={llamadaUrl} target="_blank" rel="noopener noreferrer" className="mbtn mbtn-ghost">
+          Agendar llamada
         </a>
       </div>
 
@@ -465,5 +612,196 @@ export function ConfigTotal() {
       Tu configuración: <span className="font-semibold text-[var(--fg-metal)]">{money(total)} MXN</span>{" "}
       <span className="text-[var(--fg-subtle)]">({addons.map((a) => a.name).join(" + ")})</span>
     </p>
+  );
+}
+
+/* ---- Boton de compra: manda al carrito la configuracion viva ----
+   Sustituye a los enlaces que se iban a mentefria.com o a WhatsApp.
+
+   `conPaso` existe porque los botones de mas abajo (Especificaciones y cierre)
+   quedan lejos del configurador: quien llega ahi no vio el selector de motor y
+   no puede saber si esta comprando Pro o Premium, que son $15,000 de
+   diferencia. Con `conPaso` se abre un paso corto para elegir antes de
+   agregar. El boton de arriba no lo necesita: el selector esta a su lado. */
+export function AddToCart({
+  label,
+  nombre,
+  variante = "primary",
+  conPaso = false,
+  className = "",
+}: {
+  label: string;
+  nombre: string;
+  variante?: "primary" | "blue";
+  conPaso?: boolean;
+  className?: string;
+}) {
+  const { producto, color, motor, preciosMotor, precioBase, addons } = useProductOptions();
+  const { agregar } = useCarrito();
+  const router = useRouter();
+  const [abierto, setAbierto] = useState(false);
+
+  const alCarrito = () => {
+    const motorReal = preciosMotor ? motor : null;
+    agregar({
+      productoId: producto,
+      nombre,
+      color,
+      motor: motorReal,
+      precioUnitario: precioBase,
+      img: miniaturaDe(producto, color),
+      addons: addons.map((a) => ({
+        id: a.id,
+        nombre: a.name,
+        precio: a.price,
+        variantId: null,
+      })),
+      variantId: variantIdDe(producto, color, motorReal),
+    });
+    router.push("/carrito");
+  };
+
+  /* La MF ONE no lleva motor aparte: no hay nada que elegir, se salta el paso. */
+  const necesitaPaso = conPaso && !!preciosMotor;
+
+  return (
+    <>
+      <button
+        onClick={() => (necesitaPaso ? setAbierto(true) : alCarrito())}
+        className={`mbtn mbtn-${variante} ${className}`.trim()}
+      >
+        {label}
+      </button>
+      {abierto && (
+        <PasoConfigurar
+          nombre={nombre}
+          onCerrar={() => setAbierto(false)}
+          onConfirmar={alCarrito}
+        />
+      )}
+    </>
+  );
+}
+
+/* ---- Paso corto: color y motor antes de agregar ---- */
+function PasoConfigurar({
+  nombre,
+  onCerrar,
+  onConfirmar,
+}: {
+  nombre: string;
+  onCerrar: () => void;
+  onConfirmar: () => void;
+}) {
+  const { color, setColor, variants, motor, setMotor, preciosMotor, precioBase } =
+    useProductOptions();
+
+  useEffect(() => {
+    const alTeclear = (e: KeyboardEvent) => e.key === "Escape" && onCerrar();
+    window.addEventListener("keydown", alTeclear);
+    const overflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", alTeclear);
+      document.body.style.overflow = overflow;
+    };
+  }, [onCerrar]);
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-end justify-center bg-[rgba(8,9,11,0.55)] p-0 sm:items-center sm:p-6"
+      onClick={onCerrar}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Configura tu ${nombre}`}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="w-full max-w-[440px] rounded-t-[20px] bg-white p-6 text-[var(--fg-metal)] sm:rounded-[20px] sm:p-7"
+      >
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <span className="m-eyebrow accent">Antes de agregar</span>
+            <h2 className="mdisplay mt-2 text-[24px] leading-tight">Configura tu {nombre}</h2>
+          </div>
+          <button
+            onClick={onCerrar}
+            aria-label="Cerrar"
+            className="-mr-1 -mt-1 flex-none rounded-full p-1.5 text-[var(--fg-subtle)] transition-colors hover:bg-[var(--bg-panel)] hover:text-[var(--fg-metal)]"
+          >
+            <X size={18} />
+          </button>
+        </div>
+
+        <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--fg-muted)]">
+          Color · {color}
+        </p>
+        <div className="mt-2.5 flex gap-2.5">
+          {variants.map((v) => (
+            <button
+              key={v.color}
+              onClick={() => setColor(v.color)}
+              aria-label={`Color ${v.color}`}
+              aria-pressed={color === v.color}
+              className={`h-9 w-9 rounded-full border transition-all duration-200 ${
+                v.color === "Negro"
+                  ? "border-transparent bg-[#0e1013]"
+                  : "border-[var(--line-2)] bg-white"
+              } ${
+                color === v.color
+                  ? "ring-2 ring-[var(--accent-ice)] ring-offset-2 ring-offset-white"
+                  : "opacity-70 hover:opacity-100"
+              }`}
+            />
+          ))}
+        </div>
+
+        {preciosMotor && (
+          <>
+            <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--fg-muted)]">
+              Motor · {motor}
+            </p>
+            <div className="mt-2.5 grid grid-cols-2 gap-2.5">
+              {MOTORES.map((op) => {
+                const activo = op.motor === motor;
+                return (
+                  <button
+                    key={op.motor}
+                    onClick={() => setMotor(op.motor)}
+                    aria-pressed={activo}
+                    className={`rounded-[14px] border px-4 py-3 text-left transition-colors duration-200 ${
+                      activo
+                        ? "border-[var(--accent-ice)]"
+                        : "border-[var(--line-1)] hover:border-[var(--line-2)]"
+                    }`}
+                  >
+                    <span className="block text-[13px] font-semibold leading-tight">
+                      {op.nombre}
+                    </span>
+                    <span className="mt-1 block text-[13px] font-semibold tabular-nums">
+                      {money(preciosMotor[op.motor])}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </>
+        )}
+
+        <div className="mt-6 flex items-baseline justify-between gap-4">
+          <span className="text-[12.5px] text-[var(--fg-muted)]">Total del equipo</span>
+          <span className="text-[19px] font-semibold tabular-nums">
+            {money(precioBase)} <span className="font-normal text-[var(--fg-subtle)]">MXN</span>
+          </span>
+        </div>
+
+        <button onClick={onConfirmar} className="mbtn mbtn-primary mt-4 w-full justify-center">
+          Agregar al carrito
+        </button>
+        <p className="mt-3 text-center text-[11.5px] leading-snug text-[var(--fg-subtle)]">
+          La garantía extendida MF Shield se agrega desde la ficha, arriba.
+        </p>
+      </div>
+    </div>
   );
 }

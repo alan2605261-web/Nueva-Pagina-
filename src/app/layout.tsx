@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { CarritoProvider } from "@/components/CarritoProvider";
 
 // Aileron — Mente Fria's brand grotesque (Helvetica-Neue family), self-hosted.
 const aileron = localFont({
@@ -30,7 +31,9 @@ export default function RootLayout({
       lang="es"
       className={`${aileron.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <CarritoProvider>{children}</CarritoProvider>
+      </body>
     </html>
   );
 }

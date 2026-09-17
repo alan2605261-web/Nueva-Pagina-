@@ -412,7 +412,7 @@ export function QuizPlunge() {
         )}
 
         <h2
-          className="mdisplay mt-6 text-[clamp(26px,3.4vw,42px)] leading-tight"
+          className="mdisplay mt-5 text-center text-[clamp(26px,3.4vw,42px)] leading-tight"
           style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
         >
           {q.pregunta}
@@ -421,7 +421,7 @@ export function QuizPlunge() {
         {/* Pastillas, no tarjetas. Las tarjetas grandes con nota debajo se
             quitaron en sep 2026: Plunge usa botones simples y Saul los
             prefiere. Sin flecha ni descripción, la opción se lee de un golpe. */}
-        <div className="mt-10 flex flex-col items-center gap-3">
+        <div className="mt-8 flex flex-col items-center gap-3">
           {q.opciones.map((o) => {
             const activa = resp[q.id] === o.valor;
             return (

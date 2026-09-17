@@ -1,8 +1,9 @@
 import { PageShell } from "@/components/PageShell";
 import { SubHero, SectionHeader, StatRow, CTASection } from "@/components/blocks";
 import { Reveal } from "@/components/Reveal";
-import { BENEFICIOS, CONSEJO } from "@/lib/ciencia";
+import { BENEFICIOS } from "@/lib/ciencia";
 import { ArrowUpRight } from "@/components/icons";
+import { AvisoInformativo } from "@/components/AvisoInformativo";
 
 /*
   /aprender — la ciencia detrás del frío.
@@ -41,9 +42,12 @@ export default function AprenderPage() {
           <Reveal>
             <StatRow
               stats={[
-                { value: "+250%", label: "Dopamina" },
-                { value: "+530%", label: "Noradrenalina" },
-                { value: "−47%", label: "Cortisol" },
+                // Asterisco: Šrámek et al. 2000, verificado contra el resumen
+                // publicado (sep 2026). Había un "−47 % cortisol" que NO aparece
+                // en ese estudio (en agua fría el cortisol solo "tendió a bajar",
+                // sin cifra). Saul lo mandó quitar: no volver a ponerlo.
+                { value: "+250%", label: "Dopamina", nota: true },
+                { value: "+530%", label: "Noradrenalina", nota: true },
               ]}
             />
           </Reveal>
@@ -143,76 +147,6 @@ export default function AprenderPage() {
         </div>
       </section>
 
-      {/* ── Consejo científico ─────────────────────────────────────────── */}
-      <section className="msection scroll-mt-20" id="consejo">
-        <div className="mwrap">
-          <Reveal className="msection-head">
-            <span className="m-eyebrow accent">Consejo científico</span>
-            <h2>Los que más saben respaldan el frío.</h2>
-            <p>
-              Científicos, médicos y atletas que han dedicado su carrera a
-              entender lo que la exposición al frío le hace al cuerpo humano. Su
-              trabajo publicado es el que sostiene lo que contamos aquí.
-            </p>
-          </Reveal>
-
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {CONSEJO.map((r, i) => (
-              <Reveal key={r.nombre} delay={(i % 3) * 70} className="h-full">
-                <a
-                  href={r.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-full flex-col rounded-[16px] border p-7 transition-colors hover:border-[var(--accent-ice)]"
-                  style={{
-                    borderColor: "var(--line-1)",
-                    background: "var(--m-white)",
-                  }}
-                >
-                  <span className="m-eyebrow accent">{r.campo}</span>
-                  <h3
-                    className="mdisplay mt-3 text-[19px] leading-tight"
-                    style={{ color: "var(--fg-metal)" }}
-                  >
-                    {r.nombre}
-                  </h3>
-                  <p
-                    className="mt-1 text-[12.5px]"
-                    style={{ color: "var(--fg-subtle)" }}
-                  >
-                    {r.filiacion}
-                  </p>
-                  <p
-                    className="mt-4 flex-1 text-justify text-[13.5px] leading-relaxed hyphens-auto"
-                    lang="es"
-                    style={{ color: "var(--fg-muted)" }}
-                  >
-                    {r.bio}
-                  </p>
-                  <span
-                    className="mt-5 inline-flex items-center gap-1.5 text-[12.5px] font-semibold"
-                    style={{ color: "var(--accent-ice)" }}
-                  >
-                    Ver su trabajo
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                  </span>
-                </a>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal className="mt-8">
-            <p
-              className="text-[12.5px] leading-relaxed"
-              style={{ color: "var(--fg-subtle)" }}
-            >
-              Mencionamos su trabajo como referencia científica. No implica
-              patrocinio, asesoría contratada ni respaldo de estas personas a
-              Mente Fria como marca.
-            </p>
-          </Reveal>
-        </div>
-      </section>
 
       {/* ── Fuentes y aviso, en un solo bloque ─────────────────────────
           Eran DOS secciones seguidas, cada una con el padding completo de
@@ -256,6 +190,29 @@ export default function AprenderPage() {
                 epilepsia o diabetes, consulta a tu médico antes de empezar.
               </p>
             </div>
+          </Reveal>
+          {/* Notas de las cifras y aviso legal, al final de la página y en
+              letra chica (Saul, sep 2026: el recuadro se veía invasivo y la
+              nota del asterisco no tenía que ir pegada a las cifras). */}
+          <Reveal className="mt-16">
+            <AvisoInformativo
+              notas={
+                <p>
+                  * Šrámek P, et al.{" "}
+                  <a
+                    href="https://doi.org/10.1007/s004210050065"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-2 hover:text-[var(--accent-ice)]"
+                  >
+                    Human physiological responses to immersion into water of different temperatures
+                  </a>
+                  . European Journal of Applied Physiology, 2000. Aumento en sangre medido tras 1 hora
+                  de inmersión hasta el cuello en agua a 14 °C, en un grupo de hombres jóvenes.
+                </p>
+              }
+              base="Información anterior con base en el estudio citado y en las publicaciones de terceros enlazadas en esta página. Por lo mismo, las cifras corresponden a las condiciones de cada estudio y no son datos de Mente Fria ni resultados que deban esperarse de una sesión con nuestros productos."
+            />
           </Reveal>
         </div>
       </section>

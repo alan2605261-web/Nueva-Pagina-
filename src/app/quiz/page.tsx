@@ -32,7 +32,9 @@ export default function QuizPage() {
         </div>
       </section>
 
-      <section className="msection panel">
+      {/* !pt-0: la intro de arriba ya cierra con su propio aire. Dejar el
+          padding de seccion aqui apilaba dos y abria una franja muerta. */}
+      <section className="msection panel !pt-8">
         <QuizPlunge />
       </section>
     </PageShell>

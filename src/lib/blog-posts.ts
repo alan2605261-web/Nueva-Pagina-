@@ -55,9 +55,15 @@ export type Coleccion = {
 export const COLECCIONES: Coleccion[] = [
   {
     slug: "ocho-razones",
-    nombre: "Ocho razones para meterte al frío",
+    nombre: "Ocho razones to plunge",
     dek: "Qué le hace la inmersión a tu cuerpo, razón por razón: el mecanismo, lo que la investigación sostiene y dónde deja de sostenerlo.",
     img: "/photography/modelaje/modelo-01.jpg",
+  },
+  {
+    slug: "guia-del-frio",
+    nombre: "Guía del frío",
+    dek: "Lo que conviene entender antes de comprar: qué es un cold plunge, en qué se diferencia de un baño de hielo y dónde encaja dentro de la crioterapia.",
+    img: "/photography/mfone-patio/tina-sola.jpg",
   },
 ];
 
@@ -163,7 +169,7 @@ export const BLOG_POSTS: BlogPost[] = [
     num: "02",
     titulo: "Mejora el ánimo",
     dek: "La dopamina que libera el frío, cuánto dura y por qué no se parece a ningún estimulante.",
-    img: "/photography/action/running-03.jpg",
+    img: "/photography/action/running-02.jpg",
     lectura: "6 min",
     publicado: "2026-09-08",
     keyword: "agua fría dopamina estado de ánimo",
@@ -232,7 +238,7 @@ export const BLOG_POSTS: BlogPost[] = [
     num: "03",
     titulo: "Energía natural",
     dek: "Adrenalina y noradrenalina en segundos, sin cafeína y sin la caída de la tarde.",
-    img: "/photography/action/running-01.jpg",
+    img: "/photography/mfone-patio/salida.jpg",
     lectura: "5 min",
     publicado: "2026-09-08",
     keyword: "agua fría energía sin cafeína",
@@ -374,7 +380,7 @@ export const BLOG_POSTS: BlogPost[] = [
     num: "05",
     titulo: "Mayor resiliencia",
     dek: "Entrenar la respuesta al estrés en tres minutos al día, y por qué se transfiere fuera del agua.",
-    img: "/photography/action/hyrox-02.webp",
+    img: "/photography/mfone-patio/inmersion.jpg",
     lectura: "6 min",
     publicado: "2026-09-08",
     keyword: "inmersión en frío resiliencia estrés",
@@ -445,7 +451,7 @@ export const BLOG_POSTS: BlogPost[] = [
     num: "06",
     titulo: "Mejor descanso",
     dek: "Cómo la caída de temperatura corporal facilita el sueño profundo, y por qué el horario lo cambia todo.",
-    img: "/photography/modelaje/modelo-04.jpg",
+    img: "/photography/lifestyle/barrel-chimenea.jpg",
     lectura: "6 min",
     publicado: "2026-09-08",
     keyword: "baño frío para dormir mejor",
@@ -516,7 +522,7 @@ export const BLOG_POSTS: BlogPost[] = [
     num: "07",
     titulo: "Acelera el metabolismo",
     dek: "Grasa parda, termogénesis y por qué la cifra que circula por internet no se sostiene.",
-    img: "/images/barrel-retrato-moody.jpg",
+    img: "/photography/lifestyle/vallarta-padel-03.jpg",
     lectura: "6 min",
     publicado: "2026-09-08",
     keyword: "frío grasa parda metabolismo",
@@ -653,7 +659,256 @@ export const BLOG_POSTS: BlogPost[] = [
       "Brenner IKM, et al. Immune changes in humans during cold exposure. Journal of Applied Physiology, 1999.",
     ],
   },
+  /* ── Guía del frío ──────────────────────────────────────────────────────
+     Reconstruidos en sep 2026 a partir de los cuatro artículos que vivían en
+     mentefria.com/blogs/noticias. No se copió texto: se tomó el tema y se
+     reescribió con la misma estructura SEO/AEO que el resto del blog —
+     keyword propia, meta description propia, FAQ citable y fuentes.
+
+     Del original quedaron fuera dos cosas a propósito:
+     · "Inmersión fría: beneficios para tu mente, cuerpo y energía" no se
+       migró: es exactamente lo que cubre la colección "Ocho razones to
+       plunge", artículo por artículo. Publicarlo otra vez sería competir
+       contra nuestras propias páginas por la misma consulta.
+     · Las cifras de rentabilidad del artículo de gimnasios ("cuánto puedo
+       ganar") salían sin fuente. No se reponen inventadas. */
+  {
+    slug: "que-es-un-cold-plunge",
+    coleccion: "guia-del-frio",
+    num: "01",
+    titulo: "Qué es un cold plunge y en qué se diferencia de un baño de hielo",
+    dek: "Los dos llegan a la misma temperatura. La diferencia está en lo que pasa el día 30, no el día uno.",
+    img: "/photography/mfone-patio/tina-sola.jpg",
+    lectura: "6 min",
+    publicado: "2026-09-11",
+    keyword: "diferencia entre cold plunge y baño de hielo",
+    descripcion:
+      "Qué es un cold plunge, cómo mantiene la temperatura sin hielo, y en qué se diferencia de llenar una tina con bolsas de hielo: costo, higiene y constancia.",
+    secciones: [
+      {
+        h: "El problema no es el frío, es sostenerlo",
+        p: [
+          "Un baño de hielo y un cold plunge te dejan en el mismo lugar: agua entre 3 y 10 grados, el cuerpo reaccionando igual. Si solo te importa la primera inmersión, son intercambiables y el hielo es más barato.",
+          "La diferencia aparece cuando quieres que esto sea una práctica y no una anécdota. El hielo hay que comprarlo, cargarlo, vaciarlo y esperar a que enfríe. Cada sesión arranca con veinte minutos de logística antes de tocar el agua, y esa fricción es la que te hace saltarte el martes.",
+          "Un cold plunge es una tina con un motor de enfriamiento conectado: mantiene la temperatura fija las veinticuatro horas. Te metes cuando quieres, sin preparar nada. Ese es el producto, y ese es el único problema que resuelve que el hielo no resuelve.",
+        ],
+      },
+      {
+        h: "Qué hace el motor, exactamente",
+        p: [
+          "El motor —chiller, en la industria— es una bomba de calor que saca energía del agua y la expulsa al aire, igual que un refrigerador. Circula el agua de la tina, la enfría y la devuelve. Cuando alcanza la temperatura que fijaste, se apaga; cuando sube un grado, se vuelve a encender.",
+          "Ese ciclo hace algo que el hielo no puede: la temperatura es un número que eliges, no un resultado de cuántas bolsas compraste. Tres grados es tres grados el lunes y el jueves, y eso importa para comparar cómo te sientes de una sesión a otra.",
+          "El mismo circuito hace pasar el agua por un filtro. Esa es la segunda cosa que el hielo no resuelve: el agua que reutilizas se ensucia con cada inmersión, y sin filtración no aguanta más de un par de usos.",
+        ],
+      },
+      {
+        h: "Higiene: la parte que nadie cuenta",
+        p: [
+          "Una tina con agua estancada a baja temperatura no es estéril. El frío frena el crecimiento bacteriano, no lo detiene, y lo que entra con cada cuerpo —sudor, aceites de la piel, restos de producto— se queda ahí.",
+          "Por eso un equipo pensado para uso repetido combina filtración mecánica con algún sistema de desinfección. La filtración retiene los sólidos; la desinfección se ocupa de lo que no se ve. Con las dos cosas trabajando, el agua aguanta semanas en lugar de días.",
+          "Si vas por la ruta del hielo, la regla práctica es simple: agua nueva cada vez. En cuanto empiezas a reutilizarla sin filtrar ni desinfectar, el ahorro deja de ser ahorro.",
+        ],
+      },
+      {
+        h: "Cuál te conviene",
+        p: [
+          "El hielo tiene sentido si quieres probar antes de invertir, si vas a hacerlo menos de una vez por semana, o si no tienes dónde dejar un equipo instalado. Es la forma honesta de averiguar si esto es para ti.",
+          "El equipo tiene sentido cuando ya sabes que sí, y cuando la frecuencia que quieres sostener hace que el costo del hielo y el tiempo de preparación dejen de tener gracia. Ahí el cálculo cambia de precio de compra a costo por sesión.",
+          "Y hay un caso donde no hay discusión: si más de una persona lo va a usar, o si lo vas a ofrecer como servicio, el hielo no escala. Un gimnasio con veinte inmersiones al día no puede operar con bolsas.",
+        ],
+      },
+      {
+        h: "Cuánto cuesta cada sesión",
+        p: [
+          "Una tina llena con hielo necesita entre seis y ocho bolsas para bajar a un rango útil. A precio de tienda en México eso son unos doscientos pesos por sesión, y hay que ir por ellas.",
+          "Cinco sesiones a la semana son mil pesos semanales, cuatro mil al mes. En un año, sin contar el tiempo invertido ni el agua que tiras cada vez, el hielo cuesta más que muchos equipos.",
+          "Un cold plunge invierte la estructura: pagas casi todo al principio y después el costo por sesión es electricidad y filtros. El equipo se enciende por ciclos, no de forma continua, así que el consumo real depende de la temperatura ambiente y de cuánto abras la tapa, no de las horas que esté conectado.",
+          "El cálculo que sirve no es cuánto cuesta el equipo, es en cuántas sesiones se paga solo. Si vas a hacerlo cinco veces por semana, ese número llega antes de lo que parece.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "¿Cuál es la diferencia entre un cold plunge y un baño de hielo?",
+        a: "El baño de hielo enfría con hielo que compras cada vez y se calienta en horas. El cold plunge tiene un motor que mantiene la temperatura fija de forma permanente y filtra el agua, así que se usa sin preparación previa y el agua dura semanas en lugar de una sesión.",
+      },
+      {
+        q: "¿Un cold plunge necesita hielo?",
+        a: "No. El motor de enfriamiento hace el trabajo que hacía el hielo. Agregar hielo a un equipo con chiller no aporta nada y solo diluye el agua tratada.",
+      },
+      {
+        q: "¿Cada cuánto se cambia el agua de un cold plunge?",
+        a: "Con filtración y desinfección funcionando, entre 3 y 5 semanas según cuánta gente lo use. Sin filtración, cada una o dos sesiones.",
+      },
+      {
+        q: "¿Qué temperatura debe tener el agua?",
+        a: "Entre 3 y 10 grados cubre prácticamente todos los protocolos. Más frío no da más beneficio: solo hace la sesión más difícil de sostener, que es justo lo contrario de lo que conviene al principio.",
+      },
+    ],
+    fuentes: [
+      "Tipton MJ, et al. Cold water immersion: kill or cure? Experimental Physiology, 2017.",
+      "Bleakley CM, Davison GW. What is the biochemical and physiological rationale for using cold-water immersion in sports recovery? British Journal of Sports Medicine, 2010.",
+    ],
+  },
+  {
+    slug: "que-es-la-crioterapia",
+    coleccion: "guia-del-frio",
+    num: "02",
+    titulo: "Qué es la crioterapia y dónde encaja la inmersión en agua",
+    dek: "Cámara de nitrógeno, bolsa de hielo y tina de agua fría son tres cosas distintas. Solo una tiene evidencia sólida y precio razonable.",
+    img: "/photography/feature/temperatura.jpg",
+    lectura: "6 min",
+    publicado: "2026-09-11",
+    keyword: "qué es la crioterapia",
+    descripcion:
+      "Las modalidades de crioterapia, en qué se diferencia la cámara de nitrógeno de la inmersión en agua fría, y cuál de las dos tiene respaldo para uso regular.",
+    secciones: [
+      {
+        h: "Una palabra, tres prácticas distintas",
+        p: [
+          "Crioterapia significa usar frío con fines terapéuticos, y bajo ese paraguas caben cosas que no se parecen entre sí. La bolsa de hielo sobre un tobillo es crioterapia. La cámara de nitrógeno a menos ciento cuarenta grados es crioterapia. Meterte a una tina a tres grados también.",
+          "Meterlas en la misma bolsa confunde, porque el frío no actúa igual según cuánto de tu cuerpo cubra y por cuánto tiempo. Una compresa local enfría un tejido concreto. Una inmersión de cuerpo completo desencadena una respuesta sistémica: cambia el ritmo cardiaco, la presión, la respiración y la descarga de neurotransmisores.",
+          "En medicina la palabra además se usa para otra cosa: destruir tejido con frío extremo, como en la eliminación de verrugas o de ciertas lesiones. Es un procedimiento quirúrgico y no tiene relación con lo que hace alguien en su patio.",
+        ],
+      },
+      {
+        h: "Cámara de nitrógeno o agua fría",
+        p: [
+          "La crioterapia de cuerpo entero en cámara expone la piel a aire muy frío durante dos o tres minutos. Impresiona el número —menos ciento diez, menos ciento cuarenta grados— pero el aire transfiere calor mucho peor que el agua.",
+          "Ese es el punto que suele perderse. El agua conduce el calor unas veinticinco veces mejor que el aire. Tres grados de agua te enfrían más rápido y más profundo que aire a menos cien, aunque el número asuste menos.",
+          "A eso se suma la diferencia práctica: la cámara requiere una instalación, un operador y una cita. El agua fría cabe en una tina en tu casa. Para algo que solo funciona si lo haces con regularidad, esa diferencia decide.",
+        ],
+      },
+      {
+        h: "Qué se ha estudiado de verdad",
+        p: [
+          "La mayor parte de la investigación seria sobre frío y recuperación está hecha con inmersión en agua, no con cámara. Las revisiones sistemáticas sobre dolor muscular tardío, percepción de recuperación y marcadores de daño trabajan con protocolos de agua.",
+          "En lo que toca a la respuesta hormonal y nerviosa, el trabajo de referencia también es de inmersión: la descarga de noradrenalina, el aumento sostenido de dopamina y la activación de tejido adiposo pardo se midieron con gente metida en agua.",
+          "La cámara tiene estudios, pero son menos, con muestras más chicas y resultados más dispersos. Eso no la descalifica; significa que si alguien te vende crioterapia citando investigación, lo más probable es que esté citando estudios de inmersión.",
+        ],
+      },
+      {
+        h: "Cuándo no es para ti",
+        p: [
+          "El frío de cuerpo completo sube la presión arterial y acelera el corazón en los primeros segundos. Si tienes una condición cardiovascular, arritmias o presión no controlada, esto se consulta con tu médico antes, no después.",
+          "Lo mismo aplica al embarazo, a la epilepsia y a la diabetes con neuropatía, donde la sensibilidad al frío está alterada y puedes no darte cuenta de que llevas demasiado tiempo dentro.",
+          "Y una regla que no depende de tu historial: nunca solo la primera vez, nunca después de alcohol, y nunca aguantando la respiración bajo el agua. El reflejo de jadeo al entrar es real y es la causa de la mayoría de los accidentes.",
+        ],
+      },
+      {
+        h: "Cómo se hace una sesión decente",
+        p: [
+          "Entra despacio y deja que la respiración se acomode. Los primeros veinte o treinta segundos son los peores: el reflejo de jadeo te va a hacer respirar rápido y superficial, y el trabajo es alargar la exhalación hasta que se calme. Cuando eso pasa, el resto es manejable.",
+          "Dos a cinco minutos bastan. Nadie necesita diez, y aguantar más no acelera nada: solo baja la temperatura central más de lo necesario y alarga el tiempo que tardas en recuperarla.",
+          "Al salir, deja que el cuerpo se caliente solo. Moverte, caminar, vestirte. La ducha caliente inmediata se siente increíble y corta buena parte del efecto que fuiste a buscar.",
+          "Y la constancia gana a la intensidad. Tres minutos a cinco grados cuatro veces por semana rinden más que una sesión heroica a cero grados cada quince días.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "¿Qué es la crioterapia?",
+        a: "Es el uso del frío con fines terapéuticos. Incluye desde una bolsa de hielo en una lesión hasta la cámara de nitrógeno y la inmersión en agua fría. Son prácticas distintas con efectos distintos, aunque compartan el nombre.",
+      },
+      {
+        q: "¿Es mejor la cámara de crioterapia o la inmersión en agua fría?",
+        a: "Para uso regular, la inmersión. El agua conduce el calor unas veinticinco veces mejor que el aire, así que enfría más a pesar de estar a una temperatura menos extrema, y es donde está hecha la mayor parte de la investigación.",
+      },
+      {
+        q: "¿Cuánto dura una sesión de crioterapia en agua?",
+        a: "Entre 2 y 5 minutos a temperaturas de 3 a 10 grados. Más tiempo no aporta más beneficio documentado y sí aumenta el riesgo de hipotermia.",
+      },
+      {
+        q: "¿Quién no debe hacer crioterapia?",
+        a: "Quien tenga condiciones cardiovasculares, presión no controlada, epilepsia, diabetes con neuropatía, o esté embarazada, debe consultarlo con su médico antes. Tampoco conviene tras consumir alcohol ni estando solo la primera vez.",
+      },
+    ],
+    fuentes: [
+      "Šrámek P, et al. Human physiological responses to immersion into water of different temperatures. European Journal of Applied Physiology, 2000.",
+      "Bleakley CM, et al. Whole-body cryotherapy: empirical evidence and theoretical perspectives. Open Access Journal of Sports Medicine, 2014.",
+      "Tipton MJ, et al. Cold water immersion: kill or cure? Experimental Physiology, 2017.",
+    ],
+  },
+  {
+    slug: "cold-plunge-para-gimnasios",
+    coleccion: "guia-del-frio",
+    num: "03",
+    titulo: "Cold plunge en tu gimnasio: qué cambia y qué hay que resolver antes",
+    dek: "Deja de ser un equipo y pasa a ser un servicio. Lo que eso implica en espacio, operación y responsabilidad.",
+    img: "/photography/lifestyle/barrel-grupo-alberca.jpg",
+    lectura: "6 min",
+    publicado: "2026-09-11",
+    keyword: "cold plunge para gimnasio",
+    descripcion:
+      "Qué hay que resolver antes de poner un cold plunge en un gimnasio: espacio, capacidad de filtración, protocolo de uso y responsabilidad con el socio.",
+    secciones: [
+      {
+        h: "Un equipo compartido no es un equipo doméstico",
+        p: [
+          "En una casa, una tina recibe una o dos inmersiones al día. En un gimnasio puede recibir veinte. Todo lo que en casa es cómodo —el cambio de agua cada tres semanas, el filtro al mes— se comprime en proporción directa al uso.",
+          "Eso cambia la pregunta de compra. No es qué tina cabe en el espacio, es cuánta carga de filtración soporta al día y cada cuánto habrá que intervenirla. Un equipo elegido por precio y no por capacidad se convierte en una tarea diaria para tu staff.",
+          "El agua es el indicador. Si a media tarde ya no está transparente, el sistema se quedó corto para ese volumen de gente, y ningún protocolo de limpieza lo compensa.",
+        ],
+      },
+      {
+        h: "Lo que hay que resolver antes de instalar",
+        p: [
+          "Piso y desagüe primero. Una tina llena pesa cientos de kilos y va a haber agua alrededor todos los días. El lugar necesita soportar el peso, tener superficie antiderrapante y una forma de drenar que no sea cargar cubetas.",
+          "Después, la corriente. El motor va en un circuito propio, protegido, y a la intemperie tiene que estar bajo techo: la lluvia y el sol directo son las dos causas más comunes de falla y las dos que anulan la garantía.",
+          "Y el recorrido del socio. Dónde se cambia, dónde deja la toalla, por dónde sale mojado y a qué distancia queda lo eléctrico más cercano. Eso se decide en plano, no cuando llega el equipo.",
+        ],
+      },
+      {
+        h: "El protocolo no es burocracia",
+        p: [
+          "Un socio que entra al agua fría por primera vez no sabe que va a jadear, no sabe cuánto tiempo aguantar, y no sabe que el alcohol o ciertas condiciones cardiacas lo hacen peligroso. Eso lo tiene que saber por ti, no por internet.",
+          "Lo mínimo operable son tres cosas: una inducción corta antes de la primera inmersión, un tiempo máximo visible junto a la tina, y la instrucción de que nadie se meta solo. Con eso cubres la mayoría de los incidentes reales.",
+          "Vale la pena además tener por escrito quién no debe usarlo —embarazo, condiciones cardiovasculares, epilepsia, diabetes con neuropatía— y que el socio lo lea. No es trámite: es la diferencia entre ofrecer un servicio y exponer a alguien.",
+        ],
+      },
+      {
+        h: "Frío y calor juntos",
+        p: [
+          "Si ya tienes sauna o vapor, el frío completa el circuito de contraste, que es la forma en que la mayoría de los centros de recuperación lo ofrecen. Calor primero, frío después, y descanso entre rondas.",
+          "La combinación tiene además una ventaja operativa: alarga el tiempo que el socio pasa en la zona de recuperación y hace que esa zona deje de ser un pasillo. Es la parte del gimnasio que se usa sin reserva y sin instructor.",
+          "Si no tienes sauna, el frío funciona solo. No necesita el calor para servir; el contraste es una forma de usarlo, no un requisito.",
+        ],
+      },
+      {
+        h: "Qué preguntar antes de comprar",
+        p: [
+          "Cuántas inmersiones diarias soporta la filtración, no cuántos litros tiene la tina. Es el dato que decide si el equipo aguanta tu operación o si tu staff va a estar cambiando agua.",
+          "Qué pasa con el motor si falla en mes ocho: si hay garantía vigente, si hay refacciones en el país, y cuánto tarda un reemplazo. Un equipo parado en un gimnasio es un servicio que ya vendiste y no puedes dar.",
+          "Si el equipo es para uso comercial según el fabricante. No es un detalle de catálogo: muchas garantías domésticas se anulan cuando el uso es de un negocio, y eso se descubre el día que reclamas.",
+          "Y cuánto pesa lleno. Ese número decide si va en planta baja o si hay que revisar la losa con alguien que sepa.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "¿Cuánto espacio necesita un cold plunge en un gimnasio?",
+        a: "El área de la tina más un metro libre alrededor del motor para que ventile, y espacio para entrar y salir mojado sin obstáculos. Lo que suele faltar no es el área de la tina: es el drenaje y el piso antiderrapante.",
+      },
+      {
+        q: "¿Cada cuánto hay que cambiar el agua con uso comercial?",
+        a: "Depende del número de inmersiones al día, no del calendario. Con filtración y desinfección trabajando y volumen alto, el rango baja de semanas a días. El agua turbia a media jornada es la señal de que el sistema quedó corto.",
+      },
+      {
+        q: "¿Se puede combinar con sauna?",
+        a: "Sí, y es la forma más común de ofrecerlo: calor primero, frío después, con descanso entre rondas. También funciona solo, sin sauna.",
+      },
+      {
+        q: "¿Qué responsabilidad tiene el gimnasio?",
+        a: "Informar antes de la primera inmersión, señalar el tiempo máximo, impedir el uso en solitario y dejar por escrito quién no debe usarlo. La mayoría de los incidentes con agua fría ocurren por desconocimiento del reflejo de jadeo en los primeros segundos.",
+      },
+    ],
+    fuentes: [
+      "Tipton MJ, et al. Cold water immersion: kill or cure? Experimental Physiology, 2017.",
+      "Šrámek P, et al. Human physiological responses to immersion into water of different temperatures. European Journal of Applied Physiology, 2000.",
+    ],
+  },
 ];
+
 
 /* ── Utilidades ────────────────────────────────────────────────────────── */
 

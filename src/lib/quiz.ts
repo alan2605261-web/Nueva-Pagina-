@@ -109,8 +109,7 @@ export const PREGUNTAS: Pregunta[] = [
     pregunta: "¿Se queda fija o necesitas poder moverla?",
     opciones: [
       { valor: "fija", etiqueta: "Se queda fija" },
-      { valor: "guardar", etiqueta: "Quiero poder guardarla" },
-      { valor: "viajar", etiqueta: "Quiero poder llevármela" },
+      { valor: "movil", etiqueta: "Necesito poder moverla" },
     ],
   },
   {
@@ -143,9 +142,9 @@ export const PREGUNTAS: Pregunta[] = [
     id: "presupuesto",
     pregunta: "¿Con cuánto cuentas para el equipo?",
     opciones: [
-      { valor: "80", etiqueta: "Hasta $80,000" },
-      { valor: "120", etiqueta: "Hasta $120,000" },
-      { valor: "abierto", etiqueta: "Más de $150,000" },
+      { valor: "50-70", etiqueta: "Entre $50,000 y $70,000" },
+      { valor: "70-100", etiqueta: "Entre $70,000 y $100,000" },
+      { valor: "100+", etiqueta: "Más de $100,000" },
     ],
   },
   {
@@ -188,7 +187,11 @@ export type Resultado = {
 };
 
 const LARGO_DISPONIBLE: Record<string, number> = { xs: 120, s: 200, m: 300, l: 600 };
-const TECHO_PRESUPUESTO: Record<string, number> = { "80": 80000, "120": 120000, abierto: Infinity };
+/* Rangos pedidos por Rafa (sep 2026): antes eran "hasta 80 / hasta 120 / más
+   de 150" y no se entendían. Aquí solo importa el techo de cada rango. */
+const TECHO_PRESUPUESTO: Record<string, number> = { "50-70": 70000, "70-100": 100000, "100+": Infinity };
+/** El único rango en el que el costo sí es un problema para la MF ONE. */
+const PRESUPUESTO_AJUSTADO = "50-70";
 /* El precio depende del motor, no solo del modelo. Los inflables cambian
    $15,000 entre Pro y Premium. Cuadran con el valor de equipo que declaran
    los contratos de garantía extendida. */
@@ -228,7 +231,7 @@ export function viablesCon(r: Respuestas): ModeloId[] {
   return (Object.keys(MODELOS) as ModeloId[]).filter((id) => {
     const m = MODELOS[id];
     if (m.largoNecesarioCm > largo) return false;
-    if (id === "mf-one" && (r.movilidad === "guardar" || r.movilidad === "viajar")) return false;
+    if (id === "mf-one" && r.movilidad === "movil") return false;
     return true;
   });
 }
@@ -256,7 +259,7 @@ export function preguntasAplicables(r: Respuestas): Pregunta[] {
    Ahora solo se descarta lo FÍSICAMENTE IMPOSIBLE, que es lo que ninguna
    preferencia arregla:
      · no cabe en el lado largo disponible
-     · pesa 135 kg y el cliente necesita guardarla o llevársela
+     · pesa 135 kg y el cliente necesita poder moverla
 
    Lo demás se puntúa. Cuatro dimensiones, 100 puntos repartidos:
 
@@ -273,10 +276,17 @@ export function preguntasAplicables(r: Respuestas): Pregunta[] {
      hasta el doble                × 0.60
      más del doble                 × 0.35
 
-   Así el dinero pesa, pero no manda solo. Un equipo 40 % arriba del techo
-   puede ganar si arrasa en las otras cuatro; uno al doble de precio, casi
-   nunca. Cuando gana algo por encima del presupuesto, el resultado lo dice
-   de frente en las advertencias.
+   Así el dinero pesa, pero no manda solo. Cuando gana algo por encima del
+   presupuesto, el resultado lo dice de frente en las advertencias.
+
+   PRIORIDAD MF ONE (Rafa, sep 2026). Con la fórmula sola la MF ONE ganaba en
+   57 de 1,296 combinaciones: "solo frío" y "para mí" empujaban a los
+   inflables aunque hubiera espacio y presupuesto. Rafa quiere que el quiz
+   recomiende la MF ONE casi siempre, salvo que el costo de verdad sea un
+   problema. Regla: si la MF ONE cabe y no hay que moverla, gana, excepto en
+   el rango de $50,000 a $70,000. Ahí gana el inflable y la MF ONE queda como
+   alternativa. El puntaje se sigue usando para ordenar las alternativas y
+   para decidir entre inflables.
 ─────────────────────────────────────────────────────────────────────── */
 
 export const PESOS = { espacio: 30, postura: 25, temperatura: 25, uso: 20 } as const;
@@ -308,7 +318,7 @@ export function recomendar(r: Respuestas): Resultado {
     const m = MODELOS[id];
     if (m.largoNecesarioCm > largo) return false;
     // 135 kg no se guardan ni viajan.
-    if (id === "mf-one" && (r.movilidad === "guardar" || r.movilidad === "viajar")) return false;
+    if (id === "mf-one" && r.movilidad === "movil") return false;
     return true;
   });
 
@@ -351,8 +361,10 @@ export function recomendar(r: Respuestas): Resultado {
 
     // Movilidad, entre los que ya pasaron el filtro duro.
     let movilidad = 0;
-    if (r.movilidad === "viajar") movilidad = id === "mf-horizon" ? 4 : id === "mf-barrel" ? 3 : 0;
-    if (r.movilidad === "guardar") movilidad = id === "mf-one" ? 0 : 3;
+    // "Guardarla" y "llevármela" eran la misma respuesta: las dos descartaban
+    // la MF ONE y las dos inflables caben en la misma mochila, con 11 y 12 kg.
+    // Ninguna viaja mejor que la otra, así que se juntaron en una.
+    if (r.movilidad === "movil") movilidad = id === "mf-one" ? 0 : 3;
     if (r.movilidad === "fija") movilidad = id === "mf-one" ? 4 : 0;
 
     const base = espacio + postura + temperatura + uso + movilidad;
@@ -360,6 +372,10 @@ export function recomendar(r: Respuestas): Resultado {
   }
 
   const orden = [...candidatos].sort((a, b) => puntos[b] - puntos[a]);
+  if (candidatos.includes("mf-one") && r.presupuesto !== PRESUPUESTO_AJUSTADO) {
+    orden.splice(orden.indexOf("mf-one"), 1);
+    orden.unshift("mf-one");
+  }
   const ganador = orden[0];
   const modelo = MODELOS[ganador];
 
@@ -370,6 +386,7 @@ export function recomendar(r: Respuestas): Resultado {
   /* 4. Por qué. */
   const razones: string[] = [];
   if (ganador === "mf-one") {
+    razones.push("Es nuestro equipo más completo: el chiller va dentro de la tina, sin motor aparte ni mangueras.");
     razones.push("Cabe en tu espacio con los 100 cm libres que necesita al frente.");
     if (r.movilidad === "fija") razones.push("Como se queda fija, sus 135 kg dejan de ser un problema y ganas el chiller integrado.");
     if (r.temperatura === "ambos") razones.push("Ajusta de 1 a 40 °C en el mismo equipo, sin motor aparte ni mangueras.");
@@ -386,16 +403,15 @@ export function recomendar(r: Respuestas): Resultado {
     razones.push(`Pesa ${ganador === "mf-horizon" ? "12" : "11"} kg vacía: se desinfla, se guarda y se vuelve a montar en menos de 15 minutos.`);
     if (ganador === "mf-horizon" && r.postura === "estirado") razones.push("Es la inflable horizontal: te metes estirado, no sentado.");
     if (ganador === "mf-barrel" && r.postura !== "estirado") razones.push("Vertical y compacta: 90 cm de diámetro y te cubre hasta los hombros.");
-    if (motor === "premium") razones.push("Con el Motor Premium 2.0 sumas calor hasta 40 °C y ozono purificando el agua.");
+    if (motor === "premium") razones.push("Con el Motor Premium 2.0 sumas calor hasta 42 °C y ozono purificando el agua.");
     if (motor === "pro") razones.push("El Motor Pro 2.0 cumple: baja a 3 °C con la misma filtración de 3 capas y el mismo control por app.");
   }
 
   /* 5. Lo que hay que decirle aunque no le guste. */
   const advertencias: string[] = [];
   if (techo !== Infinity && precio > techo) {
-    const arriba = Math.round(((precio - techo) / techo) * 100);
     advertencias.push(
-      `Está ${arriba}% arriba del presupuesto que nos diste. Te la recomendamos porque es la que mejor resuelve lo demás que nos contaste, pero el número es el que es: $${precio.toLocaleString("en-US")} MXN.`,
+      `Está arriba del rango que nos diste: $${precio.toLocaleString("en-US")} MXN. Te la recomendamos porque es la que mejor resuelve lo que nos contaste. Abajo tienes opciones más cerca de tu presupuesto.`,
     );
   }
   if (concesion) {

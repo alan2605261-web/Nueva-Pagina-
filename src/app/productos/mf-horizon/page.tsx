@@ -1,9 +1,10 @@
 import Link from "next/link";
+import { agendarLlamada } from "@/lib/whatsapp";
 import { PageShell } from "@/components/PageShell";
 import { FAQ } from "@/components/FAQ";
 import { Reveal } from "@/components/Reveal";
 import { AccessoryCard } from "@/components/AccessoryCard";
-import { ProductOptionsProvider, ProductStage, ColorPicker, ShieldAddon, ConfigTotal } from "@/components/ProductOptions";
+import { ProductOptionsProvider, ProductStage, ColorPicker, MotorSelector, PrecioBase, AddToCart, ShieldAddon, ConfigTotal } from "@/components/ProductOptions";
 import { BenefitsCarousel } from "@/components/BenefitsCarousel";
 import { MotorPicker } from "@/components/MotorPicker";
 import { RotateCcw, ShieldCheck, CreditCard, Plus } from "lucide-react";
@@ -15,12 +16,11 @@ import { RotateCcw, ShieldCheck, CreditCard, Plus } from "lucide-react";
 ───────────────────────────────────────────────────────────── */
 
 const WHATSAPP = "https://wa.me/5215616471386";
-const SHOP_URL = "https://mentefria.com/products/mf-horizon-1";
 
 const FAQ_ITEMS = [
   {
     q: "¿Qué motor elijo: Pro 2.0 o Premium 2.0?",
-    a: "El Motor Pro 2.0 (0.8 HP) es solo frío: enfría de 25 a 3 °C en ~6 horas, con filtración de 3 capas y control WiFi — perfecto si tu objetivo es recuperación en frío. El Motor Premium 2.0 (1 HP) hace todo eso más rápido (~4 horas), y además ajusta de 1 a 40 °C y purifica con ozono 24/7. Si quieres contraste frío/calor y agua purificada sin cloro de alberca, ve por el Premium.",
+    a: "El Motor Pro 2.0 (0.8 HP) es solo frío: enfría de 25 a 3 °C en ~6 horas, con filtración de 3 capas y control Wi-Fi. Es perfecto si tu objetivo es recuperación en frío. El Motor Premium 2.0 (1 HP) hace todo eso más rápido (~4 horas), y además ajusta de 3 a 42 °C y purifica con ozono 24/7. Si quieres contraste frío/calor y agua purificada sin cloro de alberca, ve por el Premium.",
   },
   {
     q: "¿Necesito hielo?",
@@ -28,11 +28,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Cada cuánto cambio el agua?",
-    a: "Con el sistema de filtración de 3 capas el agua se mantiene limpia entre 3 y 5 semanas según el uso. Con el Motor Premium 2.0, el ozono 24/7 extiende aún más la vida del agua. El cambio de filtros es sencillo y no requiere técnico.",
+    a: "Depende de cuántas inmersiones tenga el equipo al día, sumando a todos los que lo usan, y de si el motor se queda encendido. Como referencia, con el Motor Pro encendido y una inmersión al día, alrededor de tres semanas; con cinco al día, unos cuatro días. Si el agua se ve turbia o se siente resbalosa, cámbiala sin esperar. El calendario completo está en el centro de ayuda.",
   },
   {
     q: "¿El ozono sustituye al cloro?",
-    a: "Sí. Con el Motor Premium 2.0, la purificación con ozono esteriliza el agua 24/7 sin cloro de alberca — sin olores ni irritación en la piel. Con el Motor Pro 2.0, la filtración de 3 capas se encarga de mantener el agua limpia entre cambios.",
+    a: "Sí. Con el Motor Premium 2.0, la purificación con ozono esteriliza el agua 24/7 sin cloro de alberca, sin olores ni irritación en la piel. Con el Motor Pro 2.0, la filtración de 3 capas se encarga de mantener el agua limpia entre cambios.",
   },
   {
     q: "¿Dónde puedo instalarla?",
@@ -44,7 +44,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿En qué se diferencia del MF Barrel?",
-    a: "El MF Barrel ($69,000 MXN) es el formato vertical compacto: te sumerges sentado y ocupa menos espacio. El MF Horizon ($74,000 MXN) es el formato horizontal con el mayor espacio de inmersión: cabes estirado, con los hombros bajo el agua. Ambos comparten la filtración de 3 capas, la purificación con ozono y el control WiFi.",
+    a: "El MF Barrel ($69,000 MXN) es el formato vertical compacto: te sumerges sentado y ocupa menos espacio. El MF Horizon ($74,000 MXN) es el formato horizontal con el mayor espacio de inmersión: cabes estirado, con los hombros bajo el agua. Ambos comparten la filtración de 3 capas, la purificación con ozono y el control Wi-Fi.",
   },
 ];
 
@@ -53,160 +53,149 @@ const SPEC_ROWS = [
   { label: "Dimensiones", value: "160 × 70 × 65 cm" },
   { label: "Volumen", value: "550 L máximo · 400 L recomendado" },
   { label: "Peso", value: "12 kg (sin agua)" },
-  { label: "Formato", value: "Horizontal — inmersión estirado" },
+  { label: "Formato", value: "Horizontal, para inmersión estirado" },
   { label: "Material", value: "Tejido drop-stitch de grado militar" },
   { label: "Filtración", value: "Filtración de 3 capas: filtro de papel, filtro integrado y malla antipolvo" },
   { label: "Desinfección", value: "Ozono 24/7 (con Motor Premium 2.0)" },
   { label: "Enfriamiento", value: "Hasta 3 °C, sin hielo" },
-  { label: "Calentamiento", value: "De 1 a 40 °C (con Motor Premium 2.0)" },
+  { label: "Calentamiento", value: "De 3 a 42 °C (con Motor Premium 2.0)" },
   { label: "Motores compatibles", value: "Motor Pro 2.0 (0.8 HP) · Motor Premium 2.0 (1 HP)" },
-  { label: "Control", value: "WiFi + app, programable" },
+  { label: "Control", value: "Control por app Wi-Fi, programable" },
   { label: "Colores", value: "Negro · Blanco" },
   { label: "Garantía", value: "6 meses" },
-  { label: "Portabilidad", value: "Inflable — mochila de transporte incluida" },
+  { label: "Portabilidad", value: "Inflable, con mochila de transporte incluida" },
   { label: "Envío", value: "$1,500 MXN a todo México" },
 ];
 
 const HERO_BULLETS = [
   "Mayor espacio de inmersión: cabes estirado, con los hombros bajo el agua",
-  "Enfría hasta 3 °C sin hielo — y hasta 40 °C con Motor Premium 2.0",
+  "Enfría hasta 3 °C sin hielo, y hasta 42 °C con Motor Premium 2.0",
   "Inflable y portátil: 12 kg, se guarda en su mochila de transporte",
-  "Filtración de 3 capas + ozono. Control WiFi programable.",
+  "Filtración de 3 capas + ozono. Control por app Wi-Fi, programable.",
   "6 meses de garantía y 30 días de prueba.",
 ];
 
 const ACCESORIOS = [
-  { t: "Mochila de transporte", p: "Desínflala y guárdala completa en su mochila — tu cold plunge viaja contigo.", img: null },
-  { t: "Bomba de doble acción", p: "Infla y desinfla la tina sin herramientas ni compresor.", img: null },
-  { t: "Cubierta protectora", p: "Con seguro para niños — conserva la temperatura y mantiene el agua limpia.", img: null },
-  { t: "Filtración de 3 capas", p: "Filtro de papel, filtro integrado y malla antipolvo trabajando juntos para dejar el agua cristalina.", img: null },
-  { t: "Kit de reparación", p: "Herramientas básicas para mantener tu tina como nueva, incluso de viaje.", img: null },
+  { t: "Mochila de transporte", p: "Desínflala y guárdala completa en su mochila: tu cold plunge viaja contigo.", img: "/images/acc-mochila.webp" },
+  { t: "Bomba de doble acción", p: "Infla y desinfla la tina sin herramientas ni compresor.", img: "/images/acc-bomba.webp" },
+  { t: "Cubierta protectora", p: "Con seguro para niños. Conserva la temperatura y mantiene el agua limpia.", img: "/images/acc-tapa-horizon.webp" },
+  { t: "Filtración de 3 capas", p: "Filtro de papel, filtro integrado y malla antipolvo trabajando juntos para dejar el agua cristalina.", img: "/images/acc-filtros-motor.webp" },
 ];
 
 export default function MFHorizonPage() {
   return (
     <PageShell>
+      <ProductOptionsProvider
+      producto="mf-horizon"
+      basePrice={74000}
+      preciosMotor={{ Pro: 74000, Premium: 89000 }}
+      variants={[
+        // Galeria por color: cada variante solo muestra fotos de ESE color.
+        // No mezclar negro y blanco en la misma lista.
+        { color: "Negro", images: Array.from({ length: 7 }, (_, i) => `/images/horizon-gallery/negro/${String(i + 1).padStart(2, "0")}.jpg`) },
+        { color: "Blanco", images: Array.from({ length: 4 }, (_, i) => `/images/horizon-gallery/blanco/${String(i + 1).padStart(2, "0")}.jpg`) },
+      ]}
+      >
       <div className="bg-[var(--bg-metal)] text-[var(--fg-metal)]">
 
         {/* ── 1. PRODUCT HERO ─────────────────────────────────── */}
         <section className="msection !pt-[clamp(40px,6vh,80px)]">
           <div className="mwrap">
-            <ProductOptionsProvider
-              producto="mf-horizon"
-              basePrice={74000}
-              variants={[
-                { color: "Negro", images: ["/images/pdp-horizon-negro.png", "/images/horizon-studio-mujer-01.jpg", "/images/horizon-studio-mujer-02.jpg", "/images/horizon-closeup-perfil.jpg"] },
-                { color: "Blanco", images: ["/images/pdp-horizon-blanco.png", "/images/horizon-blanco-studio.jpg"] },
-              ]}
-            >
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
-
-              {/* LEFT — celda estirada con stage sticky interno (estilo Plunge/Apple) */}
-              <Reveal className="lg:h-full">
-                <div className="lg:sticky lg:top-24">
-                  <ProductStage alt="MF Horizon — cold plunge portátil horizontal" />
-                </div>
-              </Reveal>
-
-              {/* RIGHT — copy + CTAs */}
-              <Reveal delay={80}>
-                <div>
-                  <span className="m-eyebrow accent">MF Horizon · Portátil</span>
-                  <h1 className="mdisplay mt-4 text-[clamp(44px,5.5vw,76px)]" style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}>
-                    MF HORIZON
-                  </h1>
-
-                  {/* Price */}
-                  <div className="mt-5 flex flex-wrap items-baseline gap-2">
-                    <span className="mdisplay text-[clamp(34px,3.6vw,50px)]">$74,000</span>
-                    <span className="text-lg text-[var(--fg-muted)]">MXN</span>
-                  </div>
-                  <p className="mt-1 text-[11px] uppercase tracking-[0.16em] text-[var(--fg-subtle)]">
-                    Hasta 6 meses sin intereses con Mercado Pago
-                  </p>
-
-                  <p className="mt-6 max-w-md text-[16px] leading-relaxed text-[var(--fg-muted)]">
-                    El cold plunge portátil más potente de México — formato horizontal
-                    con el mayor espacio de inmersión.
-                  </p>
-
-                  {/* Bullet highlights */}
-                  <ul className="mt-8 space-y-3">
-                    {HERO_BULLETS.map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <span className="mt-[8px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--accent-ice)]" />
-                        <span className="text-[15px] leading-snug">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Color (patrón Plunge: opciones arriba del CTA) */}
-                  <ColorPicker />
-
-                  {/* Garantía extendida MF Shield */}
-                  <ShieldAddon />
-
-                  {/* CTAs */}
-                  <div className="mt-8 flex flex-wrap gap-3">
-                    <a href={SHOP_URL} target="_blank" rel="noopener noreferrer" className="mbtn mbtn-primary">
-                      Agregar al carrito
-                    </a>
-                    <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="mbtn mbtn-ghost">
-                      Agendar demo
-                    </a>
-                  </div>
-
-                  <ConfigTotal />
-
-                  {/* Acordeones estilo Plunge */}
-                  <div className="mt-7 space-y-2.5">
-                    {[
-                      {
-                        t: "Detalles del producto",
-                        c: "160 × 70 × 65 cm · 550 L máximo, 400 L recomendado · 12 kg. Tejido drop-stitch de grado militar. Formato horizontal: el mayor espacio de inmersión de la línea — cabes estirado. Compatible con Motor Pro 2.0 y Motor Premium 2.0, con control WiFi y app.",
-                      },
-                      {
-                        t: "Qué incluye",
-                        c: "Mochila de transporte, bomba de inflado de doble acción, cubierta protectora con seguro para niños, filtros de repuesto y kit de reparación. Todo en la caja, sin compras extra.",
-                      },
-                      {
-                        t: "Envío y entrega",
-                        c: "$1,500 MXN a todo México. Al ser inflable y ligera (12 kg), no requiere maniobra especial: llega en caja y la instalas tú mismo, sin obra ni plomería.",
-                      },
-                      {
-                        t: "Prueba, garantía y devoluciones",
-                        c: "30 días de prueba sin preguntas: si no es la mejor cold plunge que has probado, te reembolsamos. Garantía de 6 meses por defectos de fabricación. Vencida, la atención no se corta.",
-                      },
-                    ].map((a) => (
-                      <details key={a.t} className="group rounded-[14px] border border-[var(--line-1)] bg-white">
-                        <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[14px] font-semibold [&::-webkit-details-marker]:hidden">
-                          {a.t}
-                          <Plus size={18} className="flex-none text-[var(--accent-ice)] transition-transform duration-300 group-open:rotate-45" />
-                        </summary>
-                        <p className="px-5 pb-5 text-[13.5px] leading-relaxed text-[var(--fg-muted)]">{a.c}</p>
-                      </details>
-                    ))}
-                  </div>
-
-                  {/* Trust cards (formato Eight Sleep/Plunge) */}
-                  <div className="mt-7 grid grid-cols-3 gap-3">
-                    {[
-                      { icon: RotateCcw, t: "30 días de prueba", d: "Sin preguntas: te reembolsamos." },
-                      { icon: ShieldCheck, t: "Garantía 6 meses", d: "Contra defectos de fábrica." },
-                      { icon: CreditCard, t: "Hasta 6 MSI", d: "Con Mercado Pago." },
-                    ].map((b) => (
-                      <div key={b.t} className="rounded-[14px] border border-[var(--line-1)] bg-white p-4 text-center">
-                        <b.icon size={20} strokeWidth={1.8} className="mx-auto text-[var(--accent-ice)]" />
-                        <div className="mt-2 text-[12.5px] font-semibold leading-tight">{b.t}</div>
-                        <div className="mt-1 text-[11px] leading-snug text-[var(--fg-muted)]">{b.d}</div>
-                      </div>
-                    ))}
-                  </div>
-
-                </div>
-              </Reveal>
+      {/* LEFT — celda estirada con stage sticky interno (estilo Plunge/Apple) */}
+      <Reveal className="lg:h-full">
+        <div className="lg:sticky lg:top-24">
+          <ProductStage alt="MF Horizon, cold plunge portátil horizontal" />
+        </div>
+      </Reveal>
+      {/* RIGHT — copy + CTAs */}
+      <Reveal delay={80}>
+        <div>
+          <span className="m-eyebrow accent">MF Horizon · Portátil</span>
+          <h1 className="mdisplay mt-4 text-[clamp(44px,5.5vw,76px)]" style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}>
+            MF HORIZON
+          </h1>
+          {/* Price */}
+          <div className="mt-5 flex flex-wrap items-baseline gap-2">
+            <PrecioBase />
+            <span className="text-lg text-[var(--fg-muted)]">MXN</span>
+          </div>
+          <p className="mt-1 text-[11px] uppercase tracking-[0.16em] text-[var(--fg-subtle)]">
+            Hasta 6 meses sin intereses con Mercado Pago
+          </p>
+          <p className="mt-6 max-w-md text-[16px] leading-relaxed text-[var(--fg-muted)]">
+            El cold plunge portátil más potente de México, en formato horizontal
+            con el mayor espacio de inmersión.
+          </p>
+          {/* Bullet highlights */}
+          <ul className="mt-8 space-y-3">
+            {HERO_BULLETS.map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <span className="mt-[8px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--accent-ice)]" />
+                <span className="text-[15px] leading-snug">{item}</span>
+              </li>
+            ))}
+          </ul>
+          {/* Color (patrón Plunge: opciones arriba del CTA) */}
+          <ColorPicker />
+          {/* Motor: define el precio del equipo y el plan de MF Shield */}
+          <MotorSelector />
+          {/* Garantía extendida MF Shield (hereda el motor de arriba) */}
+          <ShieldAddon />
+          {/* CTAs */}
+          <div className="mt-8 flex flex-wrap gap-3">
+            <AddToCart label="Agregar al carrito" nombre="MF Horizon" />
+            <a href={agendarLlamada("MF Horizon")} target="_blank" rel="noopener noreferrer" className="mbtn mbtn-ghost">
+              Agendar llamada
+            </a>
+          </div>
+          <ConfigTotal />
+          {/* Acordeones estilo Plunge */}
+          <div className="mt-7 space-y-2.5">
+            {[
+              {
+                t: "Detalles del producto",
+                c: "160 × 70 × 65 cm · 550 L máximo, 400 L recomendado · 12 kg. Tejido drop-stitch de grado militar. Formato horizontal: el mayor espacio de inmersión de la línea: cabes estirado. Compatible con Motor Pro 2.0 y Motor Premium 2.0, con control Wi-Fi y app.",
+              },
+              {
+                t: "Qué incluye",
+                c: "Mochila de transporte, bomba de inflado de doble acción, cubierta protectora con seguro para niños y filtros de repuesto. Todo en la caja, sin compras extra.",
+              },
+              {
+                t: "Envío y entrega",
+                c: "$1,500 MXN a todo México. Al ser inflable y ligera (12 kg), no requiere maniobra especial: llega en caja y la instalas tú mismo, sin obra ni plomería.",
+              },
+              {
+                t: "Prueba, garantía y devoluciones",
+                c: "30 días de prueba sin preguntas: si no es la mejor cold plunge que has probado, te reembolsamos. Garantía de 6 meses por defectos de fabricación. Vencida, la atención no se corta.",
+              },
+            ].map((a) => (
+              <details key={a.t} className="group rounded-[14px] border border-[var(--line-1)] bg-white">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[14px] font-semibold [&::-webkit-details-marker]:hidden">
+                  {a.t}
+                  <Plus size={18} className="flex-none text-[var(--accent-ice)] transition-transform duration-300 group-open:rotate-45" />
+                </summary>
+                <p className="px-5 pb-5 text-[13.5px] leading-relaxed text-[var(--fg-muted)]">{a.c}</p>
+              </details>
+            ))}
+          </div>
+          {/* Trust cards (formato Eight Sleep/Plunge) */}
+          <div className="mt-7 grid grid-cols-3 gap-3">
+            {[
+              { icon: RotateCcw, t: "30 días de prueba", d: "Sin preguntas: te reembolsamos." },
+              { icon: ShieldCheck, t: "Garantía 6 meses", d: "Contra defectos de fábrica." },
+              { icon: CreditCard, t: "Hasta 6 MSI", d: "Con Mercado Pago." },
+            ].map((b) => (
+              <div key={b.t} className="rounded-[14px] border border-[var(--line-1)] bg-white p-4 text-center">
+                <b.icon size={20} strokeWidth={1.8} className="mx-auto text-[var(--accent-ice)]" />
+                <div className="mt-2 text-[12.5px] font-semibold leading-tight">{b.t}</div>
+                <div className="mt-1 text-[11px] leading-snug text-[var(--fg-muted)]">{b.d}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
             </div>
-            </ProductOptionsProvider>
           </div>
         </section>
 
@@ -218,7 +207,7 @@ export default function MFHorizonPage() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img loading="lazy" decoding="async"
                   src="/images/horizon-patio.jpg"
-                  alt="MF Horizon en un patio — dos amigos durante una inmersión"
+                  alt="MF Horizon en un patio, dos amigos durante una inmersión"
                   className="!object-cover !p-0"
                 />
               </Reveal>
@@ -264,7 +253,7 @@ export default function MFHorizonPage() {
               <h2>Llévala a donde quieras.</h2>
               <p>
                 A diferencia de una tina rígida, el MF Horizon se desinfla, se guarda
-                y viaja contigo — sin obra, sin plomería, sin maniobras.
+                y viaja contigo. Sin obra, sin plomería, sin maniobras.
               </p>
             </Reveal>
             <Reveal className="grid gap-5 sm:grid-cols-3">
@@ -303,7 +292,7 @@ export default function MFHorizonPage() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img loading="lazy" decoding="async"
                   src="/images/horizon-playa-van.jpg"
-                  alt="MF Horizon junto a la van — llega contigo a donde vayas"
+                  alt="MF Horizon junto a la van, llega contigo a donde vayas"
                   className="h-[320px] w-full rounded-[18px] object-cover sm:h-[420px]"
                 />
               </div>
@@ -348,9 +337,7 @@ export default function MFHorizonPage() {
                     Todo lo que necesitas saber antes de tomar la decisión.
                   </p>
                   <div className="mt-8">
-                    <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="mbtn mbtn-primary">
-                      Comprar MF Horizon
-                    </a>
+                    <AddToCart label="Comprar MF Horizon" nombre="MF Horizon" conPaso />
                   </div>
                 </Reveal>
               </div>
@@ -389,21 +376,18 @@ export default function MFHorizonPage() {
             <Reveal className="mx-auto max-w-3xl text-center">
               <span className="m-eyebrow accent">MF Horizon</span>
               <h2
-                className="mdisplay mt-4 text-[clamp(32px,4.5vw,60px)]"
+                className="mdisplay mt-4 text-[clamp(34px,4.5vw,64px)]"
                 style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
               >
-                Lleva el MF Horizon a casa —
-                <br />
-                $74,000 MXN
+                Lleva el MF Horizon a casa.
               </h2>
-              <p className="mx-auto mt-5 max-w-[52ch] text-[15px] leading-relaxed text-[var(--on-dark-muted)]">
-                30 días de prueba sin preguntas · Garantía de 6 meses · Hasta 6 MSI
-                con Mercado Pago · Envío $1,500 MXN a todo México.
+              <p className="mx-auto mt-6 max-w-[52ch] text-[15.5px] leading-relaxed text-[var(--on-dark-muted)]">
+                30 días de prueba sin preguntas. Garantía de 6 meses con atención de
+                por vida. Hasta 6 MSI con Mercado Pago y envío de $1,500 MXN a todo
+                México.
               </p>
-              <div className="mt-9 flex flex-wrap justify-center gap-3">
-                <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="mbtn mbtn-blue">
-                  Comprar MF Horizon
-                </a>
+              <div className="mt-10 flex flex-wrap justify-center gap-3">
+                <AddToCart label="Comprar MF Horizon" nombre="MF Horizon" variante="blue" conPaso />
                 <Link href="/productos" className="mbtn mbtn-ghost on-dark">
                   Ver todos los productos
                 </Link>
@@ -413,6 +397,7 @@ export default function MFHorizonPage() {
         </section>
 
       </div>
+      </ProductOptionsProvider>
     </PageShell>
   );
 }

@@ -21,6 +21,8 @@ export type Accesorio = {
   img?: string | null;
   /** Etiqueta opcional: precio, "Incluido", "Próximamente"… */
   tag?: string | null;
+  /** Render con fondo propio: llena la caja en lugar de flotar con margen. */
+  render?: boolean;
 };
 
 export function AccessoryCard({
@@ -55,7 +57,10 @@ export function AccessoryCard({
           <img loading="lazy" decoding="async"
             src={a.img}
             alt={a.t}
-            className="absolute inset-0 h-full w-full object-contain p-7"
+            className={cn(
+              "absolute inset-0 h-full w-full",
+              a.render ? "object-cover" : "object-contain p-7",
+            )}
           />
           {a.tag && (
             <span

@@ -143,52 +143,102 @@ export const BENEFICIOS: Beneficio[] = [
 export type Referente = {
   nombre: string;
   campo: string;
+  /** Linea corta de credencial, sobre la foto. */
+  etiqueta: string;
   filiacion: string;
   bio: string;
+  /** Tres hallazgos suyos sobre el frio, como los publica el sitio vivo. */
+  puntos: string[];
+  foto: string;
   url: string;
 };
 
+/* Fotos, etiquetas y puntos vienen de mentefria.com/pages/quien-recomienda-el-cold-plunging,
+   que es la version que Saul prefiere. Las imagenes se descargaron de su CDN y
+   se recomprimieron; los textos son los suyos, no reescritos. */
 export const CONSEJO: Referente[] = [
   {
     nombre: "Dr. Andrew Huberman",
-    campo: "Neurociencia",
+    campo: "Neurociencia · Stanford",
+    etiqueta: "Neurocientífico · Universidad de Stanford",
     filiacion: "Universidad de Stanford",
-    bio: "Especializado en plasticidad cerebral, estrés y resiliencia. Ha documentado cómo la exposición al frío incrementa los niveles de noradrenalina y dopamina, y con ello el enfoque y la claridad mental.",
+    bio: "Especializado en plasticidad cerebral, estrés y resiliencia. Ha demostrado que la exposición al frío incrementa significativamente los niveles de noradrenalina y dopamina, mejorando la función cognitiva y el bienestar emocional. Financiado por los NIH y reconocido con múltiples premios académicos.",
+    puntos: [
+      "El frío incrementa noradrenalina y dopamina, mejorando enfoque y claridad mental.",
+      "La exposición al frío mejora la función mitocondrial y produce más ATP, clave para la energía.",
+      "Reduce inflamación y acelera la recuperación muscular post-entrenamiento.",
+    ],
+    foto: "/images/consejo/huberman.jpg",
     url: "https://www.hubermanlab.com/newsletter/the-science-and-use-of-cold-exposure-for-health-and-performance",
   },
   {
-    nombre: "Dra. Susanna Søberg",
-    campo: "Metabolismo",
-    filiacion: "Universidad de Copenhague",
-    bio: "Investigadora de grasa parda. Su estudio en Cell Metabolism muestra que el frío activa la termogénesis no temblorosa, con más gasto energético y mejor regulación de glucosa. De su trabajo sale el principio de dosis mínima semanal.",
-    url: "https://zoe.com/learn/cold-exposure-dr-susanna-soberg",
-  },
-  {
     nombre: "Dra. Rhonda Patrick",
-    campo: "Bioquímica",
+    campo: "Biomedicina · FoundMyFitness",
+    etiqueta: "Científica biomédica · Fundadora de FoundMyFitness",
     filiacion: "FoundMyFitness",
-    bio: "Ha divulgado cómo la inmersión en frío eleva la norepinefrina, activa la grasa parda y estimula la biogénesis mitocondrial, y cómo el contraste calor-frío acelera la recuperación.",
+    bio: "Pionera en traducir la ciencia de la longevidad en consejos prácticos. Ha destacado cómo los cold plunges aumentan la norepinefrina, activan la grasa parda y estimulan la biogénesis mitocondrial. Exploradora de la combinación calor-frío como herramienta de regulación y resiliencia corporal.",
+    puntos: [
+      "Los cold plunges activan el tejido adiposo marrón y mejoran el metabolismo.",
+      "La combinación sauna + frío mejora circulación, recuperación y resiliencia mental.",
+      "Beneficios inmediatos: más energía, mejor humor y sensación de control sobre el bienestar.",
+    ],
+    foto: "/images/consejo/rhonda-patrick.jpg",
     url: "https://www.foundmyfitness.com/topics/cold-exposure-therapy",
   },
   {
+    nombre: "Wim Hof",
+    campo: "Rendimiento · 26 récords mundiales",
+    etiqueta: "The Iceman · Creador del Método Wim Hof",
+    filiacion: "26 récords Guinness",
+    bio: "26 récords Guinness, incluyendo la inmersión más larga en hielo. Creador del Método Wim Hof — respiración, frío y meditación. Estudios publicados en PNAS demostraron que sus técnicas permiten influir conscientemente en el sistema inmunológico y el sistema nervioso autónomo, algo que se creía imposible.",
+    puntos: [
+      "Demostró que los humanos pueden influir voluntariamente en el sistema inmunológico.",
+      "Las técnicas de frío aumentan la producción de norepinefrina, mejorando atención y estado de alerta.",
+      "Su método reduce inflamación y acelera la recuperación muscular en atletas de élite.",
+    ],
+    foto: "/images/consejo/wim-hof.jpg",
+    url: "https://www.wimhofmethod.com/cold-therapy",
+  },
+  {
+    nombre: "Dra. Susanna Søberg",
+    campo: "Metabolismo · Universidad de Copenhague",
+    etiqueta: "Doctora en ciencias médicas · Investigadora de grasa parda",
+    filiacion: "Universidad de Copenhague",
+    bio: "Doctora de la Universidad de Copenhague especializada en obesidad, diabetes tipo 2 y enfermedades cardiovasculares. Su estudio en Cell Metabolism demuestra que el frío activa la termogénesis no temblorosa, aumentando el gasto energético y mejorando la regulación de glucosa. Su libro sobre baños en agua fría es bestseller en 13 idiomas.",
+    puntos: [
+      "El frío activa la grasa parda, incrementando el gasto calórico y mejorando la salud metabólica.",
+      "Creadora del Søberg Principle: exposición deliberada al frío para optimizar el metabolismo.",
+      "Aumenta dopamina y norepinefrina, con efectos positivos en estado de ánimo y claridad mental.",
+    ],
+    foto: "/images/consejo/soberg.jpg",
+    url: "https://zoe.com/learn/cold-exposure-dr-susanna-soberg",
+  },
+  {
     nombre: "Dr. Peter Attia",
-    campo: "Medicina de longevidad",
+    campo: "Longevidad · Stanford · Johns Hopkins",
+    etiqueta: "Médico · Experto en longevidad · Fundador de Attia Medical",
     filiacion: "Stanford · Johns Hopkins",
-    bio: "Analiza el frío dentro de un marco de longevidad, con atención a cuándo ayuda y cuándo interfiere: activa la termogénesis no temblorosa, reduce inflamación y mejora la composición corporal.",
+    bio: "Formado en Stanford y Johns Hopkins, dedicado a entender cómo las intervenciones de estilo de vida mejoran la salud y prolongan la vida. Autor del bestseller Outlive. Defiende el cold plunge como herramienta de salud metabólica: activa la termogénesis no temblorosa, reduce inflamación y mejora la composición corporal.",
+    puntos: [
+      "El frío activa la termogénesis no temblorosa — el cuerpo quema calorías para generar calor.",
+      "Aumenta norepinefrina y dopamina, reduciendo estrés y mejorando la claridad mental.",
+      "Reduce inflamación y acelera la recuperación, especialmente relevante para atletas activos.",
+    ],
+    foto: "/images/consejo/peter-attia.jpg",
     url: "https://peterattiamd.com/cold-therapy/",
   },
   {
     nombre: "Kristen Holmes",
-    campo: "Fisiología del rendimiento",
+    campo: "Rendimiento · WHOOP · Princeton",
+    etiqueta: "VP de Rendimiento · Co-fundadora de WHOOP",
     filiacion: "WHOOP · Princeton",
-    bio: "Ex entrenadora en jefe del equipo femenino de hockey de Princeton y hoy VP de Rendimiento en WHOOP. Ha investigado el efecto del frío en sueño, variabilidad de frecuencia cardiaca y recuperación en atletas.",
+    bio: "Ex entrenadora en jefe del equipo femenino de hockey de Princeton — múltiples campeonatos nacionales. Hoy VP de Rendimiento en WHOOP, líder en tecnología biométrica. Ha investigado cómo el cold plunge reduce inflamación, acelera la recuperación muscular, mejora la calidad del sueño y aumenta la producción de norepinefrina.",
+    puntos: [
+      "El frío reduce inflamación y acelera la recuperación muscular en atletas de alto rendimiento.",
+      "Mejora la calidad del sueño — clave en los protocolos de recuperación de WHOOP.",
+      "Aumenta norepinefrina: más atención, más concentración y menos dolor post-entreno.",
+    ],
+    foto: "/images/consejo/kristen-holmes.jpg",
     url: "https://podcasts.apple.com/ee/podcast/the-science-behind-cold-plunges-why-more-women-should/id1801198730?i=1000714484524",
-  },
-  {
-    nombre: "Wim Hof",
-    campo: "Método respiratorio",
-    filiacion: "26 récords Guinness",
-    bio: "Popularizó la práctica moderna de exposición al frío con respiración controlada. Estudios publicados en PNAS mostraron que sus técnicas permiten influir de forma voluntaria en la respuesta inmune y el sistema nervioso autónomo.",
-    url: "https://www.wimhofmethod.com/cold-therapy",
   },
 ];

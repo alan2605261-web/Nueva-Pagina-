@@ -19,6 +19,10 @@ import { Check, Minus } from "lucide-react";
     futuros; no se usan.
   · No se incluyen watts, medidas, peso ni tiempos de enfriamiento de los
     inflables: vienen de esas fichas o no están verificados.
+  · Material e iluminación se agregaron para que se vea lo que distingue a la
+    MF ONE (Saul, sep 2026). Salen de las fichas: acrílico con acero inoxidable
+    contra tejido drop-stitch. No se escribe "PVC" porque la ficha de los
+    inflables no lo dice.
   · Sin "Más popular": lo más vendido es la MF ONE, no un motor.
 */
 
@@ -66,6 +70,18 @@ const FILAS: Fila[] = [
       premium: { t: "3 capas: papel, integrado y malla", ok: true },
       mfone: { t: "Filtro de papel y skimmer", ok: true },
     },
+  },
+  {
+    label: "Material del cuerpo",
+    valores: {
+      pro: { t: "Tejido drop-stitch de grado militar" },
+      premium: { t: "Tejido drop-stitch de grado militar" },
+      mfone: { t: "Acrílico con acabados en acero inoxidable" },
+    },
+  },
+  {
+    label: "Iluminación LED interior",
+    valores: { pro: null, premium: null, mfone: { t: "Incluida", ok: true } },
   },
   {
     label: "Control",
@@ -186,7 +202,7 @@ export function ComparadorMotores({ disponibles }: { disponibles: MotorId[] }) {
               f.cambia ? "bg-[rgba(91,155,213,0.06)]" : ""
             }`}
           >
-            <div className="flex items-center gap-2 px-5 pt-4 md:px-8 md:py-4">
+            <div className="flex items-center gap-2 px-5 pt-4 md:min-h-[72px] md:px-8 md:py-4">
               <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--fg-muted)]">
                 {f.label}
               </span>
@@ -202,7 +218,7 @@ export function ComparadorMotores({ disponibles }: { disponibles: MotorId[] }) {
                 return (
                   <div
                     key={id}
-                    className={`flex items-start justify-center gap-1.5 px-3 py-3 text-center md:py-4 ${
+                    className={`flex items-center justify-center gap-1.5 px-3 py-3 text-center md:min-h-[72px] md:py-4 ${
                       i > 0 ? "border-l border-[var(--line-1)]" : ""
                     }`}
                   >
@@ -211,9 +227,9 @@ export function ComparadorMotores({ disponibles }: { disponibles: MotorId[] }) {
                         <Minus size={14} strokeWidth={2.4} /> No incluye
                       </span>
                     ) : (
-                      <span className="inline-flex items-start gap-1.5 text-[13px] font-medium leading-snug sm:text-[14px]">
+                      <span className="inline-flex items-center gap-1.5 text-[13px] font-medium leading-snug sm:text-[14px]">
                         {v.ok && (
-                          <Check size={15} strokeWidth={2.6} className="mt-[2px] hidden flex-none text-[var(--accent-ice)] sm:block" />
+                          <Check size={15} strokeWidth={2.6} className="hidden flex-none text-[var(--accent-ice)] sm:block" />
                         )}
                         {v.t}
                       </span>

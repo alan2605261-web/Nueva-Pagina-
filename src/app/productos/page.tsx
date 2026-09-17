@@ -168,55 +168,33 @@ export default function ProductosPage() {
                 pos: "center 30%",
               },
               {
-                t: "Agua cristalina, sin cloro de alberca",
-                p: "Filtración y ozono trabajando juntos. En la MF ONE la bomba mueve 8,000 litros por hora, así que el agua nunca se queda quieta.",
-                triptych: [
-                  { img: "/images/acc-filtro-carbon-vert.webp", cap: "Filtro de carbón", bg: null },
-                  { img: "/images/acc-filtro-cartucho-uno.webp", cap: "Filtro de papel", bg: null },
-                  { img: "/images/ozono-agua.jpg", cap: "Ozono", bg: null },
-                ],
-              },
-              {
                 t: "Control total desde tu celular",
                 p: "Control por app Wi-Fi en toda la línea: temperatura exacta, timers programables y modo automático 24/7.",
                 img: "/photography/feature/control-app-1049.jpg",
                 pos: "center",
               },
-            ].map((f, i) => (
-              <Reveal key={f.t} delay={i * 80}>
+            ].map((f, i, todas) => (
+              /* Con un numero impar de tarjetas, la ultima quedaba sola a la
+                 izquierda y se veia desfasada. Se centra ocupando las dos
+                 columnas pero con el ancho de una (Saul, sep 2026). Cuando
+                 entre una cuarta tarjeta, esto deja de aplicar solo. */
+              <Reveal
+                key={f.t}
+                delay={i * 80}
+                className={
+                  todas.length % 2 === 1 && i === todas.length - 1
+                    ? "sm:col-span-2 sm:mx-auto sm:w-[calc(50%-10px)]"
+                    : undefined
+                }
+              >
                 <article className="group relative h-[340px] overflow-hidden rounded-[18px] sm:h-[400px]">
-                  {"triptych" in f && f.triptych ? (
-                    /* Tres sistemas de purificación, lado a lado */
-                    <div className="absolute inset-0 flex gap-1.5">
-                      {f.triptych.map((s) => (
-                        <div
-                          key={s.cap}
-                          className="relative min-w-0 flex-1 overflow-hidden rounded-[12px]"
-                          style={{ background: s.bg ?? "var(--bg-panel)" }}
-                        >
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img loading="lazy" decoding="async"
-                            src={s.img}
-                            alt={s.cap}
-                            className={`absolute inset-0 h-full w-full transition-transform duration-700 group-hover:scale-[1.05] ${
-                              s.img.endsWith(".webp") ? "object-contain px-3 py-12" : "object-cover"
-                            }`}
-                          />
-                          <span className="absolute left-1/2 top-4 z-10 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/20 bg-black/35 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-md">
-                            {s.cap}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    /* eslint-disable-next-line @next/next/no-img-element */
-                    <img loading="lazy" decoding="async"
-                      src={f.img}
-                      alt={f.t}
-                      style={{ objectPosition: f.pos }}
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
-                    />
-                  )}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img loading="lazy" decoding="async"
+                    src={f.img}
+                    alt={f.t}
+                    style={{ objectPosition: f.pos }}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                  />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgba(8,9,11,0.82)] via-[rgba(8,9,11,0.22)] to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-7">
                     <h3

@@ -388,9 +388,19 @@ export function LandingV2() {
     };
   }, []);
 
-  /* auto-cycle features */
+  /* Rotación automática de las tres características, SOLO en pantalla ancha.
+
+     En una sola columna (teléfono y tableta) los tres textos miden muy
+     distinto: Temperatura son tres renglones y Filtración lleva además dos
+     palomitas con su explicación. Para que la rotación no brincara, el bloque
+     reservaba el alto del más largo y con Temperatura activa sobraban casi
+     200px de vacío (Saul, sep 2026: "hay muchos espacios"). Ahí el bloque toma
+     el alto del texto que se está viendo y la rotación se apaga: el contenido
+     cambia cuando la persona toca una palabra, no solo. */
   useEffect(() => {
     if (featurePaused) return;
+    const angosto = window.matchMedia("(max-width: 880px)");
+    if (angosto.matches) return;
     const id = setInterval(() => setFeature((f) => (f + 1) % FEATURES.length), 4200);
     return () => clearInterval(id);
   }, [featurePaused]);
@@ -689,7 +699,7 @@ export function LandingV2() {
                          la misma bandeja en las tres tarjetas. Lo que distingue a
                          la estelar es la columna mas ancha y el -mt-6, no un piso
                          de otro tamano. */
-                      className="flex min-h-[300px] items-end justify-center px-4 pb-9"
+                      className="flex min-h-[176px] items-end justify-center px-4 pb-9 md:min-h-[300px]"
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img loading="lazy" decoding="async"

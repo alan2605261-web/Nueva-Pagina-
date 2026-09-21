@@ -294,6 +294,23 @@
 .mfeature-media img[data-contain="true"] { object-fit: contain; }
 @media (max-width: 880px) { .mfeature { grid-template-columns: 1fr; } .mfeature-media { aspect-ratio: 4 / 3; min-height: 0; } }
 
+/* Teléfono y tableta (Saul, sep 2026: "se ve muy muy mal porque hay muchos
+   espacios"). En una sola columna este bloque quedaba hueco por dos razones:
+
+   1. La columna pagaba 11vh de relleno arriba y abajo, que en un celular son
+      93px por lado. Aquí baja a 44 y 40.
+   2. Los tres textos van encimados y el bloque tomaba el alto del más largo
+      (Filtración, con sus dos palomitas), así que con Temperatura activa
+      sobraban casi 200px. Aquí solo existe el texto activo y el bloque mide lo
+      que mide ese texto. Eso se puede porque en angosto la rotación automática
+      se apaga (ver LandingV2): si siguiera rotando sola, el alto cambiaría cada
+      4.2 segundos y brincaría la página mientras se lee. */
+@media (max-width: 880px) {
+  .mfeature-col { padding: 44px 0 40px; }
+  .mfeature-copy { padding-top: 28px; }
+  .mfeature-copy .fc:not(.active) { display: none; }
+}
+
 /* ===== Marquesina de reseñas (bloque claro del inicio) ===== */
 /* La tira corre sola de derecha a izquierda. El track lleva la lista DOS veces
    y se desplaza exactamente la mitad: al terminar vuelve al inicio sin salto.

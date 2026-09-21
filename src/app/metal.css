@@ -161,8 +161,13 @@
    que en la práctica se pasaba unos 200px. Aquí se corta a tres cuartos de la
    pantalla REAL (svh, que sí descuenta las barras) para que la portada quepa
    entera junto con el menú y se asome la sección siguiente, que es lo que
-   invita a bajar. El relleno también baja: 96/110px sofocaban una caja corta. */
-@media (max-width: 1024px) and (orientation: portrait) {
+   invita a bajar. El relleno también baja: 96/110px sofocaban una caja corta.
+
+   La condición pide además dedo (pointer: coarse), no solo pantalla angosta:
+   una ventana de computadora puesta angosta y alta también es "vertical" y
+   se llevaba este hero corto, y en computadora el hero se queda como estaba.
+   Saul, sep 2026: "ahí me gustaba como se veía". */
+@media (max-width: 1024px) and (orientation: portrait) and (pointer: coarse) {
   .mhero { height: 72svh; min-height: 400px; max-height: 720px; }
   /* El texto baja al pie: arriba queda la tina completa y el texto se apoya en
      el piso oscuro de la foto. Centrado, el titular caía encima de la tina. */

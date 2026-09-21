@@ -424,7 +424,7 @@ export function LandingV2() {
               y el piso oscuro queda abajo, que es donde va el texto. */}
           <picture>
             <source
-              media="(max-width: 1024px) and (orientation: portrait) and (pointer: coarse)"
+              media="(max-width: 840px)"
               srcSet="/photography/hero/mf-one-patio-movil.jpg"
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}

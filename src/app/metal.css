@@ -163,11 +163,14 @@
    entera junto con el menú y se asome la sección siguiente, que es lo que
    invita a bajar. El relleno también baja: 96/110px sofocaban una caja corta.
 
-   La condición pide además dedo (pointer: coarse), no solo pantalla angosta:
-   una ventana de computadora puesta angosta y alta también es "vertical" y
-   se llevaba este hero corto, y en computadora el hero se queda como estaba.
-   Saul, sep 2026: "ahí me gustaba como se veía". */
-@media (max-width: 1024px) and (orientation: portrait) and (pointer: coarse) {
+   El corte es por ANCHO y nada más. Se probaron dos condiciones extra y las
+   dos salieron mal: con "orientación vertical" una ventana de computadora
+   angosta y alta se llevaba este hero corto (Saul: "ahí me gustaba como se
+   veía"), y al pedir además dedo (pointer: coarse) dejó de aplicar en las
+   vistas previas de Shopify y del navegador, que corren dentro de una
+   computadora y por eso reportan ratón. 840px cubre teléfono y iPad vertical
+   (768 y 820), y deja en paz cualquier ventana más ancha. */
+@media (max-width: 840px) {
   .mhero { height: 72svh; min-height: 400px; max-height: 720px; }
   /* El texto baja al pie: arriba queda la tina completa y el texto se apoya en
      el piso oscuro de la foto. Centrado, el titular caía encima de la tina. */

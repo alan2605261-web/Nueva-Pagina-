@@ -417,13 +417,15 @@ export function LandingV2() {
         <div className="mhero-media" ref={heroMediaRef}>
           {/* Portada: foto real de la MF ONE nueva (sesión de patio, sep 2026).
               Sustituye al render CGI de concreto, que se leía como imagen de
-              stock generada. Dos recortes del mismo original 4128×6192: 16:9
-              para escritorio y 2:3 para móvil, donde un 16:9 con object-cover
-              dejaba fuera la tina completa. */}
+              stock generada. Tres recortes del mismo original: 16:9 para
+              escritorio, y para teléfono uno que corta la pared de ladrillo de
+              arriba. Al acortar el hero en móvil (sep 2026) el 2:3 dejaba la
+              tina justo detrás del titular; con la pared recortada la tina sube
+              y el piso oscuro queda abajo, que es donde va el texto. */}
           <picture>
             <source
-              media="(max-width: 720px)"
-              srcSet="/photography/hero/mf-one-patio-portrait.jpg"
+              media="(max-width: 1024px) and (orientation: portrait)"
+              srcSet="/photography/hero/mf-one-patio-movil.jpg"
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

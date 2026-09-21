@@ -154,6 +154,35 @@
 .mhero .m-eyebrow { color: rgba(255, 255, 255, 0.85); margin-bottom: 22px; }
 .mhero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 
+/* Teléfono (Rafa, sep 2026: "es estúpidamente grande").
+   El hero medía 100vh y vive DEBAJO del anuncio y del menú, así que la primera
+   pantalla siempre era una pantalla completa más 107px. Encima, en Safari y
+   Chrome de celular 100vh se mide con las barras del navegador escondidas, así
+   que en la práctica se pasaba unos 200px. Aquí se corta a tres cuartos de la
+   pantalla REAL (svh, que sí descuenta las barras) para que la portada quepa
+   entera junto con el menú y se asome la sección siguiente, que es lo que
+   invita a bajar. El relleno también baja: 96/110px sofocaban una caja corta. */
+@media (max-width: 1024px) and (orientation: portrait) {
+  .mhero { height: 72svh; min-height: 400px; max-height: 720px; }
+  /* El texto baja al pie: arriba queda la tina completa y el texto se apoya en
+     el piso oscuro de la foto. Centrado, el titular caía encima de la tina. */
+  .mhero-inner { justify-content: flex-end; padding: 26px clamp(18px, 4vw, 44px) 38px; }
+  .mhero .m-eyebrow { margin-bottom: 12px; }
+  .mhero h1 { margin-bottom: 16px; }
+  .mhero p { margin-bottom: 26px; }
+  /* Velo de abajo hacia arriba, medido en píxeles y no en porcentaje, para que
+     cubra el mismo bloque de texto lo mismo en una pantalla de 667 que de 812.
+     El degradado lateral de escritorio no sirve aquí: a 375px de ancho el
+     texto cruza toda la foto. */
+  .mhero-media::after {
+    background: linear-gradient(to top,
+      rgba(8, 9, 11, 0.88) 0,
+      rgba(8, 9, 11, 0.72) 150px,
+      rgba(8, 9, 11, 0.30) 270px,
+      rgba(8, 9, 11, 0) 360px);
+  }
+}
+
 /* ===== Section base ===== */
 /* Cada sección paga relleno arriba y abajo, así que entre dos seguidas el vacío
    se DUPLICA: con 88px por lado quedaban 176px de nada entre bloque y bloque.

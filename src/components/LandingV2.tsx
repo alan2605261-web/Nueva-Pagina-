@@ -698,8 +698,16 @@ export function LandingV2() {
                       /* Misma caja para las tres: la losa tiene que leerse como
                          la misma bandeja en las tres tarjetas. Lo que distingue a
                          la estelar es la columna mas ancha y el -mt-6, no un piso
-                         de otro tamano. */
-                      className="flex min-h-[176px] items-end justify-center px-4 pb-9 md:min-h-[300px]"
+                         de otro tamano.
+
+                         El alto sí cambia con el ancho, porque la foto cambia de
+                         tamaño con su columna y la caja estaba fija en 300px:
+                         sobraban entre 91 y 124px de blanco arriba de cada
+                         producto en computadora, y entre 114 y 143 en telefono
+                         (Saul, sep 2026: "espacios muertos innecesarios"). En
+                         varias columnas basta 220px para la foto mas alta; en una
+                         sola columna la caja mide lo que pida la foto. */
+                      className="flex min-h-[176px] items-end justify-center px-4 pb-9 md:min-h-[220px]"
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img loading="lazy" decoding="async"

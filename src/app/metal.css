@@ -311,6 +311,26 @@
   .mfeature-copy .fc:not(.active) { display: none; }
 }
 
+/* Escritorio (Saul, sep 2026: "que no haya espacios negros muertos
+   innecesarios, ni para telefono ni para pc").
+
+   Aquí los tres textos SÍ van encimados, porque la sección rota sola cada 4.2
+   segundos y el alto tiene que estar quieto. El problema era cuánto reservaba:
+   Filtración medía 233px con sus dos palomitas apiladas, contra 86 de los
+   otros dos, así que dos de cada tres veces quedaban 147px de negro muerto
+   debajo del párrafo.
+
+   Dos cambios: las palomitas van lado a lado, que en una columna de 780px
+   caben de sobra y bajan el texto más largo de 233 a 169; y el texto activo se
+   centra en la caja, así lo que sobra se reparte arriba y abajo y se lee como
+   aire, no como hoyo. El párrafo conserva sus 42 caracteres de ancho. */
+@media (min-width: 881px) {
+  .mfeature-copy { max-width: none; }
+  .mfeature-copy .fc { align-self: center; }
+  .mfeature-copy .fc > p { max-width: 42ch; }
+  .mfeature-checks { grid-template-columns: 1fr 1fr; gap: 18px 28px; max-width: none; }
+}
+
 /* ===== Marquesina de reseñas (bloque claro del inicio) ===== */
 /* La tira corre sola de derecha a izquierda. El track lleva la lista DOS veces
    y se desplaza exactamente la mitad: al terminar vuelve al inicio sin salto.

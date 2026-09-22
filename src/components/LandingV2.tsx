@@ -5,7 +5,6 @@ import Link from "next/link";
 import {
   ArrowLeft,
   ArrowRight,
-  Check,
   CreditCard,
   Filter,
   Flame,
@@ -68,26 +67,24 @@ const HOTSPOTS = [
    atribuirle a ninguno un rango que no tiene. Lo mismo con la filtración, que es distinta en cada
    familia. Las imágenes anteriores eran capturas del sitio en inglés. */
 /* "Filtración" habla SOLO de la MF ONE (Rafa, sep 2026): decía "filtración y
-   ozono en toda la línea" y la MF ONE no tiene sistema de tres filtros. Los dos
-   puntos salen de la ficha de la MF ONE; no agregar datos que no estén ahí. */
+   ozono en toda la línea" y la MF ONE no tiene sistema de tres filtros. Lo que
+   dice sale de la ficha de la MF ONE; no agregar datos que no estén ahí.
+
+   Era un párrafo de entrada más dos palomitas con su explicación, así que medía
+   233px contra 86 de las otras dos y el bloque se veía desbalanceado (Saul, sep
+   2026: "hay que hacer la parte de filtración más chica, que se parezca a
+   temperatura y control"). Ahora es un párrafo del mismo largo que los otros
+   dos, con los mismos datos: filtro de papel, skimmer, filtro de carbón y ozono
+   integrado sin cloro de alberca. */
 type Feature = {
   word: string;
   img: string;
   copy: string;
-  checks?: { t: string; d: string }[];
 };
 
 const FEATURES: Feature[] = [
   { word: "Temperatura", img: "/images/mfone-frio.jpg", copy: "De 1 a 42 °C según el equipo que elijas. Frío para recuperar, calor para relajar, ajustable al grado. Una sola tina para todo el año." },
-  {
-    word: "Filtración",
-    img: "/images/ozono-agua.jpg",
-    copy: "La MF ONE mantiene el agua limpia con dos sistemas trabajando juntos.",
-    checks: [
-      { t: "Sistema de filtro incluido", d: "Filtro de papel que retiene los sólidos del agua y skimmer para la superficie. Trae también filtro de carbón." },
-      { t: "Desinfección con ozono que mata bacterias", d: "El ozono va integrado dentro del equipo y desinfecta el agua sin cloro de alberca." },
-    ],
-  },
+  { word: "Filtración", img: "/images/ozono-agua.jpg", copy: "En la MF ONE, filtro de papel para los sólidos, skimmer para la superficie y filtro de carbón. El ozono va integrado y desinfecta sin cloro de alberca." },
   { word: "Control", img: "/photography/feature/control-app-1049.jpg", copy: "Control total desde la app. Programa temperatura, horarios y tu ritual. El frío te espera listo cuando llegas a casa." },
 ];
 
@@ -388,19 +385,12 @@ export function LandingV2() {
     };
   }, []);
 
-  /* Rotación automática de las tres características, SOLO en pantalla ancha.
-
-     En una sola columna (teléfono y tableta) los tres textos miden muy
-     distinto: Temperatura son tres renglones y Filtración lleva además dos
-     palomitas con su explicación. Para que la rotación no brincara, el bloque
-     reservaba el alto del más largo y con Temperatura activa sobraban casi
-     200px de vacío (Saul, sep 2026: "hay muchos espacios"). Ahí el bloque toma
-     el alto del texto que se está viendo y la rotación se apaga: el contenido
-     cambia cuando la persona toca una palabra, no solo. */
+  /* Rotación automática de las tres características, en todos los tamaños.
+     Estuvo apagada en angosto mientras Filtración era mucho más largo que los
+     otros dos: el bloque reservaba el alto del más largo y quedaba un hueco.
+     Con los tres textos parejos vuelve a rotar en todas partes, como estaba. */
   useEffect(() => {
     if (featurePaused) return;
-    const angosto = window.matchMedia("(max-width: 880px)");
-    if (angosto.matches) return;
     const id = setInterval(() => setFeature((f) => (f + 1) % FEATURES.length), 4200);
     return () => clearInterval(id);
   }, [featurePaused]);
@@ -524,21 +514,6 @@ export function LandingV2() {
                     aria-hidden={feature !== i}
                   >
                     <p>{f.copy}</p>
-                    {f.checks && (
-                      <ul className="mfeature-checks">
-                        {f.checks.map((c) => (
-                          <li key={c.t}>
-                            <span className="ck">
-                              <Check size={13} strokeWidth={3} />
-                            </span>
-                            <span>
-                              <b>{c.t}</b>
-                              <span className="d">{c.d}</span>
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
                   </div>
                 ))}
               </div>

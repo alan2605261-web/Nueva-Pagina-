@@ -279,11 +279,6 @@
 .mfeature-copy { display: grid; }
 .mfeature-copy .fc { grid-area: 1 / 1; transition: opacity 0.4s; }
 .mfeature-copy .fc:not(.active) { visibility: hidden; opacity: 0; }
-.mfeature-checks { list-style: none; margin: 22px 0 0; padding: 0; max-width: 46ch; display: grid; gap: 16px; }
-.mfeature-checks li { display: flex; align-items: flex-start; gap: 12px; }
-.mfeature-checks .ck { flex: none; display: grid; place-items: center; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background: var(--accent-ice); color: #fff; }
-.mfeature-checks b { display: block; color: #fff; font-weight: 600; font-size: clamp(15px, 1.2vw, 17px); line-height: 1.35; }
-.mfeature-checks span.d { display: block; margin-top: 4px; color: var(--on-dark-muted); font-size: 14px; line-height: 1.5; }
 /* La sección no lleva margen derecho (la foto va a sangre); en celular el texto
    quedaba pegado al borde. */
 @media (max-width: 880px) { .mfeature-copy { padding-right: 20px; } }
@@ -295,41 +290,18 @@
 @media (max-width: 880px) { .mfeature { grid-template-columns: 1fr; } .mfeature-media { aspect-ratio: 4 / 3; min-height: 0; } }
 
 /* Teléfono y tableta (Saul, sep 2026: "se ve muy muy mal porque hay muchos
-   espacios"). En una sola columna este bloque quedaba hueco por dos razones:
+   espacios"). La columna pagaba 11vh de relleno arriba y abajo, que en un
+   celular son 93px por lado, y el bloque quedaba hueco. Aquí baja a 44 y 40.
 
-   1. La columna pagaba 11vh de relleno arriba y abajo, que en un celular son
-      93px por lado. Aquí baja a 44 y 40.
-   2. Los tres textos van encimados y el bloque tomaba el alto del más largo
-      (Filtración, con sus dos palomitas), así que con Temperatura activa
-      sobraban casi 200px. Aquí solo existe el texto activo y el bloque mide lo
-      que mide ese texto. Eso se puede porque en angosto la rotación automática
-      se apaga (ver LandingV2): si siguiera rotando sola, el alto cambiaría cada
-      4.2 segundos y brincaría la página mientras se lee. */
+   Los tres textos siguen encimados, también en angosto: el bloque reserva el
+   alto del más largo y por eso la rotación automática no brinca. Eso se puede
+   porque los tres miden casi lo mismo desde que Filtración dejó de llevar dos
+   palomitas con su explicación y pasó a ser un párrafo como los otros dos. */
 @media (max-width: 880px) {
   .mfeature-col { padding: 44px 0 40px; }
   .mfeature-copy { padding-top: 28px; }
-  .mfeature-copy .fc:not(.active) { display: none; }
 }
 
-/* Escritorio (Saul, sep 2026: "que no haya espacios negros muertos
-   innecesarios, ni para telefono ni para pc").
-
-   Aquí los tres textos SÍ van encimados, porque la sección rota sola cada 4.2
-   segundos y el alto tiene que estar quieto. El problema era cuánto reservaba:
-   Filtración medía 233px con sus dos palomitas apiladas, contra 86 de los
-   otros dos, así que dos de cada tres veces quedaban 147px de negro muerto
-   debajo del párrafo.
-
-   Dos cambios: las palomitas van lado a lado, que en una columna de 780px
-   caben de sobra y bajan el texto más largo de 233 a 169; y el texto activo se
-   centra en la caja, así lo que sobra se reparte arriba y abajo y se lee como
-   aire, no como hoyo. El párrafo conserva sus 42 caracteres de ancho. */
-@media (min-width: 881px) {
-  .mfeature-copy { max-width: none; }
-  .mfeature-copy .fc { align-self: center; }
-  .mfeature-copy .fc > p { max-width: 42ch; }
-  .mfeature-checks { grid-template-columns: 1fr 1fr; gap: 18px 28px; max-width: none; }
-}
 
 /* ===== Marquesina de reseñas (bloque claro del inicio) ===== */
 /* La tira corre sola de derecha a izquierda. El track lleva la lista DOS veces

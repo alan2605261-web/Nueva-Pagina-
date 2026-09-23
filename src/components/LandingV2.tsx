@@ -235,6 +235,17 @@ const TRUST = [
 /* ---------- Comparison (new section) ---------- */
 
 /* Comparativa real de mentefria.com — "La tecnología de cold plunge #1 en MX" */
+/* La comparativa. Cada fila trae las dos frases, una por columna, y se muestra
+   distinto según el tamaño:
+
+   · Computadora: las dos frases lado a lado, como siempre. No se toca.
+   · Celular: la frase de Mente Fria pasa a ser la etiqueta de la fila y las dos
+     columnas se reducen a palomita y tache.
+
+   El motivo del corte: con dos frases la tabla pedía 560px de ancho y en un
+   teléfono salía partida, había que deslizar de lado para ver la columna de los
+   demás (Rafa, sep 2026). Reducida al símbolo cabe entera y se lee de un
+   vistazo, que es el patrón que usan Eight Sleep y Apollo en celular. */
 const COMPARE_ROWS: { mf: string; otras: string }[] = [
   { mf: "Enfriamiento activo hasta 1 °C", otras: "Dependes de comprar hielo" },
   { mf: "Calienta hasta 42 °C", otras: "Solo frío" },
@@ -596,6 +607,7 @@ export function LandingV2() {
             <table className="compare">
               <thead>
                 <tr>
+                  <th className="col-que" />
                   <th className="col-mf">
                     MENTE FRIA <span className="block text-[10px] font-normal tracking-[0.18em] text-[var(--m-blue-400)]">#1 EN MX</span>
                   </th>
@@ -605,14 +617,21 @@ export function LandingV2() {
               <tbody>
                 {COMPARE_ROWS.map((r, i) => (
                   <tr key={r.mf} style={{ "--i": i } as React.CSSProperties}>
-                    {/* data-quien es la etiqueta que aparece SOLO en celular,
-                        donde la tabla se desarma en tarjetas y ya no hay
-                        encabezado de columna que diga de quién es cada línea. */}
-                    <td className="col-mf" data-quien="Mente Fria">
-                      <span className="yes">✓</span>&nbsp;&nbsp;{r.mf}
+                    {/* La etiqueta solo se ve en celular; las frases solo en
+                        computadora. Los dos textos viven siempre en el HTML y
+                        el CSS decide cuál se muestra. */}
+                    <td className="col-que">{r.mf}</td>
+                    <td className="col-mf">
+                      <span className="frase">
+                        <span className="yes">✓</span>&nbsp;&nbsp;{r.mf}
+                      </span>
+                      <span className="simbolo yes" aria-label="Sí">✓</span>
                     </td>
-                    <td data-quien="Otras">
-                      <span className="no">✕</span>&nbsp;&nbsp;{r.otras}
+                    <td>
+                      <span className="frase">
+                        <span className="no">✕</span>&nbsp;&nbsp;{r.otras}
+                      </span>
+                      <span className="simbolo no" aria-label="No">✕</span>
                     </td>
                   </tr>
                 ))}

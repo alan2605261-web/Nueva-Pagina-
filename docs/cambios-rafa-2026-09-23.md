@@ -21,7 +21,7 @@ Uno. Lo de abajo de la segunda tabla ya está en el tema borrador.
 
 | # | Comentario | Qué se hizo | Archivos |
 |---|---|---|---|
-| 7 | Rafa: la comparativa sale cortada en celular, hay que deslizar de lado para ver "Otras". Que se vea todo a la vez. | La tabla necesitaba 560px de ancho y vivía en una caja que se desliza. En celular se desarma en tarjetas: cada fila es una tarjeta con las dos posturas, la de Mente Fria arriba en oscuro y la de los demás abajo en claro. Sin deslizamiento lateral y la tabla completa mide 689px. De 680px para arriba sigue siendo la misma tabla de dos columnas. | LandingV2.tsx, metal.css |
+| 7 | Rafa: la comparativa sale cortada en celular, hay que deslizar de lado para ver "Otras". Que se vea todo a la vez. Saul eligió, entre tres propuestas, la de palomita y tache, y pidió que solo cambie en celular. | Solo abajo de 680px: la frase de Mente Fria se vuelve la etiqueta de la fila y las dos columnas se reducen a palomita y tache. Sin deslizamiento lateral, la tabla completa mide 358px y cabe en pantalla. De 681px para arriba queda exactamente como estaba, con las dos frases lado a lado. | LandingV2.tsx, metal.css |
 
 ---
 

@@ -656,7 +656,7 @@ export function LandingV2() {
       {/* ===== TRUST (real de mentefria.com) ===== */}
       <section className="panel !py-0">
         <div className="mwrap">
-          <div className="grid gap-5 py-[clamp(16px,2.5vh,28px)] md:grid-cols-3">
+          <div className="grid gap-5 py-[clamp(16px,2.5vh,28px)] lg:grid-cols-3">
             {TRUST.map((t, i) => (
               <Reveal key={t.t} delay={i * 100}>
                 {/* El texto va envuelto para poder ponerlo al lado del icono en

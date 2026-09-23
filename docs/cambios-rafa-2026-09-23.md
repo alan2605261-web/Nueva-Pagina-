@@ -22,7 +22,7 @@ Dos. Lo de abajo de la segunda tabla ya está en el tema borrador.
 | # | Comentario | Qué se hizo | Archivos |
 |---|---|---|---|
 | 7 | Rafa: la comparativa sale cortada en celular, hay que deslizar de lado para ver "Otras". Que se vea todo a la vez. Saul eligió, entre tres propuestas, la de palomita y tache, y pidió que solo cambie en celular. | Solo abajo de 680px: la frase de Mente Fria se vuelve la etiqueta de la fila y las dos columnas se reducen a palomita y tache. Sin deslizamiento lateral, la tabla completa mide 358px y cabe en pantalla. De 681px para arriba queda exactamente como estaba, con las dos frases lado a lado. | LandingV2.tsx, metal.css |
-| 8 | Rafa: en celular las tarjetas de 30 días, garantía y financiamiento están muy grandes y toscas; que sean mucho más chicas. | Abajo de 767px, donde van una debajo de otra, la tarjeta se acuesta: el icono al lado y el texto a la izquierda. De 203 a 224px de alto pasan a 91. El bloque completo baja de 712 a 356px. De 768 para arriba, donde van tres de lado a lado, no cambia nada. | LandingV2.tsx, metal.css |
+| 8 | Rafa: en celular las tarjetas de 30 días, garantía y financiamiento están muy grandes y toscas; que sean mucho más chicas. Saul: en el iPad también acuéstalas. | Hasta 1023px la tarjeta se acuesta: el icono al lado y el texto a la izquierda. En celular pasan de 203 a 224px de alto a 91, y en iPad vertical de 289 a 75. El bloque completo baja de 712 a 356px en celular y de 950 a 316 en iPad. De 1024 para arriba quedan las tres de lado a lado, verticales y sin cambio. | LandingV2.tsx, metal.css |
 
 ---
 

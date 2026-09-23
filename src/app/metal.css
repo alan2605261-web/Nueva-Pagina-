@@ -436,10 +436,12 @@
    de Tailwind que traen en el marcado (p-7, text-center, flex-col) ganan por
    especificidad, así que aquí van con !important.
 
-   El corte es 767px, justo abajo de donde la reja pasa a tres columnas: donde
+   El corte es 1023px, justo abajo de donde la reja pasa a tres columnas: donde
    las tarjetas van una debajo de otra se acuestan, y donde van lado a lado se
-   quedan verticales como siempre. */
-@media (max-width: 767px) {
+   quedan verticales como siempre. En iPad vertical las tres columnas quedaban
+   tan angostas que las tarjetas se estiraban a 289px (Saul, sep 2026: "en el
+   iPad también acuéstalas"), así que ahí también van en una sola columna. */
+@media (max-width: 1023px) {
   .mtrust { flex-direction: row !important; align-items: center; gap: 13px; padding: 12px 15px !important; text-align: left !important; border-radius: 13px !important; }
   .mtrust-ico { margin: 0 !important; flex: none; width: 21px; height: 21px; }
   .mtrust .m-eyebrow { font-size: 9px; letter-spacing: 0.16em; }

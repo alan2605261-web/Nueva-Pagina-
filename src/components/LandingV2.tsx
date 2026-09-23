@@ -162,33 +162,25 @@ const RAZONES = [
 /* Productos — precios y bullets reales de mentefria.com.
    Triángulo estilo WHOOP: Barrel (izq, abajo) · MF ONE (centro, ESTELAR) · Horizon (der, abajo).
 
-   anchoFoto = qué tanto de su columna ocupa la foto, para que las tres tinas
-   guarden su proporción REAL de altura: MF Barrel 90 cm, MF ONE 71, Horizon 65.
+   anchoFoto = qué tanto de su columna ocupa la foto.
 
-   Va en PORCENTAJE y no en píxeles fijos: en píxeles, al angostarse la pantalla
-   cada foto topaba con su columna en distinto momento y la proporción se rompía
-   (a 900px de ancho quedaban en 1.44, 1.75 y 0.99 px por cm). En porcentaje las
-   tres encogen juntas.
+   Los tres valores salen de MEDIR la primera versión que mandó Rafa, que es la
+   que Saul quiere de referencia (sep 2026): ahí el producto ocupaba 70% del
+   ancho de su caja en el Barrel, 78% en la MF ONE y 84% en el Horizon, con las
+   tres columnas del mismo ancho.
 
-   Se escala por TAMAÑO GENERAL, no por altura. Igualando alturas, la MF ONE
-   (195 cm de largo) y el Horizon (160) se veían chicos junto al Barrel, que es
-   alto pero mide 90 × 90 (Saul, sep 2026). Y no se puede igualar largo y alto a
-   la vez: las tres fotos están tomadas con distinta perspectiva, así que en el
-   archivo el Horizon se ve 1.81 veces más largo que alto cuando en la realidad
-   es 2.46 veces. El criterio es la media geométrica de largo y alto —90 cm para
-   el Barrel, 118 para la MF ONE, 102 para el Horizon—, medida sobre la tina
-   recortada dentro de cada archivo, que ocupa 67.0% del ancho en el Barrel,
-   94.3% en la MF ONE y 60.8% en el Horizon.
+   La MF ONE lleva dos valores porque su columna es 1.25 veces más ancha que las
+   otras dos (es la estelar). 78% de una columna normal equivale a 61% de la
+   suya, así la proporción entre las tres es la misma que en la referencia.
 
-   Ajuste al Barrel: con la media geométrica pura quedaba igual de alto que la
-   MF ONE, cuando en la realidad es 19 cm más alto, y se veía chico (Saul, sep
-   2026). Va 15% arriba del cálculo, 68% en vez de 59%: así recupera su altura
-   y la MF ONE sigue siendo la más grande en tamaño general.
+   Antes iban 68%, 76% (60% en la suya) y 100%. Ese cálculo salía de las medidas
+   reales de las tinas y de qué fracción del archivo ocupa cada una; en
+   escritorio daba casi lo mismo, pero en una sola columna dejaba la MF ONE como
+   la foto más chica de las tres, que es lo que Rafa señaló.
 
-   El Horizon queda al 100%: es el que más columna necesita y no puede salirse.
-   La MF ONE lleva dos valores porque su columna es más ancha (es la estelar):
-   76% en una columna normal y 60% en la suya. Si se cambia una foto, hay que
-   recalcular. */
+   Va en PORCENTAJE y no en píxeles: en píxeles, al angostarse la pantalla cada
+   foto topaba con su columna en distinto momento y la proporción se rompía. Si
+   se cambia una foto por otra con distinto recorte, hay que volver a medir. */
 const PRODUCTOS = [
   {
     name: "MF BARREL",
@@ -198,7 +190,7 @@ const PRODUCTOS = [
     h: 552,
     floor: "58%",
     href: "/productos/mf-barrel",
-    anchoFoto: "w-[55%]",
+    anchoFoto: "w-[70%]",
     featured: false,
     bullets: ["Filtración de 3 capas + purificación por ozono.", "Control por app Wi-Fi, programable desde tu celular.", "6 meses de garantía."],
   },
@@ -210,7 +202,7 @@ const PRODUCTOS = [
     h: 1292,
     floor: "58%",
     href: "/productos/mf-one",
-    anchoFoto: "w-full lg:w-[78%]",
+    anchoFoto: "w-[78%] lg:w-[61%]",
     featured: true,
     bullets: ["Diseño All-In-One con el chiller dentro de la tina.", "Filtro de papel + ozono integrado.", "Control por app Wi-Fi. 12 meses de garantía."],
   },
@@ -222,7 +214,7 @@ const PRODUCTOS = [
     h: 514,
     floor: "58%",
     href: "/productos/mf-horizon",
-    anchoFoto: "w-[82%]",
+    anchoFoto: "w-[84%]",
     nudge: "lg:translate-x-2 lg:-translate-y-1.5",
     featured: false,
     bullets: ["Filtración de 3 capas + purificación por ozono.", "Control por app Wi-Fi, programable desde tu celular.", "6 meses de garantía."],

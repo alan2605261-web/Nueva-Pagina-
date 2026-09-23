@@ -66,16 +66,21 @@ const HOTSPOTS = [
    2026). Decir "de 1 a 42 °C según el equipo" cubre la línea completa sin
    atribuirle a ninguno un rango que no tiene. Lo mismo con la filtración, que es distinta en cada
    familia. Las imágenes anteriores eran capturas del sitio en inglés. */
-/* "Filtración" habla SOLO de la MF ONE (Rafa, sep 2026): decía "filtración y
-   ozono en toda la línea" y la MF ONE no tiene sistema de tres filtros. Lo que
-   dice sale de la ficha de la MF ONE; no agregar datos que no estén ahí.
+/* "Filtración" pasó por tres versiones y cada una arregla lo de la anterior:
 
-   Era un párrafo de entrada más dos palomitas con su explicación, así que medía
-   233px contra 86 de las otras dos y el bloque se veía desbalanceado (Saul, sep
-   2026: "hay que hacer la parte de filtración más chica, que se parezca a
-   temperatura y control"). Ahora es un párrafo del mismo largo que los otros
-   dos, con los mismos datos: filtro de papel, skimmer, filtro de carbón y ozono
-   integrado sin cloro de alberca. */
+   1. Decía "filtración y ozono en toda la línea". Falso: la MF ONE no tiene el
+      sistema de tres filtros de los inflables y el Motor Pro 2.0 no trae ozono
+      (Rafa, sep 2026).
+   2. Se acotó a la MF ONE, con un párrafo de entrada y dos palomitas. Quedó en
+      233px contra 86 de las otras dos y desbalanceó el bloque.
+   3. Ahora es abstracto y del mismo largo que los otros dos (Saul, sep 2026:
+      "déjalo más abstracto, sin dejar en específico por modelo").
+
+   Lo abstracto tiene que seguir siendo cierto para los tres equipos: por eso
+   dice que cada modelo trae SU sistema, sin nombrar cuál, y no menciona ozono,
+   que no está en todos. Lo de "sin cloro de alberca" sí aplica a la línea
+   completa: usarlo anula la garantía. No se escribió "garantiza tu agua
+   siempre limpia" para no comprometernos con una promesa absoluta. */
 type Feature = {
   word: string;
   img: string;
@@ -84,7 +89,7 @@ type Feature = {
 
 const FEATURES: Feature[] = [
   { word: "Temperatura", img: "/images/mfone-frio.jpg", copy: "De 1 a 42 °C según el equipo que elijas. Frío para recuperar, calor para relajar, ajustable al grado. Una sola tina para todo el año." },
-  { word: "Filtración", img: "/images/ozono-agua.jpg", copy: "En la MF ONE, filtro de papel para los sólidos, skimmer para la superficie y filtro de carbón. El ozono va integrado y desinfecta sin cloro de alberca." },
+  { word: "Filtración", img: "/images/ozono-agua.jpg", copy: "Cada modelo trae su propio sistema de filtración. El agua se mantiene limpia entre una inmersión y la siguiente, sin cloro de alberca." },
   { word: "Control", img: "/photography/feature/control-app-1049.jpg", copy: "Control total desde la app. Programa temperatura, horarios y tu ritual. El frío te espera listo cuando llegas a casa." },
 ];
 

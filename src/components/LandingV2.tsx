@@ -593,7 +593,7 @@ export function LandingV2() {
             <h2>La tecnología de cold plunge #1 en MX.</h2>
           </Reveal>
           <Reveal className="compare-scroll">
-            <table className="compare !min-w-[560px]">
+            <table className="compare">
               <thead>
                 <tr>
                   <th className="col-mf">
@@ -605,10 +605,13 @@ export function LandingV2() {
               <tbody>
                 {COMPARE_ROWS.map((r, i) => (
                   <tr key={r.mf} style={{ "--i": i } as React.CSSProperties}>
-                    <td className="col-mf">
+                    {/* data-quien es la etiqueta que aparece SOLO en celular,
+                        donde la tabla se desarma en tarjetas y ya no hay
+                        encabezado de columna que diga de quién es cada línea. */}
+                    <td className="col-mf" data-quien="Mente Fria">
                       <span className="yes">✓</span>&nbsp;&nbsp;{r.mf}
                     </td>
-                    <td>
+                    <td data-quien="Otras">
                       <span className="no">✕</span>&nbsp;&nbsp;{r.otras}
                     </td>
                   </tr>

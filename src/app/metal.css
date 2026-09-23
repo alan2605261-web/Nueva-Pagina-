@@ -396,7 +396,7 @@
 /* Las columnas se repartían por el largo del texto, y como las frases de Mente
    Fria son más largas que las de la competencia, la columna negra salía mucho
    más ancha que la blanca. Fijas al 50% quedan parejas. */
-.compare { width: 100%; min-width: 720px; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
+.compare { width: 100%; min-width: 560px; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
 .compare th, .compare td { width: 50%; }
 .compare th, .compare td { padding: 18px 20px; text-align: center; font-size: 13.5px; border-bottom: 1px solid var(--line-1); }
 .compare th { font-family: var(--font-display); font-weight: 400; font-size: 15px; letter-spacing: -0.01em; padding-bottom: 14px; }
@@ -408,6 +408,39 @@
 .compare .col-mf .yes { color: var(--m-blue-400); }
 .compare .yes { color: var(--accent-ice); font-weight: 600; }
 .compare .no { color: var(--fg-subtle); }
+
+/* Celular: la tabla se desarma en tarjetas (Rafa, sep 2026: no le gusta que la
+   comparativa salga cortada y haya que deslizar de lado para ver la columna de
+   "Otras"). Dos columnas de texto no caben en 390px sin quedar ilegibles, así
+   que cada fila se vuelve una tarjeta con las dos posturas, una encima de la
+   otra: arriba la de Mente Fria en oscuro, abajo la de los demás en claro. Se
+   ve completa de un vistazo y se conserva el lenguaje de color de la tabla.
+   La etiqueta de quién habla sale de data-quien, porque sin encabezados de
+   columna no se sabría de quién es cada línea. */
+@media (max-width: 680px) {
+  .compare-scroll { overflow-x: visible; }
+  .compare { display: block; min-width: 0; }
+  .compare thead { display: none; }
+  .compare tbody { display: block; }
+  .compare tbody tr {
+    display: block; width: 100%; margin-bottom: 10px;
+    border: 1px solid var(--line-1); border-radius: 14px; overflow: hidden;
+  }
+  .compare td {
+    display: block; width: auto; text-align: left;
+    border-bottom: 0; padding: 9px 15px 11px; font-size: 13.5px; line-height: 1.3;
+  }
+  .compare td::before {
+    content: attr(data-quien);
+    display: block; margin-bottom: 3px;
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
+  }
+  .compare td.col-mf::before { color: var(--m-blue-400); }
+  .compare td:not(.col-mf)::before { color: var(--fg-subtle); }
+  .compare tbody tr .col-mf,
+  .compare thead .col-mf,
+  .compare tbody tr:last-child .col-mf { border-radius: 0; }
+}
 
 /* ===== Review wall ===== */
 .mfilters { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 36px; }

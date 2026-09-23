@@ -17,10 +17,11 @@ export PATH=/Users/SaulP/.local/opt/node/bin:$PATH && cd ~/mentefria/mentefria-s
 
 ## Pendientes de publicar a Shopify
 
-Ninguno. Todo lo de abajo ya está en el tema borrador.
+Uno. Lo de abajo de la segunda tabla ya está en el tema borrador.
 
 | # | Comentario | Qué se hizo | Archivos |
 |---|---|---|---|
+| 7 | Rafa: la comparativa sale cortada en celular, hay que deslizar de lado para ver "Otras". Que se vea todo a la vez. | La tabla necesitaba 560px de ancho y vivía en una caja que se desliza. En celular se desarma en tarjetas: cada fila es una tarjeta con las dos posturas, la de Mente Fria arriba en oscuro y la de los demás abajo en claro. Sin deslizamiento lateral y la tabla completa mide 689px. De 680px para arriba sigue siendo la misma tabla de dos columnas. | LandingV2.tsx, metal.css |
 
 ---
 

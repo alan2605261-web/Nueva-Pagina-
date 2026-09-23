@@ -17,7 +17,7 @@ export PATH=/Users/SaulP/.local/opt/node/bin:$PATH && cd ~/mentefria/mentefria-s
 
 ## Pendientes de publicar a Shopify
 
-Cinco. Lo de abajo de la segunda tabla ya está en el tema borrador.
+Seis. Lo de abajo de la segunda tabla ya está en el tema borrador.
 
 | # | Comentario | Qué se hizo | Archivos |
 |---|---|---|---|
@@ -26,6 +26,7 @@ Cinco. Lo de abajo de la segunda tabla ya está en el tema borrador.
 | 9 | Rafa: las fotos de los tres plunges no coinciden en tamaño; volver a los tamaños de la primera versión. Saul mandó la captura de esa versión. | Medidos sobre su captura: el producto ocupa 70% del ancho de su caja en el Barrel, 78% en la MF ONE y 84% en el Horizon, con columnas iguales. Esos son los valores que quedaron. En escritorio la MF ONE va al 61% porque su columna es 1.25 veces más ancha, que equivale al mismo 78%. Antes iban 68, 76 y 100: en una sola columna eso dejaba la MF ONE como la foto más chica de las tres. | LandingV2.tsx |
 | 10 | Rafa: entre MF Barrel y MF ONE hay un espacio en blanco muy grande. | La bandeja tenía un alto mínimo de 176px que sobraba cuando la foto era más chica, y la separación entre tarjetas era de 32px. Ahora la bandeja mide exactamente lo que pide la foto y la separación baja a 24. El blanco encima de cada foto quedó en cero. De paso, el tamaño del archivo va en el marcado para que el navegador reserve el hueco y la bandeja no brinque al cargar. | LandingV2.tsx |
 | 11 | Rafa: en teléfono la MF ONE queda en segundo lugar; debe ir primero ONE, luego Horizon y luego Barrel. | Abajo de 1024px se reordenan solo visualmente. En pantalla ancha siguen Barrel, MF ONE y Horizon, con la estelar al centro del triángulo. | metal.css |
+| 12 | Rafa: hay guiones largos en varios lugares; no debe haber ninguno, ni en celular ni en computadora, y no solo en ese bloque. | Se recorrió todo el código: 39 guiones en texto visible, en 18 archivos. Todos sustituidos por punto, coma, dos puntos o paréntesis según el caso, y los rangos numéricos pasan a "de X a Y". Queda un revisor, `npm run sin-guiones`, que recorre las 47 páginas ya construidas y falla si aparece uno; así se atrapa también lo que entre desde el blog o desde datos, no solo lo escrito a mano. | 18 archivos + scripts/sin-guiones.mjs |
 
 ---
 

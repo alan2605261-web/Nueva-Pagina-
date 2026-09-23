@@ -50,14 +50,14 @@ export const SPECS_NUEVOS: FilaSpec[] = [
   { grupo: "Desempeño", label: "Desinfección", pro: "No incluye", premium: "Ozono integrado", mfone: "Ozono integrado" },
   { grupo: "Desempeño", label: "Nivel de ruido", pro: "60 dB(A)", premium: "63 dB(A)", mfone: "68 dB(A) a 1 m" },
 
-  { grupo: "Eléctrico", label: "Alimentación", pro: "106–127 V / 60 Hz", premium: "106–127 V / 60 Hz", mfone: "110 V / 60 Hz" },
+  { grupo: "Eléctrico", label: "Alimentación", pro: "106 a 127 V / 60 Hz", premium: "106 a 127 V / 60 Hz", mfone: "110 V / 60 Hz" },
   { grupo: "Eléctrico", label: "Potencia de entrada", pro: "790 W", premium: "1,150 W", mfone: "1,320 W" },
-  { grupo: "Eléctrico", label: "Corriente nominal en enfriamiento", pro: "7 A", premium: "9 A", mfone: "—" },
-  { grupo: "Eléctrico", label: "Corriente máxima de entrada", pro: "—", premium: "12.8 A", mfone: "12 A" },
+  { grupo: "Eléctrico", label: "Corriente nominal en enfriamiento", pro: "7 A", premium: "9 A", mfone: "No aplica" },
+  { grupo: "Eléctrico", label: "Corriente máxima de entrada", pro: "No aplica", premium: "12.8 A", mfone: "12 A" },
   { grupo: "Eléctrico", label: "Circuito requerido", pro: "Dedicado, 15 A o más, con tierra", premium: "Dedicado, 20 A, con tierra", mfone: "Dedicado, 16 A, con tierra" },
 
   { grupo: "Circuito de agua", label: "Bomba de circulación", pro: "80 W", premium: "120 W", mfone: "150 W" },
-  { grupo: "Circuito de agua", label: "Columna de agua", pro: "6 m", premium: "10 m", mfone: "—" },
+  { grupo: "Circuito de agua", label: "Columna de agua", pro: "6 m", premium: "10 m", mfone: "No aplica" },
   { grupo: "Circuito de agua", label: "Flujo", pro: "1.0 m³/h", premium: "1.5 m³/h", mfone: "8 m³/h (8,000 L/h)" },
   { grupo: "Circuito de agua", label: "Conexión", pro: "DN 25", premium: "DN 25", mfone: "Sin mangueras" },
   { grupo: "Circuito de agua", label: "Filtro", pro: "Papel plisado de 20 micras", premium: "Papel plisado de 20 micras", mfone: "Papel plisado y skimmer" },

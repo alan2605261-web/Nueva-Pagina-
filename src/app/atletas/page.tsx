@@ -33,7 +33,7 @@ export default function AtletasPage() {
             </h1>
             <p className="text-[16px] leading-relaxed text-[var(--fg-muted)] text-white/70 mb-10 max-w-lg">
               El cold plunge tiene raíces en la recuperación deportiva. Frío
-              constante y ajustable, sin hielo y sin logística — lista todos los días.
+              constante y ajustable, sin hielo y sin logística, lista todos los días.
             </p>
             <a href="/productos/mf-one" className="mbtn bg-white text-black hover:bg-white/90">
               Ver la MF ONE
@@ -170,14 +170,14 @@ export default function AtletasPage() {
                 </h2>
                 <p className="text-[16px] leading-relaxed text-[var(--fg-muted)] mb-8">
                   La MF ONE fue diseñada para el atleta que toma en serio su
-                  recuperación. Chiller integrado, ajuste desde 1 °C, control desde la app — todo incluido, sin logística.
+                  recuperación. Chiller integrado, ajuste desde 1 °C, control desde la app. Todo incluido, sin logística.
                 </p>
                 <ul className="space-y-4">
                   {[
-                    "Chiller integrado — sin hielo, sin preparación",
+                    "Chiller integrado, sin hielo ni preparación",
                     "Temperatura constante, ajustable desde 1 °C",
                     "Control desde app",
-                    "Diseño compacto — cabe en cualquier espacio",
+                    "Diseño compacto que cabe en cualquier espacio",
                     "Mantenimiento mínimo, uso diario",
                   ].map((item) => (
                     <li

@@ -154,7 +154,7 @@ export const memberStories = {
   title: "Mente Fria en acción",
   cards: [
     { name: "Eduardo V.", role: "CDMX · Atleta", tone: "ink" as const },
-    { name: "Valeria — Daniel G.", role: "CDMX", tone: "cool" as const },
+    { name: "Valeria · Daniel G.", role: "CDMX", tone: "cool" as const },
     { name: "Rodrigo P.", role: "Guadalajara", tone: "warm" as const },
     { name: "Ricardo M.", role: "Puerto Vallarta", tone: "cool" as const },
   ],

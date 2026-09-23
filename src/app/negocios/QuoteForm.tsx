@@ -50,7 +50,7 @@ export function QuoteForm() {
       <div className="flex min-h-[420px] flex-col items-center justify-center rounded-3xl border border-[var(--line-1)] bg-[var(--m-white)] p-10 text-center">
         <p className="eyebrow mb-4">Solicitud recibida</p>
         <h3 className="mdisplay text-[clamp(20px,2.2vw,26px)]">
-          Gracias — te contactamos en menos de 24 horas hábiles.
+          Gracias. Te contactamos en menos de 24 horas hábiles.
         </h3>
         <p className="mt-4 max-w-sm text-sm leading-relaxed text-[var(--fg-muted)]">
           Un especialista B2B de Mente Fria revisará tu proyecto y te enviará

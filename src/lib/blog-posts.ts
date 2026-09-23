@@ -266,7 +266,7 @@ export const BLOG_POSTS: BlogPost[] = [
         p: [
           "Ahí es donde se sale la mayoría. El cuerpo pide aire, el pecho se cierra y todo el sistema grita que esto es un error. Si respiras rápido y superficial, la sensación se amplifica sola.",
           "Lo que funciona es al revés: exhalaciones largas, más largas que las inhalaciones, sin forzar. En treinta o cuarenta segundos la respiración se normaliza, el cuerpo acepta la temperatura y la experiencia cambia por completo. Lo que era pánico se vuelve una calma bastante particular.",
-          "Ese momento —quedarte cuando todo te pide salir— es el que después se transfiere a otras cosas. Es también de donde viene el nombre de la marca.",
+          "Ese momento, quedarte cuando todo te pide salir, es el que después se transfiere a otras cosas. Es también de donde viene el nombre de la marca.",
         ],
       },
       {
@@ -337,7 +337,7 @@ export const BLOG_POSTS: BlogPost[] = [
         p: [
           "La hipótesis es razonable. La exposición repetida al frío es un estresor breve y controlado, y ese tipo de estímulo tiende a mejorar la capacidad del cuerpo de regularse. Hay trabajos que reportan cambios en marcadores inflamatorios tras programas de exposición al frío.",
           "Lo que todavía no hay es evidencia sólida de que eso se traduzca en desenlaces clínicos relevantes a largo plazo. Los estudios son cortos, con grupos pequeños, y en varios el frío viene acompañado de respiración controlada, ejercicio o cambios de hábitos que hacen imposible aislar qué produjo qué.",
-          "La lectura honesta es que el frío probablemente ayuda como parte de un conjunto —dormir bien, moverte, comer decente— y no como una intervención que por sí sola cambie un marcador de salud.",
+          "La lectura honesta es que el frío probablemente ayuda como parte de un conjunto (dormir bien, moverte, comer decente) y no como una intervención que por sí sola cambie un marcador de salud.",
         ],
       },
       {
@@ -408,7 +408,7 @@ export const BLOG_POSTS: BlogPost[] = [
         p: [
           "La atenuación de la respuesta de choque con la exposición repetida está bien documentada. Es un fenómeno medible: menos jadeo, menos aceleración cardiaca, adaptación en pocas sesiones.",
           "El estudio del método de respiración de Wim Hof publicado en PNAS mostró que un grupo entrenado podía modular voluntariamente su respuesta inmune e inflamatoria ante un estímulo controlado. Es un resultado fuerte, con una advertencia importante: el protocolo combinaba respiración, meditación y exposición al frío, así que no se puede atribuir al frío por separado.",
-          "La transferencia al estrés cotidiano —el jefe, el tráfico, la discusión— es lo que casi todo el mundo reporta y lo que casi nadie ha medido bien. Es plausible y es consistente con lo que sabemos de exposición gradual, pero por ahora es una hipótesis razonable, no un hallazgo.",
+          "La transferencia al estrés cotidiano (el jefe, el tráfico, la discusión) es lo que casi todo el mundo reporta y lo que casi nadie ha medido bien. Es plausible y es consistente con lo que sabemos de exposición gradual, pero por ahora es una hipótesis razonable, no un hallazgo.",
         ],
       },
       {
@@ -471,7 +471,7 @@ export const BLOG_POSTS: BlogPost[] = [
         p: [
           "Aquí está la parte que casi nadie explica bien. Meterte al frío tres horas antes de dormir puede ayudarte: el rebote térmico ya pasó y el cuerpo está en la pendiente descendente que necesitas.",
           "Meterte veinte minutos antes de acostarte suele hacer lo contrario. La descarga de catecolaminas todavía está activa, el estado de alerta está arriba, y lo que consigues es quedarte viendo el techo.",
-          "La opción más simple, y la que más gente sostiene, es hacerlo en la mañana. El efecto sobre el sueño de esa noche es más indirecto —pasa por el ritmo circadiano y por haber empezado el día con luz y actividad— pero no arriesga nada.",
+          "La opción más simple, y la que más gente sostiene, es hacerlo en la mañana. El efecto sobre el sueño de esa noche es más indirecto, porque pasa por el ritmo circadiano y por haber empezado el día con luz y actividad, pero no arriesga nada.",
         ],
       },
       {
@@ -604,7 +604,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         h: "El estudio que todos citan",
         p: [
-          "En 2016 se publicó un ensayo controlado en Países Bajos con más de tres mil participantes. Durante un mes, unos terminaban su ducha habitual con agua fría —30, 60 o 90 segundos— y otros seguían su rutina normal.",
+          "En 2016 se publicó un ensayo controlado en Países Bajos con más de tres mil participantes. Durante un mes, unos terminaban su ducha habitual con agua fría (30, 60 o 90 segundos) y otros seguían su rutina normal.",
           "El resultado que se repite en todas partes: el grupo del agua fría reportó un 29 por ciento menos de ausencias laborales por enfermedad.",
           "Es un buen estudio, con un tamaño de muestra grande y aleatorización. Y hay que leer con atención qué fue lo que midió.",
         ],
@@ -696,7 +696,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         h: "Qué hace el motor, exactamente",
         p: [
-          "El motor —chiller, en la industria— es una bomba de calor que saca energía del agua y la expulsa al aire, igual que un refrigerador. Circula el agua de la tina, la enfría y la devuelve. Cuando alcanza la temperatura que fijaste, se apaga; cuando sube un grado, se vuelve a encender.",
+          "El motor, o chiller en la industria, es una bomba de calor que saca energía del agua y la expulsa al aire, igual que un refrigerador. Circula el agua de la tina, la enfría y la devuelve. Cuando alcanza la temperatura que fijaste, se apaga; cuando sube un grado, se vuelve a encender.",
           "Ese ciclo hace algo que el hielo no puede: la temperatura es un número que eliges, no un resultado de cuántas bolsas compraste. Tres grados es tres grados el lunes y el jueves, y eso importa para comparar cómo te sientes de una sesión a otra.",
           "El mismo circuito hace pasar el agua por un filtro. Esa es la segunda cosa que el hielo no resuelve: el agua que reutilizas se ensucia con cada inmersión, y sin filtración no aguanta más de un par de usos.",
         ],
@@ -704,7 +704,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         h: "Higiene: la parte que nadie cuenta",
         p: [
-          "Una tina con agua estancada a baja temperatura no es estéril. El frío frena el crecimiento bacteriano, no lo detiene, y lo que entra con cada cuerpo —sudor, aceites de la piel, restos de producto— se queda ahí.",
+          "Una tina con agua estancada a baja temperatura no es estéril. El frío frena el crecimiento bacteriano, no lo detiene, y lo que entra con cada cuerpo (sudor, aceites de la piel, restos de producto) se queda ahí.",
           "Por eso un equipo pensado para uso repetido combina filtración mecánica con algún sistema de desinfección. La filtración retiene los sólidos; la desinfección se ocupa de lo que no se ve. Con las dos cosas trabajando, el agua aguanta semanas en lugar de días.",
           "Si vas por la ruta del hielo, la regla práctica es simple: agua nueva cada vez. En cuanto empiezas a reutilizarla sin filtrar ni desinfectar, el ahorro deja de ser ahorro.",
         ],
@@ -774,7 +774,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         h: "Cámara de nitrógeno o agua fría",
         p: [
-          "La crioterapia de cuerpo entero en cámara expone la piel a aire muy frío durante dos o tres minutos. Impresiona el número —menos ciento diez, menos ciento cuarenta grados— pero el aire transfiere calor mucho peor que el agua.",
+          "La crioterapia de cuerpo entero en cámara expone la piel a aire muy frío durante dos o tres minutos. Impresiona el número, menos ciento diez o menos ciento cuarenta grados, pero el aire transfiere calor mucho peor que el agua.",
           "Ese es el punto que suele perderse. El agua conduce el calor unas veinticinco veces mejor que el aire. Tres grados de agua te enfrían más rápido y más profundo que aire a menos cien, aunque el número asuste menos.",
           "A eso se suma la diferencia práctica: la cámara requiere una instalación, un operador y una cita. El agua fría cabe en una tina en tu casa. Para algo que solo funciona si lo haces con regularidad, esa diferencia decide.",
         ],
@@ -845,7 +845,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         h: "Un equipo compartido no es un equipo doméstico",
         p: [
-          "En una casa, una tina recibe una o dos inmersiones al día. En un gimnasio puede recibir veinte. Todo lo que en casa es cómodo —el cambio de agua cada tres semanas, el filtro al mes— se comprime en proporción directa al uso.",
+          "En una casa, una tina recibe una o dos inmersiones al día. En un gimnasio puede recibir veinte. Todo lo que en casa es cómodo (el cambio de agua cada tres semanas, el filtro al mes) se comprime en proporción directa al uso.",
           "Eso cambia la pregunta de compra. No es qué tina cabe en el espacio, es cuánta carga de filtración soporta al día y cada cuánto habrá que intervenirla. Un equipo elegido por precio y no por capacidad se convierte en una tarea diaria para tu staff.",
           "El agua es el indicador. Si a media tarde ya no está transparente, el sistema se quedó corto para ese volumen de gente, y ningún protocolo de limpieza lo compensa.",
         ],
@@ -863,7 +863,7 @@ export const BLOG_POSTS: BlogPost[] = [
         p: [
           "Un socio que entra al agua fría por primera vez no sabe que va a jadear, no sabe cuánto tiempo aguantar, y no sabe que el alcohol o ciertas condiciones cardiacas lo hacen peligroso. Eso lo tiene que saber por ti, no por internet.",
           "Lo mínimo operable son tres cosas: una inducción corta antes de la primera inmersión, un tiempo máximo visible junto a la tina, y la instrucción de que nadie se meta solo. Con eso cubres la mayoría de los incidentes reales.",
-          "Vale la pena además tener por escrito quién no debe usarlo —embarazo, condiciones cardiovasculares, epilepsia, diabetes con neuropatía— y que el socio lo lea. No es trámite: es la diferencia entre ofrecer un servicio y exponer a alguien.",
+          "Vale la pena además tener por escrito quién no debe usarlo (embarazo, condiciones cardiovasculares, epilepsia, diabetes con neuropatía) y que el socio lo lea. No es trámite: es la diferencia entre ofrecer un servicio y exponer a alguien.",
         ],
       },
       {

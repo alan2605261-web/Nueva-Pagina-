@@ -16,7 +16,7 @@ const aileron = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Mente Fria — Frío que transforma. Sin hielo.",
+  title: "Mente Fria | Frío que transforma. Sin hielo.",
   description:
     "MF ONE, MF Horizon y MF Barrel: tinas de inmersión en frío con enfriamiento activo, filtración y control desde la app. Envío a todo México.",
 };

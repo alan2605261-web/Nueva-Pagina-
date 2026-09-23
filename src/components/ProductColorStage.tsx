@@ -28,7 +28,7 @@ export function ProductColorStage({
         <img fetchPriority="high"
           key={current.src}
           src={current.src}
-          alt={`${alt} — color ${active.toLowerCase()}`}
+          alt={`${alt}, color ${active.toLowerCase()}`}
           className="h-full w-full object-contain p-10 mix-blend-multiply duration-500 animate-in fade-in"
         />
       </div>

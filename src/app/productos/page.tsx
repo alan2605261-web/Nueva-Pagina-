@@ -150,7 +150,7 @@ export default function ProductosPage() {
             <h2>El mismo ADN en toda la línea.</h2>
             <p>
               Frío real sin hielo, agua siempre limpia y control total desde tu
-              celular — elijas el modelo que elijas.
+              celular, elijas el modelo que elijas.
             </p>
           </Reveal>
           <div className="grid gap-5 sm:grid-cols-2">
@@ -271,8 +271,8 @@ export default function ProductosPage() {
               photos: [
                 { img: "/images/mfone-frio.jpg", alt: "MF ONE en modo frío", pos: "center 30%" },
                 { img: "/images/mfone-calor.jpg", alt: "MF ONE en modo calor", pos: "center 30%" },
-                { img: "/images/mfone-gallery/negro/01.jpg", alt: "MF ONE negro — render de estudio", pos: "center" },
-                { img: "/images/mfone-gallery/blanco/front.jpg", alt: "MF ONE blanco — frente", pos: "center" },
+                { img: "/images/mfone-gallery/negro/01.jpg", alt: "MF ONE negro, render de estudio", pos: "center" },
+                { img: "/images/mfone-gallery/blanco/front.jpg", alt: "MF ONE blanco, de frente", pos: "center" },
               ],
             },
           ].map((group, gi) => (

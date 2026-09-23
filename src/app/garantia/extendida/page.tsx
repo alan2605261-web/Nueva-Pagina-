@@ -27,7 +27,7 @@ import {
 ───────────────────────────────────────────────────────────── */
 
 export const metadata = {
-  title: "MF Shield — garantía extendida | Mente Fria",
+  title: "MF Shield, garantía extendida | Mente Fria",
   description:
     "MF Shield extiende la garantía de tu equipo hasta el mes 24, con refacciones originales y mano de obra incluidas. Precios, cobertura y cómo se atiende una reclamación.",
 };

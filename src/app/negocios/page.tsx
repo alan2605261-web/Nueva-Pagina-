@@ -244,7 +244,7 @@ const PROCESS_STEPS = [
 const FAQ_ITEMS = [
   {
     q: "¿Cómo funciona el esquema de leasing y su beneficio fiscal?",
-    a: "Adquieres el equipo a 12, 18 o 24 meses con un anticipo del 10% más una comisión de apertura del 2%. Al final del plazo ejerces la opción de compra con un valor residual del 5%. La renta mensual es deducible al 100% según el régimen fiscal aplicable a tu empresa — consulta con tu contador el tratamiento exacto para tu caso.",
+    a: "Adquieres el equipo a 12, 18 o 24 meses con un anticipo del 10% más una comisión de apertura del 2%. Al final del plazo ejerces la opción de compra con un valor residual del 5%. La renta mensual es deducible al 100% según el régimen fiscal aplicable a tu empresa. Consulta con tu contador el tratamiento exacto para tu caso.",
   },
   {
     q: "¿Necesito buró de crédito empresarial?",

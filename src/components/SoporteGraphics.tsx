@@ -87,7 +87,7 @@ function Envios() {
       {/* ventana 3–7 */}
       <rect x={px(3)} y={96} width={px(7) - px(3)} height={20} rx={4} fill="rgba(255,255,255,0.14)" stroke={TRAZO} strokeWidth={1.3} />
       <text x={(px(3) + px(7)) / 2} y={110} textAnchor="middle" fontSize={11} fill="#fff" style={{ fontFamily: "var(--font-display)" }}>
-        3 – 7
+        3 a 7
       </text>
 
       {/* el paquete recorre la ventana, apoyado sobre ella */}

@@ -101,7 +101,7 @@ const FILAS: Fila[] = [
   },
 ];
 
-const clave = (v: Valor) => (v ? v.t : "—");
+const clave = (v: Valor) => (v ? v.t : "no incluye");
 
 export function ComparadorMotores({ disponibles }: { disponibles: MotorId[] }) {
   const [elegidos, setElegidos] = useState<MotorId[]>(disponibles);

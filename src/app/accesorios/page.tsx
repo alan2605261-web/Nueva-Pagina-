@@ -20,7 +20,7 @@ const maintenanceSchedule = [
   {
     interval: "Cada 3 a 4 semanas",
     task: "Limpiar el interior",
-    detail: "Usa material NO abrasivo. Sin detergentes fuertes ni cloro — su uso invalida la garantía.",
+    detail: "Usa material NO abrasivo. Sin detergentes fuertes ni cloro. Su uso invalida la garantía.",
   },
   {
     interval: "En cada cambio de agua",

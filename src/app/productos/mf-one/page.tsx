@@ -58,7 +58,7 @@ const SPEC_ROWS = [
   { label: "Potencia", value: "1 HP" },
   { label: "Capacidad de enfriamiento", value: "3,500 W" },
   { label: "Capacidad de calentamiento", value: "1,000 W" },
-  { label: "Rango de temperatura", value: "1 – 40 °C, al grado exacto" },
+  { label: "Rango de temperatura", value: "1 a 40 °C, al grado exacto" },
   { label: "Velocidad de enfriamiento", value: "4 a 6 °C por hora" },
   { label: "Temperatura ambiente de operación", value: "3 a 40 °C" },
   { label: "Desinfección", value: "Ozono integrado" },
@@ -515,7 +515,7 @@ export default function MFOnePage() {
                 <div className="mt-8 grid max-w-xl grid-cols-1 gap-y-6 sm:grid-cols-3">
                   {[
                     ["100%", "renta deducible"],
-                    ["12–24", "meses de leasing"],
+                    ["12 a 24", "meses de leasing"],
                     ["<24 h", "propuesta en tu correo"],
                   ].map(([n, l], i) => (
                     <div key={l} className={i > 0 ? "sm:border-l sm:border-[var(--line-1)] sm:pl-6" : ""}>

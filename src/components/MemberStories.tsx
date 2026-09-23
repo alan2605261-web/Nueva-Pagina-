@@ -26,7 +26,7 @@ export function MemberStories() {
           >
             <Placeholder
               tone={card.tone}
-              label={`${card.name} — story`}
+              label={`${card.name}, historia`}
               className="absolute inset-0"
             >
               <div className="absolute inset-0 flex items-center justify-center">

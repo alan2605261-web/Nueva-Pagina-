@@ -190,7 +190,7 @@ export const CONSEJO: Referente[] = [
     campo: "Rendimiento · 26 récords mundiales",
     etiqueta: "The Iceman · Creador del Método Wim Hof",
     filiacion: "26 récords Guinness",
-    bio: "26 récords Guinness, incluyendo la inmersión más larga en hielo. Creador del Método Wim Hof — respiración, frío y meditación. Estudios publicados en PNAS demostraron que sus técnicas permiten influir conscientemente en el sistema inmunológico y el sistema nervioso autónomo, algo que se creía imposible.",
+    bio: "26 récords Guinness, incluyendo la inmersión más larga en hielo. Creador del Método Wim Hof: respiración, frío y meditación. Estudios publicados en PNAS demostraron que sus técnicas permiten influir conscientemente en el sistema inmunológico y el sistema nervioso autónomo, algo que se creía imposible.",
     puntos: [
       "Demostró que los humanos pueden influir voluntariamente en el sistema inmunológico.",
       "Las técnicas de frío aumentan la producción de norepinefrina, mejorando atención y estado de alerta.",
@@ -220,7 +220,7 @@ export const CONSEJO: Referente[] = [
     filiacion: "Stanford · Johns Hopkins",
     bio: "Formado en Stanford y Johns Hopkins, dedicado a entender cómo las intervenciones de estilo de vida mejoran la salud y prolongan la vida. Autor del bestseller Outlive. Defiende el cold plunge como herramienta de salud metabólica: activa la termogénesis no temblorosa, reduce inflamación y mejora la composición corporal.",
     puntos: [
-      "El frío activa la termogénesis no temblorosa — el cuerpo quema calorías para generar calor.",
+      "El frío activa la termogénesis no temblorosa: el cuerpo quema calorías para generar calor.",
       "Aumenta norepinefrina y dopamina, reduciendo estrés y mejorando la claridad mental.",
       "Reduce inflamación y acelera la recuperación, especialmente relevante para atletas activos.",
     ],
@@ -232,10 +232,10 @@ export const CONSEJO: Referente[] = [
     campo: "Rendimiento · WHOOP · Princeton",
     etiqueta: "VP de Rendimiento · Co-fundadora de WHOOP",
     filiacion: "WHOOP · Princeton",
-    bio: "Ex entrenadora en jefe del equipo femenino de hockey de Princeton — múltiples campeonatos nacionales. Hoy VP de Rendimiento en WHOOP, líder en tecnología biométrica. Ha investigado cómo el cold plunge reduce inflamación, acelera la recuperación muscular, mejora la calidad del sueño y aumenta la producción de norepinefrina.",
+    bio: "Ex entrenadora en jefe del equipo femenino de hockey de Princeton, con múltiples campeonatos nacionales. Hoy VP de Rendimiento en WHOOP, líder en tecnología biométrica. Ha investigado cómo el cold plunge reduce inflamación, acelera la recuperación muscular, mejora la calidad del sueño y aumenta la producción de norepinefrina.",
     puntos: [
       "El frío reduce inflamación y acelera la recuperación muscular en atletas de alto rendimiento.",
-      "Mejora la calidad del sueño — clave en los protocolos de recuperación de WHOOP.",
+      "Mejora la calidad del sueño, clave en los protocolos de recuperación de WHOOP.",
       "Aumenta norepinefrina: más atención, más concentración y menos dolor post-entreno.",
     ],
     foto: "/images/consejo/kristen-holmes.jpg",

@@ -77,7 +77,7 @@ export function QuizPlunge() {
       if (!salio) {
         // Plan B mientras no haya endpoint: el resumen se va por WhatsApp.
         const resumen = PREGUNTAS.filter((q) => resp[q.id])
-          .map((q) => `· ${q.pregunta} ${q.opciones.find((o) => o.valor === resp[q.id])?.etiqueta ?? "—"}`)
+          .map((q) => `· ${q.pregunta} ${q.opciones.find((o) => o.valor === resp[q.id])?.etiqueta ?? "sin responder"}`)
           .join("\n");
         const texto = encodeURIComponent(
           `Hola, hice el quiz y me recomendó la ${r.modelo.nombre}` +
@@ -154,7 +154,7 @@ export function QuizPlunge() {
     const fotos = FOTOS[modelo.nombre] ?? [{ src: modelo.img, color: "Negra" }];
     const resumen = PREGUNTAS.filter((q) => resp[q.id]).map((q) => {
       const op = q.opciones.find((o) => o.valor === resp[q.id]);
-      return `· ${q.pregunta} ${op?.etiqueta ?? "—"}`;
+      return `· ${q.pregunta} ${op?.etiqueta ?? "sin responder"}`;
     }).join("\n");
     const mensaje = encodeURIComponent(
       `Hola, hice el quiz en la página y me recomendó la ${modelo.nombre}` +

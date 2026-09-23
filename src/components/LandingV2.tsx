@@ -194,9 +194,11 @@ const PRODUCTOS = [
     name: "MF BARREL",
     price: "$69,000",
     img: "/images/prod-barrel-nobg.png",
+    w: 736,
+    h: 552,
     floor: "58%",
     href: "/productos/mf-barrel",
-    anchoFoto: "w-[68%]",
+    anchoFoto: "w-[55%]",
     featured: false,
     bullets: ["Filtración de 3 capas + purificación por ozono.", "Control por app Wi-Fi, programable desde tu celular.", "6 meses de garantía."],
   },
@@ -204,9 +206,11 @@ const PRODUCTOS = [
     name: "MF ONE",
     price: "$169,000",
     img: "/images/prod-mfone.webp",
+    w: 2400,
+    h: 1292,
     floor: "58%",
     href: "/productos/mf-one",
-    anchoFoto: "w-[76%] lg:w-[60%]",
+    anchoFoto: "w-full lg:w-[78%]",
     featured: true,
     bullets: ["Diseño All-In-One con el chiller dentro de la tina.", "Filtro de papel + ozono integrado.", "Control por app Wi-Fi. 12 meses de garantía."],
   },
@@ -214,11 +218,11 @@ const PRODUCTOS = [
     name: "MF HORIZON",
     price: "$74,000",
     img: "/images/prod-horizon-nobg.png",
+    w: 1105,
+    h: 514,
     floor: "58%",
     href: "/productos/mf-horizon",
-    // Iba a 137% "para tamaño visual ~ONE" y terminaba saliéndose de la caja
-    // y cortándose por los lados. A 98% cabe y queda parejo con la MF ONE.
-    anchoFoto: "w-full",
+    anchoFoto: "w-[82%]",
     nudge: "lg:translate-x-2 lg:-translate-y-1.5",
     featured: false,
     bullets: ["Filtración de 3 capas + purificación por ozono.", "Control por app Wi-Fi, programable desde tu celular.", "6 meses de garantía."],
@@ -689,7 +693,7 @@ export function LandingV2() {
         {/* Contenedor ancho: el bloque completo de productos escala ~15% (misma proporción) */}
         <div className="mx-auto w-[min(1500px,94vw)] px-[clamp(20px,3vw,40px)]">
           {/* Triángulo WHOOP: MF ONE estelar al centro, laterales más abajo */}
-          <div className="grid gap-8 lg:grid-cols-[1fr_1.25fr_1fr] lg:items-start">
+          <div className="mprods grid gap-6 lg:grid-cols-[1fr_1.25fr_1fr] lg:gap-8 lg:items-start">
             {PRODUCTOS.map((p, i) => (
               <Reveal
                 key={p.name}
@@ -723,11 +727,16 @@ export function LandingV2() {
                          iPad vertical las tres columnas dejaban fotos de 100px
                          dentro de la bandeja, con 110px de blanco encima de cada
                          una. Ahi va en una sola columna, como en telefono. */
-                      className="flex min-h-[176px] items-end justify-center px-4 pb-9 lg:min-h-[clamp(140px,14vw,215px)]"
+                      className="flex items-end justify-center px-4 pb-9 lg:min-h-[clamp(140px,14vw,215px)]"
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
+                      {/* El tamaño real del archivo va en el marcado para que
+                          el navegador reserve el hueco antes de bajar la foto:
+                          sin esto la bandeja nace de 36px y brinca al cargar. */}
                       <img loading="lazy" decoding="async"
                         src={p.img}
+                        width={p.w}
+                        height={p.h}
                         alt={p.name}
                         className={`h-auto flex-none object-contain transition-transform duration-500 group-hover:scale-[1.04] ${p.anchoFoto} ${"nudge" in p && p.nudge ? p.nudge : ""}`}
                       />

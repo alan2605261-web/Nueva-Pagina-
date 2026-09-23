@@ -17,12 +17,15 @@ export PATH=/Users/SaulP/.local/opt/node/bin:$PATH && cd ~/mentefria/mentefria-s
 
 ## Pendientes de publicar a Shopify
 
-Dos. Lo de abajo de la segunda tabla ya está en el tema borrador.
+Cinco. Lo de abajo de la segunda tabla ya está en el tema borrador.
 
 | # | Comentario | Qué se hizo | Archivos |
 |---|---|---|---|
 | 7 | Rafa: la comparativa sale cortada en celular, hay que deslizar de lado para ver "Otras". Que se vea todo a la vez. Saul eligió, entre tres propuestas, la de palomita y tache, y pidió que solo cambie en celular. | Solo abajo de 680px: la frase de Mente Fria se vuelve la etiqueta de la fila y las dos columnas se reducen a palomita y tache. Sin deslizamiento lateral, la tabla completa mide 358px y cabe en pantalla. De 681px para arriba queda exactamente como estaba, con las dos frases lado a lado. | LandingV2.tsx, metal.css |
 | 8 | Rafa: en celular las tarjetas de 30 días, garantía y financiamiento están muy grandes y toscas; que sean mucho más chicas. Saul: en el iPad también acuéstalas. | Hasta 1023px la tarjeta se acuesta: el icono al lado y el texto a la izquierda. En celular pasan de 203 a 224px de alto a 91, y en iPad vertical de 289 a 75. El bloque completo baja de 712 a 356px en celular y de 950 a 316 en iPad. De 1024 para arriba quedan las tres de lado a lado, verticales y sin cambio. | LandingV2.tsx, metal.css |
+| 9 | Rafa: las fotos de los tres plunges no coinciden en tamaño; volver a los tamaños de la primera versión. | Barrel 55%, Horizon 82% y MF ONE 100% del ancho de su columna, que es la proporción de la v1 de Rafa. En una columna la MF ONE era la foto más chica de las tres y ahora es la más grande. En escritorio la MF ONE va al 78% porque su columna es más ancha, para que la proporción sea la misma. OJO: esto deshace el cálculo por tamaño real que se hizo en septiembre; queda pendiente que Saul confirme cuál quiere. | LandingV2.tsx |
+| 10 | Rafa: entre MF Barrel y MF ONE hay un espacio en blanco muy grande. | La bandeja tenía un alto mínimo de 176px que sobraba cuando la foto era más chica, y la separación entre tarjetas era de 32px. Ahora la bandeja mide exactamente lo que pide la foto y la separación baja a 24. El blanco encima de cada foto quedó en cero. De paso, el tamaño del archivo va en el marcado para que el navegador reserve el hueco y la bandeja no brinque al cargar. | LandingV2.tsx |
+| 11 | Rafa: en teléfono la MF ONE queda en segundo lugar; debe ir primero ONE, luego Horizon y luego Barrel. | Abajo de 1024px se reordenan solo visualmente. En pantalla ancha siguen Barrel, MF ONE y Horizon, con la estelar al centro del triángulo. | metal.css |
 
 ---
 

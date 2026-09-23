@@ -429,6 +429,19 @@
 }
 
 
+/* Orden de los tres plunges.
+
+   En pantalla ancha van Barrel, MF ONE, Horizon, porque la estelar tiene que
+   quedar al centro del triángulo. Apilados en una sola columna ese orden deja a
+   la MF ONE en segundo lugar y no hay centro que lo justifique, así que en
+   angosto se reordenan a MF ONE, Horizon y Barrel (Saul, sep 2026). El orden
+   del HTML no cambia: solo el visual. */
+@media (max-width: 1023px) {
+  .mprods > *:nth-child(1) { order: 3; }
+  .mprods > *:nth-child(2) { order: 1; }
+  .mprods > *:nth-child(3) { order: 2; }
+}
+
 /* Las tres tarjetas de confianza (30 días, garantía, financiamiento) en
    celular. Apiladas en vertical medían entre 203 y 224px cada una y se veían
    toscas (Rafa, sep 2026: que sean mucho más chicas). Acostadas, con el icono

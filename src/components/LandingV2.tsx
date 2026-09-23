@@ -659,13 +659,18 @@ export function LandingV2() {
           <div className="grid gap-5 py-[clamp(16px,2.5vh,28px)] md:grid-cols-3">
             {TRUST.map((t, i) => (
               <Reveal key={t.t} delay={i * 100}>
-                <div className="flex h-full flex-col rounded-[16px] border border-[var(--line-1)] bg-white p-7 text-center">
-                  <t.icon size={26} strokeWidth={1.8} className="mx-auto mb-4 text-[var(--accent-ice)]" />
-                  <span className="m-eyebrow accent">{t.k}</span>
-                  <h3 className="mdisplay mt-3 text-[21px] leading-tight">{t.t}</h3>
-                  <p className="mt-2.5 text-[13.5px] leading-relaxed text-[var(--fg-muted)]">
-                    {t.p}
-                  </p>
+                {/* El texto va envuelto para poder ponerlo al lado del icono en
+                    celular, donde la tarjeta se acuesta. En pantalla ancha el
+                    envoltorio es una columna y se ve igual que antes. */}
+                <div className="mtrust flex h-full flex-col rounded-[16px] border border-[var(--line-1)] bg-white p-7 text-center">
+                  <t.icon size={26} strokeWidth={1.8} className="mtrust-ico mx-auto mb-4 text-[var(--accent-ice)]" />
+                  <div className="flex flex-col">
+                    <span className="m-eyebrow accent">{t.k}</span>
+                    <h3 className="mdisplay mt-3 text-[21px] leading-tight">{t.t}</h3>
+                    <p className="mt-2.5 text-[13.5px] leading-relaxed text-[var(--fg-muted)]">
+                      {t.p}
+                    </p>
+                  </div>
                 </div>
               </Reveal>
             ))}

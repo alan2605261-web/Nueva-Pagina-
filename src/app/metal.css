@@ -429,6 +429,24 @@
 }
 
 
+/* Las tres tarjetas de confianza (30 días, garantía, financiamiento) en
+   celular. Apiladas en vertical medían entre 203 y 224px cada una y se veían
+   toscas (Rafa, sep 2026: que sean mucho más chicas). Acostadas, con el icono
+   al lado y el texto a la izquierda, bajan a poco más de un tercio. Las clases
+   de Tailwind que traen en el marcado (p-7, text-center, flex-col) ganan por
+   especificidad, así que aquí van con !important.
+
+   El corte es 767px, justo abajo de donde la reja pasa a tres columnas: donde
+   las tarjetas van una debajo de otra se acuestan, y donde van lado a lado se
+   quedan verticales como siempre. */
+@media (max-width: 767px) {
+  .mtrust { flex-direction: row !important; align-items: center; gap: 13px; padding: 12px 15px !important; text-align: left !important; border-radius: 13px !important; }
+  .mtrust-ico { margin: 0 !important; flex: none; width: 21px; height: 21px; }
+  .mtrust .m-eyebrow { font-size: 9px; letter-spacing: 0.16em; }
+  .mtrust h3 { margin-top: 2px !important; font-size: 15px !important; }
+  .mtrust p { margin-top: 3px !important; font-size: 12px !important; line-height: 1.35 !important; }
+}
+
 /* ===== Review wall ===== */
 .mfilters { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 36px; }
 .mfilters button { font-size: 12px; letter-spacing: 0.06em; padding: 9px 18px; border-radius: 100px; border: 1.5px solid var(--line-2); background: transparent; color: var(--fg-metal); cursor: pointer; transition: all 0.2s; }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { SubHero } from "@/components/blocks";
 import { Reveal } from "@/components/Reveal";
@@ -64,54 +65,70 @@ export default function CentroDeAyudaPage() {
             <span className="m-eyebrow accent">Si no lo encontraste</span>
             <h2>Escríbenos.</h2>
             <p>
-              Te contestamos por WhatsApp en horario hábil, y lo urgente lo atendemos
+              Te contestamos por WhatsApp las 24 horas, y lo urgente lo atendemos
               en cuanto lo vemos.
             </p>
           </Reveal>
 
+          {/* Las tres eran enlaces, pero no lo parecian: caja blanca, texto y
+              nada mas. En un telefono no hay hover que lo delate (Rafa, sep
+              2026: "no se siente que son botones clickeables"). Ahora cada una
+              cierra con su accion y una flecha, y el borde y la flecha se
+              marcan al tocarla. */}
           <Reveal className="grid gap-4 sm:grid-cols-3">
             {[
               {
                 t: "WhatsApp",
                 d: "+52 56 1647 1386. La vía más rápida, y por donde arranca cualquier reclamación de garantía.",
+                accion: "Abrir WhatsApp",
                 href: WHATSAPP,
                 externo: true,
               },
               {
                 t: "Videos oficiales",
                 d: "Instalación del motor, armado del equipo y mantenimiento, paso a paso.",
+                accion: "Ver los videos",
                 href: "/soporte",
                 externo: false,
               },
               {
                 t: "Garantía extendida",
                 d: "Qué cubre MF Shield, qué no, y cómo se atiende una falla dentro de la cobertura.",
+                accion: "Ver la cobertura",
                 href: "/garantia/extendida",
                 externo: false,
               },
-            ].map((s) =>
-              s.externo ? (
+            ].map((s) => {
+              const clase =
+                "group flex flex-col rounded-[16px] border border-[var(--line-1)] bg-white p-6 transition-colors duration-200 hover:border-[var(--accent-ice)] active:border-[var(--accent-ice)]";
+              const dentro = (
+                <>
+                  <p className="text-[15px] font-semibold">{s.t}</p>
+                  <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--fg-muted)]">
+                    {s.d}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--accent-ice)]">
+                    {s.accion}
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+                  </span>
+                </>
+              );
+              return s.externo ? (
                 <a
                   key={s.t}
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-[16px] border border-[var(--line-1)] bg-white p-6 transition-colors duration-200 hover:border-[var(--accent-ice)]"
+                  className={clase}
                 >
-                  <p className="text-[15px] font-semibold">{s.t}</p>
-                  <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--fg-muted)]">{s.d}</p>
+                  {dentro}
                 </a>
               ) : (
-                <Link
-                  key={s.t}
-                  href={s.href}
-                  className="rounded-[16px] border border-[var(--line-1)] bg-white p-6 transition-colors duration-200 hover:border-[var(--accent-ice)]"
-                >
-                  <p className="text-[15px] font-semibold">{s.t}</p>
-                  <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--fg-muted)]">{s.d}</p>
+                <Link key={s.t} href={s.href} className={clase}>
+                  {dentro}
                 </Link>
-              ),
-            )}
+              );
+            })}
           </Reveal>
         </div>
       </section>

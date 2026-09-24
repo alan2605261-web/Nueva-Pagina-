@@ -53,7 +53,7 @@ const categoryCards = [
   {
     title: "Contacto",
     media: <SoporteGrafico titulo="Contacto" />,
-    body: "WhatsApp +52 56 1647 1386. Escríbenos a cualquier hora: te contestamos en horario hábil, y lo urgente lo atendemos en cuanto lo vemos.",
+    body: "WhatsApp +52 56 1647 1386. Escríbenos a cualquier hora, los siete días de la semana.",
     tag: "Escríbenos",
     tone: "cool" as const,
   },
@@ -118,7 +118,7 @@ export default function SoportePage() {
             <Reveal>
               <SectionHeader
                 title="¿No encontraste lo que buscabas?"
-                subtitle="Escríbenos por WhatsApp y cuéntanos qué necesitas. Contestamos en horario hábil y damos seguimiento hasta resolverlo."
+                subtitle="Escríbenos por WhatsApp y cuéntanos qué necesitas. Contestamos las 24 horas y damos seguimiento hasta resolverlo."
               />
             </Reveal>
 

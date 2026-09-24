@@ -78,7 +78,7 @@ export function ContactoCard() {
         </span>
         <span className="min-w-0">
           <span className="block text-sm font-semibold">Horario de atención</span>
-          <span className="mt-0.5 block text-sm text-[var(--fg-muted)]">Horario hábil</span>
+          <span className="mt-0.5 block text-sm text-[var(--fg-muted)]">24/7</span>
           <span className="mt-0.5 block text-xs text-[var(--fg-subtle)]">
             Cobertura técnica nacional
           </span>

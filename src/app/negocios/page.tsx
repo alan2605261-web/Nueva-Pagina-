@@ -152,7 +152,7 @@ const WHY_BLOCKS = [
     num: "02",
     tag: "Soporte real, personas reales",
     title: "Soporte real, desde México",
-    body: "Equipo técnico mexicano por teléfono y WhatsApp, en horario hábil. Sin call centers ni tickets eternos: hablas con alguien que conoce tu equipo desde el primer minuto y te da seguimiento hasta resolverlo.",
+    body: "Equipo técnico mexicano por teléfono y WhatsApp, 24/7. Sin call centers ni tickets eternos: hablas con alguien que conoce tu equipo desde el primer minuto y te da seguimiento hasta resolverlo.",
     bullets: [
       "Atención 100% en español, sin chatbots",
       "WhatsApp directo con técnico asignado",

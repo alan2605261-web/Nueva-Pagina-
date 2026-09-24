@@ -76,12 +76,18 @@ export function CentroAyuda() {
 
       {/* Índice de categorías */}
       {!buscando && (
-        <nav className="no-scrollbar mt-10 flex gap-2 overflow-x-auto pb-1">
+        /* Las nueve categorias se acomodan en renglones en lugar de irse de
+           lado. Deslizandose solo se veian tres y las otras seis quedaban
+           escondidas (Rafa, sep 2026: "que se vean todos en la misma
+           pantalla"). No caben de tres en tres en un telefono sin partir cada
+           etiqueta en tres lineas, asi que se envuelven: en 375px salen dos por
+           renglon y las nueve caben sin deslizar. */
+        <nav className="mt-10 flex flex-wrap justify-center gap-2">
           {CATEGORIAS.map((c) => (
             <a
               key={c.slug}
               href={`#${c.slug}`}
-              className="flex-none rounded-full border border-[var(--line-1)] bg-white px-4 py-2 text-[13px] font-medium transition-colors duration-200 hover:border-[var(--accent-ice)] hover:text-[var(--accent-ice)]"
+              className="rounded-full border border-[var(--line-1)] bg-white px-3.5 py-1.5 text-[12px] font-medium transition-colors duration-200 hover:border-[var(--accent-ice)] hover:text-[var(--accent-ice)] sm:px-4 sm:py-2 sm:text-[13px]"
             >
               {c.nombre}
             </a>

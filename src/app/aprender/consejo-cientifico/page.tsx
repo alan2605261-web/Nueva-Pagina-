@@ -20,7 +20,7 @@ import { AvisoInformativo } from "@/components/AvisoInformativo";
 */
 
 export const metadata = {
-  title: "Consejo científico | Mente Fria",
+  title: "Consejo científico",
   description:
     "Científicos, médicos y atletas cuyo trabajo publicado sostiene lo que contamos sobre la inmersión en frío.",
 };

@@ -18,7 +18,7 @@ import { CATEGORIAS, TOTAL_PREGUNTAS } from "@/lib/ayuda";
 const WHATSAPP = "https://wa.me/5215616471386";
 
 export const metadata = {
-  title: "Centro de ayuda | Mente Fria",
+  title: "Centro de ayuda",
   description:
     "Respuestas a las preguntas de instalación, uso, mantenimiento, garantía y fallas de tu cold plunge Mente Fria. Códigos de error, calendario de filtros y protocolo de inmersión.",
 };

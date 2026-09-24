@@ -10,6 +10,12 @@ import { ArrowRight } from "@/components/icons";
 import { Placeholder } from "@/components/Placeholder";
 import { QuoteMark, StarIcon } from "@/components/icons";
 
+export const metadata = {
+  title: "Cold plunge para atletas y recuperación",
+  description:
+    "Inmersión en frío para recuperación deportiva: menos inflamación, mejor descanso y más energía. La MF ONE baja hasta 1 °C a la temperatura exacta que elijas.",
+};
+
 export default function AtletasPage() {
   return (
     <PageShell>

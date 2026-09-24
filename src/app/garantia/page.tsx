@@ -25,7 +25,7 @@ import { INCLUYE, PLANES } from "@/lib/garantia-extendida";
 ───────────────────────────────────────────────────────────── */
 
 export const metadata = {
-  title: "Garantía | Mente Fria",
+  title: "Garantía",
   description:
     "Elige tu equipo y consulta su póliza: 12 meses en la MF ONE y 6 meses en MF Barrel y MF Horizon, con su motor incluido.",
 };

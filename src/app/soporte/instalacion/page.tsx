@@ -11,7 +11,7 @@ import { Reveal } from "@/components/Reveal";
 */
 
 export const metadata = {
-  title: "Instrucciones de instalación | Mente Fria",
+  title: "Instrucciones de instalación",
   description:
     "Los videos oficiales para montar tu cold plunge Mente Fria, paso a paso y sin herramientas.",
 };

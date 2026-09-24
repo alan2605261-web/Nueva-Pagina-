@@ -31,7 +31,7 @@ import { Doc, Vigencia, Clausula, P, Lista, Fuerte, Correo } from "@/components/
 */
 
 export const metadata = {
-  title: "Términos y condiciones | Mente Fria",
+  title: "Términos y condiciones",
   description:
     "Términos y condiciones de uso del sitio y de compra de los productos Mente Fria.",
 };

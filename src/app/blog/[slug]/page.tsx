@@ -22,9 +22,9 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const post = getPost(slug);
-  if (!post) return { title: "Artículo | Mente Fria" };
+  if (!post) return { title: "Artículo" };
   return {
-    title: `${post.titulo} | Mente Fria`,
+    title: `${post.titulo}`,
     description: post.descripcion,
     openGraph: {
       title: post.titulo,

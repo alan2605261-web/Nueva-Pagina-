@@ -17,7 +17,7 @@ import { coleccionesConArticulos } from "@/lib/blog-posts";
 ───────────────────────────────────────────────────────────── */
 
 export const metadata = {
-  title: "Blog | Mente Fria",
+  title: "Blog",
   description:
     "Lo que sabemos del frío: el mecanismo, lo que la investigación sostiene y dónde deja de sostenerlo. Con las fuentes a la vista.",
 };

@@ -16,8 +16,8 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const c = getColeccion(slug);
-  if (!c) return { title: "Colección | Mente Fria" };
-  return { title: `${c.nombre} | Mente Fria`, description: c.dek };
+  if (!c) return { title: "Colección" };
+  return { title: `${c.nombre}`, description: c.dek };
 }
 
 export default async function ColeccionPage({

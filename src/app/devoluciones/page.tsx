@@ -24,7 +24,7 @@ import { Doc, Vigencia, Clausula, P, Lista, Fuerte, Correo } from "@/components/
 */
 
 export const metadata = {
-  title: "Devoluciones y reembolsos | Mente Fria",
+  title: "Devoluciones y reembolsos",
   description:
     "Prueba tu cold plunge 30 días. Si no es para ti, la recogemos y te devolvemos tu dinero.",
 };

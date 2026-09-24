@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DatosProducto, Migas } from "@/components/DatosEstructurados";
 import { agendarLlamada } from "@/lib/whatsapp";
 import { PageShell } from "@/components/PageShell";
 import { FAQ } from "@/components/FAQ";
@@ -132,9 +133,41 @@ const ACCESSORIES = [
   },
 ];
 
+export const metadata = {
+  title: "MF Barrel, cold plunge inflable vertical",
+  description:
+    "Tina de inmersión en frío MF Barrel: 90 cm de diámetro y 500 litros. Cabe en un balcón o una terraza, se infla en menos de 15 minutos y no requiere obra.",
+};
+
 export default function MFBarrelPage() {
   return (
     <PageShell>
+      {/* Datos estructurados. Sin esto la ficha no declaraba precio,
+          disponibilidad ni garantia, y para Google y para los asistentes de IA
+          el producto no existia (sep 2026). Los precios son los mismos que
+          muestra la ficha: si cambian arriba, cambian aqui. */}
+      <DatosProducto
+        nombre="MF Barrel"
+        sku="MF-BARREL"
+        ruta="/productos/mf-barrel"
+        descripcion="Tina de inmersión en frío inflable vertical de tejido drop-stitch. 90 cm de diámetro y 500 litros: cabe en un balcón o una terraza y se infla en menos de 15 minutos."
+        imagenes={["/images/prod-barrel.jpg"]}
+        oferta={{ desde: 69000, hasta: 84000 }}
+        garantiaMeses={6}
+        propiedades={[
+          ["Medidas", "90 cm de diámetro por 90 cm de alto"],
+          ["Capacidad", "500 litros máximos, 350 recomendados"],
+          ["Material", "Tejido drop-stitch de grado militar"],
+          ["Motor", "Motor Pro 2.0 o Motor Premium 2.0"],
+        ]}
+      />
+      <Migas
+        items={[
+          ["Inicio", "/"],
+          ["Productos", "/productos"],
+          ["MF Barrel", "/productos/mf-barrel"],
+        ]}
+      />
       <ProductOptionsProvider
       producto="mf-barrel"
       basePrice={69000}

@@ -11,7 +11,7 @@ import { Reveal } from "@/components/Reveal";
    y cada poliza vive aparte. El texto no se reescribio. */
 
 export const metadata = {
-  title: "Garantía MF ONE | Mente Fria",
+  title: "Garantía MF ONE",
   description: "Doce meses contra defectos de fabricación y de funcionamiento, desde la fecha de entrega.",
 };
 

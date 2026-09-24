@@ -31,7 +31,7 @@ import { AlertTriangle, Check } from "lucide-react";
 */
 
 export const metadata = {
-  title: "Cuida tu MF Plunge | Mente Fria",
+  title: "Cuida tu MF Plunge",
   description:
     "El mantenimiento paso a paso, los hábitos que alargan la vida del equipo y lo que conserva la garantía.",
 };

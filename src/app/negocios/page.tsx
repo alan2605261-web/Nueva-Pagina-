@@ -106,7 +106,13 @@ const CASO_HYROX = {
   cliente: "Hyrox Cancún 2026",
   rol: "Recovery Zone oficial",
   sede: "Malecón Tajamar",
-  imagen: "/images/caso-hyrox-01.jpg",
+  /* La portada la eligio Saul (sep 2026): es la unica de la serie donde se ve
+     la marca del evento. El logo de Mente Fria va en la espalda de la playera y
+     el templete de HYROX CANCUN queda al fondo a la derecha, que es justo lo
+     que Rafa pedia: la marca dentro del evento y no el logo pegado aparte.
+     La foto es vertical y la caja es casi cuadrada, asi que el encuadre se
+     sube al 32% para no cortar ni la cabeza ni el templete. */
+  imagen: "/images/caso-hyrox-portada.jpg",
   body: "Mente Fria operó la Recovery Zone oficial de Hyrox Cancún 2026 en el Malecón Tajamar: carpa de atletas montada en sede, coach de inmersión en sitio durante todo el evento y cerca de 20,000 litros de agua fría en operación continua.",
   datos: [
     ["Recovery Zone", "Oficial del evento"],
@@ -120,28 +126,40 @@ const CASO_HYROX = {
 /* Casa Polanco se eliminó en sep 2026: el proyecto NO se llevó a cabo. Estaba
    publicado como caso real con "60 días de inmersiones", lo cual era falso.
    No volver a agregarlo. */
-/* `logo` es opcional a proposito. Rafa pidio los logos de Westin y de UMAAH
-   HAUS en estas dos tarjetas (sep 2026) y todavia no estan los archivos. En
-   cuanto se dejen en public/images/casos/ basta con escribir la ruta aqui: la
-   tarjeta pone el logo en lugar del nombre y no hay que tocar el layout.
-   El de Westin va en negro sobre blanco, que es como lo pidio. */
+/* Las dos tarjetas llevan el logotipo del cliente en lugar de su nombre en
+   tipografia (Rafa, sep 2026). Los dos archivos son negro sobre transparente:
+   el de Westin se paso de gris a negro, que es como lo pidio Saul, y el de
+   UMAAH HAUS venia blanco sobre negro y se invirtio.
+
+   `logoAlto` existe porque los dos logotipos tienen forma muy distinta: el de
+   Westin es una linea larga y el de UMAAH es un bloque apilado. Con la misma
+   altura el apilado se veia diminuto al lado del otro, asi que cada uno lleva
+   la suya y los dos pesan igual en la tarjeta.
+
+   `logo` sigue siendo opcional: un caso sin archivo muestra su nombre y no
+   hay que tocar el layout. */
 const CASOS: {
   cliente: string;
   rol: string;
   fecha: string;
   body: string;
   logo?: string;
+  logoAlto?: string;
 }[] = [
   {
     cliente: "Westin Santa Fe",
     rol: "Activación de marca",
     fecha: "Junio 2026",
+    logo: "/images/casos/westin.png",
+    logoAlto: "h-8 sm:h-10",
     body: "Activación con creadores de contenido en el Westin Santa Fe: los equipos Mente Fria como pieza central de la experiencia de recuperación dentro de un hotel de ciudad.",
   },
   {
     cliente: "UMAAH HAUS",
     rol: "Centro de wellness y recovery",
     fecha: "Guadalupe Inn, CDMX",
+    logo: "/images/casos/umaah-haus.png",
+    logoAlto: "h-14 sm:h-16",
     body: "Un circuito de recuperación completo, con sauna, cabinas y varias tinas de inmersión. La MF ONE opera ahí en uso comercial, dentro del catálogo de servicios del centro.",
   },
 ];
@@ -278,6 +296,12 @@ const FAQ_ITEMS = [
     a: "MF Barrel es ideal para espacios compactos, MF Horizon ofrece mayor espacio de inmersión, y MF ONE es la opción de grado comercial all-in-one para operación intensiva. Un especialista B2B te recomienda el modelo según el flujo de usuarios de tu negocio.",
   },
 ];
+
+export const metadata = {
+  title: "Cold plunge para gimnasios, hoteles y spas",
+  description:
+    "Equipa tu gimnasio, hotel, spa o clínica con cold plunge comercial. Arrendamiento a 12 o 24 meses, calculadora de retorno y equipo técnico en México.",
+};
 
 export default function NegociosPage() {
   return (
@@ -582,6 +606,7 @@ export default function NegociosPage() {
                   src={CASO_HYROX.imagen}
                   alt="Recovery Zone de Mente Fria en Hyrox Cancún 2026"
                   className="absolute inset-0 h-full w-full object-cover"
+                  style={{ objectPosition: "center 32%" }}
                 />
               </div>
               <div className="flex flex-col justify-center p-8 sm:p-11">
@@ -647,14 +672,17 @@ export default function NegociosPage() {
                   <span className="m-eyebrow">{c.fecha}</span>
                 </div>
                 {c.logo ? (
-                  <h3 className="mt-4">
+                  /* La caja mide siempre lo mismo aunque el logotipo dentro sea
+                     mas bajo, para que las dos tarjetas arranquen el parrafo a
+                     la misma altura. */
+                  <h3 className="mt-4 flex h-16 items-center sm:h-[72px]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={c.logo}
                       alt={c.cliente}
                       loading="lazy"
                       decoding="async"
-                      className="h-9 w-auto max-w-[220px] object-contain object-left sm:h-11"
+                      className={`w-auto max-w-[220px] object-contain object-left ${c.logoAlto ?? "h-9 sm:h-11"}`}
                     />
                   </h3>
                 ) : (

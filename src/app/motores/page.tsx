@@ -23,7 +23,7 @@ const GRUPOS_SPEC = ["Desempeño", "Eléctrico", "Circuito de agua", "Físico"] 
 ───────────────────────────────────────────────────────────── */
 
 export const metadata = {
-  title: "Motores Mente Fria | Motor Pro 2.0 y Motor Premium 2.0",
+  title: "Motor Pro 2.0 y Motor Premium 2.0",
   description:
     "El motor es el corazón de tu cold plunge inflable. Compara el Motor Pro 2.0 y el Motor Premium 2.0: potencia, velocidad de enfriamiento, calefacción y ozono.",
 };

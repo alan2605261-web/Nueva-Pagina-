@@ -17,7 +17,7 @@ import { ContactoCard, WHATSAPP_URL } from "@/components/ContactoCard";
 */
 
 export const metadata = {
-  title: "Contáctanos | Mente Fria",
+  title: "Contáctanos",
   description:
     "Escríbenos por WhatsApp o por correo. Contestamos las 24 horas y damos seguimiento hasta resolverlo.",
 };

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DatosProducto, Migas } from "@/components/DatosEstructurados";
 import { agendarLlamada } from "@/lib/whatsapp";
 import { PageShell } from "@/components/PageShell";
 import { FAQ } from "@/components/FAQ";
@@ -86,9 +87,41 @@ const HERO_BULLETS = [
   "12 meses de garantía, válida también para uso comercial.",
 ];
 
+export const metadata = {
+  title: "MF ONE, cold plunge de acrílico con motor integrado",
+  description:
+    "Tina de inmersión en frío MF ONE: acrílico con acero inoxidable, de 1 a 40 °C, motor dentro de la tina, ozono e iluminación LED y 12 meses de garantía.",
+};
+
 export default function MFOnePage() {
   return (
     <PageShell>
+      {/* Datos estructurados. Sin esto la ficha no declaraba precio,
+          disponibilidad ni garantia, y para Google y para los asistentes de IA
+          el producto no existia (sep 2026). Los precios son los mismos que
+          muestra la ficha: si cambian arriba, cambian aqui. */}
+      <DatosProducto
+        nombre="MF ONE"
+        sku="MF-ONE"
+        ruta="/productos/mf-one"
+        descripcion="Tina de inmersión en frío de acrílico con acabados en acero inoxidable. El módulo de enfriamiento va dentro de la tina: de 1 a 40 °C, ozono integrado e iluminación LED, sin obra ni plomería."
+        imagenes={["/images/prod-mfone.webp", "/images/hero-mfone.jpg"]}
+        oferta={{ precio: 169000 }}
+        garantiaMeses={12}
+        propiedades={[
+          ["Rango de temperatura", "1 a 40 °C"],
+          ["Medidas", "195 x 80 x 71 cm"],
+          ["Material", "Acrílico con acabados en acero inoxidable"],
+          ["Motor", "Integrado en la tina"],
+        ]}
+      />
+      <Migas
+        items={[
+          ["Inicio", "/"],
+          ["Productos", "/productos"],
+          ["MF ONE", "/productos/mf-one"],
+        ]}
+      />
       <ProductOptionsProvider
       producto="mf-one"
       basePrice={169000}

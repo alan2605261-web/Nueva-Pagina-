@@ -21,7 +21,7 @@ import { AvisoInformativo } from "@/components/AvisoInformativo";
 */
 
 export const metadata = {
-  title: "La ciencia detrás del frío | Mente Fria",
+  title: "La ciencia detrás del frío",
   description:
     "Qué le hace la inmersión en agua fría al cuerpo, beneficio por beneficio, con la referencia publicada de cada uno.",
 };

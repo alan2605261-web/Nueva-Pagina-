@@ -67,6 +67,12 @@ const tinas = [
 
 
 /* ─── Page ────────────────────────────────────────────────────────────────── */
+export const metadata = {
+  title: "Cold plunges: MF ONE, MF Horizon y MF Barrel",
+  description:
+    "Compara los tres modelos de tina de inmersión en frío. La MF ONE es de acrílico con el motor dentro; la MF Horizon y el MF Barrel son inflables y se guardan.",
+};
+
 export default function ProductosPage() {
   return (
     <PageShell>

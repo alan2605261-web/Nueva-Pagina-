@@ -28,7 +28,7 @@ import { Doc, Vigencia, Clausula, P, Lista, Fuerte, Correo } from "@/components/
 */
 
 export const metadata = {
-  title: "Aviso de privacidad | Mente Fria",
+  title: "Aviso de privacidad",
   description:
     "Aviso de privacidad integral de MFMF Wellnes and Lifestyle, S.A. de C.V. conforme a la LFPDPPP.",
 };

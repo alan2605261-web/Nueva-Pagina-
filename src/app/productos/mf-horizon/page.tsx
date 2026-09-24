@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DatosProducto, Migas } from "@/components/DatosEstructurados";
 import { agendarLlamada } from "@/lib/whatsapp";
 import { PageShell } from "@/components/PageShell";
 import { FAQ } from "@/components/FAQ";
@@ -83,9 +84,41 @@ const ACCESORIOS = [
   { t: "Filtración de 3 capas", p: "Filtro de papel, filtro integrado y malla antipolvo trabajando juntos para dejar el agua cristalina.", img: "/images/acc-filtros-motor.webp" },
 ];
 
+export const metadata = {
+  title: "MF Horizon, cold plunge inflable de 550 litros",
+  description:
+    "Tina de inmersión en frío MF Horizon: 160 x 70 x 65 cm y 550 litros de tejido drop-stitch. Cabes estirado con los hombros bajo el agua y se guarda en su mochila.",
+};
+
 export default function MFHorizonPage() {
   return (
     <PageShell>
+      {/* Datos estructurados. Sin esto la ficha no declaraba precio,
+          disponibilidad ni garantia, y para Google y para los asistentes de IA
+          el producto no existia (sep 2026). Los precios son los mismos que
+          muestra la ficha: si cambian arriba, cambian aqui. */}
+      <DatosProducto
+        nombre="MF Horizon"
+        sku="MF-HORIZON"
+        ruta="/productos/mf-horizon"
+        descripcion="Tina de inmersión en frío inflable de tejido drop-stitch de grado militar. 160 x 70 x 65 cm y 550 litros, el mayor espacio de inmersión de la línea. Se guarda en su mochila."
+        imagenes={["/images/prod-horizon.jpg"]}
+        oferta={{ desde: 74000, hasta: 89000 }}
+        garantiaMeses={6}
+        propiedades={[
+          ["Medidas", "160 x 70 x 65 cm"],
+          ["Capacidad", "550 litros máximos, 400 recomendados"],
+          ["Material", "Tejido drop-stitch de grado militar"],
+          ["Motor", "Motor Pro 2.0 o Motor Premium 2.0"],
+        ]}
+      />
+      <Migas
+        items={[
+          ["Inicio", "/"],
+          ["Productos", "/productos"],
+          ["MF Horizon", "/productos/mf-horizon"],
+        ]}
+      />
       <ProductOptionsProvider
       producto="mf-horizon"
       basePrice={74000}

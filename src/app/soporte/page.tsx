@@ -62,6 +62,12 @@ const categoryCards = [
 
 
 
+export const metadata = {
+  title: "Soporte: instalación, cuidado y garantía",
+  description:
+    "Instalación paso a paso, mantenimiento por modelo, códigos de error y garantía de tu cold plunge Mente Fria. Te contestamos por WhatsApp las 24 horas.",
+};
+
 export default function SoportePage() {
   return (
     <PageShell>

@@ -3,7 +3,7 @@ import { QuizPlunge } from "@/components/QuizPlunge";
 import { Reveal } from "@/components/Reveal";
 
 export const metadata = {
-  title: "Encuentra tu plunge | Mente Fria",
+  title: "Encuentra tu plunge",
   description:
     "Contesta unas preguntas y te decimos cuál de las tres cabe en tu espacio y en tu presupuesto.",
 };

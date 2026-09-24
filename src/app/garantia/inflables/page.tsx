@@ -12,7 +12,7 @@ import { Reveal } from "@/components/Reveal";
    solo se quitó lo que las presentaba como pólizas separadas. */
 
 export const metadata = {
-  title: "Garantía MF Barrel y MF Horizon | Mente Fria",
+  title: "Garantía MF Barrel y MF Horizon",
   description:
     "Seis meses en MF Barrel y MF Horizon: la tina y su motor Pro 2.0 o Premium 2.0, en una misma póliza.",
 };

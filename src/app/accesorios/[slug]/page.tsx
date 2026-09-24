@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const a = accesorioPorSlug(slug);
   return a
-    ? { title: `${a.title} | Mente Fria`, description: a.body }
-    : { title: "Accesorio | Mente Fria" };
+    ? { title: `${a.title}`, description: a.body }
+    : { title: "Accesorio" };
 }
 
 export default async function AccesorioPage({ params }: { params: Promise<{ slug: string }> }) {

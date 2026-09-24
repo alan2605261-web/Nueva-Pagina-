@@ -58,6 +58,12 @@ function AccessoryGrid({ items }: { items: Accesorio[] }) {
   );
 }
 
+export const metadata = {
+  title: "Accesorios y filtros para cold plunge",
+  description:
+    "Filtros, cubiertas aislantes, refacciones y complementos para el mantenimiento de tu MF ONE, MF Horizon o MF Barrel. Envío a todo México.",
+};
+
 export default function AccesoriosPage() {
   return (
     <PageShell>

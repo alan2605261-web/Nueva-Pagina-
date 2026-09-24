@@ -2,7 +2,7 @@ import { PageShell } from "@/components/PageShell";
 import { CarritoVista } from "@/components/CarritoVista";
 
 export const metadata = {
-  title: "Tu carrito | Mente Fria",
+  title: "Tu carrito",
   description: "Revisa tu configuración antes de pagar.",
 };
 

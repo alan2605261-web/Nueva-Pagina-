@@ -12,6 +12,11 @@ import { Footer } from "@/components/Footer";
   · Plus the comparison section that was missing from the Cloud Design page.
 */
 
+export const metadata = {
+  description:
+    "Tinas de inmersión en frío con enfriamiento activo, sin hielo. MF ONE de acrílico, MF Horizon y MF Barrel inflables. Envío y soporte en todo México.",
+};
+
 export default function Home() {
   return (
     <>

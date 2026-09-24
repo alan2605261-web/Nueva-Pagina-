@@ -13,6 +13,12 @@ import { RESENAS } from "@/lib/resenas";
 /* Page                                                                        */
 /* -------------------------------------------------------------------------- */
 
+export const metadata = {
+  title: "Reseñas de clientes",
+  description:
+    "Lo que dicen quienes ya usan una cold plunge Mente Fria en México, sobre la MF ONE, la MF Horizon y el MF Barrel.",
+};
+
 export default function ResenasPage() {
   return (
     <PageShell>

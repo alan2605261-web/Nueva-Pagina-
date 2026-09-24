@@ -43,6 +43,10 @@ export const nav: {
         { label: "La ciencia detrás del frío", href: "/aprender" },
         { label: "Consejo científico", href: "/aprender/consejo-cientifico" },
         { label: "Motores Mente Fria", href: "/motores" },
+        /* Reseñas y Devoluciones existian solo en el pie de pagina. Como el pie
+           ahora se arma con este mismo menu (Rafa, sep 2026: "deberian ser
+           iguales"), entran aqui para no perderlas de vista. */
+        { label: "Reseñas", href: "/resenas" },
       ],
     },
     {
@@ -55,6 +59,7 @@ export const nav: {
         { label: "Contáctanos", href: "/contacto" },
         { label: "Garantía", href: "/garantia" },
         { label: "Garantía extendida", href: "/garantia/extendida" },
+        { label: "Devoluciones", href: "/devoluciones" },
         { label: "Términos y condiciones", href: "/terminos" },
         { label: "Aviso de privacidad", href: "/privacidad" },
       ],

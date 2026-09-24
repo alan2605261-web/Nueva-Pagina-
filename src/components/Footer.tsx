@@ -2,43 +2,33 @@ import Link from "next/link";
 import { InstagramIcon, TikTokIcon } from "@/components/icons";
 import { Logo } from "@/components/Logo";
 import { COLECCIONES } from "@/lib/blog-posts";
+import { nav } from "@/lib/content";
 
 /*
   Footer (ported from Claude Design site_v2): giant MIND OVER BODY cta,
   newsletter pill, four link columns, hairline bottom bar.
 */
 
-/* Las colecciones del blog salen de los datos: si se agrega una, aparece sola
-   en el footer. Nunca escribirlas a mano aquí. */
+/* El pie de pagina y el menu de arriba dicen lo mismo, y lo dicen una sola vez:
+   las columnas de Productos, Aprender y Soporte SALEN del menu (Rafa, sep 2026:
+   "deberian ser practicamente iguales"). Antes eran dos listas escritas a mano y
+   se habian separado: al pie le faltaba "Encuentra tu plunge", le sobraba
+   Motores colgando de Productos y escribia "MF ONE" donde el menu ya decia
+   "MF One".
+
+   Las dos columnas que siguen a mano son las que no tienen submenu arriba:
+   Para negocios, que apunta a secciones dentro de su propia pagina, y Blog, que
+   se arma con las colecciones. Las colecciones salen de los datos: si se agrega
+   una, aparece sola. Nunca escribirlas aqui. */
+const delMenu = (label: string) => {
+  const item = nav.links.find((l) => l.label === label);
+  return { title: label, links: item?.submenu ?? [{ label, href: item?.href ?? "/" }] };
+};
+
 const cols: { title: string; links: { label: string; href: string }[] }[] = [
-  {
-    title: "Productos",
-    links: [
-      { label: "MF ONE", href: "/productos/mf-one" },
-      { label: "MF Horizon", href: "/productos/mf-horizon" },
-      { label: "MF Barrel", href: "/productos/mf-barrel" },
-      /* Decía "Motores y accesorios". Los motores tienen su propia página y
-         entraban aquí de refilón (Rafa, sep 2026). */
-      { label: "Accesorios", href: "/accesorios" },
-      { label: "Motores", href: "/motores" },
-    ],
-  },
-  {
-    /* "Para negocios" colgaba de Productos. Es una línea de negocio aparte, con
-       su propia página y sus secciones, así que va como columna propia. */
-    title: "Para negocios",
-    /* Cuatro enlaces, no siete: la columna con las siete secciones se veía
-       saturada (Saul, sep 2026). Queda la general y las tres que le sirven a
-       alguien que está evaluando el negocio. Las secciones que se quitaron
-       —cotización, tipos de negocio, equipos comerciales y capacitación—
-       siguen existiendo con su ancla dentro de /negocios. */
-    links: [
-      { label: "Para negocios", href: "/negocios" },
-      { label: "Calculadora de ROI", href: "/negocios#roi" },
-      { label: "Casos reales", href: "/negocios#casos" },
-      { label: "Arrendamiento", href: "/negocios#arrendamiento" },
-    ],
-  },
+  delMenu("Productos"),
+  delMenu("Aprender"),
+  delMenu("Soporte"),
   {
     title: "Blog",
     links: [
@@ -47,22 +37,17 @@ const cols: { title: string; links: { label: string; href: string }[] }[] = [
     ],
   },
   {
-    title: "Aprender",
+    /* Cuatro enlaces, no siete: la columna con las siete secciones se veia
+       saturada (Saul, sep 2026). Queda la general y las tres que le sirven a
+       alguien que esta evaluando el negocio. Las secciones que se quitaron
+       (cotizacion, tipos de negocio, equipos comerciales y capacitacion) siguen
+       existiendo con su ancla dentro de /negocios. */
+    title: "Para negocios",
     links: [
-      { label: "La ciencia", href: "/aprender" },
-      { label: "Consejo científico", href: "/aprender/consejo-cientifico" },
-      { label: "Reseñas", href: "/resenas" },
-    ],
-  },
-  {
-    title: "Soporte",
-    links: [
-      { label: "Centro de ayuda", href: "/soporte/centro-de-ayuda" },
-      { label: "Garantía", href: "/garantia" },
-      { label: "Garantía extendida", href: "/garantia/extendida" },
-      { label: "Devoluciones", href: "/devoluciones" },
-      { label: "Términos y condiciones", href: "/terminos" },
-      { label: "Aviso de privacidad", href: "/privacidad" },
+      { label: "Para negocios", href: "/negocios" },
+      { label: "Calculadora de ROI", href: "/negocios#roi" },
+      { label: "Casos reales", href: "/negocios#casos" },
+      { label: "Arrendamiento", href: "/negocios#arrendamiento" },
     ],
   },
 ];

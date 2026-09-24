@@ -82,8 +82,12 @@ export const ESPACIOS = [
   todavía no lo es. Sólo se listan los datos que de verdad cambian.
 */
 export const GENERACION_ANTERIOR = {
+  /* La tabla lista solo lo que de verdad cambia entre generaciones. Rafa
+     pregunto (sep 2026) por que aparece el peso del Pro y no el del Premium:
+     porque el Premium pesa 41.5 kg en las dos, asi que no hay diferencia que
+     listar. El aviso lo dice para que el hueco no se lea como un olvido. */
   aviso:
-    "Quedan unidades de la generación anterior en inventario. Si te toca una, la garantía es la misma y funciona igual; lo que cambia son las medidas y el peso.",
+    "Quedan unidades de la generación anterior en inventario. Si te toca una, la garantía es la misma y funciona igual; lo que cambia son las medidas, y en el Motor Pro también el peso. El Motor Premium pesa 41.5 kg en las dos generaciones.",
   filas: [
     { label: "Pro · medidas", antes: "55 × 42.5 × 53 cm", ahora: "400 × 340 × 350 mm" },
     { label: "Pro · peso", antes: "39 kg", ahora: "30 kg" },

@@ -222,11 +222,20 @@ export default function GarantiaPage() {
               className="mx-auto flex max-w-4xl flex-col gap-4 rounded-[16px] border border-[var(--line-1)] bg-white p-7 transition-colors duration-200 hover:border-[var(--accent-ice)] sm:flex-row sm:items-center sm:justify-between"
             >
               <div>
+                {/* La version anterior era el tramite ("solicitar una
+                    devolucion", "corre por su cuenta") y no lo que de verdad
+                    ofrece, que es meterse un mes entero sin riesgo (Saul, sep
+                    2026). Tambien decia "desde la compra" cuando la politica de
+                    /devoluciones cuenta los 30 dias desde que recibes el
+                    equipo. */}
                 <span className="m-eyebrow accent">Aparte de la garantía</span>
-                <h2 className="mdisplay mt-2.5 text-[22px] leading-tight">30 días de prueba</h2>
+                <h2 className="mdisplay mt-2.5 text-[22px] leading-tight">
+                  Pruébala un mes entero.
+                </h2>
                 <p className="mt-2 max-w-[56ch] text-[14px] leading-relaxed text-[var(--fg-muted)]">
-                  Tienes 30 días desde la compra para solicitar una devolución. Es un
-                  derecho distinto de la garantía y corre por su cuenta.
+                  Llénala, métete todos los días y decide con el equipo puesto.
+                  Si no te fascina, la recogemos y te devolvemos tu dinero sin
+                  pedirte explicaciones. Tienes 30 días desde que la recibes.
                 </p>
               </div>
               <span className="inline-flex flex-none items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--accent-ice)]">

@@ -16,11 +16,12 @@ import { cn } from "@/lib/utils";
   en que se cruzan (punto de equilibrio). SVG inline: sin librerías.
 */
 
+/* Sin las versiones Pro (Saul, sep 2026): esta calculadora vive en el apartado
+   comercial y el Motor Pro 2.0 no es equipo para un negocio. Quedan Premium,
+   Comercial y la MF ONE. Las Pro siguen existiendo en la tienda para casa. */
 const MODELS = [
-  { name: "Barrel Pro", price: 69000 },
   { name: "Barrel Premium", price: 84000 },
   { name: "Barrel Comercial", price: 114000 },
-  { name: "Horizon Pro", price: 74000 },
   { name: "Horizon Premium", price: 89000 },
   { name: "Horizon Comercial", price: 119000 },
   { name: "MF ONE", price: 169000 },
@@ -277,13 +278,16 @@ function StatCard({
 /* ─── Calculadora ─────────────────────────────────────────────────────── */
 
 export function RoiCalculator() {
-  const [modelIndex, setModelIndex] = useState(3); // Horizon Pro por default
+  const [modelIndex, setModelIndex] = useState(2); // Horizon Premium por default
+  /* Cantidad de equipos: un gimnasio rara vez pone uno solo, y con un solo
+     equipo la calculadora subestimaba la inversion (Saul, sep 2026). */
+  const [cantidad, setCantidad] = useState(1);
   const [plazo, setPlazo] = useState<12 | 24>(24);
   const [inmDia, setInmDia] = useState(5);
   const [precioInm, setPrecioInm] = useState(200);
 
   const r = useMemo(() => {
-    const precio = MODELS[modelIndex].price;
+    const precio = MODELS[modelIndex].price * cantidad;
     const inversionInicial = precio * 0.12;
     const rentaMensual = (precio * 0.9 * (plazo === 24 ? 1.3 : 1.15)) / plazo;
     const ingresoMensual = inmDia * 30 * precioInm;
@@ -304,7 +308,7 @@ export function RoiCalculator() {
       mesesRecuperarEnganche,
       flujoAcumuladoFinal,
     };
-  }, [modelIndex, plazo, inmDia, precioInm]);
+  }, [modelIndex, cantidad, plazo, inmDia, precioInm]);
 
   const rentable = r.utilidadMensual > 0;
   const dentroDelPlazo =
@@ -348,6 +352,52 @@ export function RoiCalculator() {
             </select>
           </div>
 
+          {/* Cantidad */}
+          <div>
+            <label htmlFor="roi-cantidad" className="m-eyebrow mb-2 block">
+              Cuántos equipos
+            </label>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                aria-label="Un equipo menos"
+                onClick={() => setCantidad((c) => Math.max(1, c - 1))}
+                disabled={cantidad <= 1}
+                className="grid h-11 w-11 flex-none place-items-center rounded-[10px] border text-lg transition-colors disabled:opacity-40"
+                style={inputStyle}
+              >
+                &minus;
+              </button>
+              <input
+                id="roi-cantidad"
+                type="number"
+                min={1}
+                max={20}
+                value={cantidad}
+                onChange={(e) =>
+                  setCantidad(Math.min(20, Math.max(1, Number(e.target.value) || 1)))
+                }
+                className={cn(inputClasses, "text-center")}
+                style={inputStyle}
+              />
+              <button
+                type="button"
+                aria-label="Un equipo más"
+                onClick={() => setCantidad((c) => Math.min(20, c + 1))}
+                disabled={cantidad >= 20}
+                className="grid h-11 w-11 flex-none place-items-center rounded-[10px] border text-lg transition-colors disabled:opacity-40"
+                style={inputStyle}
+              >
+                +
+              </button>
+            </div>
+            {cantidad > 1 && (
+              <p className="mt-2 text-[12.5px]" style={{ color: "var(--fg-muted)" }}>
+                {cantidad} equipos: {mxn.format(MODELS[modelIndex].price * cantidad)}
+              </p>
+            )}
+          </div>
+
           {/* Plazo */}
           <div>
             <p className="m-eyebrow mb-2">Plazo del leasing</p>
@@ -383,7 +433,7 @@ export function RoiCalculator() {
           <div>
             <div className="mb-2 flex items-baseline justify-between">
               <label htmlFor="roi-inmersiones" className="m-eyebrow">
-                Inmersiones por día
+                Inmersiones por día, en total
               </label>
               <span
                 className="text-sm font-semibold"

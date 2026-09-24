@@ -17,7 +17,7 @@ export PATH=/Users/SaulP/.local/opt/node/bin:$PATH && cd ~/mentefria/mentefria-s
 
 ## Pendientes de publicar a Shopify
 
-Trece. Lo de abajo de la segunda tabla ya está en el tema borrador.
+Catorce. Lo de abajo de la segunda tabla ya está en el tema borrador.
 
 | # | Comentario | Qué se hizo | Archivos |
 |---|---|---|---|
@@ -34,6 +34,7 @@ Trece. Lo de abajo de la segunda tabla ya está en el tema borrador.
 | 17 | El Horizon sigue viéndose más chico que el Barrel, y es muy notorio. | La causa estaba en los archivos, no en los números: el del Horizon traía 24% de ancho vacío alrededor del producto y el de la MF ONE solo 6%, así que al fijar el ancho de la caja el Horizon salía mucho más chico de lo que decía el porcentaje. Se recortaron los tres archivos al ras del producto y se recalcularon los anchos: 64% el Barrel, 100% la MF ONE y 95% el Horizon. A 1440 quedan en 208, 325 y 309px de ancho. | 3 imágenes + 5 archivos |
 | 18 | El Horizon sigue viéndose más chico que el Barrel, también en el menú desplegable. | El criterio pasa a ser el largo real de la tina. Medido: la tina ocupa 62.2% del ancho del archivo en el Barrel, 98.8% en la MF ONE y 73.4% en el Horizon, porque dos de las tres comparten cuadro con su motor. De ahí salen 66% el Barrel, 91% la MF ONE y 100% el Horizon, así cada tina mide a lo largo lo que mide en la realidad. Revisadas las 47 páginas construidas: todas con los mismos valores. | 3 imágenes + 5 archivos |
 | 19 | Un punto intermedio entre A y B: la MF ONE como en A, el Barrel como en B y el Horizon en medio. Además el piso se ve de distinto tamaño en cada tarjeta. | Quedaron MF ONE 100%, Horizon 97% y Barrel 66%. Y la caja del piso pasa a ser la misma en las cuatro rejas: proporción 3 a 2, 4% de aire a los lados y 11% abajo, todo en porcentaje. Antes cada reja tenía su propia caja (una con alto mínimo, otra 4:3, otra con relleno en píxeles) y el piso gris salía distinto en cada una. Medido a 1440: las tres cajas miden 325 x 217. | 5 archivos |
+| 20 | Ningún producto debe tener botón de compra abajo; ensucia el diseño. Rafa propone un sticky add to cart discreto en las dos versiones. | Fuera los botones de compra de la parte baja de las tres fichas: el de Especificaciones y el del cierre. En su lugar hay una barra fija de 58px que aparece al pasar los 700px de recorrido y se retira sola al llegar al pie, con nombre, precio vivo y agregar al carrito. El globo de WhatsApp sube mientras está puesta. | 5 archivos |
 
 ---
 

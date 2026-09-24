@@ -5,6 +5,7 @@ import { FAQ } from "@/components/FAQ";
 import { Reveal } from "@/components/Reveal";
 import { AccessoryCard } from "@/components/AccessoryCard";
 import { ProductOptionsProvider, ProductStage, ColorPicker, AddonCard, AddToCart, ShieldAddon, PaymentPlan } from "@/components/ProductOptions";
+import { StickyBuyBar } from "@/components/StickyBuyBar";
 import { FrioCalor } from "@/components/FrioCalor";
 import { MfOneBento } from "@/components/MfOneBento";
 import { MfOneDimensions } from "@/components/MfOneDimensions";
@@ -464,9 +465,6 @@ export default function MFOnePage() {
                   <p className="mt-4 max-w-[40ch] text-[15px] text-[var(--fg-muted)]">
                     Todo lo que necesitas saber antes de tomar la decisión.
                   </p>
-                  <div className="mt-8">
-                    <AddToCart label="Agregar al carrito" nombre="MF ONE" />
-                  </div>
                 </Reveal>
               </div>
 
@@ -547,6 +545,7 @@ export default function MFOnePage() {
         </section>
 
       </div>
+        <StickyBuyBar nombre="MF ONE" />
       </ProductOptionsProvider>
     </PageShell>
   );

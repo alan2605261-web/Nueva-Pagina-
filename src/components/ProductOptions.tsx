@@ -266,6 +266,17 @@ export function PrecioBase() {
   );
 }
 
+/* El mismo precio en chico, para la barra de compra fija. Sigue al selector:
+   si cambias de motor, la barra cambia con él. */
+export function PrecioCompacto() {
+  const { precioBase } = useProductOptions();
+  return (
+    <p className="text-[13px] tabular-nums leading-tight text-[var(--fg-muted)]">
+      {money(precioBase)} <span className="text-[10.5px]">MXN</span>
+    </p>
+  );
+}
+
 /* ---- Selector de motor (solo inflables).
         Va arriba del MF Shield: el motor define el precio del equipo y
         también qué plan de garantía extendida aplica. ---- */

@@ -5,6 +5,7 @@ import { FAQ } from "@/components/FAQ";
 import { Reveal } from "@/components/Reveal";
 import { AccessoryCard } from "@/components/AccessoryCard";
 import { ProductOptionsProvider, ProductStage, ColorPicker, MotorSelector, PrecioBase, AddToCart, ShieldAddon, ConfigTotal } from "@/components/ProductOptions";
+import { StickyBuyBar } from "@/components/StickyBuyBar";
 import { BenefitsCarousel } from "@/components/BenefitsCarousel";
 import { MotorPicker } from "@/components/MotorPicker";
 import { RotateCcw, ShieldCheck, CreditCard, Plus } from "lucide-react";
@@ -336,9 +337,6 @@ export default function MFHorizonPage() {
                   <p className="mt-4 max-w-[40ch] text-[15px] text-[var(--fg-muted)]">
                     Todo lo que necesitas saber antes de tomar la decisión.
                   </p>
-                  <div className="mt-8">
-                    <AddToCart label="Comprar MF Horizon" nombre="MF Horizon" conPaso />
-                  </div>
                 </Reveal>
               </div>
 
@@ -387,7 +385,6 @@ export default function MFHorizonPage() {
                 México.
               </p>
               <div className="mt-10 flex flex-wrap justify-center gap-3">
-                <AddToCart label="Comprar MF Horizon" nombre="MF Horizon" variante="blue" conPaso />
                 <Link href="/productos" className="mbtn mbtn-ghost on-dark">
                   Ver todos los productos
                 </Link>
@@ -397,6 +394,7 @@ export default function MFHorizonPage() {
         </section>
 
       </div>
+        <StickyBuyBar nombre="MF Horizon" />
       </ProductOptionsProvider>
     </PageShell>
   );

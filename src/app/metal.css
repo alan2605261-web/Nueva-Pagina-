@@ -775,12 +775,20 @@
 .in-view .shield-ring { animation: shield-pulse 2.6s ease-out infinite; }
 .in-view .shield-ring:nth-child(2) { animation-delay: 1.3s; }
 
-/* ---- Sticky buy bar ---- */
-.sticky-buy { position: fixed; inset-x: 0; bottom: 0; z-index: 48; transform: translateY(110%); transition: transform 0.45s var(--ease-expo); 
-  background: linear-gradient(90deg, rgba(150,156,164,0.6) 0%, rgba(236,239,243,0.9) 22%, rgba(247,249,251,0.92) 50%, rgba(236,239,243,0.9) 78%, rgba(150,156,164,0.6) 100%);
-  backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 -8px 28px rgba(0,0,0,0.12); }
+/* ---- Barra de compra fija ----
+   Discreta a propósito: 58px, fondo translúcido y una línea arriba, nada de
+   sombra grande. Sustituye a los botones de compra que estaban más abajo en
+   las fichas (Rafa y Saul, sep 2026). */
+.sticky-buy {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 48;
+  transform: translateY(110%); transition: transform 0.35s var(--ease-expo);
+  background: rgba(250, 251, 252, 0.88);
+  backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-top: 1px solid var(--line-1);
+}
 .sticky-buy.show { transform: translateY(0); }
+/* El globo de WhatsApp sube mientras la barra está puesta. */
+.con-barra-compra .chat-fab { bottom: 86px; }
 
 @media (prefers-reduced-motion: reduce) {
   .frost-svg path { stroke-dashoffset: 0 !important; animation: none !important; }

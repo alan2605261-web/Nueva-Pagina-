@@ -470,7 +470,7 @@ export default function NegociosPage() {
                     className="pfloor"
                     style={{ "--floor-top": "58%" } as CSSProperties}
                   >
-                    <div className="flex aspect-[4/3] w-full items-end justify-center px-6 pb-7">
+                    <div className="flex aspect-[3/2] items-end justify-center px-[4%] pb-[11%] w-full">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img loading="lazy" decoding="async"
                         src={p.image}
@@ -484,8 +484,8 @@ export default function NegociosPage() {
                           /barrel/i.test(p.name)
                             ? "w-[66%]"
                             : /one/i.test(p.name)
-                              ? "w-[91%]"
-                              : "w-full"
+                              ? "w-full"
+                              : "w-[97%]"
                         }`}
                       />
                     </div>

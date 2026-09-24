@@ -27,14 +27,14 @@ const MEGA_PRODUCTS = [
     img: "/images/prod-mfone.webp",
     blurb: "El chiller va dentro de la tina. Acrílico rígido, cero armado: llega, se llena y se enciende.",
     href: "/productos/mf-one",
-    scale: "91%",
+    scale: "100%",
   },
   {
     name: "MF HORIZON",
     img: "/images/prod-horizon-nobg.png",
     blurb: "Tejido drop-stitch de grado militar. Cabes estirado, 550 L y se guarda en su mochila.",
     href: "/productos/mf-horizon",
-    scale: "100%",
+    scale: "97%",
   },
   {
     name: "MF BARREL",
@@ -119,7 +119,7 @@ export function Navbar({ solid: _solid = false }: { solid?: boolean }) {
                   <div className="mx-auto grid w-[min(960px,94vw)] grid-cols-[1fr_1fr_1fr_auto] gap-5 rounded-2xl border border-[var(--line-1)] bg-[var(--m-white)] p-6 text-foreground shadow-[0_24px_64px_rgba(8,9,11,0.24)]">
                     {MEGA_PRODUCTS.map((p) => (
                       <Link key={p.name} href={p.href} className="group/card block min-w-0">
-                        <div className="pfloor grid aspect-[4/3] place-items-end justify-items-center overflow-hidden rounded-xl p-4 pb-6">
+                        <div className="pfloor flex aspect-[3/2] items-end justify-center px-[4%] pb-[11%] overflow-hidden rounded-xl">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img loading="lazy" decoding="async"
                             src={p.img}

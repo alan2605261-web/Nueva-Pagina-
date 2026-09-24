@@ -166,25 +166,23 @@ const RAZONES = [
    se usan en el inicio, en /productos, en /negocios, en /garantia y en el menú
    desplegable. Si se cambian aquí, hay que cambiarlos en los cinco.
 
-   El criterio es el LARGO REAL DE LA TINA. Se probaron tres y este es el que
-   Saul aprobó (sep 2026):
+   Los tres valores los eligió Saul viendo tres propuestas lado a lado (sep
+   2026): la MF ONE al 100%, el Barrel al 66% y el Horizon en 97%, que es el
+   punto medio entre las dos que le gustaban. No salen de una fórmula: salen de
+   ver las tres fotos juntas y decidir.
 
-   · Igualar el ancho de la foto: el Barrel, que es alto y estrecho, se veía
-     más grande que el Horizon, al revés de la realidad.
-   · Igualar el tamaño general (media de largo y alto): mejor, pero el Barrel
-     seguía leyéndose igual de grande porque es un bulto negro y alto.
-   · Igualar el largo de la tina: el que quedó. Cada tina mide en pantalla, a
-     lo largo, lo que mide en la realidad: Barrel 90 cm, MF ONE 195, Horizon
-     160.
+   Lo que sí se midió, y es lo que hacía que ningún número funcionara antes: en
+   dos de las tres fotos la tina comparte cuadro con su motor, así que fijar el
+   ancho de la FOTO no fija el tamaño de la TINA. La tina ocupa 62.2% del ancho
+   del archivo en el Barrel, 98.8% en la MF ONE y 73.4% en el Horizon. Y los
+   tres archivos están recortados al ras; antes el del Horizon traía 24% de
+   ancho vacío y por eso se veía chico por más que se subiera el porcentaje.
 
-   El ancho va sobre la FOTO, no sobre la tina, y en dos de las tres fotos la
-   tina no ocupa todo el archivo: comparte cuadro con su motor. Medido, la tina
-   ocupa 62.2% del ancho en el Barrel, 98.8% en la MF ONE y 73.4% en el
-   Horizon. De ahí salen los tres anchos: 66% el Barrel, 91% la MF ONE y 100%
-   el Horizon.
-
-   Para que esa cuenta signifique algo, los tres archivos están recortados al
-   ras. Antes no lo estaban: el del Horizon traía 24% de ancho vacío.
+   La caja del piso es la misma en las cuatro rejas (inicio, /productos,
+   /negocios y el menú): proporción 3 a 2, 4% de aire a los lados y 11% abajo,
+   todo en porcentaje para que el piso gris quede idéntico en las tres tarjetas
+   y a cualquier ancho de pantalla. Antes cada reja tenía su propia caja y el
+   piso salía de distinto tamaño en cada una (Saul, sep 2026).
 
    La MF ONE lleva dos valores porque su columna es 1.25 veces más ancha que
    las otras dos, así que ahí el 100% equivale a 78%. Si se cambia una foto por
@@ -210,7 +208,7 @@ const PRODUCTOS = [
     h: 1262,
     floor: "58%",
     href: "/productos/mf-one",
-    anchoFoto: "w-[91%] lg:w-[71%]",
+    anchoFoto: "w-full lg:w-[78%]",
     featured: true,
     bullets: ["Diseño All-In-One con el chiller dentro de la tina.", "Filtro de papel + ozono integrado.", "Control por app Wi-Fi. 12 meses de garantía."],
   },
@@ -222,7 +220,7 @@ const PRODUCTOS = [
     h: 391,
     floor: "58%",
     href: "/productos/mf-horizon",
-    anchoFoto: "w-full",
+    anchoFoto: "w-[97%]",
     nudge: "lg:translate-x-2 lg:-translate-y-1.5",
     featured: false,
     bullets: ["Filtración de 3 capas + purificación por ozono.", "Control por app Wi-Fi, programable desde tu celular.", "6 meses de garantía."],
@@ -727,7 +725,7 @@ export function LandingV2() {
                          iPad vertical las tres columnas dejaban fotos de 100px
                          dentro de la bandeja, con 110px de blanco encima de cada
                          una. Ahi va en una sola columna, como en telefono. */
-                      className="flex items-end justify-center px-4 pb-9 lg:min-h-[clamp(140px,14vw,215px)]"
+                      className="flex aspect-[3/2] items-end justify-center px-[4%] pb-[11%]"
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       {/* El tamaño real del archivo va en el marcado para que

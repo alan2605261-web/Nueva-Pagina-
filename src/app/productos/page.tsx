@@ -103,7 +103,7 @@ export default function ProductosPage() {
                         producto, que es lo que hacía verse chica la foto. En tres
                         columnas el alto sigue al ancho de la ventana, igual que en
                         la reja del inicio. */}
-                    <div className="flex items-end justify-center pb-8 lg:min-h-[clamp(140px,14vw,215px)]">
+                    <div className="flex aspect-[3/2] items-end justify-center px-[4%] pb-[11%]">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img loading="lazy" decoding="async"
                         src={tina.image}
@@ -117,8 +117,8 @@ export default function ProductosPage() {
                           tina.name === "MF Barrel"
                             ? "w-[66%]"
                             : tina.name === "MF ONE"
-                              ? "w-[91%]"
-                              : "w-full"
+                              ? "w-full"
+                              : "w-[97%]"
                         }`}
                       />
                     </div>

@@ -17,7 +17,7 @@ export PATH=/Users/SaulP/.local/opt/node/bin:$PATH && cd ~/mentefria/mentefria-s
 
 ## Pendientes de publicar a Shopify
 
-Veinte. Lo de abajo de la segunda tabla ya está en el tema borrador.
+Veintidós. Lo de abajo de la segunda tabla ya está en el tema borrador.
 
 | # | Comentario | Qué se hizo | Archivos |
 |---|---|---|---|
@@ -41,6 +41,8 @@ Veinte. Lo de abajo de la segunda tabla ya está en el tema borrador.
 | 24 | En el resultado del quiz la foto de la MF ONE blanca tiene fondo gris y desentona. | Era la única de las seis con fondo. Se rehicieron las dos de la MF ONE a partir de los renders de ficha, que están sobre blanco, así que ahora las seis van sobre blanco y la pareja negra y blanca es el mismo render en dos colores. | 2 imágenes |
 | 25 | El pie de página en teléfono está sobresaturado, mucha información desde el inicio y mal acomodada. | Los cinco grupos pasan a estar plegados: se ve la estructura y se abre lo que se busca. Antes eran 24 enlaces de golpe en dos columnas de distinto largo, con huecos entre ellas. El pie baja de 1239 a 594px. En computadora no cambia nada. | Footer.tsx, metal.css |
 | 26 | Las fotos de los motores en el comparador se ven espantosas por los bordes negros. Dejó una carpeta con una foto por color. | Las dos fotos nuevas, recortadas al ras y centradas sobre blanco en cuadrado. Y la caja deja de recortar: pasa de object-cover a object-contain, que era lo que dejaba las franjas a los lados. Las dos llevan 14% de aire alrededor del equipo para que en la miniatura no queden pegadas a la orilla. La del Motor MF ONE se queda como estaba: se probó el render de ficha y Saul prefirió la anterior. | 2 imágenes + ComparadorMotores |
+| 27 | La foto del Motor MF ONE sigue viéndose mal junto a las otras dos. | Es la misma toma de siempre, la del chiller integrado, pero recortada del fondo gris y puesta sobre blanco con el mismo aire que las otras dos. Las tres se ven ya como una sola serie. | motor-mfone.jpg + ComparadorMotores |
+| 28 | Cambiar el video de la MF ONE por el de "MF ONE - Video Diferencia 01" del escritorio. | El original es vertical de 1080x1920 y el hueco es horizontal. Se recortó la banda donde vive el producto y quedó en 1280x720, sin audio, 3.8 MB. Poster nuevo del mismo video. **Al publicar hay que volver a subir este video a Shopify Files y actualizar videos-shopify.json**, porque el tema apunta a la URL del archivo viejo. | video-pagina.mp4 + poster |
 
 ---
 

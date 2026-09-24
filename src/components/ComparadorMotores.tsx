@@ -42,11 +42,12 @@ const MOTORES: Record<MotorId, { nombre: string; img: string }> = {
      (sep 2026): antes eran recortes con franjas negras a los lados. Van sobre
      blanco, en cuadrado y con 14% de aire alrededor del equipo, para que en la
      miniatura no se vean pegadas a la orilla.
-     La de la MF ONE se queda como estaba: se probo el render de ficha y Saul
-     prefirio la anterior. */
+     La de la MF ONE es la misma toma de siempre, la del chiller integrado,
+     pero recortada del fondo gris y puesta sobre blanco con el mismo aire, que
+     es lo que le faltaba para no desentonar con las otras dos. */
   pro: { nombre: "Motor Pro 2.0", img: "/images/motor-2-0-blanco.jpg" },
   premium: { nombre: "Motor Premium 2.0", img: "/images/motor-2-0-negro.jpg" },
-  mfone: { nombre: "Motor MF ONE", img: "/images/mfone-gallery/negro/01.jpg" },
+  mfone: { nombre: "Motor MF ONE", img: "/images/motor-mfone.jpg" },
 };
 
 const FILAS: Fila[] = [

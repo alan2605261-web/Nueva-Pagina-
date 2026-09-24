@@ -17,7 +17,7 @@ export PATH=/Users/SaulP/.local/opt/node/bin:$PATH && cd ~/mentefria/mentefria-s
 
 ## Pendientes de publicar a Shopify
 
-Dieciséis. Lo de abajo de la segunda tabla ya está en el tema borrador.
+Diecisiete. Lo de abajo de la segunda tabla ya está en el tema borrador.
 
 | # | Comentario | Qué se hizo | Archivos |
 |---|---|---|---|
@@ -37,6 +37,7 @@ Dieciséis. Lo de abajo de la segunda tabla ya está en el tema borrador.
 | 20 | Ningún producto debe tener botón de compra abajo; ensucia el diseño. Rafa propone un sticky add to cart discreto en las dos versiones. | Fuera los botones de compra de la parte baja de las tres fichas: el de Especificaciones y el del cierre. En su lugar hay una barra fija de 58px que aparece al pasar los 700px de recorrido y se retira sola al llegar al pie, con nombre, precio vivo y agregar al carrito. El globo de WhatsApp sube mientras está puesta. | 5 archivos |
 | 21 | El comparador de motores en celular parece tabla de Excel. | En angosto se va la rejilla: cada característica es un bloque y cada motor un renglón con su nombre a la izquierda y su respuesta a la derecha, sin líneas verticales ni celdas. En computadora no cambia nada. | ComparadorMotores.tsx |
 | 22 | Rafa quiere dos fotos más del Barrel negro, de la carpeta BARREL ESTUDIO BLANCO del escritorio. | Elegidas dos de las quince: una con el modelo de pie detrás de la tina y el motor a la vista, y otra entrando a la tina. Recortadas a cuadrado 1500x1500 como las otras cuatro. La galería del negro pasa de cuatro a seis. | 2 imágenes + mf-barrel |
+| 23 | Cambiar la foto del Pro Deck del bloque Complemento por una donde solo salga el escalón con sus letras MIND OVER BODY. | Recortadas de los renders: la negra de negro-1 y la blanca de blanco-2, que es donde el escalón sale separado de la tina. Puestas sobre el mismo gris del render en formato 1.8 a 1, que es el de la caja de la tarjeta. | 2 imágenes + mf-one |
 
 ---
 

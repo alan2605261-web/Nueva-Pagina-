@@ -146,9 +146,13 @@ export default function MFOnePage() {
             name="MF ONE PRO DECK"
             description="El escalón de acceso diseñado para tu MF ONE."
             price={6900}
+            /* Solo el escalon, con su MIND OVER BODY (Saul, sep 2026): antes
+               salia la tina completa con el escalon al pie, y en una caja de
+               80x144 no se entendia que se estaba ofreciendo. Recortadas de
+               negro-1 y blanco-1. */
             imgByColor={{
-              Negro: "/images/accesorios/pro-deck/negro-mini.webp",
-              Blanco: "/images/accesorios/pro-deck/blanco-mini.webp",
+              Negro: "/images/accesorios/pro-deck/negro-solo.webp",
+              Blanco: "/images/accesorios/pro-deck/blanco-solo.webp",
             }}
           />
           {/* Garantía extendida MF Shield */}

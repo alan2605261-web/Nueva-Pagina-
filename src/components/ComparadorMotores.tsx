@@ -177,14 +177,15 @@ export function ComparadorMotores({ disponibles }: { disponibles: MotorId[] }) {
         </div>
       </div>
 
-      {/* Filas */}
-      <div>
+      {/* Filas, en computadora: una rejilla con la característica a la
+          izquierda y un valor por motor. */}
+      <div className="hidden md:block">
         {FILAS.map((f) => (
           <div
             key={f.label}
-            className="grid grid-cols-1 border-b border-[var(--line-1)] last:border-b-0 md:grid-cols-[200px_minmax(0,1fr)]"
+            className="grid grid-cols-[200px_minmax(0,1fr)] border-b border-[var(--line-1)] last:border-b-0"
           >
-            <div className="flex items-center gap-2 px-5 pt-4 md:min-h-[72px] md:px-8 md:py-4">
+            <div className="flex min-h-[72px] items-center px-8 py-4">
               <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--fg-muted)]">
                 {f.label}
               </span>
@@ -195,7 +196,7 @@ export function ComparadorMotores({ disponibles }: { disponibles: MotorId[] }) {
                 return (
                   <div
                     key={id}
-                    className={`flex items-center justify-center gap-1.5 px-3 py-3 text-center md:min-h-[72px] md:py-4 ${
+                    className={`flex min-h-[72px] items-center justify-center gap-1.5 px-3 py-4 text-center ${
                       i > 0 ? "border-l border-[var(--line-1)]" : ""
                     }`}
                   >
@@ -204,9 +205,9 @@ export function ComparadorMotores({ disponibles }: { disponibles: MotorId[] }) {
                         <Minus size={14} strokeWidth={2.4} /> No incluye
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-1.5 text-[13px] font-medium leading-snug sm:text-[14px]">
+                      <span className="inline-flex items-center gap-1.5 text-[14px] font-medium leading-snug">
                         {v.ok && (
-                          <Check size={15} strokeWidth={2.6} className="hidden flex-none text-[var(--accent-ice)] sm:block" />
+                          <Check size={15} strokeWidth={2.6} className="flex-none text-[var(--accent-ice)]" />
                         )}
                         {v.t}
                       </span>
@@ -215,6 +216,39 @@ export function ComparadorMotores({ disponibles }: { disponibles: MotorId[] }) {
                 );
               })}
             </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Filas, en celular: sin rejilla. Cada característica es un bloque y
+          cada motor un renglón con su nombre a la izquierda y su respuesta a la
+          derecha. En dos columnas angostas esto se leía como hoja de cálculo
+          (Saul, sep 2026: "parece tabla de Excel"); así se lee como ficha. */}
+      <div className="md:hidden">
+        {FILAS.map((f) => (
+          <div key={f.label} className="border-b border-[var(--line-1)] px-5 py-4 last:border-b-0">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--fg-subtle)]">
+              {f.label}
+            </p>
+            <dl className="mt-2.5 space-y-2">
+              {elegidos.map((id) => {
+                const v = f.valores[id];
+                return (
+                  <div key={id} className="flex items-baseline justify-between gap-4">
+                    <dt className="flex-none text-[12.5px] text-[var(--fg-muted)]">
+                      {MOTORES[id].nombre}
+                    </dt>
+                    <dd className="text-right text-[13.5px] font-medium leading-snug">
+                      {v === null ? (
+                        <span className="text-[var(--fg-subtle)]">No incluye</span>
+                      ) : (
+                        v.t
+                      )}
+                    </dd>
+                  </div>
+                );
+              })}
+            </dl>
           </div>
         ))}
       </div>

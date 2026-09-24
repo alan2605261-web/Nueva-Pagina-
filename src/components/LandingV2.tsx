@@ -166,24 +166,25 @@ const RAZONES = [
    se usan en el inicio, en /productos, en /negocios, en /garantia y en el menú
    desplegable. Si se cambian aquí, hay que cambiarlos en los cinco.
 
-   El criterio es el TAMAÑO GENERAL del equipo en pantalla, no su ancho.
-   Igualar anchos no sirve porque las tres fotos tienen recortes distintos: el
-   Barrel es un objeto alto y estrecho, el Horizon es plano y largo. Al mismo
-   ancho el Barrel se veía más grande que el Horizon, cuando en la realidad es
-   al revés (Saul, sep 2026).
+   El criterio es el LARGO REAL DE LA TINA. Se probaron tres y este es el que
+   Saul aprobó (sep 2026):
 
-   El cálculo: tamaño general = media geométrica de largo y alto del equipo
-   real (Barrel 90 × 90 cm = 90, MF ONE 195 × 71 = 118, Horizon 160 × 65 =
-   102). En pantalla, esa misma media sale de multiplicar el ancho de la foto
-   por la raíz de la proporción del archivo. Anclando la MF ONE al 100% de su
-   caja, que es lo más grande que cabe, salen 64% para el Barrel y 95% para el
-   Horizon.
+   · Igualar el ancho de la foto: el Barrel, que es alto y estrecho, se veía
+     más grande que el Horizon, al revés de la realidad.
+   · Igualar el tamaño general (media de largo y alto): mejor, pero el Barrel
+     seguía leyéndose igual de grande porque es un bulto negro y alto.
+   · Igualar el largo de la tina: el que quedó. Cada tina mide en pantalla, a
+     lo largo, lo que mide en la realidad: Barrel 90 cm, MF ONE 195, Horizon
+     160.
+
+   El ancho va sobre la FOTO, no sobre la tina, y en dos de las tres fotos la
+   tina no ocupa todo el archivo: comparte cuadro con su motor. Medido, la tina
+   ocupa 62.2% del ancho en el Barrel, 98.8% en la MF ONE y 73.4% en el
+   Horizon. De ahí salen los tres anchos: 66% el Barrel, 91% la MF ONE y 100%
+   el Horizon.
 
    Para que esa cuenta signifique algo, los tres archivos están recortados al
-   ras del producto. Antes no lo estaban: el del Horizon traía 24% de ancho
-   vacío y el de la MF ONE solo 6%, así que al fijar el ancho de la caja el
-   Horizon salía mucho más chico de lo que decía el número y se veía menor que
-   el Barrel, al revés de la realidad (Saul, sep 2026).
+   ras. Antes no lo estaban: el del Horizon traía 24% de ancho vacío.
 
    La MF ONE lleva dos valores porque su columna es 1.25 veces más ancha que
    las otras dos, así que ahí el 100% equivale a 78%. Si se cambia una foto por
@@ -197,7 +198,7 @@ const PRODUCTOS = [
     h: 512,
     floor: "58%",
     href: "/productos/mf-barrel",
-    anchoFoto: "w-[64%]",
+    anchoFoto: "w-[66%]",
     featured: false,
     bullets: ["Filtración de 3 capas + purificación por ozono.", "Control por app Wi-Fi, programable desde tu celular.", "6 meses de garantía."],
   },
@@ -209,7 +210,7 @@ const PRODUCTOS = [
     h: 1262,
     floor: "58%",
     href: "/productos/mf-one",
-    anchoFoto: "w-full lg:w-[78%]",
+    anchoFoto: "w-[91%] lg:w-[71%]",
     featured: true,
     bullets: ["Diseño All-In-One con el chiller dentro de la tina.", "Filtro de papel + ozono integrado.", "Control por app Wi-Fi. 12 meses de garantía."],
   },
@@ -221,7 +222,7 @@ const PRODUCTOS = [
     h: 391,
     floor: "58%",
     href: "/productos/mf-horizon",
-    anchoFoto: "w-[95%]",
+    anchoFoto: "w-full",
     nudge: "lg:translate-x-2 lg:-translate-y-1.5",
     featured: false,
     bullets: ["Filtración de 3 capas + purificación por ozono.", "Control por app Wi-Fi, programable desde tu celular.", "6 meses de garantía."],

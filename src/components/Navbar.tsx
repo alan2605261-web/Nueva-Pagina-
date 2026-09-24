@@ -27,21 +27,21 @@ const MEGA_PRODUCTS = [
     img: "/images/prod-mfone.webp",
     blurb: "El chiller va dentro de la tina. Acrílico rígido, cero armado: llega, se llena y se enciende.",
     href: "/productos/mf-one",
-    scale: "100%",
+    scale: "91%",
   },
   {
     name: "MF HORIZON",
     img: "/images/prod-horizon-nobg.png",
     blurb: "Tejido drop-stitch de grado militar. Cabes estirado, 550 L y se guarda en su mochila.",
     href: "/productos/mf-horizon",
-    scale: "95%",
+    scale: "100%",
   },
   {
     name: "MF BARREL",
     img: "/images/prod-barrel-nobg.png",
     blurb: "El mismo drop-stitch de grado militar en formato vertical. Ocupa poco, pesa 11 kg y viaja contigo.",
     href: "/productos/mf-barrel",
-    scale: "64%",
+    scale: "66%",
   },
 ];
 

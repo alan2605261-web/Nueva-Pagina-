@@ -17,7 +17,7 @@ export PATH=/Users/SaulP/.local/opt/node/bin:$PATH && cd ~/mentefria/mentefria-s
 
 ## Pendientes de publicar a Shopify
 
-Once. Lo de abajo de la segunda tabla ya está en el tema borrador.
+Doce. Lo de abajo de la segunda tabla ya está en el tema borrador.
 
 | # | Comentario | Qué se hizo | Archivos |
 |---|---|---|---|
@@ -32,6 +32,7 @@ Once. Lo de abajo de la segunda tabla ya está en el tema borrador.
 | 15 | Los tamaños de la referencia deben aplicar en TODOS los lugares donde aparecen los tres productos, no solo en el inicio. En productos se sigue viendo chica. | Se aplicaron los mismos 70, 78 y 84% en las otras cuatro reja: /productos, /negocios, el menú desplegable y /garantia. En /garantia además estaban ajustadas al alto de la caja, así que las tres salían del mismo tamaño. En /productos la caja medía 270px fijos y sobraban entre 79 y 120px de blanco encima de cada foto; ahora mide lo que pide la foto. | 4 archivos |
 | 16 | Siguen chicas, sobre todo en computadora, y el Horizon se ve más chico que el Barrel cuando en realidad es más grande. | Cambió el criterio: ya no se iguala el ancho sino el tamaño general en pantalla. Las tres fotos tienen recortes distintos, así que al mismo ancho el Barrel, que es alto y estrecho, se veía más grande que el Horizon, que es plano y largo. Ahora el ancho sale de la media geométrica de largo y alto del equipo real: 65% el Barrel, 100% la MF ONE y 93% el Horizon. Todo crece alrededor de 28% y el orden visual queda MF ONE, Horizon y Barrel, como en la realidad. | 5 archivos |
 | 17 | El Horizon sigue viéndose más chico que el Barrel, y es muy notorio. | La causa estaba en los archivos, no en los números: el del Horizon traía 24% de ancho vacío alrededor del producto y el de la MF ONE solo 6%, así que al fijar el ancho de la caja el Horizon salía mucho más chico de lo que decía el porcentaje. Se recortaron los tres archivos al ras del producto y se recalcularon los anchos: 64% el Barrel, 100% la MF ONE y 95% el Horizon. A 1440 quedan en 208, 325 y 309px de ancho. | 3 imágenes + 5 archivos |
+| 18 | El Horizon sigue viéndose más chico que el Barrel, también en el menú desplegable. | El criterio pasa a ser el largo real de la tina. Medido: la tina ocupa 62.2% del ancho del archivo en el Barrel, 98.8% en la MF ONE y 73.4% en el Horizon, porque dos de las tres comparten cuadro con su motor. De ahí salen 66% el Barrel, 91% la MF ONE y 100% el Horizon, así cada tina mide a lo largo lo que mide en la realidad. Revisadas las 47 páginas construidas: todas con los mismos valores. | 3 imágenes + 5 archivos |
 
 ---
 

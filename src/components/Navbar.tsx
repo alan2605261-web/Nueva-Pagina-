@@ -17,8 +17,8 @@ import { useCarrito } from "@/components/CarritoProvider";
 */
 
 /* WHOOP-style mega-menu cards for "Productos" */
-/* Los tres anchos son los mismos en todo el sitio: 65% el Barrel, 100% la MF
-   ONE y 93% el Horizon. Salen de medir la primera version de Rafa y estan
+/* Los tres anchos son los mismos en todo el sitio: 64% el Barrel, 100% la MF
+   ONE y 95% el Horizon. Salen de medir la primera version de Rafa y estan
    explicados en LandingV2. Si se cambian aqui, hay que cambiarlos en el
    inicio, en /productos, en /negocios y en /garantia. */
 const MEGA_PRODUCTS = [
@@ -34,14 +34,14 @@ const MEGA_PRODUCTS = [
     img: "/images/prod-horizon-nobg.png",
     blurb: "Tejido drop-stitch de grado militar. Cabes estirado, 550 L y se guarda en su mochila.",
     href: "/productos/mf-horizon",
-    scale: "93%",
+    scale: "95%",
   },
   {
     name: "MF BARREL",
     img: "/images/prod-barrel-nobg.png",
     blurb: "El mismo drop-stitch de grado militar en formato vertical. Ocupa poco, pesa 11 kg y viaja contigo.",
     href: "/productos/mf-barrel",
-    scale: "65%",
+    scale: "64%",
   },
 ];
 

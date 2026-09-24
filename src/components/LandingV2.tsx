@@ -176,9 +176,14 @@ const RAZONES = [
    real (Barrel 90 × 90 cm = 90, MF ONE 195 × 71 = 118, Horizon 160 × 65 =
    102). En pantalla, esa misma media sale de multiplicar el ancho de la foto
    por la raíz de la proporción del archivo. Anclando la MF ONE al 100% de su
-   caja, que es lo más grande que cabe, salen 65% para el Barrel y 93% para el
-   Horizon. En una caja de 287px eso da 186 × 139, 287 × 155 y 268 × 124, con
-   medias de 161, 211 y 183: la misma relación que entre los equipos reales.
+   caja, que es lo más grande que cabe, salen 64% para el Barrel y 95% para el
+   Horizon.
+
+   Para que esa cuenta signifique algo, los tres archivos están recortados al
+   ras del producto. Antes no lo estaban: el del Horizon traía 24% de ancho
+   vacío y el de la MF ONE solo 6%, así que al fijar el ancho de la caja el
+   Horizon salía mucho más chico de lo que decía el número y se veía menor que
+   el Barrel, al revés de la realidad (Saul, sep 2026).
 
    La MF ONE lleva dos valores porque su columna es 1.25 veces más ancha que
    las otras dos, así que ahí el 100% equivale a 78%. Si se cambia una foto por
@@ -188,11 +193,11 @@ const PRODUCTOS = [
     name: "MF BARREL",
     price: "$69,000",
     img: "/images/prod-barrel-nobg.png",
-    w: 736,
-    h: 552,
+    w: 658,
+    h: 512,
     floor: "58%",
     href: "/productos/mf-barrel",
-    anchoFoto: "w-[65%]",
+    anchoFoto: "w-[64%]",
     featured: false,
     bullets: ["Filtración de 3 capas + purificación por ozono.", "Control por app Wi-Fi, programable desde tu celular.", "6 meses de garantía."],
   },
@@ -200,8 +205,8 @@ const PRODUCTOS = [
     name: "MF ONE",
     price: "$169,000",
     img: "/images/prod-mfone.webp",
-    w: 2400,
-    h: 1292,
+    w: 2308,
+    h: 1262,
     floor: "58%",
     href: "/productos/mf-one",
     anchoFoto: "w-full lg:w-[78%]",
@@ -212,11 +217,11 @@ const PRODUCTOS = [
     name: "MF HORIZON",
     price: "$74,000",
     img: "/images/prod-horizon-nobg.png",
-    w: 1105,
-    h: 514,
+    w: 868,
+    h: 391,
     floor: "58%",
     href: "/productos/mf-horizon",
-    anchoFoto: "w-[93%]",
+    anchoFoto: "w-[95%]",
     nudge: "lg:translate-x-2 lg:-translate-y-1.5",
     featured: false,
     bullets: ["Filtración de 3 capas + purificación por ozono.", "Control por app Wi-Fi, programable desde tu celular.", "6 meses de garantía."],

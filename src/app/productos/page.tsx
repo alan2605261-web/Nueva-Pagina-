@@ -31,8 +31,8 @@ const tinas = [
     specs: "90 cm diámetro × 90 cm altura · 11 kg · Tejido drop-stitch de grado militar",
     price: "$69,000 MXN",
     image: "/images/prod-barrel-nobg.png",
-    w: 736,
-    h: 552,
+    w: 658,
+    h: 512,
     floor: "58%",
     href: "/productos/mf-barrel",
     badge: null,
@@ -44,8 +44,8 @@ const tinas = [
     specs: "195 × 80 × 71 cm · 135 kg · Acrílico + acero inoxidable",
     price: "$169,000 MXN",
     image: "/images/prod-mfone.webp",
-    w: 2400,
-    h: 1292,
+    w: 2308,
+    h: 1262,
     floor: "58%",
     href: "/productos/mf-one",
     badge: "Más vendido",
@@ -57,8 +57,8 @@ const tinas = [
     specs: "160 × 70 × 65 cm · 12 kg · Tejido drop-stitch de grado militar",
     price: "$74,000 MXN",
     image: "/images/prod-horizon-nobg.png",
-    w: 1105,
-    h: 514,
+    w: 868,
+    h: 391,
     floor: "58%",
     href: "/productos/mf-horizon",
     badge: null,
@@ -115,10 +115,10 @@ export default function ProductosPage() {
                            versión de Rafa; están explicados en LandingV2. */
                         className={`h-auto flex-none object-contain transition-transform duration-500 group-hover:scale-[1.04] ${
                           tina.name === "MF Barrel"
-                            ? "w-[65%]"
+                            ? "w-[64%]"
                             : tina.name === "MF ONE"
                               ? "w-full"
-                              : "w-[93%]"
+                              : "w-[95%]"
                         }`}
                       />
                     </div>

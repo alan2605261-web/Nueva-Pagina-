@@ -71,7 +71,8 @@ export function Footer() {
   return (
     <footer className="mfooter">
       <div className="mwrap">
-        <div className="mfooter-cols">
+        {/* Computadora: las seis columnas de siempre. */}
+        <div className="mfooter-cols !hidden md:!grid">
           <div>
             <Logo variant="white" className="h-6 w-auto" />
             <p className="blurb">
@@ -90,6 +91,34 @@ export function Footer() {
                 ))}
               </ul>
             </div>
+          ))}
+        </div>
+
+        {/* Celular: los mismos cinco grupos, pero plegados. En dos columnas se
+            veian 24 enlaces de golpe y con las columnas de distinto largo
+            quedaban huecos (Saul, sep 2026: "sobresaturado y mal acomodado").
+            Plegados se ve la estructura y se abre lo que se busca. Va con
+            <details>, asi que funciona sin JavaScript. */}
+        <div className="mfooter-ac md:hidden">
+          <Logo variant="white" className="h-6 w-auto" />
+          <p className="blurb">
+            La cold plunge #1 en México. Recuperarte y rendir al máximo desde
+            casa.
+          </p>
+          {cols.map((c) => (
+            <details key={c.title}>
+              <summary>
+                {c.title}
+                <span className="mas" aria-hidden="true" />
+              </summary>
+              <ul>
+                {c.links.map((l) => (
+                  <li key={l.label}>
+                    <Link href={l.href}>{l.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </details>
           ))}
         </div>
 

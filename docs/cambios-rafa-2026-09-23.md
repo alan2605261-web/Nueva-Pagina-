@@ -17,7 +17,7 @@ export PATH=/Users/SaulP/.local/opt/node/bin:$PATH && cd ~/mentefria/mentefria-s
 
 ## Pendientes de publicar a Shopify
 
-Dieciocho. Lo de abajo de la segunda tabla ya está en el tema borrador.
+Diecinueve. Lo de abajo de la segunda tabla ya está en el tema borrador.
 
 | # | Comentario | Qué se hizo | Archivos |
 |---|---|---|---|
@@ -39,6 +39,7 @@ Dieciocho. Lo de abajo de la segunda tabla ya está en el tema borrador.
 | 22 | Rafa quiere dos fotos más del Barrel negro, de la carpeta BARREL ESTUDIO BLANCO del escritorio. | Elegidas dos de las quince: una con el modelo de pie detrás de la tina y el motor a la vista, y otra entrando a la tina. Recortadas a cuadrado 1500x1500 como las otras cuatro. La galería del negro pasa de cuatro a seis. | 2 imágenes + mf-barrel |
 | 23 | Cambiar la foto del Pro Deck del bloque Complemento por una donde solo salga el escalón con sus letras MIND OVER BODY. | Recortadas de los renders: la negra de negro-1 y la blanca de blanco-2, que es donde el escalón sale separado de la tina. Puestas sobre el mismo gris del render en formato 1.8 a 1, que es el de la caja de la tarjeta. | 2 imágenes + mf-one |
 | 24 | En el resultado del quiz la foto de la MF ONE blanca tiene fondo gris y desentona. | Era la única de las seis con fondo. Se rehicieron las dos de la MF ONE a partir de los renders de ficha, que están sobre blanco, así que ahora las seis van sobre blanco y la pareja negra y blanca es el mismo render en dos colores. | 2 imágenes |
+| 25 | El pie de página en teléfono está sobresaturado, mucha información desde el inicio y mal acomodada. | Los cinco grupos pasan a estar plegados: se ve la estructura y se abre lo que se busca. Antes eran 24 enlaces de golpe en dos columnas de distinto largo, con huecos entre ellas. El pie baja de 1239 a 594px. En computadora no cambia nada. | Footer.tsx, metal.css |
 
 ---
 

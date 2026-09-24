@@ -529,6 +529,28 @@
 .mfooter-bot { display: flex; justify-content: space-between; align-items: center; padding-top: 26px; border-top: 1px solid var(--on-dark-line); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--on-dark-subtle); gap: 20px; flex-wrap: wrap; }
 @media (max-width: 880px) { .mfooter-cols { grid-template-columns: 1fr 1fr; } }
 
+/* Pie en celular: los cinco grupos plegados. */
+.mfooter-ac { margin-bottom: 40px; }
+.mfooter-ac .blurb { font-size: 13px; color: var(--on-dark-muted); max-width: 34ch; margin: 14px 0 26px; line-height: 1.55; }
+.mfooter-ac details { border-top: 1px solid var(--on-dark-line); }
+.mfooter-ac details:last-of-type { border-bottom: 1px solid var(--on-dark-line); }
+.mfooter-ac summary {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 15px 2px; cursor: pointer; list-style: none;
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--on-dark-fg); font-weight: 500;
+}
+.mfooter-ac summary::-webkit-details-marker { display: none; }
+.mfooter-ac .mas { position: relative; width: 11px; height: 11px; flex: none; }
+.mfooter-ac .mas::before,
+.mfooter-ac .mas::after {
+  content: ""; position: absolute; left: 0; top: 5px; width: 11px; height: 1px;
+  background: var(--on-dark-subtle); transition: transform 0.25s var(--ease-expo);
+}
+.mfooter-ac .mas::after { transform: rotate(90deg); }
+.mfooter-ac details[open] .mas::after { transform: rotate(0deg); }
+.mfooter-ac ul { list-style: none; margin: 0; padding: 0 0 16px; display: flex; flex-direction: column; gap: 12px; font-size: 14px; color: var(--on-dark-muted); }
+
 /* ===== Chat FAB ===== */
 .chat-fab { position: fixed; right: 22px; bottom: 22px; z-index: 45; width: 52px; height: 52px; border-radius: 50%; background: var(--m-ink); color: #fff; display: grid; place-items: center; box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28); transition: transform 0.2s, background 0.2s; }
 .chat-fab:hover { background: var(--accent-ice); transform: translateY(-2px); }

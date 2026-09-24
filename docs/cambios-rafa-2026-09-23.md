@@ -17,7 +17,7 @@ export PATH=/Users/SaulP/.local/opt/node/bin:$PATH && cd ~/mentefria/mentefria-s
 
 ## Pendientes de publicar a Shopify
 
-Siete. Lo de abajo de la segunda tabla ya está en el tema borrador.
+Ocho. Lo de abajo de la segunda tabla ya está en el tema borrador.
 
 | # | Comentario | Qué se hizo | Archivos |
 |---|---|---|---|
@@ -28,6 +28,7 @@ Siete. Lo de abajo de la segunda tabla ya está en el tema borrador.
 | 11 | Rafa: en teléfono la MF ONE queda en segundo lugar; debe ir primero ONE, luego Horizon y luego Barrel. | Abajo de 1024px se reordenan solo visualmente. En pantalla ancha siguen Barrel, MF ONE y Horizon, con la estelar al centro del triángulo. | metal.css |
 | 12 | Rafa: hay guiones largos en varios lugares; no debe haber ninguno, ni en celular ni en computadora, y no solo en ese bloque. | Se recorrió todo el código: 39 guiones en texto visible, en 18 archivos. Todos sustituidos por punto, coma, dos puntos o paréntesis según el caso, y los rangos numéricos pasan a "de X a Y". Queda un revisor, `npm run sin-guiones`, que recorre las 47 páginas ya construidas y falla si aparece uno; así se atrapa también lo que entre desde el blog o desde datos, no solo lo escrito a mano. | 18 archivos + scripts/sin-guiones.mjs |
 | 13 | Rafa: quitaría el distintivo de "Cambia" del comparador de motores, siente que confunde, y el azul tampoco le gusta. En celular además lo desordena. | Fuera el distintivo y fuera el fondo azul de las filas que cambian. Con los tres motores puestos cambian diez de once filas, así que marcarlas no informaba de nada. También se quitó el interruptor "Solo diferencias", que con los tres motores solo escondía una fila. | ComparadorMotores.tsx |
+| 14 | En la página de productos el orden en teléfono sigue mal: debe ir MF ONE, luego Horizon y al final Barrel. | El reordenamiento del 11 solo estaba en la reja del inicio; la página de productos es otra reja. Ahora usa la misma clase, así que abajo de 1024px va MF ONE, Horizon y Barrel, tanto en una columna como en dos. En tres columnas sigue Barrel, MF ONE y Horizon. | app/productos/page.tsx |
 
 ---
 

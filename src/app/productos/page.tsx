@@ -17,6 +17,11 @@ import { ArrowRight } from "@/components/icons";
   Es el producto insignia y la tarjeta del medio es la que primero mira el
   ojo en una reja de tres. Antes cerraba la fila y quedaba en la posición de
   menos peso visual. Decisión de Saul, sep 2026: MF Barrel · MF ONE · MF Horizon.
+
+  Eso vale para la reja de tres. Apiladas en una o dos columnas no hay centro
+  que valga y la MF ONE quedaba en segundo lugar, así que abajo de 1024px se
+  reordenan a MF ONE, Horizon y Barrel. Lo hace la clase .mprods en metal.css,
+  la misma que usa la reja del inicio, y solo cambia el orden visual.
 */
 const tinas = [
   {
@@ -68,7 +73,7 @@ export default function ProductosPage() {
             <p>Recuperarte y rendir al máximo desde casa, sin hielo y sin complicaciones.</p>
           </Reveal>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mprods grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {tinas.map((tina, i) => (
               <Reveal
                 key={tina.name}

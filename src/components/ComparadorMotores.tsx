@@ -38,9 +38,14 @@ type Valor = { t: string; ok?: boolean } | null; // null = no incluye
 type Fila = { label: string; valores: Record<MotorId, Valor> };
 
 const MOTORES: Record<MotorId, { nombre: string; img: string }> = {
+  /* Las tres sobre blanco y con el equipo completo dentro del cuadro. Antes
+     eran recortes con franjas negras a los lados (Saul, sep 2026: "espantosas
+     por los bordes negros"). Las dos de motor salen de la carpeta que dejo con
+     una foto por color; la de la MF ONE es el render de ficha, porque ahi el
+     motor va integrado y no hay pieza suelta que ensenar. */
   pro: { nombre: "Motor Pro 2.0", img: "/images/motor-2-0-blanco.jpg" },
   premium: { nombre: "Motor Premium 2.0", img: "/images/motor-2-0-negro.jpg" },
-  mfone: { nombre: "Motor MF ONE", img: "/images/mfone-gallery/negro/01.jpg" },
+  mfone: { nombre: "Motor MF ONE", img: "/images/pdp-one-negro.png" },
 };
 
 const FILAS: Fila[] = [
@@ -167,9 +172,11 @@ export function ComparadorMotores({ disponibles }: { disponibles: MotorId[] }) {
         <div className={`grid ${gridValores}`}>
           {elegidos.map((id, i) => (
             <div key={id} className={`flex flex-col items-center px-3 py-5 text-center ${i > 0 ? "border-l border-[var(--line-1)]" : ""}`}>
-              <div className="h-16 w-20 overflow-hidden rounded-[10px] bg-[var(--bg-panel)] sm:h-20 sm:w-28">
+              {/* object-contain, no cover: con cover se recortaba el equipo y
+                  quedaban las franjas negras del archivo a los lados. */}
+              <div className="grid h-16 w-20 place-items-center overflow-hidden rounded-[10px] bg-white p-1.5 sm:h-20 sm:w-28">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={MOTORES[id].img} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+                <img src={MOTORES[id].img} alt="" loading="lazy" decoding="async" className="max-h-full max-w-full object-contain" />
               </div>
               <p className="mt-3 text-[12.5px] font-semibold leading-tight sm:text-[14px]">{MOTORES[id].nombre}</p>
             </div>

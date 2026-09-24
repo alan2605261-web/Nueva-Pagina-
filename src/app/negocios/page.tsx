@@ -120,7 +120,18 @@ const CASO_HYROX = {
 /* Casa Polanco se eliminó en sep 2026: el proyecto NO se llevó a cabo. Estaba
    publicado como caso real con "60 días de inmersiones", lo cual era falso.
    No volver a agregarlo. */
-const CASOS = [
+/* `logo` es opcional a proposito. Rafa pidio los logos de Westin y de UMAAH
+   HAUS en estas dos tarjetas (sep 2026) y todavia no estan los archivos. En
+   cuanto se dejen en public/images/casos/ basta con escribir la ruta aqui: la
+   tarjeta pone el logo en lugar del nombre y no hay que tocar el layout.
+   El de Westin va en negro sobre blanco, que es como lo pidio. */
+const CASOS: {
+  cliente: string;
+  rol: string;
+  fecha: string;
+  body: string;
+  logo?: string;
+}[] = [
   {
     cliente: "Westin Santa Fe",
     rol: "Activación de marca",
@@ -199,7 +210,7 @@ const CAPACITACION_PUNTOS = [
   {
     n: "01",
     title: "Tu equipo aprende",
-    body: "Un curso grabado y hecho para negocios: los fundamentos de la terapia de frío y los temas que la complementan. Tu staff lo toma en el horario que le acomode, sin parar la operación.",
+    body: "Un curso grabado y hecho para negocios: cómo se opera el equipo, la historia de la terapia de frío, sus beneficios y los temas que la complementan. Tu staff lo toma en el horario que le acomode, sin parar la operación.",
   },
   {
     n: "02",
@@ -635,15 +646,28 @@ export default function NegociosPage() {
                   <span className="m-eyebrow accent">{c.rol}</span>
                   <span className="m-eyebrow">{c.fecha}</span>
                 </div>
-                <h3
-                  className="mdisplay mt-4 text-[26px]"
-                  style={{
-                    color: "var(--fg-metal)",
-                    WebkitTextStroke: "var(--bold-stroke) currentColor",
-                  }}
-                >
-                  {c.cliente}
-                </h3>
+                {c.logo ? (
+                  <h3 className="mt-4">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={c.logo}
+                      alt={c.cliente}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-9 w-auto max-w-[220px] object-contain object-left sm:h-11"
+                    />
+                  </h3>
+                ) : (
+                  <h3
+                    className="mdisplay mt-4 text-[26px]"
+                    style={{
+                      color: "var(--fg-metal)",
+                      WebkitTextStroke: "var(--bold-stroke) currentColor",
+                    }}
+                  >
+                    {c.cliente}
+                  </h3>
+                )}
                 <p
                   className="mt-4 text-[15px] leading-relaxed"
                   style={{ color: "var(--fg-muted)" }}
@@ -739,10 +763,16 @@ export default function NegociosPage() {
             <Reveal className="msection-head !mb-0 !max-w-none">
               <span className="m-eyebrow accent">Capacitación y certificación</span>
               <h2>Capacitamos a tu equipo y certificamos tu negocio.</h2>
+              {/* Que quede dicho que el curso cubre las dos mitades (Saul, sep
+                  2026): operar el equipo y entender la terapia. Antes solo
+                  decia "dar el servicio con criterio", que no dice ninguna de
+                  las dos. */}
               <p>
                 Con la compra de tu equipo te compartimos un curso diseñado para
-                negocios. Tu staff aprende a dar el servicio con criterio, tu
-                negocio se certifica y seguimos contigo después de la entrega.
+                negocios. Tu staff aprende a operar el equipo Mente Fria y a
+                entender la terapia de frío: de dónde viene, qué le hace al
+                cuerpo y para qué sirve. Al terminar, tu negocio queda
+                certificado y seguimos contigo después de la entrega.
               </p>
             </Reveal>
 

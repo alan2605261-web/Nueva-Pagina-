@@ -79,18 +79,38 @@ export default function AprenderPage() {
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {BENEFICIOS.map((b, i) => {
+              /* El empujon visual que pidio Rafa (sep 2026): "un poco mas
+                 llamativas, sin ser toscas y sin imagenes". Son tres cosas
+                 chicas y ninguna agrega un elemento nuevo: el numero de la
+                 tarjeta en grande y casi transparente al fondo, una barra del
+                 color de acento que crece al pasar por encima, y la tarjeta que
+                 se levanta un pixel. Tambien se quito el texto justificado con
+                 guion automatico: en una columna de 14 caracteres partia
+                 palabras como "con-centracion" y era justo lo que hacia que el
+                 bloque se viera tosco. */
               const cuerpo = (
                 <>
-                  <p className="m-eyebrow accent">{b.categoria}</p>
+                  <span
+                    aria-hidden
+                    className="mdisplay pointer-events-none absolute -top-1 right-4 select-none text-[62px] leading-none"
+                    style={{ color: "var(--line-1)" }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span
+                    aria-hidden
+                    className="block h-[3px] w-8 rounded-full transition-all duration-300 group-hover:w-14"
+                    style={{ background: "var(--accent-ice)" }}
+                  />
+                  <p className="m-eyebrow accent mt-4">{b.categoria}</p>
                   <h3
-                    className="mt-3 text-[16.5px] font-semibold leading-snug"
+                    className="mt-2 text-[16.5px] font-semibold leading-snug"
                     style={{ color: "var(--fg-metal)" }}
                   >
                     {b.titulo}
                   </h3>
                   <p
-                    className="mt-3 flex-1 text-justify text-[14px] leading-relaxed hyphens-auto"
-                    lang="es"
+                    className="mt-3 flex-1 text-[14px] leading-relaxed"
                     style={{ color: "var(--fg-muted)" }}
                   >
                     {b.desc}
@@ -112,7 +132,7 @@ export default function AprenderPage() {
               );
 
               const clases =
-                "flex h-full flex-col rounded-2xl border p-6 transition-colors";
+                "group relative flex h-full flex-col overflow-hidden rounded-2xl border p-6 transition-all duration-300";
 
               return (
                 <Reveal key={b.titulo} delay={i * 0.03} className="h-full">
@@ -121,7 +141,7 @@ export default function AprenderPage() {
                       href={b.fuente.url}
                       target={b.fuente.tipo === "interno" ? undefined : "_blank"}
                       rel={b.fuente.tipo === "interno" ? undefined : "noopener noreferrer"}
-                      className={`${clases} hover:border-[var(--accent-ice)]`}
+                      className={`${clases} hover:-translate-y-0.5 hover:border-[var(--accent-ice)] hover:shadow-[0_10px_30px_-18px_rgba(8,9,11,0.35)]`}
                       style={{
                         borderColor: "var(--line-1)",
                         background: "var(--m-white)",

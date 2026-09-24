@@ -48,6 +48,7 @@ Veintidós. Lo de abajo de la segunda tabla ya está en el tema borrador.
 | 31 | En ese apartado solo MF ONE esta en mayusculas; homologalos todos con solo la inicial. | En la lista del menu los tres modelos se escriben igual: MF One, MF Horizon, MF Barrel. (En las tarjetas del menu de computadora los tres ya iban en mayusculas, que es su propio estilo y sigue parejo.) | content.ts |
 | 32 | La banda de negocios se ve pegada a la izquierda, a diferencia del resto. | Era la regla `.msection`, que ponia el relleno con la forma corta `padding: X 0` y al caer sobre el mismo div que `.mwrap` borraba el margen lateral. Ahora solo toca el eje vertical, asi que el margen sobrevive. Afectaba tambien a B2BBand, que usa la misma combinacion. | metal.css |
 | 33 | Los titulos de la comparativa (Para, Compresor, Frio) deben ir centrados, no a la izquierda. | Centrados en las dos versiones: en computadora dentro de su columna y en celular sobre el bloque. Era lo unico pegado a la izquierda en una tabla toda centrada. | ComparadorMotores.tsx |
+| 34 | La tabla "Las diferencias, en numeros" de /motores tampoco se ve completa en una pantalla de telefono. | Cuatro columnas de datos no caben en un telefono. De 768px para arriba es la tabla de siempre; abajo se deshace en bloques, igual que el comparador de motores que Rafa ya aprobo: cada dato es un bloque, con su nombre centrado, y cada motor un renglon. La pagina deja de deslizarse de lado. | /motores |
 
 ---
 

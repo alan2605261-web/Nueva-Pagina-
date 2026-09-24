@@ -7,6 +7,10 @@ import { Reveal } from "@/components/Reveal";
 import { ArrowRight } from "@/components/icons";
 import { SPECS_NUEVOS, ESPACIOS, GENERACION_ANTERIOR } from "@/lib/motores";
 
+/* Los cuatro grupos de la tabla de especificaciones, en orden. Viven aqui
+   porque los recorren la tabla de computadora y los bloques de celular. */
+const GRUPOS_SPEC = ["Desempeño", "Eléctrico", "Circuito de agua", "Físico"] as const;
+
 /* ─────────────────────────────────────────────────────────────
    MOTORES MENTE FRIA
 
@@ -128,19 +132,24 @@ export default function MotoresPage() {
             <h2>Las diferencias, en números.</h2>
           </Reveal>
 
-          <Reveal className="compare-scroll">
-            <table className="compare">
-              <thead>
-                <tr>
-                  <th />
-                  <th>Motor Pro 2.0</th>
-                  <th>Motor Premium 2.0</th>
-                  <th className="col-mf">Motor MF ONE</th>
-                </tr>
-              </thead>
-              <tbody>
-                {(["Desempeño", "Eléctrico", "Circuito de agua", "Físico"] as const).map(
-                  (grupo) => (
+          <Reveal>
+            {/* Cuatro columnas de datos no caben en un telefono: la tabla salia
+                cortada y habia que deslizarla de lado para leer la mitad
+                (Rafa, sep 2026). De 768px para arriba es la tabla de siempre;
+                abajo se deshace en bloques, igual que el comparador de motores:
+                cada dato es un bloque y cada motor un renglon. */}
+            <div className="compare-scroll hidden md:block">
+              <table className="compare">
+                <thead>
+                  <tr>
+                    <th />
+                    <th>Motor Pro 2.0</th>
+                    <th>Motor Premium 2.0</th>
+                    <th className="col-mf">Motor MF ONE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {GRUPOS_SPEC.map((grupo) => (
                     <Fragment key={grupo}>
                       <tr>
                         <td
@@ -160,10 +169,65 @@ export default function MotoresPage() {
                         </tr>
                       ))}
                     </Fragment>
-                  ),
-                )}
-              </tbody>
-            </table>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div
+              className="overflow-hidden rounded-[18px] border md:hidden"
+              style={{ borderColor: "var(--line-1)", background: "var(--m-white)" }}
+            >
+              {GRUPOS_SPEC.map((grupo) => (
+                <Fragment key={grupo}>
+                  <p
+                    className="border-b px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.18em]"
+                    style={{
+                      borderColor: "var(--line-1)",
+                      background: "var(--bg-panel)",
+                      color: "var(--fg-subtle)",
+                    }}
+                  >
+                    {grupo}
+                  </p>
+                  {SPECS_NUEVOS.filter((r) => r.grupo === grupo).map((r) => (
+                    <div
+                      key={r.label}
+                      className="border-b px-5 py-4 last:border-b-0"
+                      style={{ borderColor: "var(--line-1)" }}
+                    >
+                      <p
+                        className="text-center text-[10px] font-semibold uppercase tracking-[0.16em]"
+                        style={{ color: "var(--fg-subtle)" }}
+                      >
+                        {r.label}
+                      </p>
+                      <dl className="mt-2.5 space-y-2">
+                        {(
+                          [
+                            ["Motor Pro 2.0", r.pro],
+                            ["Motor Premium 2.0", r.premium],
+                            ["Motor MF ONE", r.mfone],
+                          ] as const
+                        ).map(([motor, valor]) => (
+                          <div key={motor} className="flex items-baseline justify-between gap-4">
+                            <dt
+                              className="flex-none text-[12.5px]"
+                              style={{ color: "var(--fg-muted)" }}
+                            >
+                              {motor}
+                            </dt>
+                            <dd className="text-right text-[13.5px] font-medium leading-snug">
+                              {valor}
+                            </dd>
+                          </div>
+                        ))}
+                      </dl>
+                    </div>
+                  ))}
+                </Fragment>
+              ))}
+            </div>
           </Reveal>
 
           {/* Aviso de generación. No es un detalle: hay unas 30 unidades de

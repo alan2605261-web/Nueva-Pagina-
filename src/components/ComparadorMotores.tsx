@@ -38,14 +38,15 @@ type Valor = { t: string; ok?: boolean } | null; // null = no incluye
 type Fila = { label: string; valores: Record<MotorId, Valor> };
 
 const MOTORES: Record<MotorId, { nombre: string; img: string }> = {
-  /* Las tres sobre blanco y con el equipo completo dentro del cuadro. Antes
-     eran recortes con franjas negras a los lados (Saul, sep 2026: "espantosas
-     por los bordes negros"). Las dos de motor salen de la carpeta que dejo con
-     una foto por color; la de la MF ONE es el render de ficha, porque ahi el
-     motor va integrado y no hay pieza suelta que ensenar. */
+  /* Las dos de motor salen de la carpeta que dejo Saul con una foto por color
+     (sep 2026): antes eran recortes con franjas negras a los lados. Van sobre
+     blanco, en cuadrado y con 14% de aire alrededor del equipo, para que en la
+     miniatura no se vean pegadas a la orilla.
+     La de la MF ONE se queda como estaba: se probo el render de ficha y Saul
+     prefirio la anterior. */
   pro: { nombre: "Motor Pro 2.0", img: "/images/motor-2-0-blanco.jpg" },
   premium: { nombre: "Motor Premium 2.0", img: "/images/motor-2-0-negro.jpg" },
-  mfone: { nombre: "Motor MF ONE", img: "/images/pdp-one-negro.png" },
+  mfone: { nombre: "Motor MF ONE", img: "/images/mfone-gallery/negro/01.jpg" },
 };
 
 const FILAS: Fila[] = [

@@ -11,10 +11,13 @@ import { Check, Minus } from "lucide-react";
   cuatro cifras cada una. Con esas últimas "ya no se aprecian las diferencias":
   cada tarjeta mostraba cifras distintas ("Filtración 3 capas" en el Pro,
   "Ozono 24/7" en el Premium) y parecía que el Premium no filtraba. Aquí todos
-  los motores contestan LAS MISMAS filas, alineadas. Las filas que cambian ya
-  no se marcan: se probó con un distintivo azul y fondo de color y Rafa (sep
-  2026) lo quitó, porque con los tres motores puestos cambian diez de once
-  filas y marcarlas no decía nada.
+  los motores contestan LAS MISMAS filas, alineadas, y se leen de corrido.
+
+  No hay distintivo de "Cambia", ni fondo de color en las filas que cambian, ni
+  interruptor de "Solo diferencias" (Rafa y Saul, sep 2026). Los tres existieron
+  y los tres se quitaron por lo mismo: con los tres motores puestos cambian diez
+  de once filas, así que marcar las diferencias no decía nada y el interruptor
+  solo escondía una fila.
 
   Reglas de datos:
   · Premium 2.0: 3 a 42 °C (vigente). Las fichas de "1 a 40 °C" son de modelos
@@ -103,11 +106,8 @@ const FILAS: Fila[] = [
   },
 ];
 
-const clave = (v: Valor) => (v ? v.t : "no incluye");
-
 export function ComparadorMotores({ disponibles }: { disponibles: MotorId[] }) {
   const [elegidos, setElegidos] = useState<MotorId[]>(disponibles);
-  const [soloDiferencias, setSoloDiferencias] = useState(false);
   const puedeElegir = disponibles.length > 2;
 
   const alternar = (id: MotorId) => {
@@ -116,11 +116,6 @@ export function ComparadorMotores({ disponibles }: { disponibles: MotorId[] }) {
       return disponibles.filter((x) => x === id || prev.includes(x));
     });
   };
-
-  const filas = FILAS.map((f) => ({
-    ...f,
-    cambia: new Set(elegidos.map((id) => clave(f.valores[id]))).size > 1,
-  })).filter((f) => !soloDiferencias || f.cambia);
 
   const cols = elegidos.length;
   const gridValores = cols === 3 ? "grid-cols-3" : "grid-cols-2";
@@ -164,19 +159,6 @@ export function ComparadorMotores({ disponibles }: { disponibles: MotorId[] }) {
           )}
         </div>
 
-        <label className="inline-flex cursor-pointer select-none items-center gap-2.5 text-[12.5px] font-medium text-[var(--fg-metal)]">
-          <span className="relative inline-flex">
-            <input
-              type="checkbox"
-              className="peer sr-only"
-              checked={soloDiferencias}
-              onChange={(e) => setSoloDiferencias(e.target.checked)}
-            />
-            <span className="h-6 w-10 rounded-full bg-[var(--line-2)] transition-colors peer-checked:bg-[var(--accent-ice)]" />
-            <span className="absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform peer-checked:translate-x-4" />
-          </span>
-          Solo diferencias
-        </label>
       </div>
 
       {/* Encabezados de columna */}
@@ -197,16 +179,11 @@ export function ComparadorMotores({ disponibles }: { disponibles: MotorId[] }) {
 
       {/* Filas */}
       <div>
-        {filas.map((f) => (
+        {FILAS.map((f) => (
           <div
             key={f.label}
             className="grid grid-cols-1 border-b border-[var(--line-1)] last:border-b-0 md:grid-cols-[200px_minmax(0,1fr)]"
           >
-            {/* Sin distintivo de "Cambia" ni fondo de color en las filas que
-                cambian (Rafa, sep 2026): con los tres motores puestos cambian
-                diez de once filas, así que marcarlas no informaba de nada y en
-                celular ensuciaba la columna de la característica. Lo que
-                cambia se ve solo, leyendo la fila. */}
             <div className="flex items-center gap-2 px-5 pt-4 md:min-h-[72px] md:px-8 md:py-4">
               <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--fg-muted)]">
                 {f.label}
@@ -240,11 +217,6 @@ export function ComparadorMotores({ disponibles }: { disponibles: MotorId[] }) {
             </div>
           </div>
         ))}
-        {filas.length === 0 && (
-          <p className="px-8 py-8 text-center text-[13.5px] text-[var(--fg-muted)]">
-            Con esta selección no hay diferencias.
-          </p>
-        )}
       </div>
     </div>
   );

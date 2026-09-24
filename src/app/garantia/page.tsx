@@ -109,7 +109,7 @@ export default function GarantiaPage() {
                       loading="lazy"
                       decoding="async"
                       className={`h-auto max-h-full object-contain transition-transform duration-500 group-hover:scale-[1.04] ${
-                        p.t === "MF Barrel" ? "w-[70%]" : p.t === "MF ONE" ? "w-[78%]" : "w-[84%]"
+                        p.t === "MF Barrel" ? "w-[65%]" : p.t === "MF ONE" ? "w-full" : "w-[93%]"
                       }`}
                     />
                   </div>

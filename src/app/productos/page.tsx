@@ -115,10 +115,10 @@ export default function ProductosPage() {
                            versión de Rafa; están explicados en LandingV2. */
                         className={`h-auto flex-none object-contain transition-transform duration-500 group-hover:scale-[1.04] ${
                           tina.name === "MF Barrel"
-                            ? "w-[70%]"
+                            ? "w-[65%]"
                             : tina.name === "MF ONE"
-                              ? "w-[78%]"
-                              : "w-[84%]"
+                              ? "w-full"
+                              : "w-[93%]"
                         }`}
                       />
                     </div>

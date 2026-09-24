@@ -162,25 +162,27 @@ const RAZONES = [
 /* Productos — precios y bullets reales de mentefria.com.
    Triángulo estilo WHOOP: Barrel (izq, abajo) · MF ONE (centro, ESTELAR) · Horizon (der, abajo).
 
-   anchoFoto = qué tanto de su columna ocupa la foto.
+   anchoFoto = qué tanto de su columna ocupa la foto. Los mismos tres valores
+   se usan en el inicio, en /productos, en /negocios, en /garantia y en el menú
+   desplegable. Si se cambian aquí, hay que cambiarlos en los cinco.
 
-   Los tres valores salen de MEDIR la primera versión que mandó Rafa, que es la
-   que Saul quiere de referencia (sep 2026): ahí el producto ocupaba 70% del
-   ancho de su caja en el Barrel, 78% en la MF ONE y 84% en el Horizon, con las
-   tres columnas del mismo ancho.
+   El criterio es el TAMAÑO GENERAL del equipo en pantalla, no su ancho.
+   Igualar anchos no sirve porque las tres fotos tienen recortes distintos: el
+   Barrel es un objeto alto y estrecho, el Horizon es plano y largo. Al mismo
+   ancho el Barrel se veía más grande que el Horizon, cuando en la realidad es
+   al revés (Saul, sep 2026).
 
-   La MF ONE lleva dos valores porque su columna es 1.25 veces más ancha que las
-   otras dos (es la estelar). 78% de una columna normal equivale a 61% de la
-   suya, así la proporción entre las tres es la misma que en la referencia.
+   El cálculo: tamaño general = media geométrica de largo y alto del equipo
+   real (Barrel 90 × 90 cm = 90, MF ONE 195 × 71 = 118, Horizon 160 × 65 =
+   102). En pantalla, esa misma media sale de multiplicar el ancho de la foto
+   por la raíz de la proporción del archivo. Anclando la MF ONE al 100% de su
+   caja, que es lo más grande que cabe, salen 65% para el Barrel y 93% para el
+   Horizon. En una caja de 287px eso da 186 × 139, 287 × 155 y 268 × 124, con
+   medias de 161, 211 y 183: la misma relación que entre los equipos reales.
 
-   Antes iban 68%, 76% (60% en la suya) y 100%. Ese cálculo salía de las medidas
-   reales de las tinas y de qué fracción del archivo ocupa cada una; en
-   escritorio daba casi lo mismo, pero en una sola columna dejaba la MF ONE como
-   la foto más chica de las tres, que es lo que Rafa señaló.
-
-   Va en PORCENTAJE y no en píxeles: en píxeles, al angostarse la pantalla cada
-   foto topaba con su columna en distinto momento y la proporción se rompía. Si
-   se cambia una foto por otra con distinto recorte, hay que volver a medir. */
+   La MF ONE lleva dos valores porque su columna es 1.25 veces más ancha que
+   las otras dos, así que ahí el 100% equivale a 78%. Si se cambia una foto por
+   otra con distinto recorte, hay que rehacer la cuenta. */
 const PRODUCTOS = [
   {
     name: "MF BARREL",
@@ -190,7 +192,7 @@ const PRODUCTOS = [
     h: 552,
     floor: "58%",
     href: "/productos/mf-barrel",
-    anchoFoto: "w-[70%]",
+    anchoFoto: "w-[65%]",
     featured: false,
     bullets: ["Filtración de 3 capas + purificación por ozono.", "Control por app Wi-Fi, programable desde tu celular.", "6 meses de garantía."],
   },
@@ -202,7 +204,7 @@ const PRODUCTOS = [
     h: 1292,
     floor: "58%",
     href: "/productos/mf-one",
-    anchoFoto: "w-[78%] lg:w-[61%]",
+    anchoFoto: "w-full lg:w-[78%]",
     featured: true,
     bullets: ["Diseño All-In-One con el chiller dentro de la tina.", "Filtro de papel + ozono integrado.", "Control por app Wi-Fi. 12 meses de garantía."],
   },
@@ -214,7 +216,7 @@ const PRODUCTOS = [
     h: 514,
     floor: "58%",
     href: "/productos/mf-horizon",
-    anchoFoto: "w-[84%]",
+    anchoFoto: "w-[93%]",
     nudge: "lg:translate-x-2 lg:-translate-y-1.5",
     featured: false,
     bullets: ["Filtración de 3 capas + purificación por ozono.", "Control por app Wi-Fi, programable desde tu celular.", "6 meses de garantía."],

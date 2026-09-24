@@ -482,10 +482,10 @@ export default function NegociosPage() {
                            sep 2026). El cálculo está explicado en LandingV2. */
                         className={`h-auto flex-none object-contain transition-transform duration-500 group-hover:scale-[1.04] ${
                           /barrel/i.test(p.name)
-                            ? "w-[70%]"
+                            ? "w-[65%]"
                             : /one/i.test(p.name)
-                              ? "w-[78%]"
-                              : "w-[84%]"
+                              ? "w-full"
+                              : "w-[93%]"
                         }`}
                       />
                     </div>

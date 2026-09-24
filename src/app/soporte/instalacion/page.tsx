@@ -87,8 +87,8 @@ export default function InstalacionPage() {
       </section>
 
       <CTASection
-        title="Ya está instalada. Ahora, a cuidarla."
-        body="El mantenimiento es lo que separa un equipo que dura de uno que da problemas. Son unos minutos al mes."
+        title="Cómo cuidarla a partir de aquí."
+        body="El procedimiento de mantenimiento y los hábitos que alargan la vida del equipo. Son unos minutos al mes."
         cta={{ label: "Cuida tu MF Plunge", href: "/soporte/cuidado" }}
         dark
       />

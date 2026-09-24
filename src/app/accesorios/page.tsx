@@ -63,8 +63,8 @@ export default function AccesoriosPage() {
     <PageShell>
       <SubHero
         eyebrow="Accesorios"
-        title="Protege y potencia tu equipo."
-        subtitle="Complementos de mantenimiento y cuidado diseñados para que tu tina Mente Fria rinda al máximo sesión tras sesión."
+        title="Accesorios para tu plunge."
+        subtitle="Filtros, cubiertas, refacciones y complementos para el mantenimiento de tu tina y su motor."
         cta={{ label: "Ver catálogo", href: "#catalogo" }}
         tone="warm"
       />

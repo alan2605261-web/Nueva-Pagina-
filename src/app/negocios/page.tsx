@@ -738,7 +738,7 @@ export default function NegociosPage() {
           <div>
             <Reveal className="msection-head !mb-0 !max-w-none">
               <span className="m-eyebrow accent">Capacitación y certificación</span>
-              <h2>No solo capacitamos a tu equipo. Te certificamos.</h2>
+              <h2>Capacitamos a tu equipo y certificamos tu negocio.</h2>
               <p>
                 Con la compra de tu equipo te compartimos un curso diseñado para
                 negocios. Tu staff aprende a dar el servicio con criterio, tu

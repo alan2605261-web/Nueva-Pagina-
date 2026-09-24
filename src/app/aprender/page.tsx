@@ -31,8 +31,8 @@ export default function AprenderPage() {
     <PageShell>
       <SubHero
         eyebrow="Evidencia clínica"
-        title={"El poder del frío.\nRespaldado por la ciencia."}
-        subtitle="Recupérate más rápido, duerme mejor, piensa con mayor claridad y siéntete más vivo. Cada beneficio, con su referencia."
+        title="La ciencia del cold plunge."
+        subtitle="Recuperación, sueño y concentración. Cada beneficio de esta página viene con el estudio del que sale."
         tone="mist"
       />
 
@@ -162,7 +162,7 @@ export default function AprenderPage() {
                 className="mdisplay mt-3 text-[clamp(22px,2.4vw,30px)]"
                 style={{ color: "var(--fg-metal)" }}
               >
-                Ciencia, no marketing.
+                De dónde salen estas referencias.
               </h2>
               <p
                 className="mt-4 text-[14.5px] leading-relaxed"
@@ -218,8 +218,8 @@ export default function AprenderPage() {
       </section>
 
       <CTASection
-        title="La ciencia habla. El frío lo confirma."
-        body="Tres minutos, todos los días. Así es como los que más rinden se recuperan de verdad."
+        title="Elige con cuál empezar."
+        body="El MF Barrel y el MF Horizon se inflan y se guardan en su mochila. La MF ONE es de acrílico y trae el motor dentro de la tina."
         cta={{ label: "Ver productos", href: "/productos" }}
         dark
       />

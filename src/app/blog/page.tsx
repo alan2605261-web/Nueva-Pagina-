@@ -126,7 +126,7 @@ export default function BlogPage() {
               className="mdisplay mt-4 text-[clamp(28px,3.8vw,52px)]"
               style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
             >
-              Leer sobre el frío está bien. Meterse es otra cosa.
+              Cuando quieras empezar, elige modelo.
             </h2>
             <div className="mt-9 flex flex-wrap justify-center gap-3">
               <Link href="/productos" className="mbtn mbtn-solid-light">

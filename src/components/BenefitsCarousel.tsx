@@ -38,7 +38,7 @@ export function BenefitsCarousel() {
               className="mdisplay mt-3 text-[clamp(30px,4vw,56px)]"
               style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
             >
-              Beneficios científicamente probados.
+              Lo que dicen los estudios.
             </h2>
           </div>
           <p className="m-0 max-w-[38ch] text-[15px] text-[var(--fg-muted)]">

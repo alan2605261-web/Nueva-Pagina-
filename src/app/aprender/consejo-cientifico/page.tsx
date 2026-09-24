@@ -30,8 +30,8 @@ export default function ConsejoCientificoPage() {
     <PageShell>
       <SubHero
         eyebrow="Consejo científico"
-        title={"Los que más saben\nrespaldan el frío."}
-        subtitle="Científicos, médicos y atletas de élite que han dedicado su carrera a entender lo que la exposición al frío le hace al cuerpo humano."
+        title="Quiénes han estudiado el frío."
+        subtitle="Científicos, médicos y especialistas en rendimiento que han investigado lo que la exposición al frío le hace al cuerpo humano."
         tone="mist"
       />
 
@@ -113,8 +113,8 @@ export default function ConsejoCientificoPage() {
       </section>
 
       <CTASection
-        title="La ciencia habla. El frío lo confirma."
-        body="Tres minutos, todos los días. Así es como los que más rinden se recuperan de verdad."
+        title="Elige con cuál empezar."
+        body="El MF Barrel y el MF Horizon se inflan y se guardan en su mochila. La MF ONE es de acrílico y trae el motor dentro de la tina."
         cta={{ label: "Ver productos", href: "/productos" }}
         dark
       />

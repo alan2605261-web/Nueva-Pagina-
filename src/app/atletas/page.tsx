@@ -222,8 +222,8 @@ export default function AtletasPage() {
 
       {/* 6. CTA Section */}
       <CTASection
-        title="Entrena tu mente. Domina tu cuerpo."
-        body="La MF ONE te da la herramienta. El resto depende de ti."
+        title="Súmala a tu rutina de recuperación."
+        body="Tres minutos después de entrenar, a la temperatura exacta que elijas: la MF ONE baja hasta 1 °C."
         cta={{ label: "Ver la MF ONE", href: "/productos/mf-one" }}
         dark
       />

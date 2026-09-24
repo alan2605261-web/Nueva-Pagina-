@@ -79,9 +79,9 @@ const SPEC_ROWS = [
 ];
 
 const HERO_BULLETS = [
-  "Dual Climate Control: de 1 °C a 40 °C incluido",
+  "Frío y calor de 1 °C a 40 °C, incluidos",
   "Diseño All-In-One con el chiller dentro de la tina",
-  "Zero Setup: sin obra, sin plomería, solo conecta y opera",
+  "Sin obra y sin plomería: se conecta y opera",
   "Control por app Wi-Fi desde tu celular",
   "12 meses de garantía, válida también para uso comercial.",
 ];
@@ -276,8 +276,8 @@ export default function MFOnePage() {
               <span className="m-eyebrow accent">Tecnología</span>
               <h2>Ingeniería que se siente.</h2>
               <p>
-                Frío, calor, ozono e iluminación LED: todo integrado en un solo
-                equipo. Tu única preocupación: entrar al agua.
+                Frío, calor, ozono e iluminación LED, todo integrado en un solo
+                equipo.
               </p>
             </Reveal>
             <Reveal>
@@ -332,11 +332,7 @@ export default function MFOnePage() {
                     no se mencionaba en ninguna parte de la ficha. */}
                 <span className="m-eyebrow accent">Motor MF ONE</span>
                 <h2 className="mdisplay mt-3 text-[clamp(28px,3.4vw,46px)]" style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}>
-                  Siempre limpia.
-                  <br />
-                  Siempre fría.
-                  <br />
-                  Siempre lista.
+                  Filtra, enfría y calienta desde dentro de la tina.
                 </h2>
 
                 <p className="mt-5 max-w-[46ch] text-[15px] leading-relaxed text-[var(--on-dark-muted)]">

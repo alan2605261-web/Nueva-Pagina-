@@ -105,14 +105,14 @@ export function FrioCalor() {
             textShadow: "0 2px 22px rgba(0,0,0,0.55)",
           }}
         >
-          Frío. Calor. Un solo equipo.
+          Frío y calor en el mismo equipo.
         </h2>
         <p
           className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-white/90"
           style={{ textShadow: "0 1px 16px rgba(0,0,0,0.6)" }}
         >
-          El mismo equipo baja a 1 °C para recuperar y sube a 40 °C para relajar.
-          Zero Setup: sin obra, sin plomería.
+          El mismo equipo baja a 1 °C para recuperar y sube a 40 °C para relajar,
+          sin obra y sin plomería.
         </p>
       </div>
     </div>

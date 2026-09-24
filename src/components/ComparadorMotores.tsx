@@ -194,7 +194,10 @@ export function ComparadorMotores({ disponibles }: { disponibles: MotorId[] }) {
             key={f.label}
             className="grid grid-cols-[200px_minmax(0,1fr)] border-b border-[var(--line-1)] last:border-b-0"
           >
-            <div className="flex min-h-[72px] items-center px-8 py-4">
+            {/* El nombre de la fila va centrado, igual que los valores: era lo
+                unico pegado a la izquierda y rompia el eje de la tabla (Rafa,
+                sep 2026). */}
+            <div className="flex min-h-[72px] items-center justify-center px-6 py-4 text-center">
               <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--fg-muted)]">
                 {f.label}
               </span>
@@ -236,7 +239,7 @@ export function ComparadorMotores({ disponibles }: { disponibles: MotorId[] }) {
       <div className="md:hidden">
         {FILAS.map((f) => (
           <div key={f.label} className="border-b border-[var(--line-1)] px-5 py-4 last:border-b-0">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--fg-subtle)]">
+            <p className="text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--fg-subtle)]">
               {f.label}
             </p>
             <dl className="mt-2.5 space-y-2">

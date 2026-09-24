@@ -196,7 +196,12 @@
    se DUPLICA: con 88px por lado quedaban 176px de nada entre bloque y bloque.
    Bajado a ~60px por lado, la separación entre secciones queda en 120px, que
    sigue respirando pero ya no se siente hueco. */
-.msection { padding: calc(clamp(44px, 6vh, 84px) * var(--sec-scale, 1)) 0; }
+/* padding-block y no "padding: X 0": cuando .msection y .mwrap caen sobre el
+   mismo div (la banda de negocios de la ficha MF ONE y B2BBand), la forma corta
+   ponia el padding lateral en cero y ese bloque quedaba pegado al borde
+   izquierdo mientras el resto de la pagina respetaba su margen (Rafa, sep
+   2026). Tocando solo el eje vertical, el margen lateral de .mwrap sobrevive. */
+.msection { padding-block: calc(clamp(44px, 6vh, 84px) * var(--sec-scale, 1)); }
 .msection.dark-s { background: var(--grad-ink); color: var(--on-dark-fg); position: relative; }
 .msection.panel { background: var(--bg-panel); }
 

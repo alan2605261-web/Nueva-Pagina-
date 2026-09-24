@@ -11,8 +11,10 @@ import { Check, Minus } from "lucide-react";
   cuatro cifras cada una. Con esas últimas "ya no se aprecian las diferencias":
   cada tarjeta mostraba cifras distintas ("Filtración 3 capas" en el Pro,
   "Ozono 24/7" en el Premium) y parecía que el Premium no filtraba. Aquí todos
-  los motores contestan LAS MISMAS filas, alineadas, y se marcan las que
-  cambian.
+  los motores contestan LAS MISMAS filas, alineadas. Las filas que cambian ya
+  no se marcan: se probó con un distintivo azul y fondo de color y Rafa (sep
+  2026) lo quitó, porque con los tres motores puestos cambian diez de once
+  filas y marcarlas no decía nada.
 
   Reglas de datos:
   · Premium 2.0: 3 a 42 °C (vigente). Las fichas de "1 a 40 °C" son de modelos
@@ -198,19 +200,17 @@ export function ComparadorMotores({ disponibles }: { disponibles: MotorId[] }) {
         {filas.map((f) => (
           <div
             key={f.label}
-            className={`grid grid-cols-1 border-b border-[var(--line-1)] last:border-b-0 md:grid-cols-[200px_minmax(0,1fr)] ${
-              f.cambia ? "bg-[rgba(91,155,213,0.06)]" : ""
-            }`}
+            className="grid grid-cols-1 border-b border-[var(--line-1)] last:border-b-0 md:grid-cols-[200px_minmax(0,1fr)]"
           >
+            {/* Sin distintivo de "Cambia" ni fondo de color en las filas que
+                cambian (Rafa, sep 2026): con los tres motores puestos cambian
+                diez de once filas, así que marcarlas no informaba de nada y en
+                celular ensuciaba la columna de la característica. Lo que
+                cambia se ve solo, leyendo la fila. */}
             <div className="flex items-center gap-2 px-5 pt-4 md:min-h-[72px] md:px-8 md:py-4">
               <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--fg-muted)]">
                 {f.label}
               </span>
-              {f.cambia && (
-                <span className="rounded-full bg-[var(--accent-ice)] px-2 py-0.5 text-[9.5px] font-semibold uppercase tracking-[0.12em] text-white">
-                  Cambia
-                </span>
-              )}
             </div>
             <div className={`grid ${gridValores}`}>
               {elegidos.map((id, i) => {

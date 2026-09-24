@@ -17,7 +17,7 @@ export PATH=/Users/SaulP/.local/opt/node/bin:$PATH && cd ~/mentefria/mentefria-s
 
 ## Pendientes de publicar a Shopify
 
-Diecisiete. Lo de abajo de la segunda tabla ya está en el tema borrador.
+Dieciocho. Lo de abajo de la segunda tabla ya está en el tema borrador.
 
 | # | Comentario | Qué se hizo | Archivos |
 |---|---|---|---|
@@ -38,6 +38,7 @@ Diecisiete. Lo de abajo de la segunda tabla ya está en el tema borrador.
 | 21 | El comparador de motores en celular parece tabla de Excel. | En angosto se va la rejilla: cada característica es un bloque y cada motor un renglón con su nombre a la izquierda y su respuesta a la derecha, sin líneas verticales ni celdas. En computadora no cambia nada. | ComparadorMotores.tsx |
 | 22 | Rafa quiere dos fotos más del Barrel negro, de la carpeta BARREL ESTUDIO BLANCO del escritorio. | Elegidas dos de las quince: una con el modelo de pie detrás de la tina y el motor a la vista, y otra entrando a la tina. Recortadas a cuadrado 1500x1500 como las otras cuatro. La galería del negro pasa de cuatro a seis. | 2 imágenes + mf-barrel |
 | 23 | Cambiar la foto del Pro Deck del bloque Complemento por una donde solo salga el escalón con sus letras MIND OVER BODY. | Recortadas de los renders: la negra de negro-1 y la blanca de blanco-2, que es donde el escalón sale separado de la tina. Puestas sobre el mismo gris del render en formato 1.8 a 1, que es el de la caja de la tarjeta. | 2 imágenes + mf-one |
+| 24 | En el resultado del quiz la foto de la MF ONE blanca tiene fondo gris y desentona. | Era la única de las seis con fondo. Se rehicieron las dos de la MF ONE a partir de los renders de ficha, que están sobre blanco, así que ahora las seis van sobre blanco y la pareja negra y blanca es el mismo render en dos colores. | 2 imágenes |
 
 ---
 

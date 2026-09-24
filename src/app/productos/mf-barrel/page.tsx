@@ -142,7 +142,10 @@ export default function MFBarrelPage() {
       variants={[
         // Galeria por color: cada variante solo muestra fotos de ESE color.
         // No mezclar negro y blanco en la misma lista.
-        { color: "Negro", images: Array.from({ length: 4 }, (_, i) => `/images/barrel-gallery/negro/${String(i + 1).padStart(2, "0")}.jpg`) },
+        // La negra lleva seis: las cuatro de siempre y dos de estudio que
+        // sacamos de la sesion en fondo blanco (Rafa pidio mas fotos en negro,
+        // sep 2026). Recortadas a cuadrado 1500x1500 como el resto.
+        { color: "Negro", images: Array.from({ length: 6 }, (_, i) => `/images/barrel-gallery/negro/${String(i + 1).padStart(2, "0")}.jpg`) },
         { color: "Blanco", images: Array.from({ length: 4 }, (_, i) => `/images/barrel-gallery/blanco/${String(i + 1).padStart(2, "0")}.jpg`) },
       ]}
       >

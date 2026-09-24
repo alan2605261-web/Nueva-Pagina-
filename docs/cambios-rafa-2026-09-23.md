@@ -17,7 +17,7 @@ export PATH=/Users/SaulP/.local/opt/node/bin:$PATH && cd ~/mentefria/mentefria-s
 
 ## Pendientes de publicar a Shopify
 
-Quince. Lo de abajo de la segunda tabla ya está en el tema borrador.
+Dieciséis. Lo de abajo de la segunda tabla ya está en el tema borrador.
 
 | # | Comentario | Qué se hizo | Archivos |
 |---|---|---|---|
@@ -36,6 +36,7 @@ Quince. Lo de abajo de la segunda tabla ya está en el tema borrador.
 | 19 | Un punto intermedio entre A y B: la MF ONE como en A, el Barrel como en B y el Horizon en medio. Además el piso se ve de distinto tamaño en cada tarjeta. | Quedaron MF ONE 100%, Horizon 97% y Barrel 66%. Y la caja del piso pasa a ser la misma en las cuatro rejas: proporción 3 a 2, 4% de aire a los lados y 11% abajo, todo en porcentaje. Antes cada reja tenía su propia caja (una con alto mínimo, otra 4:3, otra con relleno en píxeles) y el piso gris salía distinto en cada una. Medido a 1440: las tres cajas miden 325 x 217. | 5 archivos |
 | 20 | Ningún producto debe tener botón de compra abajo; ensucia el diseño. Rafa propone un sticky add to cart discreto en las dos versiones. | Fuera los botones de compra de la parte baja de las tres fichas: el de Especificaciones y el del cierre. En su lugar hay una barra fija de 58px que aparece al pasar los 700px de recorrido y se retira sola al llegar al pie, con nombre, precio vivo y agregar al carrito. El globo de WhatsApp sube mientras está puesta. | 5 archivos |
 | 21 | El comparador de motores en celular parece tabla de Excel. | En angosto se va la rejilla: cada característica es un bloque y cada motor un renglón con su nombre a la izquierda y su respuesta a la derecha, sin líneas verticales ni celdas. En computadora no cambia nada. | ComparadorMotores.tsx |
+| 22 | Rafa quiere dos fotos más del Barrel negro, de la carpeta BARREL ESTUDIO BLANCO del escritorio. | Elegidas dos de las quince: una con el modelo de pie detrás de la tina y el motor a la vista, y otra entrando a la tina. Recortadas a cuadrado 1500x1500 como las otras cuatro. La galería del negro pasa de cuatro a seis. | 2 imágenes + mf-barrel |
 
 ---
 

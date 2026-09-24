@@ -39,9 +39,13 @@ export function AccessoryCard({
   /* ── Con foto ─────────────────────────────────────────────── */
   if (a.img) {
     return (
+      /* En celular la tarjeta se acuesta: foto a la izquierda y texto al
+         lado. De pie, con la foto a todo lo ancho, cada tarjeta medía unos
+         470px y siete seguidas hacían la página larguísima (Saul, sep 2026).
+         Acostada baja a unos 130px. De 640px para arriba queda como estaba. */
       <article
         className={cn(
-          "flex flex-col overflow-hidden rounded-[16px] border",
+          "flex flex-row overflow-hidden rounded-[16px] border sm:flex-col",
           className,
         )}
         style={{
@@ -50,7 +54,7 @@ export function AccessoryCard({
         }}
       >
         <div
-          className="relative aspect-[16/10] w-full overflow-hidden"
+          className="relative aspect-square w-[122px] flex-none overflow-hidden sm:aspect-[16/10] sm:w-full"
           style={{ background: "var(--bg-panel)" }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -59,27 +63,27 @@ export function AccessoryCard({
             alt={a.t}
             className={cn(
               "absolute inset-0 h-full w-full",
-              a.render ? "object-cover" : "object-contain p-7",
+              a.render ? "object-cover" : "object-contain p-3 sm:p-7",
             )}
           />
           {a.tag && (
             <span
-              className="absolute left-4 top-4 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em]"
+              className="absolute left-2 top-2 rounded-full px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.16em] sm:left-4 sm:top-4 sm:px-3 sm:py-1 sm:text-[10px]"
               style={{ background: "var(--m-ink)", color: "#fff" }}
             >
               {a.tag}
             </span>
           )}
         </div>
-        <div className="flex flex-1 flex-col p-6">
+        <div className="flex flex-1 flex-col justify-center p-4 sm:justify-start sm:p-6">
           <h3
-            className="mdisplay text-[18px] leading-tight"
+            className="mdisplay text-[16px] leading-tight sm:text-[18px]"
             style={{ color: "var(--fg-metal)" }}
           >
             {a.t}
           </h3>
           <p
-            className="mt-2 text-[13.5px] leading-relaxed"
+            className="mt-1.5 text-[12.5px] leading-snug sm:mt-2 sm:text-[13.5px] sm:leading-relaxed"
             style={{ color: "var(--fg-muted)" }}
           >
             {a.p}
@@ -93,7 +97,10 @@ export function AccessoryCard({
   return (
     <article
       className={cn(
-        "relative flex min-h-[280px] flex-col overflow-hidden rounded-[16px] p-7",
+        /* En celular la tarjeta oscura tambien se aprieta: 280px de alto
+           minimo por seis tarjetas eran dos mil pixeles de pagina. El diseno
+           es el mismo, solo con menos aire (Saul, sep 2026). */
+        "relative flex min-h-[188px] flex-col overflow-hidden rounded-[16px] p-5 sm:min-h-[280px] sm:p-7",
         className,
       )}
       style={{ background: "var(--grad-ink)" }}
@@ -112,7 +119,7 @@ export function AccessoryCard({
       <div className="relative flex flex-1 flex-col">
         <div className="flex items-start justify-between gap-4">
           <span
-            className="mdisplay text-[40px] leading-none"
+            className="mdisplay text-[30px] leading-none sm:text-[40px]"
             style={{ color: "rgba(255,255,255,0.34)" }}
           >
             {num}
@@ -131,13 +138,13 @@ export function AccessoryCard({
         </div>
 
         <h3
-          className="mdisplay mt-auto pt-10 text-[clamp(20px,2.2vw,26px)] leading-tight text-white"
+          className="mdisplay mt-auto pt-6 text-[clamp(18px,2.2vw,26px)] leading-tight text-white sm:pt-10"
           style={{ WebkitTextStroke: "var(--bold-stroke) currentColor" }}
         >
           {a.t}
         </h3>
         <p
-          className="mt-3 text-[14px] leading-relaxed"
+          className="mt-2 text-[12.5px] leading-snug sm:mt-3 sm:text-[14px] sm:leading-relaxed"
           style={{ color: "var(--on-dark-muted)" }}
         >
           {a.p}

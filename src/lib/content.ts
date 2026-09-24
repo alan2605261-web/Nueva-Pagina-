@@ -23,10 +23,16 @@ export const nav: {
       href: "/productos",
       submenu: [
         { label: "Todos los plunges", href: "/productos" },
-        { label: "Encuentra tu plunge", href: "/quiz" },
-        { label: "MF ONE", href: "/productos/mf-one" },
+        /* "MF One" y no "MF ONE": dentro de esta lista los tres modelos se
+           escriben igual, con solo la inicial en mayuscula, porque puestos uno
+           debajo del otro la version en versalitas gritaba (Saul, sep 2026). */
+        { label: "MF One", href: "/productos/mf-one" },
         { label: "MF Horizon", href: "/productos/mf-horizon" },
         { label: "MF Barrel", href: "/productos/mf-barrel" },
+        /* El quiz va DESPUES de los tres modelos y antes de accesorios (Saul,
+           sep 2026): quien abre el menu busca primero el modelo que ya trae en
+           mente; el quiz es para el que no se decide, y ese llega hasta abajo. */
+        { label: "Encuentra tu plunge", href: "/quiz" },
         { label: "Accesorios", href: "/accesorios" },
       ],
     },

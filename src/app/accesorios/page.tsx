@@ -110,28 +110,15 @@ export default function AccesoriosPage() {
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {activos(INCLUIDO_MF_ONE).map((item, i) => (
               <Reveal key={item.title} delay={i * 0.06}>
-                <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--line-1)] bg-background">
-                  {/* object-cover recortaba el filtro, el soporte, los patitos
-                      y el kit completo: las fotos son cuadradas y la caja es
-                      16:10. Con contain sobre el panel se ven completas. */}
-                  <div
-                    className="aspect-[16/10] w-full overflow-hidden"
-                    style={{ background: "var(--bg-panel)" }}
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img loading="lazy" decoding="async"
-                      src={item.img ?? undefined}
-                      alt={item.title}
-                      className="h-full w-full object-contain p-6 transition-transform duration-500 hover:scale-[1.04]"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <h3 className="text-lg font-semibold leading-snug text-foreground">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">{item.body}</p>
-                  </div>
-                </article>
+                {/* Estas son las mismas tarjetas que la ficha de la MF ONE.
+                    Estaban escritas a mano aqui, asi que el dia que la tarjeta
+                    se acosto en celular esta seccion se quedo de pie. Ahora
+                    comparten componente y cambian juntas (Saul, sep 2026). */}
+                <AccessoryCard
+                  a={{ t: item.title, p: item.body, img: item.img }}
+                  index={i}
+                  className="h-full"
+                />
               </Reveal>
             ))}
           </div>

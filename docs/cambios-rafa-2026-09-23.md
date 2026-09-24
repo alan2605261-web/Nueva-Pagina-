@@ -17,7 +17,7 @@ export PATH=/Users/SaulP/.local/opt/node/bin:$PATH && cd ~/mentefria/mentefria-s
 
 ## Pendientes de publicar a Shopify
 
-Ocho. Lo de abajo de la segunda tabla ya está en el tema borrador.
+Nueve. Lo de abajo de la segunda tabla ya está en el tema borrador.
 
 | # | Comentario | Qué se hizo | Archivos |
 |---|---|---|---|
@@ -29,6 +29,7 @@ Ocho. Lo de abajo de la segunda tabla ya está en el tema borrador.
 | 12 | Rafa: hay guiones largos en varios lugares; no debe haber ninguno, ni en celular ni en computadora, y no solo en ese bloque. | Se recorrió todo el código: 39 guiones en texto visible, en 18 archivos. Todos sustituidos por punto, coma, dos puntos o paréntesis según el caso, y los rangos numéricos pasan a "de X a Y". Queda un revisor, `npm run sin-guiones`, que recorre las 47 páginas ya construidas y falla si aparece uno; así se atrapa también lo que entre desde el blog o desde datos, no solo lo escrito a mano. | 18 archivos + scripts/sin-guiones.mjs |
 | 13 | Rafa: quitaría el distintivo de "Cambia" del comparador de motores, siente que confunde, y el azul tampoco le gusta. En celular además lo desordena. | Fuera el distintivo y fuera el fondo azul de las filas que cambian. Con los tres motores puestos cambian diez de once filas, así que marcarlas no informaba de nada. También se quitó el interruptor "Solo diferencias", que con los tres motores solo escondía una fila. | ComparadorMotores.tsx |
 | 14 | En la página de productos el orden en teléfono sigue mal: debe ir MF ONE, luego Horizon y al final Barrel. | El reordenamiento del 11 solo estaba en la reja del inicio; la página de productos es otra reja. Ahora usa la misma clase, así que abajo de 1024px va MF ONE, Horizon y Barrel, tanto en una columna como en dos. En tres columnas sigue Barrel, MF ONE y Horizon. | app/productos/page.tsx |
+| 15 | Los tamaños de la referencia deben aplicar en TODOS los lugares donde aparecen los tres productos, no solo en el inicio. En productos se sigue viendo chica. | Se aplicaron los mismos 70, 78 y 84% en las otras cuatro reja: /productos, /negocios, el menú desplegable y /garantia. En /garantia además estaban ajustadas al alto de la caja, así que las tres salían del mismo tamaño. En /productos la caja medía 270px fijos y sobraban entre 79 y 120px de blanco encima de cada foto; ahora mide lo que pide la foto. | 4 archivos |
 
 ---
 

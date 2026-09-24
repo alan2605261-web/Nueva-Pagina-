@@ -17,31 +17,31 @@ import { useCarrito } from "@/components/CarritoProvider";
 */
 
 /* WHOOP-style mega-menu cards for "Productos" */
-/* La altura manda: es el alto real del equipo a la misma escala
-   (ONE 80 cm -> 100px · Horizon 65 cm -> 81px · Barrel 90 cm -> 116px).
-   Escalar por ancho no funciona aqui: el render de la ONE es tres cuartos
-   con el tapete, no una elevacion lateral. */
+/* Los tres anchos son los mismos en todo el sitio: 70% el Barrel, 78% la MF
+   ONE y 84% el Horizon. Salen de medir la primera version de Rafa y estan
+   explicados en LandingV2. Si se cambian aqui, hay que cambiarlos en el
+   inicio, en /productos, en /negocios y en /garantia. */
 const MEGA_PRODUCTS = [
   {
     name: "MF ONE",
     img: "/images/prod-mfone.webp",
     blurb: "El chiller va dentro de la tina. Acrílico rígido, cero armado: llega, se llena y se enciende.",
     href: "/productos/mf-one",
-    scale: "76%",
+    scale: "78%",
   },
   {
     name: "MF HORIZON",
     img: "/images/prod-horizon-nobg.png",
     blurb: "Tejido drop-stitch de grado militar. Cabes estirado, 550 L y se guarda en su mochila.",
     href: "/productos/mf-horizon",
-    scale: "100%",
+    scale: "84%",
   },
   {
     name: "MF BARREL",
     img: "/images/prod-barrel-nobg.png",
     blurb: "El mismo drop-stitch de grado militar en formato vertical. Ocupa poco, pesa 11 kg y viaja contigo.",
     href: "/productos/mf-barrel",
-    scale: "68%",
+    scale: "70%",
   },
 ];
 

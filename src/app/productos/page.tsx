@@ -31,6 +31,8 @@ const tinas = [
     specs: "90 cm diámetro × 90 cm altura · 11 kg · Tejido drop-stitch de grado militar",
     price: "$69,000 MXN",
     image: "/images/prod-barrel-nobg.png",
+    w: 736,
+    h: 552,
     floor: "58%",
     href: "/productos/mf-barrel",
     badge: null,
@@ -42,6 +44,8 @@ const tinas = [
     specs: "195 × 80 × 71 cm · 135 kg · Acrílico + acero inoxidable",
     price: "$169,000 MXN",
     image: "/images/prod-mfone.webp",
+    w: 2400,
+    h: 1292,
     floor: "58%",
     href: "/productos/mf-one",
     badge: "Más vendido",
@@ -53,6 +57,8 @@ const tinas = [
     specs: "160 × 70 × 65 cm · 12 kg · Tejido drop-stitch de grado militar",
     price: "$74,000 MXN",
     image: "/images/prod-horizon-nobg.png",
+    w: 1105,
+    h: 514,
     floor: "58%",
     href: "/productos/mf-horizon",
     badge: null,
@@ -92,21 +98,27 @@ export default function ProductosPage() {
                   {/* El piso gris lo pone .pfloor, la misma pieza del inicio,
                       del menú desplegable y de /negocios. */}
                   <div className="pfloor" style={{ "--floor-top": tina.floor } as React.CSSProperties}>
-                    <div className="flex min-h-[270px] items-end justify-center pb-8">
+                    {/* La caja mide lo que pide la foto. Antes eran 270px fijos y en una
+                        columna sobraban entre 79 y 120px de blanco encima de cada
+                        producto, que es lo que hacía verse chica la foto. En tres
+                        columnas el alto sigue al ancho de la ventana, igual que en
+                        la reja del inicio. */}
+                    <div className="flex items-end justify-center pb-8 lg:min-h-[clamp(140px,14vw,215px)]">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img loading="lazy" decoding="async"
                         src={tina.image}
+                        width={tina.w}
+                        height={tina.h}
                         alt={tina.name}
-                        /* Ancho en % de la columna, para que las tres tinas
-                           guarden su proporción real de altura: Barrel 90 cm,
-                           MF ONE 71, Horizon 65. El cálculo está explicado en
-                           LandingV2, junto a la lista de productos. */
+                        /* Ancho en % de la columna. Los tres valores son los
+                           mismos en todo el sitio y salen de medir la primera
+                           versión de Rafa; están explicados en LandingV2. */
                         className={`h-auto flex-none object-contain transition-transform duration-500 group-hover:scale-[1.04] ${
                           tina.name === "MF Barrel"
-                            ? "w-[68%]"
+                            ? "w-[70%]"
                             : tina.name === "MF ONE"
-                              ? "w-[76%]"
-                              : "w-full"
+                              ? "w-[78%]"
+                              : "w-[84%]"
                         }`}
                       />
                     </div>

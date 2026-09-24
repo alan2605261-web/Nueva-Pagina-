@@ -98,12 +98,19 @@ export default function GarantiaPage() {
                 >
                   <div className="flex aspect-[4/3] items-center justify-center bg-[var(--bg-panel)] p-8">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
+                    {/* Mismos anchos que en el resto del sitio: 70% el
+                        Barrel, 78% la MF ONE y 84% el Horizon. Antes las tres
+                        se ajustaban al alto de la caja, así que las tres
+                        salían del mismo tamaño y el Barrel, que es el equipo
+                        más chico, se veía igual de grande que la MF ONE. */}
                     <img
                       src={p.img}
                       alt={p.t}
                       loading="lazy"
                       decoding="async"
-                      className="max-h-full w-auto max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.04]"
+                      className={`h-auto max-h-full object-contain transition-transform duration-500 group-hover:scale-[1.04] ${
+                        p.t === "MF Barrel" ? "w-[70%]" : p.t === "MF ONE" ? "w-[78%]" : "w-[84%]"
+                      }`}
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-6">
